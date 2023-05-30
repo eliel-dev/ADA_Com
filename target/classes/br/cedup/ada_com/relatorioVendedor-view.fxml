@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.cedup.ada_com.Controller.RelatorioVController">
+   <children>
+      <Label layoutX="25.0" layoutY="14.0" text="Relatorio vendedor" />
+      <Button layoutX="486.0" layoutY="338.0" mnemonicParsing="false" onAction="#voltar" prefHeight="42.0" prefWidth="94.0" text="Voltar" />
+   </children>
+</AnchorPane>
