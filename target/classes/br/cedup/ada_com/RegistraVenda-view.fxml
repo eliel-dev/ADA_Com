@@ -28,7 +28,7 @@
       <TextField layoutX="372.0" layoutY="238.0" prefHeight="25.0" prefWidth="137.0" AnchorPane.leftAnchor="372.0" AnchorPane.rightAnchor="81.0" />
       <TextField layoutX="125.0" layoutY="165.0" prefHeight="25.0" prefWidth="137.0" AnchorPane.leftAnchor="125.0" AnchorPane.rightAnchor="328.0" />
       <TextField layoutX="125.0" layoutY="134.0" prefHeight="25.0" prefWidth="137.0" AnchorPane.leftAnchor="125.0" AnchorPane.rightAnchor="328.0" />
-      <ComboBox fx:id="comboBox" layoutX="125.0" layoutY="99.0" prefHeight="25.0" prefWidth="259.0" promptText="Selecione uma opção" AnchorPane.leftAnchor="125.0" AnchorPane.rightAnchor="206.0" />
+      <ComboBox fx:id="produtosServicos" layoutX="125.0" layoutY="99.0" prefHeight="25.0" prefWidth="259.0" promptText="Selecione uma opção" AnchorPane.leftAnchor="125.0" AnchorPane.rightAnchor="206.0" />
       <Separator layoutX="-2.0" layoutY="211.0" prefHeight="5.0" prefWidth="590.0" />
       <Label layoutX="25.0" layoutY="42.0" text="Nome do vendedor" />
    </children>

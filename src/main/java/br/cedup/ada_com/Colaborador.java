@@ -1,17 +1,34 @@
 package br.cedup.ada_com;
 
 public class Colaborador {
-    public int codigo;
-    //public String nome;
+    public int nivel;
+    public String nome;
     public String user;
     public String password;
 
-    public int getCodigo() {
-        return codigo;
+
+    public Colaborador(int nivel,String user, String password) {
+        this.nivel = nivel;
+        this.nome = nome;
+        this.user = user;
+        this.password = password;
     }
 
-    public void setCodigo(int codigo) {
-        this.codigo = codigo;
+
+    public int getNivel() {
+        return nivel;
+    }
+
+    public void setNivel(int nivel) {
+        this.nivel = nivel;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     public String getUser() {

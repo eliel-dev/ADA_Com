@@ -1,16 +1,19 @@
 package br.cedup.ada_com.Controller;
 
 import br.cedup.ada_com.Colaborador;
+import br.cedup.ada_com.DAO.ColaboradorDAO;
 import br.cedup.ada_com.HelloApplication;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 public class LoginController {
+    public static int nivelDeAcesso;
+
     @FXML
     TextField usuarioField;
 
@@ -21,28 +24,15 @@ public class LoginController {
     Label labelEntrar;
 
     @FXML
-    public void entrar() throws IOException {
+    public void entrar() throws IOException, SQLException {
+        Colaborador loginUser = new Colaborador(0, usuarioField.getText(), senhaField.getText());
+        Colaborador usuarioExiste = new ColaboradorDAO().existe(loginUser);
 
-        Colaborador vendedor = new Colaborador();
-        vendedor.user = "vendedor";
-        vendedor.password = "123";
-        vendedor.codigo = 1;
-
-        Colaborador gestor = new Colaborador();
-        gestor.user = "chefe";
-        gestor.password = "123";
-        gestor.codigo = 2;
-
-
-        if (usuarioField.getText().equals(vendedor.user) && senhaField.getText().equals(vendedor.password)) {
-            //System.out.println("Entrando como vendedor");
-            HelloApplication.setRoot("mainVendedor-view");
-        } else if (usuarioField.getText().equals(gestor.user) && senhaField.getText().equals(gestor.password)) {
-            //System.out.println("Entrando como gestor");
-            HelloApplication.setRoot("mainChefe-view");
+        if (usuarioExiste == null) {
+            labelEntrar.setText("Usuário ou senha incorretos!");
         } else {
-            labelEntrar.setText("Usuário e/ou senha incorretos! Tente novamente!");
+            nivelDeAcesso = usuarioExiste.getNivel();
+            HelloApplication.setRoot("main-view");
         }
     }
-
 }

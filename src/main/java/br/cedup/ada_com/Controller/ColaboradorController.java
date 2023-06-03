@@ -12,7 +12,7 @@ public class ColaboradorController implements Initializable {
 
     @FXML
     public void voltar() throws IOException {
-        HelloApplication.setRoot("mainChefe-view");
+        HelloApplication.setRoot("main-view");
     }
 
     @Override

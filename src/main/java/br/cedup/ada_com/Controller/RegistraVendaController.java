@@ -17,7 +17,7 @@ import java.util.ResourceBundle;
 
 public class RegistraVendaController implements Initializable {
     @FXML
-    ComboBox comboBox;
+    ComboBox produtosServicos;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -34,8 +34,8 @@ public class RegistraVendaController implements Initializable {
         tv.nome = "Plano 4K";
 
 
-        comboBox.getItems().removeAll(comboBox.getItems());
-        comboBox.getItems().addAll(xbox.modelo, pc.modelo, internet.nome, tv.nome);
+        produtosServicos.getItems().removeAll(produtosServicos.getItems());
+        produtosServicos.getItems().addAll(xbox.modelo, pc.modelo, internet.nome, tv.nome);
         //comboBox.getSelectionModel().select(x);
     }
 
@@ -64,7 +64,7 @@ public class RegistraVendaController implements Initializable {
     //Volta para tela principal de vendedor
     @FXML
     public void fechar() throws IOException {
-        HelloApplication.setRoot("MainVendedor-view");
+        HelloApplication.setRoot("Main-view");
     }
 
 
