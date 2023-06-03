@@ -1,5 +1,6 @@
 package br.cedup.ada_com.Controller;
 
+import br.cedup.ada_com.Colaborador;
 import br.cedup.ada_com.HelloApplication;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -25,7 +26,6 @@ public class MainController implements Initializable {
             gerenciaUsuarioG.setVisible(false);
             gerenciaCatG.setVisible(false);
         }
-
     }
 
     @FXML

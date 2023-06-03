@@ -22,8 +22,8 @@ public class ColaboradorDAO {
             int nivel = resultado.getInt("nivel");
             String user = resultado.getString("usuario");
             String password = resultado.getString("senha");
-            return new Colaborador(colaborador.nivel, colaborador.user, colaborador.password);
-        } else {
+            return new Colaborador(nivel, user, password);
+    } else {
             return null;
         }
     }
