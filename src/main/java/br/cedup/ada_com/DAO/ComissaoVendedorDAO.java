@@ -1,4 +1,6 @@
 package br.cedup.ada_com.DAO;
 
-public class ComissaoVendedorDAO {
+import br.cedup.ada_com.ConexaoDAO;
+
+public class ComissaoVendedorDAO extends ConexaoDAO {
 }

@@ -1,4 +1,6 @@
 package br.cedup.ada_com.DAO;
 
-public class ExperienciaVendaDAO {
+import br.cedup.ada_com.ConexaoDAO;
+
+public class ExperienciaVendaDAO extends ConexaoDAO {
 }

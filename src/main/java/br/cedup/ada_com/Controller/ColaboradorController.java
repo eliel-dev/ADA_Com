@@ -10,13 +10,15 @@ import java.util.ResourceBundle;
 
 public class ColaboradorController implements Initializable {
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+
+    }
+
     @FXML
     public void voltar() throws IOException {
         HelloApplication.setRoot("main-view");
     }
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
 
-    }
 }

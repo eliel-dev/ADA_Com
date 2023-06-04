@@ -13,6 +13,7 @@ import java.sql.SQLException;
 
 public class LoginController {
     public static int nivelDeAcesso;
+    public static String nomeLogou1;
 
     @FXML
     TextField usuarioField;
@@ -25,13 +26,15 @@ public class LoginController {
 
     @FXML
     public void entrar() throws IOException, SQLException {
-        Colaborador loginUser = new Colaborador(0, usuarioField.getText(), senhaField.getText());
+        Colaborador loginUser = new Colaborador(0, usuarioField.getText(), senhaField.getText(), nomeLogou1, nomeLogou1);
         Colaborador usuarioExiste = new ColaboradorDAO().existe(loginUser);
+
 
         if (usuarioExiste == null) {
             labelEntrar.setText("Usuário ou senha incorretos!");
         } else {
             nivelDeAcesso = usuarioExiste.getNivel();
+            nomeLogou1 = usuarioExiste.getNomeColaborador() + " " + usuarioExiste.getSobrenome() + ".";
             HelloApplication.setRoot("main-view");
         }
     }

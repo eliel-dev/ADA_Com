@@ -7,6 +7,8 @@ public class Produto {
     public String categoria;
     public double preco;
 
+
+
     public int getCodigo() {
         return codigo;
     }

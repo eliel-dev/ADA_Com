@@ -1,19 +1,16 @@
 package br.cedup.ada_com.DAO;
 
+import br.cedup.ada_com.ConexaoDAO;
 import br.cedup.ada_com.Colaborador;
 
 import java.sql.*;
 
-public class ColaboradorDAO {
-
+public class ColaboradorDAO extends ConexaoDAO {
 
     public Colaborador existe(Colaborador colaborador) throws SQLException {
-        Connection connection = DriverManager.getConnection(
-                "jdbc:mysql://localhost:3306/ada/com",
-                "root",
-                "");
+        Connection connection = getConnection();
 
-        String sql = "SELECT nivel, usuario, senha FROM colaborador WHERE usuario = ? AND senha = ?";
+        String sql = "SELECT nivel, usuario, senha, nomeColaborador, sobreNomeColab FROM colaborador WHERE usuario = ? AND senha = ?";
         PreparedStatement stmt = connection.prepareStatement(sql);
         stmt.setString(1, colaborador.user);
         stmt.setString(2, colaborador.password);
@@ -22,8 +19,10 @@ public class ColaboradorDAO {
             int nivel = resultado.getInt("nivel");
             String user = resultado.getString("usuario");
             String password = resultado.getString("senha");
-            return new Colaborador(nivel, user, password);
-    } else {
+            String nome = resultado.getString("nomeColaborador");
+            String sobrenome = resultado.getString("sobreNomeColab");
+            return new Colaborador(nivel, user, password, nome, sobrenome);
+        } else {
             return null;
         }
     }

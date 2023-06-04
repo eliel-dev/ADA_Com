@@ -1,10 +1,10 @@
 package br.cedup.ada_com.Controller;
 
-import br.cedup.ada_com.Colaborador;
 import br.cedup.ada_com.HelloApplication;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 
 import java.io.IOException;
 import java.net.URL;
@@ -19,8 +19,13 @@ public class MainController implements Initializable {
     @FXML
     Button gerenciaCatG;
 
+    @FXML
+    Label nomeSobrenomeLogou;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        nomeSobrenomeLogou.setText("Bem vindo(a) " + LoginController.nomeLogou1);
 
         if (LoginController.nivelDeAcesso == 1) {
             gerenciaUsuarioG.setVisible(false);

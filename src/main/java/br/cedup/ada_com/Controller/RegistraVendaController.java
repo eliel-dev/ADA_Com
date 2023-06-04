@@ -5,10 +5,7 @@ import br.cedup.ada_com.Produto;
 import br.cedup.ada_com.Servico;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonBar;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.ComboBox;
+import javafx.scene.control.*;
 
 import java.io.IOException;
 import java.net.URL;
@@ -16,11 +13,18 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class RegistraVendaController implements Initializable {
+
     @FXML
     ComboBox produtosServicos;
 
+    @FXML
+    Label nomeSobrenomeLogou;
+
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        nomeSobrenomeLogou.setText("Bem vindo(a) " + LoginController.nomeLogou1);
+
         Produto xbox = new Produto();
         xbox.modelo = "Xbox 360";
 
