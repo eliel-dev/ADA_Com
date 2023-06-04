@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class ColaboradorController implements Initializable {
+public class NovoColabModalController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -16,13 +16,13 @@ public class ColaboradorController implements Initializable {
     }
 
     @FXML
-    public void novo() throws IOException {
-        HelloApplication.showModal("novoColabModal");
+    public void salvar(){
+
     }
 
     @FXML
-    public void voltar() throws IOException {
-        HelloApplication.setRoot("main-view");
+    public void cancelar(){
+        HelloApplication.closeCurrentWindow();
     }
 
 

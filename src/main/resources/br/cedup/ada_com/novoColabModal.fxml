@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.cedup.ada_com.Controller.NovoColabModalController">
+   <children>
+      <Button layoutX="492.0" layoutY="47.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="94.0" text="Salvar" />
+      <Button layoutX="492.0" layoutY="347.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="94.0" text="Cancelar" />
+      <TextField layoutX="41.0" layoutY="54.0" prefHeight="25.0" prefWidth="348.0" />
+      <TextField layoutX="41.0" layoutY="110.0" prefHeight="25.0" prefWidth="348.0" />
+      <TextField layoutX="41.0" layoutY="163.0" prefHeight="25.0" prefWidth="348.0" />
+      <Label layoutX="41.0" layoutY="30.0" text="Nome:" />
+      <Label layoutX="41.0" layoutY="93.0" text="Cargo:" />
+      <Label layoutX="41.0" layoutY="146.0" text="Usuario:" />
+      <TextField layoutX="41.0" layoutY="217.0" prefHeight="25.0" prefWidth="348.0" />
+      <Label layoutX="41.0" layoutY="200.0" text="Senha:" />
+   </children>
+</AnchorPane>
