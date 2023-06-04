@@ -7,15 +7,17 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.cedup.ada_com.Controller.NovoColabModalController">
    <children>
-      <Button layoutX="492.0" layoutY="47.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="94.0" text="Salvar" />
-      <Button layoutX="492.0" layoutY="347.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="94.0" text="Cancelar" />
-      <TextField layoutX="41.0" layoutY="54.0" prefHeight="25.0" prefWidth="348.0" />
-      <TextField layoutX="41.0" layoutY="110.0" prefHeight="25.0" prefWidth="348.0" />
-      <TextField layoutX="41.0" layoutY="163.0" prefHeight="25.0" prefWidth="348.0" />
+      <Button layoutX="492.0" layoutY="47.0" mnemonicParsing="false" onAction="#salvar" prefHeight="39.0" prefWidth="94.0" text="Salvar" />
+      <Button layoutX="492.0" layoutY="347.0" mnemonicParsing="false" onAction="#cancelar" prefHeight="39.0" prefWidth="94.0" text="Cancelar" />
+      <TextField fx:id="nomefield" layoutX="41.0" layoutY="54.0" prefHeight="25.0" prefWidth="139.0" />
+      <TextField fx:id="cargofield" layoutX="41.0" layoutY="110.0" prefHeight="25.0" prefWidth="348.0" />
+      <TextField fx:id="usuariofield" layoutX="41.0" layoutY="163.0" prefHeight="25.0" prefWidth="348.0" />
       <Label layoutX="41.0" layoutY="30.0" text="Nome:" />
       <Label layoutX="41.0" layoutY="93.0" text="Cargo:" />
       <Label layoutX="41.0" layoutY="146.0" text="Usuario:" />
-      <TextField layoutX="41.0" layoutY="217.0" prefHeight="25.0" prefWidth="348.0" />
+      <TextField fx:id="senhafield" layoutX="41.0" layoutY="217.0" prefHeight="25.0" prefWidth="348.0" />
       <Label layoutX="41.0" layoutY="200.0" text="Senha:" />
+      <TextField fx:id="sobrenomefield" layoutX="190.0" layoutY="54.0" prefHeight="25.0" prefWidth="195.0" />
+      <Label layoutX="190.0" layoutY="30.0" text="Sobrenome:" />
    </children>
 </AnchorPane>

@@ -16,6 +16,7 @@ public class Colaborador {
         this.password = password;
     }
 
+
     public int getNivel() {
         return nivel;
     }

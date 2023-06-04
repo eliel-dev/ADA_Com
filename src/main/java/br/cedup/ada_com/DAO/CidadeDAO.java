@@ -1,8 +1,8 @@
 package br.cedup.ada_com.DAO;
 
-import br.cedup.ada_com.ConexaoDAO;
+import br.cedup.ada_com.ConnectionSingleton;
 
 
-public class CidadeDAO extends ConexaoDAO {
+public class CidadeDAO{
 
 }

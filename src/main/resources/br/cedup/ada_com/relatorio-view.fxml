@@ -10,7 +10,7 @@
 <AnchorPane prefHeight="609.0" prefWidth="946.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.cedup.ada_com.Controller.RelatorioController">
    <children>
       <Label layoutX="37.0" layoutY="23.0" text="Relatorio Geral" />
-      <Button layoutX="839.0" layoutY="551.0" mnemonicParsing="false" onAction="#voltar" prefHeight="44.0" prefWidth="93.0" text="Voltar" />
+      <Button layoutX="839.0" layoutY="551.0" mnemonicParsing="false" onAction="#voltar" prefHeight="44.0" prefWidth="93.0" text="Voltar" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="14.0" />
       <ComboBox fx:id="comboRelatorios" layoutX="37.0" layoutY="56.0" onAction="#onComboBoxChanged" prefHeight="25.0" prefWidth="795.0" />
       <TableView layoutX="36.0" layoutY="85.0" prefHeight="512.0" prefWidth="795.0">
         <columns>

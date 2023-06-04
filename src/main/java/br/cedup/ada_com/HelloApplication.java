@@ -12,6 +12,7 @@ import java.io.IOException;
 
 public class HelloApplication extends Application {
     private static Scene scene;
+    private static Scene originalScene;
 
     @Override
     public void start(Stage stage) throws IOException {
@@ -33,7 +34,11 @@ public class HelloApplication extends Application {
     }
     public static void showModal(String fxml) throws IOException {
         // Obtém a tela atual
+        // Obtém a tela atual
         Window primaryStage = scene.getRoot().getScene().getWindow();
+
+        // Armazena a cena original
+        originalScene = scene;
 
         // Carrega a nova tela
         scene = new Scene(loadFXML(fxml));
@@ -44,6 +49,9 @@ public class HelloApplication extends Application {
         dialog.initOwner(primaryStage);
         dialog.setScene(scene);
         dialog.showAndWait();
+
+        // Restaura a cena original
+        scene = originalScene;
     }
     /**
      * Fecha a janela atual

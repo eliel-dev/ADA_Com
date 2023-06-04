@@ -1,6 +1,6 @@
 package br.cedup.ada_com.DAO;
 
-import br.cedup.ada_com.ConexaoDAO;
+import br.cedup.ada_com.ConnectionSingleton;
 
-public class EnderecoDAO extends ConexaoDAO {
+public class EnderecoDAO {
 }

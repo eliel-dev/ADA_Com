@@ -1,6 +1,6 @@
 package br.cedup.ada_com.DAO;
 
-import br.cedup.ada_com.ConexaoDAO;
+import br.cedup.ada_com.ConnectionSingleton;
 import br.cedup.ada_com.Venda;
 
 import java.sql.Connection;
@@ -9,7 +9,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RelatorioDAO extends ConexaoDAO {
+public class RelatorioDAO {
 
     public List<Venda> gerarRelatorioTotalVendasPorVendedor() {
         List<Venda> vendas = new ArrayList<>();
@@ -17,7 +17,7 @@ public class RelatorioDAO extends ConexaoDAO {
         Statement stmt = null;
         try {
             // Abrir uma conexão
-            conn = getConnection();
+            Connection connection = ConnectionSingleton.getConnection();
 
             // Executar uma consulta
             stmt = conn.createStatement();
