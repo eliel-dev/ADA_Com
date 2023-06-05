@@ -1,6 +1,7 @@
 package br.cedup.ada_com;
 
 public class Colaborador {
+    public int colaboradorId;
     public int nivel;
     public String nomeColaborador;
     public String sobrenome;
@@ -8,7 +9,8 @@ public class Colaborador {
     public String password;
 
 
-    public Colaborador(int nivel,String user, String password, String nomeColaborador, String sobrenome) {
+    public Colaborador(int colaboradorId,int nivel,String user, String password, String nomeColaborador, String sobrenome) {
+        this.colaboradorId = colaboradorId;
         this.nivel = nivel;
         this.nomeColaborador = nomeColaborador;
         this.sobrenome = sobrenome;
@@ -16,6 +18,14 @@ public class Colaborador {
         this.password = password;
     }
 
+
+    public int getColaboradorId() {
+        return colaboradorId;
+    }
+
+    public void setColaboradorId(int colaboradorId) {
+        this.colaboradorId = colaboradorId;
+    }
 
     public int getNivel() {
         return nivel;

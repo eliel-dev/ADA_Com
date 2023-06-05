@@ -4,6 +4,8 @@ import br.cedup.ada_com.Colaborador;
 import br.cedup.ada_com.HelloApplication;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 
@@ -23,7 +25,7 @@ public class NovoColabModalController implements Initializable {
     TextField usuariofield;
 
     @FXML
-    TextField senhafield;
+    PasswordField senhafield;
 
     @FXML
     RadioButton radioButtonVendedor;
@@ -35,6 +37,13 @@ public class NovoColabModalController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        nomefield.textProperty().addListener((observable, oldValue, newValue) -> {
+            usuariofield.setText(newValue.toLowerCase() + "." + sobrenomefield.getText().toLowerCase());
+        });
+
+        sobrenomefield.textProperty().addListener((observable, oldValue, newValue) -> {
+            usuariofield.setText(nomefield.getText().toLowerCase() + "." + newValue.toLowerCase());
+        });
 
         Colaborador colaboradorSecionado = NovoColabModalController.colaborador;
 
@@ -42,8 +51,8 @@ public class NovoColabModalController implements Initializable {
 
             if (colaboradorSecionado.getNivel() == 1) {
                 radioButtonVendedor.setSelected(true);
-            } else if (colaboradorSecionado.getNivel() == 2) {
-                radioButtonGestor.setSelected(true);
+            }else {
+                // Tratar o caso em que nenhum RadioButton está selecionado // Pensando ainda
             }
 
             nomefield.setText(colaboradorSecionado.nomeColaborador);
@@ -56,17 +65,12 @@ public class NovoColabModalController implements Initializable {
 
     @FXML
     public void salvar(){
-        int codigoUsuario = 0;
+        int codigoUsuario = 1;
 
-        if (radioButtonGestor.isSelected()) {
-            codigoUsuario = 2;
-        } else if (radioButtonVendedor.isSelected()) {
-            codigoUsuario = 1;
-        } else {
-            // Tratar o caso em que nenhum RadioButton está selecionado
-        }
+        usuariofield.setText(nomefield.getText() + "." + sobrenomefield.getText());
 
         Colaborador novoColab = new Colaborador(
+                0,
                 codigoUsuario,
                 nomefield.getText(),
                 sobrenomefield.getText(),

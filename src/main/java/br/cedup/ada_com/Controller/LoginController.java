@@ -26,7 +26,7 @@ public class LoginController {
 
     @FXML
     public void entrar() throws IOException, SQLException {
-        Colaborador loginUser = new Colaborador(0, usuarioField.getText(), senhaField.getText(), nomeLogou1, nomeLogou1);
+        Colaborador loginUser = new Colaborador(0,0, usuarioField.getText(), senhaField.getText(), nomeLogou1, nomeLogou1);
         Colaborador usuarioExiste = new ColaboradorDAO().existe(loginUser);
 
 

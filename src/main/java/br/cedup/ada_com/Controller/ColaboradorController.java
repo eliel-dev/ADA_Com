@@ -77,6 +77,20 @@ public class ColaboradorController implements Initializable {
 
     @FXML
     public void remover(){
+        // Obtenha o colaborador selecionado na tabela
+        Colaborador colaboradorSelecionado = tabelaColaborador.getSelectionModel().getSelectedItem();
+
+        if (colaboradorSelecionado != null) {
+            ColaboradorDAO dao = new ColaboradorDAO();
+            try {
+                // Remova o colaborador do banco de dados
+                dao.removerColaborador(colaboradorSelecionado);
+                // Remova o colaborador da tabela
+                tabelaColaborador.getItems().remove(colaboradorSelecionado);
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+        }
 
     }
 

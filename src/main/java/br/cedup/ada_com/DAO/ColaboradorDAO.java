@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ColaboradorDAO {
+    private static final String coluna_id = "Colaborador_ID";
     private static final String coluna_nivel = "nivel";
     private static final String coluna_usuario = "usuario";
     private static final String coluna_senha = "senha";
@@ -17,18 +18,19 @@ public class ColaboradorDAO {
     public Colaborador existe(Colaborador colaborador) throws SQLException {
         Connection connection = ConnectionSingleton.getConnection();
 
-        String sql = "SELECT nivel, usuario, senha, nomeColaborador, sobreNomeColab FROM colaborador WHERE usuario = ? AND senha = ?";
+        String sql = "SELECT Colaborador_ID, nivel, usuario, senha, nomeColaborador, sobreNomeColab FROM colaborador WHERE usuario = ? AND senha = ?";
         PreparedStatement stmt = connection.prepareStatement(sql);
-        stmt.setString(1, colaborador.user);
-        stmt.setString(2, colaborador.password);
+        stmt.setString(1, colaborador.getUser());
+        stmt.setString(2, colaborador.getPassword());
         ResultSet resultado = stmt.executeQuery();
         if (resultado.next()) {
+            int id = resultado.getInt(coluna_id);
             int nivel = resultado.getInt(coluna_nivel);
             String user = resultado.getString(coluna_usuario);
             String password = resultado.getString(coluna_senha);
             String nome = resultado.getString(coluna_nome);
             String sobrenome = resultado.getString(coluna_sobrenome);
-            return new Colaborador(nivel, user, password, nome, sobrenome);
+            return new Colaborador(id, nivel, user, password, nome, sobrenome);
         } else {
             return null;
         }
@@ -42,12 +44,13 @@ public class ColaboradorDAO {
         PreparedStatement stmt = connection.prepareStatement(sql);
         ResultSet resultado = stmt.executeQuery();
         while (resultado.next()) {
+            int id = resultado.getInt(coluna_id);
             int nivel = resultado.getInt(coluna_nivel);
             String user = resultado.getString(coluna_usuario);
             String password = resultado.getString(coluna_senha);
             String nome = resultado.getString(coluna_nome);
             String sobrenome = resultado.getString(coluna_sobrenome);
-            colaboradores.add(new Colaborador(nivel, user, password, nome, sobrenome));
+            colaboradores.add(new Colaborador(id, nivel, user, password, nome, sobrenome));
         }
         return colaboradores;
     }
@@ -66,4 +69,16 @@ public class ColaboradorDAO {
             }
         }
     }
+
+    public void removerColaborador(Colaborador colaborador) throws SQLException {
+        try (Connection connection = ConnectionSingleton.getConnection()) {
+            String sql = "DELETE FROM colaborador WHERE Colaborador_ID = ?";
+            try (PreparedStatement stmt = connection.prepareStatement(sql)) {
+                stmt.setInt(1, colaborador.getColaboradorId());
+
+                stmt.executeUpdate();
+            }
+        }
+    }
 }
+
