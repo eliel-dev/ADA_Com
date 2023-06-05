@@ -4,6 +4,7 @@ import br.cedup.ada_com.Colaborador;
 import br.cedup.ada_com.HelloApplication;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 
 import java.io.IOException;
@@ -19,13 +20,16 @@ public class NovoColabModalController implements Initializable {
     TextField sobrenomefield;
 
     @FXML
-    TextField cargofield;
-
-    @FXML
     TextField usuariofield;
 
     @FXML
     TextField senhafield;
+
+    @FXML
+    RadioButton radioButtonVendedor;
+
+    @FXML
+    RadioButton radioButtonGestor;
 
     public static Colaborador colaborador;
 
@@ -36,7 +40,12 @@ public class NovoColabModalController implements Initializable {
 
         if(colaboradorSecionado != null){
 
-            cargofield.setText(Integer.toString(colaboradorSecionado.nivel));
+            if (colaboradorSecionado.getNivel() == 1) {
+                radioButtonVendedor.setSelected(true);
+            } else if (colaboradorSecionado.getNivel() == 2) {
+                radioButtonGestor.setSelected(true);
+            }
+
             nomefield.setText(colaboradorSecionado.nomeColaborador);
             sobrenomefield.setText(colaboradorSecionado.sobrenome);
             usuariofield.setText(colaboradorSecionado.user);
@@ -48,13 +57,13 @@ public class NovoColabModalController implements Initializable {
     @FXML
     public void salvar(){
         int codigoUsuario = 0;
-        String cargo = cargofield.getText();
-        if (cargo.equals("Gestor")) {
+
+        if (radioButtonGestor.isSelected()) {
             codigoUsuario = 2;
-        } else if (cargo.equals("Vendedor")) {
+        } else if (radioButtonVendedor.isSelected()) {
             codigoUsuario = 1;
         } else {
-            // Tratar o caso em que o valor do campo cargofield não é nem "Gestor" nem "Vendedor"
+            // Tratar o caso em que nenhum RadioButton está selecionado
         }
 
         Colaborador novoColab = new Colaborador(
@@ -65,7 +74,6 @@ public class NovoColabModalController implements Initializable {
                 senhafield.getText());
 
         colaborador = novoColab;
-
 
         HelloApplication.closeCurrentWindow();
     }

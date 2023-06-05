@@ -51,4 +51,19 @@ public class ColaboradorDAO {
         }
         return colaboradores;
     }
+
+    public void inserirColaborador(Colaborador colaborador) throws SQLException {
+        try (Connection connection = ConnectionSingleton.getConnection()) {
+            String sql = "INSERT INTO colaborador (nivel, usuario, senha, nomeColaborador, sobreNomeColab) VALUES (?, ?, ?, ?, ?)";
+            try (PreparedStatement stmt = connection.prepareStatement(sql)) {
+                stmt.setInt(1, colaborador.getNivel());
+                stmt.setString(2, colaborador.getUser());
+                stmt.setString(3, colaborador.getPassword());
+                stmt.setString(4, colaborador.getNomeColaborador());
+                stmt.setString(5, colaborador.getSobrenome());
+
+                stmt.executeUpdate();
+            }
+        }
+    }
 }

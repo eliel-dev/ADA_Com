@@ -6,6 +6,7 @@ import br.cedup.ada_com.HelloApplication;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -59,7 +60,13 @@ public class ColaboradorController implements Initializable {
         Colaborador novoColaborador = NovoColabModalController.colaborador;
 
         if (novoColaborador != null){
-            tabelaColaborador.getItems().add(novoColaborador);
+            ColaboradorDAO dao = new ColaboradorDAO();
+            try {
+                dao.inserirColaborador(novoColaborador);
+                tabelaColaborador.getItems().add(novoColaborador);
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
         }
     }
 
