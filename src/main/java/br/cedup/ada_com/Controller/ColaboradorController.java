@@ -17,6 +17,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class ColaboradorController implements Initializable {
@@ -109,18 +110,28 @@ public class ColaboradorController implements Initializable {
         Colaborador colaboradorSelecionado = tabelaColaborador.getSelectionModel().getSelectedItem();
 
         if (colaboradorSelecionado != null) {
-            ColaboradorDAO dao = new ColaboradorDAO();
-            try {
-                // Remova o colaborador do banco de dados
-                dao.removerColaborador(colaboradorSelecionado);
-                // Remova o colaborador da tabela
-                tabelaColaborador.getItems().remove(colaboradorSelecionado);
-            } catch (Exception e) {
-                throw new RuntimeException(e);
+            // Cria um Alert de confirmação
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Confirmação");
+            alert.setHeaderText(null);
+            alert.setContentText("Deseja remover " + colaboradorSelecionado.getNomeColaborador() + " " + colaboradorSelecionado.getSobrenome() + "?");
+
+            // Exibe o Alert e aguarda a resposta do usuário
+            Optional<ButtonType> result = alert.showAndWait();
+            if (result.get() == ButtonType.OK){
+                ColaboradorDAO dao = new ColaboradorDAO();
+                try {
+                    // Remova o colaborador do banco de dados
+                    dao.removerColaborador(colaboradorSelecionado);
+                    // Remova o colaborador da tabela
+                    tabelaColaborador.getItems().remove(colaboradorSelecionado);
+                } catch (Exception e) {
+                    throw new RuntimeException(e);
+                }
             }
         }
-
     }
+
 
     @FXML
     public void voltar() throws IOException {
