@@ -4,12 +4,14 @@ import br.cedup.ada_com.Colaborador;
 import br.cedup.ada_com.DAO.ColaboradorDAO;
 import br.cedup.ada_com.HelloApplication;
 import javafx.beans.property.SimpleStringProperty;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.Clipboard;
+import javafx.scene.input.ClipboardContent;
+import javafx.scene.input.KeyCode;
 
 import java.io.IOException;
 import java.net.URL;
@@ -29,6 +31,12 @@ public class ColaboradorController implements Initializable {
     @FXML
     TableColumn<Colaborador, String> colunaFuncao;
 
+    @FXML
+    TableColumn<Colaborador, String> colunaUsuario;
+
+    @FXML
+    Label labelCopia;
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -38,6 +46,8 @@ public class ColaboradorController implements Initializable {
 
         // Define a fábrica de células da coluna colunaFuncao para exibir o cargo do colaborador com base no valor da propriedade nivel
         colunaFuncao.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getNivel() == 1 ? "Vendedor" : "Gestor"));
+
+        colunaUsuario.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getUser().toLowerCase()));
 
         // Cria um objeto ColaboradorDAO para acessar o banco de dados
         ColaboradorDAO dao = new ColaboradorDAO();
@@ -49,6 +59,24 @@ public class ColaboradorController implements Initializable {
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
+
+        //Código que permite que um dado seja copiado da tabela
+        tabelaColaborador.setOnKeyPressed(event -> {
+            if (event.isControlDown() && event.getCode() == KeyCode.C) {
+                ObservableList<TablePosition> selectedCells = tabelaColaborador.getSelectionModel().getSelectedCells();
+                if (!selectedCells.isEmpty()) {
+                    TablePosition<?, ?> pos = selectedCells.get(0);
+                    int row = pos.getRow();
+                    TableColumn<?, ?> col = pos.getTableColumn();
+                    String cellContent = (String) col.getCellObservableValue(row).getValue();
+                    final ClipboardContent content = new ClipboardContent();
+                    content.putString(cellContent);
+                    Clipboard.getSystemClipboard().setContent(content);
+                    // Atualiza o texto do label para informar ao usuário qual célula foi copiada
+                    labelCopia.setText("Conteúdo da célula copiado: " + col.getText() + " - Linha " + (row + 1));
+                }
+            }
+        });
     }
 
     @FXML

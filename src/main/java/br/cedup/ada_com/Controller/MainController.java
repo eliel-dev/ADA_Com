@@ -35,7 +35,7 @@ public class MainController implements Initializable {
 
     @FXML
     public void gerenciaColaborador() throws IOException {
-        HelloApplication.setRoot("vendedor-view");
+        HelloApplication.setRoot("colaborador-view");
 
     }
     @FXML
