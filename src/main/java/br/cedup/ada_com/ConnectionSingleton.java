@@ -21,11 +21,10 @@ public class ConnectionSingleton {
 
         if (connection == null || connection.isClosed()) {
             connection = DriverManager.getConnection( //
-                    "jdbc:mysql://arruda.tec.br:3306/arruda_adacom", //
-                    "arruda_eliel", //
-                    "oliveira31131");
+                    "jdbc:mysql://:3306/ada/com", //
+                    "root", //
+                    "");
         }
-
         return connection;
     }
 }
