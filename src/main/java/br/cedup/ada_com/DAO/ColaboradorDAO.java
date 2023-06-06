@@ -30,7 +30,7 @@ public class ColaboradorDAO {
             String password = resultado.getString(coluna_senha);
             String nome = resultado.getString(coluna_nome);
             String sobrenome = resultado.getString(coluna_sobrenome);
-            return new Colaborador(id, nivel, user, password, nome, sobrenome);
+            return new Colaborador(id, nivel, nome, sobrenome, user, password);
         } else {
             return null;
         }
@@ -50,7 +50,7 @@ public class ColaboradorDAO {
             String password = resultado.getString(coluna_senha);
             String nome = resultado.getString(coluna_nome);
             String sobrenome = resultado.getString(coluna_sobrenome);
-            colaboradores.add(new Colaborador(id, nivel, user, password, nome, sobrenome));
+            colaboradores.add(new Colaborador(id, nivel, nome, sobrenome, user, password));
         }
         return colaboradores;
     }
