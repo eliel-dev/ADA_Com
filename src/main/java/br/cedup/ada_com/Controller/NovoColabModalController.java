@@ -63,6 +63,15 @@ public class NovoColabModalController implements Initializable {
         }
     }
 
+    public static void setColaborador (Colaborador colaborador){
+        NovoColabModalController.colaborador = colaborador;
+
+    }
+
+    public static Colaborador getColaborador (){
+        return NovoColabModalController.colaborador;
+    }
+
     @FXML
     public void salvar(){
         int codigoUsuario = 1;

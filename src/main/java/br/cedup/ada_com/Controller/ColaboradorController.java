@@ -100,7 +100,33 @@ public class ColaboradorController implements Initializable {
     }
 
     @FXML
-    public void editar(){
+    public void editar() throws IOException, SQLException {
+        Colaborador colaboradorSelecionado = tabelaColaborador.getSelectionModel().getSelectedItem();
+
+        if (colaboradorSelecionado != null) {
+            // Envia o produto para o model da edição
+            NovoColabModalController.setColaborador(colaboradorSelecionado);
+
+            // Abre o modal de edição e espera o usuário clicar OK
+            HelloApplication.showModal("novoColabModal");
+
+            // Obtém o produto alterado do modal de edição
+            Colaborador produtoAlterado = NovoColabModalController.getColaborador();
+
+            // Altera o produto original com o alterado
+            colaboradorSelecionado.setNomeColaborador(produtoAlterado.getNomeColaborador());
+            colaboradorSelecionado.setSobrenome(produtoAlterado.getSobrenome());
+            colaboradorSelecionado.setUser(produtoAlterado.getUser());
+            colaboradorSelecionado.setPassword(produtoAlterado.getPassword());
+
+
+            // Atualiza a lista gráfica para aplicar as alterações do produto
+            this.tabelaColaborador.refresh();
+
+            // Salva o  produto no banco de dados
+            ColaboradorDAO daoDoProduto = new ColaboradorDAO();
+            daoDoProduto.update(colaboradorSelecionado);
+        }
 
     }
 

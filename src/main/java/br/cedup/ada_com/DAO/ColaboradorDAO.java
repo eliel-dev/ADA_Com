@@ -70,6 +70,22 @@ public class ColaboradorDAO {
         }
     }
 
+    public void update(Colaborador colaborador) throws SQLException {
+        try (Connection connection = ConnectionSingleton.getConnection()) {
+            String sql = "update colaborador set nomeColaborador = ?, sobrenomecolab = ?, usuario = ?, senha = ? where colaborador_id= ?";
+            try (PreparedStatement stmt = connection.prepareStatement(sql)) {
+
+                stmt.setString(1, colaborador.getSobrenome());
+                stmt.setString(2, colaborador.getNomeColaborador());
+                stmt.setString(3, colaborador.getUser());
+                stmt.setString(4, colaborador.getPassword());
+                stmt.setInt(5, colaborador.getColaboradorId());
+
+                stmt.executeUpdate();
+            }
+        }
+    }
+
     public void removerColaborador(Colaborador colaborador) throws SQLException {
         try (Connection connection = ConnectionSingleton.getConnection()) {
             String sql = "DELETE FROM colaborador WHERE Colaborador_ID = ?";
