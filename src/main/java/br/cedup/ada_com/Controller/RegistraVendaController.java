@@ -1,8 +1,6 @@
 package br.cedup.ada_com.Controller;
 
 import br.cedup.ada_com.HelloApplication;
-import br.cedup.ada_com.Produto;
-import br.cedup.ada_com.Servico;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
@@ -25,21 +23,9 @@ public class RegistraVendaController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         nomeSobrenomeLogou.setText("Bem vindo(a) " + LoginController.nomeLogou1);
 
-        Produto xbox = new Produto();
-        xbox.modelo = "Xbox 360";
-
-        Produto pc = new Produto();
-        pc.modelo = "PC Gamer 2000";
-
-        Servico internet = new Servico();
-        internet.nome = "Plano Gamer Rapidão";
-
-        Servico tv = new Servico();
-        tv.nome = "Plano 4K";
-
 
         produtosServicos.getItems().removeAll(produtosServicos.getItems());
-        produtosServicos.getItems().addAll(xbox.modelo, pc.modelo, internet.nome, tv.nome);
+        produtosServicos.getItems().addAll();
         //comboBox.getSelectionModel().select(x);
     }
 

@@ -7,13 +7,13 @@
 
 <AnchorPane maxWidth="891.0" minWidth="754.0" prefHeight="510.0" prefWidth="881.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.cedup.ada_com.Controller.CatalogoController">
    <children>
-      <TableView prefHeight="510.0" prefWidth="762.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="119.0" AnchorPane.topAnchor="0.0">
+      <TableView fx:id="tabelaCatalogo" prefHeight="510.0" prefWidth="762.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="119.0" AnchorPane.topAnchor="0.0">
         <columns>
-          <TableColumn maxWidth="77.0" prefWidth="77.0" text="Código" />
-          <TableColumn maxWidth="517.0" minWidth="0.0" prefWidth="299.0" text="Nome" />
-            <TableColumn maxWidth="200.0" minWidth="0.0" prefWidth="73.0" text="Preço" />
-            <TableColumn maxWidth="300.0" prefWidth="186.0" text="Categoria" />
-            <TableColumn prefWidth="124.0" text="Tipo" />
+          <TableColumn fx:id="colunaCodigo" maxWidth="77.0" prefWidth="77.0" text="Código" />
+          <TableColumn fx:id="colunaNome" maxWidth="517.0" minWidth="0.0" prefWidth="299.0" text="Nome" />
+            <TableColumn fx:id="colunaPreco" maxWidth="200.0" minWidth="0.0" prefWidth="73.0" text="Preço" />
+            <TableColumn fx:id="colunaCategoria" maxWidth="300.0" prefWidth="186.0" text="Categoria" />
+            <TableColumn fx:id="colunaTipo" prefWidth="124.0" text="Tipo" />
         </columns>
       </TableView>
       <Button layoutX="656.0" layoutY="25.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="84.0" text="Novo" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="25.0" />
