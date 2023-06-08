@@ -17,7 +17,7 @@
       </TableView>
       <Button layoutX="697.0" layoutY="14.0" mnemonicParsing="false" onAction="#novo" prefHeight="47.0" prefWidth="106.0" text="Novo" AnchorPane.rightAnchor="7.0" AnchorPane.topAnchor="14.0" />
       <Button layoutX="697.0" layoutY="78.0" mnemonicParsing="false" onAction="#editar" prefHeight="47.0" prefWidth="106.0" text="Editar" AnchorPane.rightAnchor="7.0" AnchorPane.topAnchor="78.0" />
-      <Button layoutX="697.0" layoutY="142.0" mnemonicParsing="false" onAction="#remover" prefHeight="47.0" prefWidth="106.0" text="Remover" AnchorPane.rightAnchor="7.0" AnchorPane.topAnchor="142.0" />
+      <Button fx:id="botaoRemover" layoutX="697.0" layoutY="142.0" mnemonicParsing="false" onAction="#remover" prefHeight="47.0" prefWidth="106.0" text="Remover" AnchorPane.rightAnchor="7.0" AnchorPane.topAnchor="142.0" />
       <Button layoutX="697.0" layoutY="455.0" mnemonicParsing="false" onAction="#voltar" prefHeight="47.0" prefWidth="106.0" text="Voltar" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="7.0" />
       <Label fx:id="labelCopia" layoutX="411.0" layoutY="258.0" prefHeight="17.0" prefWidth="371.0" />
    </children>

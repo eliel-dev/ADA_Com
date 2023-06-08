@@ -4,34 +4,31 @@ import br.cedup.ada_com.Colaborador;
 import br.cedup.ada_com.HelloApplication;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import org.passay.*;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Arrays;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class NovoColabModalController implements Initializable {
 
     @FXML
     TextField nomefield;
-
     @FXML
     TextField sobrenomefield;
-
     @FXML
     TextField usuariofield;
-
     @FXML
     PasswordField senhafield;
-
     @FXML
     RadioButton radioButtonVendedor;
-
     @FXML
     RadioButton radioButtonGestor;
+    @FXML
+    ProgressBar passwordStrengthBar;
 
     public static Colaborador colaborador;
 
@@ -49,23 +46,75 @@ public class NovoColabModalController implements Initializable {
 
         if(colaboradorSecionado != null){
 
-            if (colaboradorSecionado.getNivel() == 1) {
-                radioButtonVendedor.setSelected(true);
-            }else {
-                // Tratar o caso em que nenhum RadioButton está selecionado // Pensando ainda
-            }
-
             nomefield.setText(colaboradorSecionado.nomeColaborador);
             sobrenomefield.setText(colaboradorSecionado.sobrenome);
             usuariofield.setText(colaboradorSecionado.user);
             senhafield.setText(colaboradorSecionado.password);
 
         }
+
+        // Primeira versão: radioButtonVendedor sempre selecionado e desabilitado
+        radioButtonVendedor.setSelected(true);
+        radioButtonVendedor.setDisable(true);
+
+        // Adicionar listener ao campo senhafield para atualizar o passwordStrengthBar
+        senhafield.textProperty().addListener((observable, oldValue, newValue) -> {
+            // Calcular o nível de força da senha
+            int passwordStrength = calculatePasswordStrength(newValue);
+
+            // Atualizar a barra de progresso
+            passwordStrengthBar.setProgress(passwordStrength / 100.0);
+
+            // Alterar a cor da barra de progresso com base no nível de força da senha
+            if (passwordStrength < 30) {
+                passwordStrengthBar.setStyle("-fx-accent: #ff0000;");
+            } else if (passwordStrength < 60) {
+                passwordStrengthBar.setStyle("-fx-accent: #ffff00;");
+            } else {
+                passwordStrengthBar.setStyle("-fx-accent: #00ff00;");
+            }
+        });
     }
+
+    // Método para calcular o nível de força da senha
+    private int calculatePasswordStrength(String password) {
+        // Regras para validar a senha
+        List<Rule> rules = Arrays.asList(
+                new LengthRule(8, 30),
+                new CharacterRule(EnglishCharacterData.UpperCase, 1),
+                new CharacterRule(EnglishCharacterData.LowerCase, 1),
+                new CharacterRule(EnglishCharacterData.Digit, 1),
+                new CharacterRule(EnglishCharacterData.Special, 1),
+                new WhitespaceRule()
+        );
+
+        // Validar a senha
+        PasswordValidator validator = new PasswordValidator(rules);
+        RuleResult result = validator.validate(new PasswordData(password));
+
+        // Calcular o nível de força da senha
+        int passwordStrength = 100;
+        if (!result.isValid()) {
+            for (String msg : validator.getMessages(result)) {
+                if (msg.contains("Length")) {
+                    passwordStrength -= 20;
+                } else if (msg.contains("uppercase")) {
+                    passwordStrength -= 20;
+                } else if (msg.contains("lowercase")) {
+                    passwordStrength -= 20;
+                } else if (msg.contains("digit")) {
+                    passwordStrength -= 20;
+                } else if (msg.contains("special")) {
+                    passwordStrength -= 20;
+                }
+            }
+        }
+        return passwordStrength;
+    }
+
 
     public static void setColaborador (Colaborador colaborador){
         NovoColabModalController.colaborador = colaborador;
-
     }
 
     public static Colaborador getColaborador (){
@@ -74,6 +123,19 @@ public class NovoColabModalController implements Initializable {
 
     @FXML
     public void salvar(){
+        // Verificar se todos os campos estão preenchidos
+        if (nomefield.getText().isEmpty() ||
+                sobrenomefield.getText().isEmpty() ||
+                usuariofield.getText().isEmpty() ||
+                senhafield.getText().isEmpty()) {
+            // Exibir mensagem de erro
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Erro");
+            alert.setHeaderText("Campos vazios");
+            alert.setContentText("Por favor, preencha todos os campos antes de salvar.");
+            alert.showAndWait();
+            return;
+        }
         int codigoUsuario = 1;
 
         usuariofield.setText(nomefield.getText() + "." + sobrenomefield.getText());
@@ -95,6 +157,4 @@ public class NovoColabModalController implements Initializable {
     public void cancelar() throws IOException {
         HelloApplication.closeCurrentWindow();
     }
-
-
 }

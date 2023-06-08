@@ -38,6 +38,9 @@ public class ColaboradorController implements Initializable {
     @FXML
     Label labelCopia;
 
+    @FXML
+    Button botaoRemover;
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -76,6 +79,18 @@ public class ColaboradorController implements Initializable {
                     // Atualiza o texto do label para informar ao usuário qual célula foi copiada
                     labelCopia.setText("Conteúdo da célula copiado: " + col.getText() + " - Linha " + (row + 1));
                 }
+            }
+        });
+
+        // Adicionar um ouvinte de alteração à propriedade selectedItem da TableView
+        tabelaColaborador.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
+            // Verificar se o novo colaborador selecionado é um gestor (nível 2)
+            if (newSelection != null && newSelection.getNivel() == 2) {
+                // Desativar o botão remover
+                botaoRemover.setDisable(true);
+            } else {
+                // Ativar o botão remover
+                botaoRemover.setDisable(false);
             }
         });
     }
