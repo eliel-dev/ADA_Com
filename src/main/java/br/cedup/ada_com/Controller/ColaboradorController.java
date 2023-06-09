@@ -47,11 +47,11 @@ public class ColaboradorController implements Initializable {
 
         // Define a fábrica de células da coluna colunaNome para exibir o nome completo do colaborador (nome e sobrenome)
         colunaNome.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getNomeColaborador() + " " + cellData.getValue().getSobrenome()));
+        colunaUsuario.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getUser().toLowerCase()));
 
         // Define a fábrica de células da coluna colunaFuncao para exibir o cargo do colaborador com base no valor da propriedade nivel
         colunaFuncao.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getNivel() == 1 ? "Vendedor" : "Gestor"));
 
-        colunaUsuario.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getUser().toLowerCase()));
 
         // Cria um objeto ColaboradorDAO para acessar o banco de dados
         ColaboradorDAO dao = new ColaboradorDAO();

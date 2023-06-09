@@ -39,10 +39,12 @@ public class ColaboradorDAO {
     public List<Colaborador> getColaboradores() throws SQLException {
 
         List<Colaborador> colaboradores = new ArrayList<>();
+
         Connection connection = ConnectionSingleton.getConnection();
         String sql = "SELECT * FROM colaborador";
         PreparedStatement stmt = connection.prepareStatement(sql);
         ResultSet resultado = stmt.executeQuery();
+
         while (resultado.next()) {
             int id = resultado.getInt(coluna_id);
             int nivel = resultado.getInt(coluna_nivel);

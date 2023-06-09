@@ -1,9 +1,7 @@
 package br.cedup.ada_com.DAO;
 
-import br.cedup.ada_com.CatalogoItem;
+import br.cedup.ada_com.Catalogo;
 import br.cedup.ada_com.ConnectionSingleton;
-import br.cedup.ada_com.Produto;
-import br.cedup.ada_com.Servico;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -14,40 +12,46 @@ import java.util.List;
 
 public class CatalogoDAO {
 
-    public List<CatalogoItem> getProdutos() throws SQLException {
-        List<CatalogoItem> produtos = new ArrayList<>();
+    private static final String coluna_id = "Item_ID";
+    private static final String coluna_tipo = "Tipo";
+    private static final String coluna_nome = "nome";
+    private static final String coluna_categoria = "categoria";
+    private static final String coluna_valor = "valor";
+
+
+    public List<Catalogo> getItens() throws SQLException {
+
+        List<Catalogo> itens = new ArrayList<>();
 
         Connection connection = ConnectionSingleton.getConnection();
-        String sql = "SELECT * FROM produto";
+        String sql = "SELECT * FROM catalogo";
         PreparedStatement stmt = connection.prepareStatement(sql);
         ResultSet resultado = stmt.executeQuery();
 
         while (resultado.next()) {
-            int id = resultado.getInt("Produto_ID");
-            String nome = resultado.getString("Marca_prod") + " " + resultado.getString("Modelo_prod");
-            double preco = resultado.getDouble("Valor_Produto");
-            String categoria = resultado.getString("Categoria_prod");
-            produtos.add(new Produto(id, nome, preco, categoria));
+            int id = resultado.getInt(coluna_id);
+            int tipo = resultado.getInt(coluna_tipo);
+            String nome = resultado.getString(coluna_nome);
+            String categoria = resultado.getString(coluna_categoria);
+            double valor = resultado.getDouble(coluna_valor);
+            itens.add(new Catalogo(id, nome, valor, categoria, tipo));
         }
-        return produtos;
+
+    return itens;
     }
 
-    public List<CatalogoItem> getServicos() throws SQLException {
-        List<CatalogoItem> servicos = new ArrayList<>();
+    public void inserirItem(Catalogo catalogo) throws SQLException {
+        try (Connection connection = ConnectionSingleton.getConnection()) {
+            String sql = "INSERT INTO catalogo (Tipo, nome, categoria, valor) VALUES (?, ?, ?, ?)";
+            try (PreparedStatement stmt = connection.prepareStatement(sql)) {
+                stmt.setInt(1,catalogo.getTipo());
+                stmt.setString(2,catalogo.getNome());
+                stmt.setString(3,catalogo.getCategoria());
+                stmt.setDouble(4,catalogo.getValor());
 
-        Connection connection = ConnectionSingleton.getConnection();
-        String sql = "SELECT * FROM servico";
-        PreparedStatement stmt = connection.prepareStatement(sql);
-        ResultSet resultado = stmt.executeQuery();
 
-        while (resultado.next()) {
-            int id = resultado.getInt("Servico_ID");
-            String nome = resultado.getString("Nome_Servico");
-            double preco = resultado.getDouble("Valor_Servico");
-            String categoria = resultado.getString("Categoria");
-            servicos.add(new Servico(id, nome, preco, categoria));
+                stmt.executeUpdate();
+            }
         }
-
-        return servicos;
     }
 }
