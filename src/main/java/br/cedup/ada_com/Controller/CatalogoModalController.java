@@ -3,12 +3,9 @@ package br.cedup.ada_com.Controller;
 import br.cedup.ada_com.Catalogo;
 import br.cedup.ada_com.DAO.CatalogoDAO;
 import br.cedup.ada_com.HelloApplication;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-import javafx.scene.layout.Pane;
-import javafx.stage.WindowEvent;
 
 import java.net.URL;
 import java.sql.SQLException;
@@ -63,15 +60,15 @@ public class CatalogoModalController implements Initializable {
         CatalogoDAO catalogoDAO = new CatalogoDAO();
 
         // Consultar o banco de dados para recuperar as categorias
-        List<String> categorias = null;
+        List<String> categoria = null;
         try {
-            categorias = catalogoDAO.getCategorias();
+            categoria = catalogoDAO.getCategorias();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
 
         // Adicionar as categorias à lista de opções do ComboBox
-        comboCategoria.getItems().addAll(categorias);
+        comboCategoria.getItems().addAll(categoria);
 
         // Habilitar a edição no ComboBox
         comboCategoria.setEditable(true);

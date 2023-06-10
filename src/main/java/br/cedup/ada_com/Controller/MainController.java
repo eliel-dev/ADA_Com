@@ -46,9 +46,7 @@ public class MainController implements Initializable {
         AnchorPane.setRightAnchor(vendasMes, 0.0);
         AnchorPane.setBottomAnchor(vendasMes, 0.0);
         AnchorPane.setLeftAnchor(vendasMes, 0.0);
-
     }
-
 
     @FXML
     public void gerenciaColaborador() throws IOException {

@@ -4,32 +4,42 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="573.0" prefWidth="808.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.cedup.ada_com.Controller.RegistraVendaController">
+<AnchorPane prefHeight="924.0" prefWidth="1310.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.cedup.ada_com.Controller.RegistraVendaController">
    <children>
-      <Text layoutX="31.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ADA/Com" />
-      <Text layoutX="25.0" layoutY="151.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Quantidade:" />
-      <Text layoutX="28.0" layoutY="182.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Valor Total R$:" />
-      <Text layoutX="29.0" layoutY="255.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nome Cliente:" />
-      <Text layoutX="264.0" layoutY="255.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sobrenome Cliente" AnchorPane.leftAnchor="261.279296875" />
-      <Text layoutX="257.0" layoutY="318.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Estado" AnchorPane.leftAnchor="257.0" />
-      <Text layoutX="29.0" layoutY="286.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Data de Nascimento:" />
-      <Text layoutX="30.0" layoutY="318.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cidade" />
-      <Button layoutX="391.0" layoutY="396.0" mnemonicParsing="false" onAction="#registrar" text="Registrar" AnchorPane.bottomAnchor="36.0" AnchorPane.rightAnchor="135.0" />
-      <Button layoutX="498.0" layoutY="396.0" mnemonicParsing="false" onAction="#fechar" text="Fechar" AnchorPane.bottomAnchor="36.0" AnchorPane.rightAnchor="41.0" />
-      <Text layoutX="22.0" layoutY="116.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Produto / Serviço:" />
-      <TextField layoutX="141.0" layoutY="269.0" prefHeight="25.0" prefWidth="104.0" AnchorPane.leftAnchor="141.0" />
-      <TextField layoutX="296.0" layoutY="301.0" prefHeight="25.0" prefWidth="37.0" AnchorPane.leftAnchor="296.0" AnchorPane.rightAnchor="257.0" />
-      <TextField layoutX="69.0" layoutY="301.0" prefHeight="25.0" prefWidth="177.0" AnchorPane.leftAnchor="69.0" />
-      <TextField layoutX="117.0" layoutY="238.0" prefHeight="25.0" prefWidth="137.0" AnchorPane.leftAnchor="117.0" />
-      <TextField layoutX="372.0" layoutY="238.0" prefHeight="25.0" prefWidth="137.0" AnchorPane.leftAnchor="372.0" AnchorPane.rightAnchor="81.0" />
-      <TextField layoutX="125.0" layoutY="165.0" prefHeight="25.0" prefWidth="137.0" AnchorPane.leftAnchor="125.0" AnchorPane.rightAnchor="328.0" />
-      <TextField layoutX="125.0" layoutY="134.0" prefHeight="25.0" prefWidth="137.0" AnchorPane.leftAnchor="125.0" AnchorPane.rightAnchor="328.0" />
-      <ComboBox fx:id="produtosServicos" layoutX="125.0" layoutY="99.0" prefHeight="25.0" prefWidth="259.0" promptText="Selecione uma opção" AnchorPane.leftAnchor="125.0" AnchorPane.rightAnchor="206.0" />
-      <Separator layoutX="-2.0" layoutY="211.0" prefHeight="5.0" prefWidth="590.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="220.0" />
-      <Label fx:id="nomeSobrenomeLogou" layoutX="25.0" layoutY="42.0" />
+      <Button layoutX="873.0" layoutY="864.0" mnemonicParsing="false" onAction="#registrar" prefHeight="48.0" prefWidth="163.0" text="Registrar" AnchorPane.bottomAnchor="12.0" AnchorPane.rightAnchor="274.0" />
+      <Button layoutX="1091.0" layoutY="864.0" mnemonicParsing="false" onAction="#fechar" prefHeight="48.0" prefWidth="149.0" text="Cancelar" AnchorPane.bottomAnchor="12.0" AnchorPane.rightAnchor="70.0" />
+      <Separator layoutX="7.0" layoutY="38.0" prefHeight="3.0" prefWidth="710.0" AnchorPane.leftAnchor="7.0" />
+      <Text layoutX="22.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Passo 1 - Selecione um cliente." />
+      <Text layoutX="25.0" layoutY="245.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Passo 2 - Registre os itens vendidos." />
+      <TextField layoutX="99.0" layoutY="49.0" prefHeight="25.0" prefWidth="439.0" />
+      <Separator layoutY="255.0" prefHeight="3.0" prefWidth="688.0" AnchorPane.leftAnchor="0.0" />
+      <Text layoutX="21.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CPF/CNPJ:" />
+      <Button layoutX="553.0" layoutY="49.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="105.0" text="Pesquisar" />
+      <ComboBox fx:id="produtosServicos" layoutX="135.0" layoutY="271.0" prefHeight="25.0" prefWidth="409.0" />
+      <Text layoutX="32.0" layoutY="288.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Produto/Serviço:" />
+      <TableView layoutX="20.0" layoutY="369.0" prefHeight="269.0" prefWidth="639.0" AnchorPane.bottomAnchor="286.0" AnchorPane.leftAnchor="20.0">
+        <columns>
+          <TableColumn prefWidth="75.0" text="C1" />
+          <TableColumn prefWidth="75.0" text="C2" />
+        </columns>
+      </TableView>
+      <TextField fx:id="quantidadeProduto" layoutX="135.0" layoutY="312.0" prefHeight="25.0" prefWidth="174.0" />
+      <Text layoutX="32.0" layoutY="329.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Quantidade:" />
+      <Button layoutX="555.0" layoutY="337.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="105.0" text="Incluir" />
+      <TextArea layoutX="20.0" layoutY="711.0" prefHeight="136.0" prefWidth="639.0" AnchorPane.bottomAnchor="77.0" AnchorPane.leftAnchor="20.0" />
+      <Text layoutX="21.0" layoutY="695.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Observações:" AnchorPane.bottomAnchor="225.0" AnchorPane.leftAnchor="21.0" />
+      <Text layoutX="484.0" layoutY="661.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Valor Total:" AnchorPane.bottomAnchor="259.98828125" AnchorPane.leftAnchor="484.0" />
+      <Label layoutX="553.0" layoutY="648.0" prefHeight="17.0" prefWidth="105.0" text="Label" AnchorPane.bottomAnchor="259.0" AnchorPane.leftAnchor="553.0" />
+      <Separator layoutX="715.0" orientation="VERTICAL" prefHeight="854.0" prefWidth="2.0" AnchorPane.bottomAnchor="70.0" AnchorPane.topAnchor="0.0" />
+      <Separator layoutX="14.0" layoutY="851.0" prefHeight="3.0" prefWidth="1295.0" AnchorPane.bottomAnchor="70.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="1.0" />
+      <Text layoutX="741.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Passo 3 - Registre a experiencia do cliente." />
+      <Separator layoutX="718.0" layoutY="37.0" prefHeight="3.0" prefWidth="657.0" AnchorPane.leftAnchor="718.0" AnchorPane.rightAnchor="2.0" />
    </children>
 </AnchorPane>
