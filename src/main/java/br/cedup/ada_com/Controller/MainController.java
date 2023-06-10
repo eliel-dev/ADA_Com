@@ -41,7 +41,7 @@ public class MainController implements Initializable {
         // Adicione o CalendarView ao AnchorPane
         paneCalendario.getChildren().add(vendasMes);
 
-// Ancore o CalendarView nas bordas do AnchorPane
+        // Ancore o CalendarView nas bordas do AnchorPane
         AnchorPane.setTopAnchor(vendasMes, 0.0);
         AnchorPane.setRightAnchor(vendasMes, 0.0);
         AnchorPane.setBottomAnchor(vendasMes, 0.0);
