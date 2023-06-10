@@ -5,6 +5,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import com.calendarfx.view.CalendarView;
+import javafx.scene.layout.AnchorPane;
+
 
 import java.io.IOException;
 import java.net.URL;
@@ -15,23 +18,37 @@ public class MainController implements Initializable {
 
     @FXML
     Button gerenciaUsuarioG;
-
     @FXML
     Button gerenciaCatG;
-
     @FXML
     Label nomeSobrenomeLogou;
 
+    CalendarView vendasMes = new CalendarView();
+
+    @FXML
+    AnchorPane paneCalendario;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
         nomeSobrenomeLogou.setText("Bem vindo(a) " + LoginController.nomeLogou1);
 
         if (LoginController.nivelDeAcesso == 1) {
             gerenciaUsuarioG.setVisible(false);
             gerenciaCatG.setVisible(false);
         }
+
+        CalendarView vendasMes = new CalendarView();
+        // Adicione o CalendarView ao AnchorPane
+        paneCalendario.getChildren().add(vendasMes);
+
+// Ancore o CalendarView nas bordas do AnchorPane
+        AnchorPane.setTopAnchor(vendasMes, 0.0);
+        AnchorPane.setRightAnchor(vendasMes, 0.0);
+        AnchorPane.setBottomAnchor(vendasMes, 0.0);
+        AnchorPane.setLeftAnchor(vendasMes, 0.0);
+
     }
+
 
     @FXML
     public void gerenciaColaborador() throws IOException {
@@ -59,6 +76,4 @@ public class MainController implements Initializable {
     public void sair() throws IOException {
         HelloApplication.setRoot("login-view");
     }
-
-
 }

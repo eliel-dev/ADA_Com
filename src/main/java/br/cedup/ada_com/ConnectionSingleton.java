@@ -21,7 +21,7 @@ public class ConnectionSingleton {
 
         if (connection == null || connection.isClosed()) {
             connection = DriverManager.getConnection( //
-                    "jdbc:mysql://:3306/adacom2", //
+                    "jdbc:mysql://:3306/ada/com", //
                     "root", //
                     "");
         }

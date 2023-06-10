@@ -2,17 +2,20 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
 <AnchorPane prefHeight="552.0" prefWidth="912.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.cedup.ada_com.Controller.MainController">
    <children>
-      <Button fx:id="registrarVendaV" layoutX="49.0" layoutY="141.0" mnemonicParsing="false" onAction="#registrarVenda" prefHeight="38.0" prefWidth="205.0" text="Registrar Vendas" />
+      <Button fx:id="registrarVendaV" layoutX="49.0" layoutY="141.0" mnemonicParsing="false" onAction="#registrarVenda" prefHeight="38.0" prefWidth="205.0" text="Registrar Venda" />
       <Button fx:id="GeV" layoutX="49.0" layoutY="195.0" mnemonicParsing="false" onAction="#relatorio" prefHeight="38.0" prefWidth="205.0" text="Relatórios" AnchorPane.leftAnchor="49.0" AnchorPane.topAnchor="195.0" />
       <Button fx:id="gerenciaUsuarioG" layoutX="49.0" layoutY="248.0" mnemonicParsing="false" onAction="#gerenciaColaborador" prefHeight="38.0" prefWidth="205.0" text="Gerenciar Colaboradores" AnchorPane.leftAnchor="49.0" AnchorPane.topAnchor="248.0" />
       <Button fx:id="gerenciaCatG" layoutX="49.0" layoutY="298.0" mnemonicParsing="false" onAction="#gerenciaCatalogo" prefHeight="38.0" prefWidth="205.0" text="Gerenciar Catálogo" AnchorPane.leftAnchor="49.0" AnchorPane.topAnchor="298.0" />
-      <Text layoutX="49.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ADA/Com" />
-      <Label fx:id="nomeSobrenomeLogou" layoutX="48.0" layoutY="52.0" />
+      <Text layoutX="116.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ADA/Com" />
+      <Label fx:id="nomeSobrenomeLogou" layoutX="49.0" layoutY="85.0" prefHeight="17.0" prefWidth="205.0" />
       <Button fx:id="relatorioGerente1" layoutX="40.0" layoutY="473.0" mnemonicParsing="false" onAction="#sair" prefHeight="38.0" prefWidth="205.0" text="Sair" AnchorPane.bottomAnchor="41.0" AnchorPane.leftAnchor="40.0" />
+      <Separator layoutX="273.0" orientation="VERTICAL" prefHeight="552.0" prefWidth="0.0" />
+      <AnchorPane fx:id="paneCalendario" layoutX="290.0" layoutY="33.0" prefHeight="400.0" prefWidth="601.0" />
    </children>
 </AnchorPane>

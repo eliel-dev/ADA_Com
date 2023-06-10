@@ -3,6 +3,7 @@ module com.example.telas {
     requires javafx.fxml;
     requires java.sql;
     requires passay;
+    requires com.calendarfx.view;
 
 
     opens br.cedup.ada_com to javafx.fxml;
