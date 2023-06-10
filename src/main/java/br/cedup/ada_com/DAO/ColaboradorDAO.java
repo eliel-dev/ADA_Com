@@ -15,7 +15,7 @@ public class ColaboradorDAO {
     private static final String coluna_nome = "nomeColaborador";
     private static final String coluna_sobrenome = "sobreNomeColab";
 
-    public Colaborador existe(Colaborador colaborador) throws SQLException {
+    public Colaborador loginUser(Colaborador colaborador) throws SQLException {
         Connection connection = ConnectionSingleton.getConnection();
 
         String sql = "SELECT Colaborador_ID, nivel, usuario, senha, nomeColaborador, sobreNomeColab FROM colaborador WHERE usuario = ? AND senha = ?";
@@ -98,5 +98,27 @@ public class ColaboradorDAO {
             }
         }
     }
+
+
+    public boolean colaboradorExiste(String nome, String sobrenome, String usuario) throws SQLException {
+        // Consultar o banco de dados para verificar se existe um colaborador com a mesma combinação de nome e sobrenome ou com o mesmo nome de usuário
+        String sql = "SELECT COUNT(*) FROM colaborador WHERE (nomeColaborador = ? AND sobreNomeColab = ?) OR usuario = ?";
+        try (Connection connection = ConnectionSingleton.getConnection();
+             PreparedStatement stmt = connection.prepareStatement(sql)) {
+            stmt.setString(1, nome);
+            stmt.setString(2, sobrenome);
+            stmt.setString(3, usuario);
+            try (ResultSet rs = stmt.executeQuery()) {
+                // Verificar o resultado da consulta
+                if (rs.next()) {
+                    int count = rs.getInt(1);
+                    return count > 0;
+                } else {
+                    return false;
+                }
+            }
+        }
+    }
+
 }
 

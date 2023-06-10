@@ -90,10 +90,38 @@ public class CatalogoController implements Initializable {
     }
 
     @FXML
-    public void editarItem () throws IOException {
-        Catalogo itemSelecionado = tabelaCatalogo.getSelectionModel().getSelectedItem();
+    public void editarItem() throws IOException, SQLException {
+        System.out.println("Método editarItem chamado");
 
+        Catalogo itemSelecionado = tabelaCatalogo.getSelectionModel().getSelectedItem();
+        System.out.println("Item selecionado: " + itemSelecionado);
+
+        if (itemSelecionado != null) {
+            // Envia o produto para o model da edição
+            CatalogoModalController.setCatalogoItem(itemSelecionado);
+
+            // Abre o modal de edição e espera o usuário clicar OK
+            HelloApplication.showModal("catalogoModal");
+
+            // Obtém o produto alterado do modal de edição
+            Catalogo itemAlterado = CatalogoModalController.getCatalogoItem();
+            System.out.println("Item alterado: " + itemAlterado);
+
+            // Altera o produto original com o alterado
+            itemSelecionado.setTipo(itemAlterado.getTipo());
+            itemSelecionado.setNome(itemAlterado.getNome());
+            itemSelecionado.setCategoria(itemAlterado.getCategoria());
+            itemSelecionado.setValor(itemAlterado.getValor());
+
+            // Atualiza a lista gráfica para aplicar as alterações do produto
+            this.tabelaCatalogo.refresh();
+
+            // Salva o  produto no banco de dados
+            CatalogoDAO dao = new CatalogoDAO();
+            dao.atualizarItem(itemSelecionado);
+        }
     }
+
 
     @FXML
     public void removerItem () throws IOException {

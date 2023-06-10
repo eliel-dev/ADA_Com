@@ -8,7 +8,6 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.Clipboard;
 import javafx.scene.input.ClipboardContent;
 import javafx.scene.input.KeyCode;
@@ -125,22 +124,22 @@ public class ColaboradorController implements Initializable {
             // Abre o modal de edição e espera o usuário clicar OK
             HelloApplication.showModal("novoColabModal");
 
-            // Obtém o produto alterado do modal de edição
-            Colaborador produtoAlterado = NovoColabModalController.getColaborador();
+            // Obtém o colaborador alterado do modal de edição
+            Colaborador colaboradorAlterado = NovoColabModalController.getColaborador();
 
-            // Altera o produto original com o alterado
-            colaboradorSelecionado.setNomeColaborador(produtoAlterado.getNomeColaborador());
-            colaboradorSelecionado.setSobrenome(produtoAlterado.getSobrenome());
-            colaboradorSelecionado.setUser(produtoAlterado.getUser());
-            colaboradorSelecionado.setPassword(produtoAlterado.getPassword());
+            // Altera o colaborador original com o alterado
+            colaboradorSelecionado.setNomeColaborador(colaboradorAlterado.getNomeColaborador());
+            colaboradorSelecionado.setSobrenome(colaboradorAlterado.getSobrenome());
+            colaboradorSelecionado.setUser(colaboradorAlterado.getUser());
+            colaboradorSelecionado.setPassword(colaboradorAlterado.getPassword());
 
 
             // Atualiza a lista gráfica para aplicar as alterações do produto
             this.tabelaColaborador.refresh();
 
             // Salva o  produto no banco de dados
-            ColaboradorDAO daoDoProduto = new ColaboradorDAO();
-            daoDoProduto.update(colaboradorSelecionado);
+            ColaboradorDAO dao = new ColaboradorDAO();
+            dao.update(colaboradorSelecionado);
         }
 
     }

@@ -1,6 +1,7 @@
 package br.cedup.ada_com.Controller;
 
 import br.cedup.ada_com.Colaborador;
+import br.cedup.ada_com.DAO.ColaboradorDAO;
 import br.cedup.ada_com.HelloApplication;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -9,6 +10,7 @@ import org.passay.*;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.Arrays;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -122,7 +124,7 @@ public class NovoColabModalController implements Initializable {
     }
 
     @FXML
-    public void salvar(){
+    public void salvar() throws SQLException {
         // Verificar se todos os campos estão preenchidos
         if (nomefield.getText().isEmpty() ||
                 sobrenomefield.getText().isEmpty() ||
@@ -136,6 +138,23 @@ public class NovoColabModalController implements Initializable {
             alert.showAndWait();
             return;
         }
+
+        // Verificar se já existe um colaborador com a mesma combinação de nome e sobrenome ou com o mesmo nome de usuário
+        ColaboradorDAO colaboradorDAO = new ColaboradorDAO();
+        try {
+            if (colaboradorDAO.colaboradorExiste(nomefield.getText(), sobrenomefield.getText(), usuariofield.getText())) {
+                // Exibir mensagem de erro
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Erro");
+                alert.setHeaderText("Colaborador duplicado");
+                alert.setContentText("Já existe um colaborador com a mesma combinação de nome e sobrenome ou com o mesmo nome de usuário!");
+                alert.showAndWait();
+                return;
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        
         int codigoUsuario = 1;
 
         usuariofield.setText(nomefield.getText() + "." + sobrenomefield.getText());
