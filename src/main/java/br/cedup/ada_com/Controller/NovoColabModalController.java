@@ -154,7 +154,7 @@ public class NovoColabModalController implements Initializable {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        
+
         int codigoUsuario = 1;
 
         usuariofield.setText(nomefield.getText() + "." + sobrenomefield.getText());

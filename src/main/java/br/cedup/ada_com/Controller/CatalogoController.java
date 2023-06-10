@@ -6,17 +6,18 @@ import br.cedup.ada_com.DAO.CatalogoDAO;
 import br.cedup.ada_com.DAO.ColaboradorDAO;
 import br.cedup.ada_com.HelloApplication;
 import javafx.beans.property.SimpleStringProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.TableCell;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class CatalogoController implements Initializable {
@@ -124,11 +125,56 @@ public class CatalogoController implements Initializable {
 
 
     @FXML
-    public void removerItem () throws IOException {
-
+    public void removerItem() {
+        // Obter o item selecionado na tabela de itens
         Catalogo itemSelecionado = tabelaCatalogo.getSelectionModel().getSelectedItem();
 
+        // Verificar se um item foi selecionado
+        if (itemSelecionado == null) {
+            // Exibir mensagem de erro
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Erro");
+            alert.setHeaderText("Nenhum item selecionado");
+            alert.setContentText("Por favor, selecione um item antes de remover.");
+            alert.showAndWait();
+            return;
+        }
 
+        // Exibir mensagem de confirmação
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Confirmação");
+        alert.setHeaderText("Remover item");
+        alert.setContentText("Tem certeza de que deseja remover o item selecionado?");
+
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.isPresent() && result.get() == ButtonType.OK) {
+            // Remover o item selecionado do banco de dados
+            CatalogoDAO catalogoDAO = new CatalogoDAO();
+            try {
+                catalogoDAO.removerItem(itemSelecionado);
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+
+            // Atualizar a tabela de itens
+            atualizarTabelaItens();
+        }
+    }
+
+
+    private void atualizarTabelaItens() {
+        // Consultar o banco de dados para obter a lista atualizada de itens
+        CatalogoDAO catalogoDAO = new CatalogoDAO();
+        List<Catalogo> itens;
+        try {
+            itens = catalogoDAO.getItens();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        // Atualizar a lista de itens exibida na tabela
+        ObservableList<Catalogo> data = FXCollections.observableArrayList(itens);
+        tabelaCatalogo.setItems(data);
     }
 
     @FXML
