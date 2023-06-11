@@ -6,6 +6,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import com.calendarfx.view.CalendarView;
+import javafx.scene.control.MenuButton;
 import javafx.scene.layout.AnchorPane;
 
 
@@ -21,6 +22,12 @@ public class MainController implements Initializable {
     @FXML
     Button gerenciaCatG;
     @FXML
+    MenuButton gerenciarGeral;
+    @FXML
+    Button gerenciarCliente;
+    @FXML
+    Button gerenciarEndereco;
+    @FXML
     Label nomeSobrenomeLogou;
 
     CalendarView vendasMes = new CalendarView();
@@ -35,6 +42,9 @@ public class MainController implements Initializable {
         if (LoginController.nivelDeAcesso == 1) {
             gerenciaUsuarioG.setVisible(false);
             gerenciaCatG.setVisible(false);
+            gerenciarGeral.setVisible(false);
+            gerenciarCliente.setVisible(false);
+            gerenciarEndereco.setVisible(false);
         }
 
         CalendarView vendasMes = new CalendarView();
