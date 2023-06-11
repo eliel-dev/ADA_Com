@@ -31,12 +31,22 @@
             </MenuItem>
             <MenuItem mnemonicParsing="false">
                <graphic>
-                  <Button fx:id="gerenciarEndereco" mnemonicParsing="false" prefHeight="38.0" prefWidth="205.0" text="Endereço" />
+                  <Button fx:id="gerenciarEndereco" mnemonicParsing="false" prefHeight="38.0" prefWidth="205.0" text="Cidades/Estados" />
                </graphic>
             </MenuItem>
             <MenuItem mnemonicParsing="false">
                <graphic>
                   <Button fx:id="gerenciarCliente" mnemonicParsing="false" prefHeight="38.0" prefWidth="205.0" text="Clientes" />
+               </graphic>
+            </MenuItem>
+            <MenuItem mnemonicParsing="false">
+               <graphic>
+                  <Button fx:id="gerenciarTaxaComissao" mnemonicParsing="false" prefHeight="38.0" prefWidth="205.0" text="Taxa de comissão" />
+               </graphic>
+            </MenuItem>
+            <MenuItem mnemonicParsing="false">
+               <graphic>
+                  <Button fx:id="gerenciarExp" mnemonicParsing="false" prefHeight="38.0" prefWidth="205.0" text="Experiencia do cliente" />
                </graphic>
             </MenuItem>
         </items>

@@ -28,6 +28,10 @@ public class MainController implements Initializable {
     @FXML
     Button gerenciarEndereco;
     @FXML
+    Button gerenciarTaxaComissao;
+    @FXML
+    Button gerenciarExp;
+    @FXML
     Label nomeSobrenomeLogou;
 
     CalendarView vendasMes = new CalendarView();
@@ -45,7 +49,14 @@ public class MainController implements Initializable {
             gerenciarGeral.setVisible(false);
             gerenciarCliente.setVisible(false);
             gerenciarEndereco.setVisible(false);
+            gerenciarTaxaComissao.setVisible(false);
+            gerenciarExp.setVisible(false);
         }
+        //Talvez no futuro
+        gerenciarCliente.setDisable(true);
+        gerenciarEndereco.setDisable(true);
+        gerenciarTaxaComissao.setDisable(true);
+        gerenciarExp.setDisable(true);
 
         CalendarView vendasMes = new CalendarView();
         // Adicione o CalendarView ao AnchorPane
