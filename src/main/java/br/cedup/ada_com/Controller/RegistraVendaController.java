@@ -1,11 +1,18 @@
 package br.cedup.ada_com.Controller;
 
 import br.cedup.ada_com.Catalogo;
+import br.cedup.ada_com.Cliente;
 import br.cedup.ada_com.DAO.CatalogoDAO;
+import br.cedup.ada_com.DAO.ClienteDAO;
 import br.cedup.ada_com.HelloApplication;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Text;
 import javafx.util.Callback;
 
 import java.io.IOException;
@@ -17,11 +24,67 @@ import java.util.ResourceBundle;
 
 public class RegistraVendaController implements Initializable {
 
+    //Passo 1 - Selecione um cliente.
+    @FXML
+    TextField compoPesquisaCliente;
+    @FXML
+    AnchorPane paneLocalizado;
+    @FXML
+    CheckBox comfirmaSelecao;
+    @FXML
+    Label completaNome;
+    @FXML
+    Label completaDocumento;
+    @FXML
+    Label completaCidade;
+    @FXML
+    Label naoLocalizado;
+    @FXML
+    Text nCliente;
+    @FXML
+    Text dCliente;
+    @FXML
+    Text eCliente;
+
+    //Passo 2 - Registre os itens vendidos.
     @FXML
     ComboBox <Catalogo> produtosServicos;
     @FXML
     TextField quantidadeProduto;
 
+    @FXML
+    TableView tabelaItensCarrinho;
+    @FXML
+    TableColumn nomeItem;
+    @FXML
+    TableColumn qtdItem;
+    @FXML
+    TableColumn precoItem;
+    @FXML
+    Label valorTotal;
+
+    //Passo 3 - Registre a experiencia do cliente.
+    @FXML
+    ComboBox comboP1;
+    @FXML
+    Label pergunta1;
+    @FXML
+    ComboBox comboP2;
+    @FXML
+    Label pergunta2;
+    @FXML
+    ComboBox comboP3;
+    @FXML
+    Label pergunta3;
+    @FXML
+    ComboBox comboP4;
+    @FXML
+    Label pergunta4;
+
+    @FXML
+    TextArea ObsCompra;
+
+    private Cliente cliente;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -81,29 +144,56 @@ public class RegistraVendaController implements Initializable {
                 quantidadeProduto.setDisable(false);
             }
         });
+
+
+        comfirmaSelecao.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                if (comfirmaSelecao.isSelected()) {
+                    int clienteID = cliente.getClienteID();
+                    System.out.println("Cliente ID: " + clienteID);
+                    // use o clienteID para registrar na tabela registravenda do banco de dados
+                }
+            }
+        });
     }
 
 
+    @FXML
+    void onPesquisarCliente(ActionEvent event) {
+        System.out.println("onPesquisarCliente chamado");
+
+        completaNome.setText("");
+        completaDocumento.setText("");
+        completaCidade.setText("");
+        comfirmaSelecao.setSelected(false); // limpa a seleção do CheckBox
+
+        ClienteDAO dao = new ClienteDAO();
+        String cpfCnpj = compoPesquisaCliente.getText();
+        Cliente cliente = dao.getClienteByCpfCnpj(cpfCnpj);
+        if (cliente != null) {
+            System.out.println("Cliente localizado: " + cliente.getNomeCliente()); // adicionado para depuração
+            this.cliente = cliente; // atribui o cliente localizado ao campo cliente
+
+            String nomeCompleto = cliente.getNomeCliente() + " " + cliente.getSobreNomeCliente();
+            completaNome.setText(nomeCompleto);
+            String cidadeEstado = cliente.getCidade() + ", " + cliente.getEstado();
+            completaCidade.setText(cidadeEstado);
+            completaDocumento.setText(String.valueOf(cliente.getCnpj_cpf()));
+            paneLocalizado.setVisible(true);
+            naoLocalizado.setVisible(false);
+        } else {
+            System.out.println("Nenhum cliente localizado");
+            paneLocalizado.setVisible(false);
+            naoLocalizado.setText("Nenhum cliente localizado");
+            naoLocalizado.setTextFill(Color.RED);
+            naoLocalizado.setVisible(true);
+        }
+    }
 
     @FXML
     public void registrar () throws IOException {
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("Confirmação");
-        alert.setHeaderText("Deseja registrar a experiência de venda?");
-        alert.setContentText(null);
 
-        ButtonType sim = new ButtonType("Sim");
-        ButtonType nao = new ButtonType("Não", ButtonBar.ButtonData.CANCEL_CLOSE);
-
-        alert.getButtonTypes().setAll(sim, nao);
-
-        Optional<ButtonType> result = alert.showAndWait();
-        if (result.get() == sim){
-            HelloApplication.showModal("experienciaModalCliente-view");
-
-        } else {
-            // ... user chose CANCEL or closed the dialog
-        }
     }
 
     //Volta para tela principal de vendedor

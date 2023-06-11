@@ -9,6 +9,7 @@ public class Colaborador {
     public String password;
 
 
+
     public Colaborador(int colaboradorId,int nivel,String nomeColaborador, String sobrenome, String user, String password) {
         this.colaboradorId = colaboradorId;
         this.nivel = nivel;
