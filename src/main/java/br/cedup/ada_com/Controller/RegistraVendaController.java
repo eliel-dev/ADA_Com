@@ -20,7 +20,9 @@ import javafx.util.Callback;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.text.NumberFormat;
 import java.util.List;
+import java.util.Locale;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
@@ -142,9 +144,18 @@ public class RegistraVendaController implements Initializable {
             if (newValue != null && newValue.getTipo() == 2) {
                 // Desativar o TextField quantidadeProduto
                 quantidadeProduto.setDisable(true);
+                // Ativar o botão incluir
+                botaoIncluir.setDisable(false);
             } else {
                 // Ativar o TextField quantidadeProduto
                 quantidadeProduto.setDisable(false);
+                // Desativar o botão incluir se a quantidade não for válida
+                try {
+                    int quantidade = Integer.parseInt(quantidadeProduto.getText());
+                    botaoIncluir.setDisable(quantidade <= 0);
+                } catch (NumberFormatException e) {
+                    botaoIncluir.setDisable(true);
+                }
             }
         });
 
@@ -204,7 +215,13 @@ public class RegistraVendaController implements Initializable {
             ItemVendido itemVendido = (ItemVendido) item;
             total += itemVendido.getPreco() * itemVendido.getQuantidade();
         }
-        valorTotal.setText(String.format("R$ %.2f", total));
+
+        // Criar uma instância de NumberFormat para formatar o valor como moeda
+        NumberFormat format = NumberFormat.getCurrencyInstance(new Locale("pt", "BR"));
+        String valorFormatado = format.format(total);
+
+        // Atualizar o texto do Label valorTotal com o valor formatado
+        valorTotal.setText(valorFormatado);
     }
 
 
