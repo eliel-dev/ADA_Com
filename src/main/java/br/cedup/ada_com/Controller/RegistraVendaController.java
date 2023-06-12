@@ -1,11 +1,8 @@
 package br.cedup.ada_com.Controller;
 
-import br.cedup.ada_com.Catalogo;
-import br.cedup.ada_com.Cliente;
-import br.cedup.ada_com.DAO.CatalogoDAO;
-import br.cedup.ada_com.DAO.ClienteDAO;
-import br.cedup.ada_com.HelloApplication;
-import br.cedup.ada_com.ItemVendido;
+import br.cedup.ada_com.*;
+import br.cedup.ada_com.DAO.*;
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -21,10 +18,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.text.NumberFormat;
-import java.util.List;
-import java.util.Locale;
-import java.util.Optional;
-import java.util.ResourceBundle;
+import java.util.*;
 
 public class RegistraVendaController implements Initializable {
 
@@ -70,26 +64,27 @@ public class RegistraVendaController implements Initializable {
 
     //Passo 3 - Registre a experiencia do cliente.
     @FXML
-    ComboBox comboP1;
-    @FXML
     Label pergunta1;
-    @FXML
-    ComboBox comboP2;
     @FXML
     Label pergunta2;
     @FXML
-    ComboBox comboP3;
-    @FXML
     Label pergunta3;
     @FXML
-    ComboBox comboP4;
-    @FXML
     Label pergunta4;
+    @FXML
+    ComboBox <String>comboP1;
+    @FXML
+    ComboBox <String>comboP2;
+    @FXML
+    ComboBox <String>comboP3;
+    @FXML
+    ComboBox <String>comboP4;
 
     @FXML
     TextArea ObsCompra;
 
     private Cliente cliente;
+    private int clienteID;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -179,7 +174,7 @@ public class RegistraVendaController implements Initializable {
             @Override
             public void handle(ActionEvent event) {
                 if (comfirmaSelecao.isSelected()) {
-                    int clienteID = cliente.getClienteID();
+                    clienteID = cliente.getClienteID();
                     System.out.println("Cliente ID: " + clienteID);
                     // use o clienteID para registrar na tabela registravenda do banco de dados
                 }
@@ -196,7 +191,8 @@ public class RegistraVendaController implements Initializable {
                 // Caso contrário, obter a quantidade digitada no campo quantidadeProduto
                 quantidade = Integer.parseInt(quantidadeProduto.getText());
             }
-            ItemVendido itemVendido = new ItemVendido(itemSelecionado.getNome(), quantidade, itemSelecionado.getValor());
+            ItemVendido itemVendido = new ItemVendido(itemSelecionado.getItemID(), itemSelecionado.getNome(), quantidade, itemSelecionado.getValor());
+
             tabelaItensCarrinho.getItems().add(itemVendido);
             atualizaValorTotal();
 
@@ -206,6 +202,31 @@ public class RegistraVendaController implements Initializable {
         nomeItem.setCellValueFactory(new PropertyValueFactory<>("nome"));
         qtdItem.setCellValueFactory(new PropertyValueFactory<>("quantidade"));
         precoItem.setCellValueFactory(new PropertyValueFactory<>("preco"));
+
+
+        // Declaração do DAO
+        ExperienciaVendaDAO experienciaVendaDAO = new ExperienciaVendaDAO();
+
+        // Recuperação das perguntas do banco de dados
+        List<String> perguntas = experienciaVendaDAO.getPerguntas();
+
+        // Exibição das perguntas nos labels
+        pergunta1.setText(perguntas.get(0));
+        pergunta2.setText(perguntas.get(1));
+        pergunta3.setText(perguntas.get(2));
+        pergunta4.setText(perguntas.get(3));
+
+        // Recuperação das alternativas do banco de dados para cada pergunta
+        List<String> alternativasP1 = experienciaVendaDAO.getAlternativas(1);
+        List<String> alternativasP2 = experienciaVendaDAO.getAlternativas(2);
+        List<String> alternativasP3 = experienciaVendaDAO.getAlternativas(3);
+        List<String> alternativasP4 = experienciaVendaDAO.getAlternativas(4);
+
+        // Exibição das alternativas nos combo boxes
+        comboP1.setItems(FXCollections.observableArrayList(alternativasP1));
+        comboP2.setItems(FXCollections.observableArrayList(alternativasP2));
+        comboP3.setItems(FXCollections.observableArrayList(alternativasP3));
+        comboP4.setItems(FXCollections.observableArrayList(alternativasP4));
     }
 
     @FXML
@@ -258,17 +279,18 @@ public class RegistraVendaController implements Initializable {
     }
 
     @FXML
-    public void registrar () throws IOException {
+    public void registrar () throws IOException, SQLException {
+        ColaboradorDAO colaboradorDAO = new ColaboradorDAO();
+        int vendedorID = colaboradorDAO.getVendedorLogadoID();
 
+
+        System.out.println("Vendedor ID: " + vendedorID);
+        System.out.println("Cliente ID: " + clienteID);
     }
 
-    //Volta para tela principal de vendedor
+    //Volta para tela principal
     @FXML
     public void fechar() throws IOException {
         HelloApplication.setRoot("Main-view");
     }
-
-
-
-
 }

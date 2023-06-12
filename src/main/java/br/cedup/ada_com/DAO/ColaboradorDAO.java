@@ -14,6 +14,7 @@ public class ColaboradorDAO {
     private static final String coluna_senha = "senha";
     private static final String coluna_nome = "nomeColaborador";
     private static final String coluna_sobrenome = "sobreNomeColab";
+    private static int vendedorLogadoID;
 
     public Colaborador loginUser(Colaborador colaborador) throws SQLException {
         Connection connection = ConnectionSingleton.getConnection();
@@ -30,6 +31,10 @@ public class ColaboradorDAO {
             String password = resultado.getString(coluna_senha);
             String nome = resultado.getString(coluna_nome);
             String sobrenome = resultado.getString(coluna_sobrenome);
+
+            // Definir o ID do vendedor que logou
+            setVendedorLogadoID(id);
+
             return new Colaborador(id, nivel, nome, sobrenome, user, password);
         } else {
             return null;
@@ -118,6 +123,14 @@ public class ColaboradorDAO {
                 }
             }
         }
+    }
+
+    public static void setVendedorLogadoID(int id) {
+        vendedorLogadoID = id;
+    }
+
+    public int getVendedorLogadoID() {
+        return vendedorLogadoID;
     }
 
 }
