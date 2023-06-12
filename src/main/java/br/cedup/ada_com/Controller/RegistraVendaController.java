@@ -5,11 +5,13 @@ import br.cedup.ada_com.Cliente;
 import br.cedup.ada_com.DAO.CatalogoDAO;
 import br.cedup.ada_com.DAO.ClienteDAO;
 import br.cedup.ada_com.HelloApplication;
+import br.cedup.ada_com.ItemVendido;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
@@ -51,7 +53,8 @@ public class RegistraVendaController implements Initializable {
     ComboBox <Catalogo> produtosServicos;
     @FXML
     TextField quantidadeProduto;
-
+    @FXML
+    Button botaoIncluir;
     @FXML
     TableView tabelaItensCarrinho;
     @FXML
@@ -145,6 +148,21 @@ public class RegistraVendaController implements Initializable {
             }
         });
 
+        // Desativar o botão incluir inicialmente
+        botaoIncluir.setDisable(true);
+
+        // Adicionar um ouvinte de texto ao campo quantidadeProduto
+        quantidadeProduto.textProperty().addListener((observable, oldValue, newValue) -> {
+            try {
+                // Tentar converter o texto digitado em um número inteiro
+                int quantidade = Integer.parseInt(newValue);
+                // Se a conversão for bem-sucedida e a quantidade for maior que 0, ativar o botão incluir
+                botaoIncluir.setDisable(quantidade <= 0);
+            } catch (NumberFormatException e) {
+                // Se a conversão falhar, desativar o botão incluir
+                botaoIncluir.setDisable(true);
+            }
+        });
 
         comfirmaSelecao.setOnAction(new EventHandler<ActionEvent>() {
             @Override
@@ -156,6 +174,37 @@ public class RegistraVendaController implements Initializable {
                 }
             }
         });
+
+        botaoIncluir.setOnAction(event -> {
+            Catalogo itemSelecionado = produtosServicos.getValue();
+            int quantidade;
+            if (itemSelecionado.getTipo() == 2) {
+                // Se o item selecionado é um serviço, definir a quantidade como 1
+                quantidade = 1;
+            } else {
+                // Caso contrário, obter a quantidade digitada no campo quantidadeProduto
+                quantidade = Integer.parseInt(quantidadeProduto.getText());
+            }
+            ItemVendido itemVendido = new ItemVendido(itemSelecionado.getNome(), quantidade, itemSelecionado.getValor());
+            tabelaItensCarrinho.getItems().add(itemVendido);
+            atualizaValorTotal();
+
+            // Limpar o campo quantidadeProduto
+            quantidadeProduto.clear();
+        });
+        nomeItem.setCellValueFactory(new PropertyValueFactory<>("nome"));
+        qtdItem.setCellValueFactory(new PropertyValueFactory<>("quantidade"));
+        precoItem.setCellValueFactory(new PropertyValueFactory<>("preco"));
+    }
+
+    @FXML
+    private void atualizaValorTotal() {
+        double total = 0;
+        for (Object item : tabelaItensCarrinho.getItems()) {
+            ItemVendido itemVendido = (ItemVendido) item;
+            total += itemVendido.getPreco() * itemVendido.getQuantidade();
+        }
+        valorTotal.setText(String.format("R$ %.2f", total));
     }
 
 
