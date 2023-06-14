@@ -1,76 +1,88 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Accordion?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="787.0" prefWidth="1371.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.cedup.ada_com.Controller.RegistraVendaController">
+<AnchorPane prefHeight="760.0" prefWidth="1123.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.cedup.ada_com.Controller.RegistraVendaController">
    <children>
-      <Button layoutX="862.0" layoutY="725.0" mnemonicParsing="false" onAction="#registrar" prefHeight="48.0" prefWidth="163.0" text="Registrar" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="346.0" />
-      <Button layoutX="1155.0" layoutY="725.0" mnemonicParsing="false" onAction="#fechar" prefHeight="48.0" prefWidth="149.0" text="Cancelar" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="67.0" />
-      <Separator layoutX="7.0" layoutY="38.0" prefHeight="3.0" prefWidth="710.0" AnchorPane.leftAnchor="7.0" />
-      <Text layoutX="22.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Passo 1 - Selecione um cliente." />
-      <Text layoutX="25.0" layoutY="262.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Passo 2 - Registre os itens vendidos." />
-      <TextField fx:id="compoPesquisaCliente" layoutX="99.0" layoutY="49.0" onAction="#onPesquisarCliente" prefHeight="25.0" prefWidth="439.0" />
-      <Separator layoutY="272.0" prefHeight="3.0" prefWidth="688.0" AnchorPane.leftAnchor="0.0" />
-      <Text layoutX="21.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CPF/CNPJ:" />
-      <Button fx:id="pesquisaCliente" layoutX="553.0" layoutY="49.0" mnemonicParsing="false" onAction="#onPesquisarCliente" prefHeight="25.0" prefWidth="105.0" text="Pesquisar" />
-      <TextArea fx:id="ObsCompra" layoutX="732.0" layoutY="394.0" prefHeight="177.0" prefWidth="631.0" AnchorPane.bottomAnchor="216.0" AnchorPane.leftAnchor="732.0" AnchorPane.topAnchor="394.0" />
-      <Text layoutX="733.0" layoutY="375.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Observações gerais:" AnchorPane.bottomAnchor="408.0" AnchorPane.leftAnchor="733.0" AnchorPane.topAnchor="362.0" />
-      <Separator layoutX="721.0" orientation="VERTICAL" prefHeight="701.0" prefWidth="0.0" AnchorPane.bottomAnchor="86.0" AnchorPane.topAnchor="0.0" />
-      <Separator layoutX="10.0" layoutY="708.0" prefHeight="3.0" prefWidth="1356.0" AnchorPane.bottomAnchor="76.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="5.0" />
-      <Text layoutX="741.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Passo 3 - Registre a experiencia do cliente." />
-      <Separator layoutX="718.0" layoutY="37.0" prefHeight="3.0" prefWidth="657.0" AnchorPane.leftAnchor="718.0" AnchorPane.rightAnchor="2.0" />
-      <ComboBox fx:id="comboP1" layoutX="730.0" layoutY="75.0" prefHeight="25.0" prefWidth="558.0" />
-      <ComboBox fx:id="comboP2" layoutX="730.0" layoutY="143.0" prefHeight="25.0" prefWidth="558.0" />
-      <ComboBox fx:id="comboP3" layoutX="730.0" layoutY="215.0" prefHeight="25.0" prefWidth="558.0" />
-      <ComboBox fx:id="comboP4" layoutX="730.0" layoutY="289.0" prefHeight="25.0" prefWidth="558.0" />
-      <Label fx:id="pergunta1" layoutX="733.0" layoutY="45.0" text="Pergunta 1" />
-      <Label fx:id="pergunta2" layoutX="733.0" layoutY="117.0" text="Pergunta 2" />
-      <Label fx:id="pergunta3" layoutX="733.0" layoutY="192.0" text="Pergunta 3" />
-      <Label fx:id="pergunta4" layoutX="733.0" layoutY="264.0" text="Pergunta 4" />
-      <Label fx:id="naoLocalizado" layoutX="101.0" layoutY="84.0" prefHeight="25.0" prefWidth="433.0" />
-      <AnchorPane fx:id="paneLocalizado" layoutX="32.0" layoutY="100.0" prefHeight="123.0" prefWidth="639.0" visible="false">
-         <children>
-            <Text fx:id="nCliente" layoutX="35.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nome::" />
-            <Label fx:id="completaNome" layoutX="80.0" layoutY="10.0" prefHeight="17.0" prefWidth="225.0" />
-            <Text fx:id="dCliente" layoutX="35.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Documento:" />
-            <Label fx:id="completaDocumento" layoutX="102.0" layoutY="56.0" prefHeight="17.0" prefWidth="105.0" />
-            <Text fx:id="eCliente" layoutX="35.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Endereço:" />
-            <Label fx:id="completaCidade" layoutX="100.0" layoutY="91.0" prefHeight="17.0" prefWidth="314.0" />
-            <CheckBox fx:id="comfirmaSelecao" layoutX="9.0" layoutY="10.0" mnemonicParsing="false" />
-            <Separator layoutX="43.0" layoutY="27.0" prefHeight="3.0" prefWidth="366.0" AnchorPane.leftAnchor="44.0" AnchorPane.rightAnchor="5.0" />
-            <Separator layoutX="2.0" layoutY="-1.0" prefHeight="3.0" prefWidth="409.0" AnchorPane.leftAnchor="3.0" AnchorPane.rightAnchor="3.0" />
-            <Separator layoutX="-1.0" layoutY="120.0" prefHeight="3.0" prefWidth="409.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="6.0" />
-            <Separator layoutX="-1.0" orientation="VERTICAL" prefHeight="123.0" prefWidth="6.0" />
-            <Separator layoutX="631.0" orientation="VERTICAL" prefHeight="123.0" prefWidth="0.0" />
-         </children>
-      </AnchorPane>
-      <AnchorPane layoutX="20.0" layoutY="275.0" prefHeight="432.0" prefWidth="697.0">
-         <children>
-            <TableView fx:id="tabelaItensCarrinho" layoutX="5.0" layoutY="89.0" prefHeight="311.0" prefWidth="688.0" AnchorPane.bottomAnchor="32.0" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="89.0">
-              <columns>
-                <TableColumn fx:id="nomeItem" prefWidth="457.0" text="Nome" />
-                  <TableColumn fx:id="qtdItem" prefWidth="95.0" text="Qtd" />
-                <TableColumn fx:id="precoItem" prefWidth="130.0" text="Preço" />
-              </columns>
-            </TableView>
-            <Text layoutX="5.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Quantidade:" />
-            <TextField fx:id="quantidadeProduto" layoutX="103.0" layoutY="50.0" prefHeight="25.0" prefWidth="174.0" />
-            <Text layoutX="5.0" layoutY="25.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Produto/Serviço:" />
-            <ComboBox fx:id="produtosServicos" layoutX="103.0" layoutY="8.0" prefHeight="25.0" prefWidth="535.0" />
-            <Text layoutX="460.0" layoutY="423.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Valor Total:" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="460.0" />
-            <Label fx:id="valorTotal" layoutX="550.0" layoutY="410.0" prefHeight="17.0" prefWidth="105.0" text="Label" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="550.0" />
-            <Button fx:id="botaoIncluir" layoutX="533.0" layoutY="50.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="105.0" text="Incluir" />
-         </children>
-      </AnchorPane>
+      <Button layoutX="616.0" layoutY="674.0" mnemonicParsing="false" onAction="#registrar" prefHeight="48.0" prefWidth="163.0" text="Registrar" AnchorPane.bottomAnchor="38.0" AnchorPane.rightAnchor="344.0" />
+      <Button layoutX="911.0" layoutY="674.0" mnemonicParsing="false" onAction="#fechar" prefHeight="48.0" prefWidth="149.0" text="Cancelar" AnchorPane.bottomAnchor="38.0" AnchorPane.rightAnchor="63.0" />
+      <Accordion layoutX="13.0" layoutY="125.0" prefHeight="470.0" prefWidth="1097.0">
+        <panes>
+          <TitledPane animated="false" text="Passo 1 - Selecione um cliente.">
+               <content>
+                  <AnchorPane prefHeight="371.0" prefWidth="700.0">
+                     <children>
+                        <TextField fx:id="compoPesquisaCliente" layoutX="93.0" layoutY="45.0" onAction="#onPesquisarCliente" prefHeight="25.0" prefWidth="439.0" />
+                        <Text layoutX="15.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CPF/CNPJ:" />
+                        <Button fx:id="pesquisaCliente" layoutX="547.0" layoutY="45.0" mnemonicParsing="false" onAction="#onPesquisarCliente" prefHeight="25.0" prefWidth="105.0" text="Pesquisar" />
+                        <Label fx:id="naoLocalizado" layoutX="95.0" layoutY="80.0" prefHeight="25.0" prefWidth="433.0" />
+                        <AnchorPane fx:id="paneLocalizado" layoutX="28.0" layoutY="120.0" prefHeight="247.0" prefWidth="469.0">
+                           <children>
+                              <Text fx:id="nCliente" layoutX="47.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nome::" />
+                              <Label fx:id="completaNome" layoutX="92.0" layoutY="38.0" prefHeight="17.0" prefWidth="225.0" text="fdsfsdf" />
+                              <Text fx:id="dCliente" layoutX="47.0" layoutY="97.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Documento:" />
+                              <Label fx:id="completaDocumento" layoutX="114.0" layoutY="84.0" prefHeight="17.0" prefWidth="105.0" text="fdsfdsfsd" />
+                              <Text fx:id="eCliente" layoutX="47.0" layoutY="132.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Endereço:" />
+                              <Label fx:id="completaCidade" layoutX="112.0" layoutY="119.0" prefHeight="17.0" prefWidth="314.0" text="fsdfsdfsd" />
+                              <CheckBox fx:id="comfirmaSelecao" layoutX="21.0" layoutY="38.0" mnemonicParsing="false" />
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+               </content>
+          </TitledPane>
+          <TitledPane animated="false" text="Passo 2 - Registre os itens vendidos.">
+               <content>
+                  <AnchorPane prefHeight="432.0" prefWidth="697.0">
+                     <children>
+                        <TableView fx:id="tabelaItensCarrinho" layoutX="5.0" layoutY="89.0" prefHeight="311.0" prefWidth="688.0" AnchorPane.bottomAnchor="32.0" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="89.0">
+                          <columns>
+                            <TableColumn fx:id="nomeItem" prefWidth="457.0" text="Nome" />
+                              <TableColumn fx:id="qtdItem" prefWidth="95.0" text="Qtd" />
+                            <TableColumn fx:id="precoItem" prefWidth="130.0" text="Preço" />
+                          </columns>
+                        </TableView>
+                        <Text layoutX="5.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Quantidade:" />
+                        <TextField fx:id="quantidadeProduto" layoutX="103.0" layoutY="50.0" prefHeight="25.0" prefWidth="174.0" />
+                        <Text layoutX="5.0" layoutY="25.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Produto/Serviço:" />
+                        <ComboBox fx:id="produtosServicos" layoutX="103.0" layoutY="8.0" prefHeight="25.0" prefWidth="535.0" />
+                        <Text layoutX="460.0" layoutY="423.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Valor Total:" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="460.0" />
+                        <Label fx:id="valorTotal" layoutX="550.0" layoutY="410.0" prefHeight="17.0" prefWidth="105.0" text="Label" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="550.0" />
+                        <Button fx:id="botaoIncluir" layoutX="533.0" layoutY="50.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="105.0" text="Incluir" />
+                     </children>
+                  </AnchorPane>
+               </content>
+          </TitledPane>
+          <TitledPane animated="false" text="Passo 3 - Registre a experiencia do cliente.">
+               <content>
+                  <AnchorPane prefHeight="522.0" prefWidth="713.0">
+                     <children>
+                        <Text layoutX="14.0" layoutY="324.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Observações gerais:" />
+                        <ComboBox fx:id="comboP1" layoutX="20.0" layoutY="56.0" prefHeight="25.0" prefWidth="558.0" />
+                        <ComboBox fx:id="comboP2" layoutX="20.0" layoutY="124.0" prefHeight="25.0" prefWidth="558.0" />
+                        <ComboBox fx:id="comboP3" layoutX="20.0" layoutY="196.0" prefHeight="25.0" prefWidth="558.0" />
+                        <ComboBox fx:id="comboP4" layoutX="20.0" layoutY="270.0" prefHeight="25.0" prefWidth="558.0" />
+                        <Label fx:id="pergunta1" layoutX="23.0" layoutY="26.0" text="Pergunta 1" />
+                        <Label fx:id="pergunta2" layoutX="23.0" layoutY="98.0" text="Pergunta 2" />
+                        <Label fx:id="pergunta3" layoutX="23.0" layoutY="173.0" text="Pergunta 3" />
+                        <Label fx:id="pergunta4" layoutX="23.0" layoutY="245.0" text="Pergunta 4" />
+                        <TextArea fx:id="ObsCompra" layoutX="23.0" layoutY="362.0" prefHeight="114.0" prefWidth="579.0" />
+                     </children>
+                  </AnchorPane>
+               </content>
+          </TitledPane>
+        </panes>
+      </Accordion>
    </children>
 </AnchorPane>
