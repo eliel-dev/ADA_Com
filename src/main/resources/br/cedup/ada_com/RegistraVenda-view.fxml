@@ -11,6 +11,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
 <AnchorPane prefHeight="760.0" prefWidth="1123.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.cedup.ada_com.Controller.RegistraVendaController">
@@ -19,7 +20,7 @@
       <Button layoutX="911.0" layoutY="674.0" mnemonicParsing="false" onAction="#fechar" prefHeight="48.0" prefWidth="149.0" text="Cancelar" AnchorPane.bottomAnchor="38.0" AnchorPane.rightAnchor="63.0" />
       <Accordion layoutX="13.0" layoutY="125.0" prefHeight="470.0" prefWidth="1097.0">
         <panes>
-          <TitledPane animated="false" text="Passo 1 - Selecione um cliente.">
+          <TitledPane expanded="false" text="Passo 1 - Selecione um cliente.">
                <content>
                   <AnchorPane prefHeight="371.0" prefWidth="700.0">
                      <children>
@@ -41,12 +42,15 @@
                      </children>
                   </AnchorPane>
                </content>
+               <font>
+                  <Font size="17.0" />
+               </font>
           </TitledPane>
-          <TitledPane animated="false" text="Passo 2 - Registre os itens vendidos.">
+          <TitledPane expanded="false" text="Passo 2 - Registre os itens vendidos.">
                <content>
                   <AnchorPane prefHeight="432.0" prefWidth="697.0">
                      <children>
-                        <TableView fx:id="tabelaItensCarrinho" layoutX="5.0" layoutY="89.0" prefHeight="311.0" prefWidth="688.0" AnchorPane.bottomAnchor="32.0" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="89.0">
+                        <TableView fx:id="tabelaItensCarrinho" layoutX="32.6" layoutY="116.6" prefHeight="239.0" prefWidth="734.0" AnchorPane.bottomAnchor="26.0" AnchorPane.leftAnchor="19.0" AnchorPane.topAnchor="103.0">
                           <columns>
                             <TableColumn fx:id="nomeItem" prefWidth="457.0" text="Nome" />
                               <TableColumn fx:id="qtdItem" prefWidth="95.0" text="Qtd" />
@@ -63,8 +67,11 @@
                      </children>
                   </AnchorPane>
                </content>
+               <font>
+                  <Font size="17.0" />
+               </font>
           </TitledPane>
-          <TitledPane animated="false" text="Passo 3 - Registre a experiencia do cliente.">
+          <TitledPane expanded="false" text="Passo 3 - Registre a experiencia do cliente.">
                <content>
                   <AnchorPane prefHeight="522.0" prefWidth="713.0">
                      <children>
@@ -81,6 +88,9 @@
                      </children>
                   </AnchorPane>
                </content>
+               <font>
+                  <Font size="17.0" />
+               </font>
           </TitledPane>
         </panes>
       </Accordion>
