@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ExperienciaVendaDAO {
-
     /**
      * Este método retorna uma lista de todas as perguntas armazenadas na tabela expPerguntas.
      *
@@ -16,9 +15,8 @@ public class ExperienciaVendaDAO {
     public List<String> getPerguntas() {
         List<String> perguntas = new ArrayList<>();
         String sql = "SELECT Pergunta FROM expPerguntas";
-        try (Connection connection = ConnectionSingleton.getConnection();
-             Statement stmt  = connection.createStatement();
-             ResultSet rs    = stmt.executeQuery(sql)) {
+        try (Statement stmt = ConnectionSingleton.getConnection().createStatement();
+             ResultSet rs = stmt.executeQuery(sql)) {
             while (rs.next()) {
                 perguntas.add(rs.getString("Pergunta"));
             }
@@ -34,18 +32,18 @@ public class ExperienciaVendaDAO {
      * @param expPerguntas_id o ID da pergunta cujas alternativas serão retornadas.
      * @return uma lista de Strings contendo todas as alternativas relacionadas à pergunta especificada armazenadas na tabela expAlternativas.
      */
-    public List<String> getAlternativas(int expPerguntas_id) {
+    public List<String> getAlternativas(int expPerguntas_id)  {
         List<String> alternativas = new ArrayList<>();
         String sql = "SELECT Alternativas FROM expAlternativas WHERE expPerguntas_expPerguntas_id = ?";
-        try (Connection connection = ConnectionSingleton.getConnection();
-             PreparedStatement stmt = connection.prepareStatement(sql)) {
+        try (PreparedStatement stmt = ConnectionSingleton.getConnection().prepareStatement(sql)) {
             stmt.setInt(1, expPerguntas_id);
-            ResultSet rs  = stmt.executeQuery();
-            while (rs.next()) {
-                alternativas.add(rs.getString("Alternativas"));
+            try(ResultSet rs  = stmt.executeQuery()) {
+                while (rs.next()) {
+                    alternativas.add(rs.getString("Alternativas"));
+                }
             }
         } catch (SQLException e) {
-            System.out.println(e.getMessage());
+            throw new RuntimeException(e);
         }
         return alternativas;
     }
@@ -59,16 +57,14 @@ public class ExperienciaVendaDAO {
      */
     public void saveExperienciaVenda(int cliente_id, int alternativas_id, int perguntas_id) {
         String sql = "INSERT INTO experiencia_venda(cliente_Cliente_ID, Alternativas_id, Perguntas_id, Data) VALUES(?,?,?,?)";
-        try (Connection connection = ConnectionSingleton.getConnection();
-             PreparedStatement stmt = connection.prepareStatement(sql)) {
+        try (PreparedStatement stmt = ConnectionSingleton.getConnection().prepareStatement(sql)) {
             stmt.setInt(1, cliente_id);
             stmt.setInt(2, alternativas_id);
             stmt.setInt(3, perguntas_id);
             stmt.setDate(4, new java.sql.Date(System.currentTimeMillis()));
             stmt.executeUpdate();
         } catch (SQLException e) {
-            System.out.println(e.getMessage());
+            throw new RuntimeException(e);
         }
     }
-
 }

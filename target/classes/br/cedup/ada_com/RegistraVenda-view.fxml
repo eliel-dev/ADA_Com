@@ -28,14 +28,14 @@
                         <Text layoutX="15.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CPF/CNPJ:" />
                         <Button fx:id="pesquisaCliente" layoutX="547.0" layoutY="45.0" mnemonicParsing="false" onAction="#onPesquisarCliente" prefHeight="25.0" prefWidth="105.0" text="Pesquisar" />
                         <Label fx:id="naoLocalizado" layoutX="95.0" layoutY="80.0" prefHeight="25.0" prefWidth="433.0" />
-                        <AnchorPane fx:id="paneLocalizado" layoutX="28.0" layoutY="120.0" prefHeight="247.0" prefWidth="469.0">
+                        <AnchorPane fx:id="paneLocalizado" layoutX="28.0" layoutY="120.0" prefHeight="247.0" prefWidth="469.0" visible="false">
                            <children>
                               <Text fx:id="nCliente" layoutX="47.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nome::" />
-                              <Label fx:id="completaNome" layoutX="92.0" layoutY="38.0" prefHeight="17.0" prefWidth="225.0" text="fdsfsdf" />
+                              <Label fx:id="completaNome" layoutX="92.0" layoutY="38.0" prefHeight="17.0" prefWidth="225.0" />
                               <Text fx:id="dCliente" layoutX="47.0" layoutY="97.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Documento:" />
-                              <Label fx:id="completaDocumento" layoutX="114.0" layoutY="84.0" prefHeight="17.0" prefWidth="105.0" text="fdsfdsfsd" />
+                              <Label fx:id="completaDocumento" layoutX="114.0" layoutY="84.0" prefHeight="17.0" prefWidth="105.0" />
                               <Text fx:id="eCliente" layoutX="47.0" layoutY="132.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Endereço:" />
-                              <Label fx:id="completaCidade" layoutX="112.0" layoutY="119.0" prefHeight="17.0" prefWidth="314.0" text="fsdfsdfsd" />
+                              <Label fx:id="completaCidade" layoutX="112.0" layoutY="119.0" prefHeight="17.0" prefWidth="314.0" />
                               <CheckBox fx:id="comfirmaSelecao" layoutX="21.0" layoutY="38.0" mnemonicParsing="false" />
                            </children>
                         </AnchorPane>

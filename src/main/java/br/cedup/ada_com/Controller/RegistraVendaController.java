@@ -87,7 +87,7 @@ public class RegistraVendaController implements Initializable {
     private int clienteID;
 
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
+    public void initialize(URL url, ResourceBundle resourceBundle)  {
         // Criar uma instância do DAO para acessar o banco de dados
         CatalogoDAO catalogoDAO = new CatalogoDAO();
 
@@ -247,7 +247,7 @@ public class RegistraVendaController implements Initializable {
 
 
     @FXML
-    void onPesquisarCliente(ActionEvent event) {
+    void onPesquisarCliente(ActionEvent event) throws SQLException {
         System.out.println("onPesquisarCliente chamado");
 
         completaNome.setText("");

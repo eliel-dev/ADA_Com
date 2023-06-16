@@ -15,10 +15,9 @@ public class CatalogoDAO {
     private static final String coluna_categoria = "categoria";
     private static final String coluna_valor = "valor";
 
-
     public List<Catalogo> getItens() throws SQLException {
         try(Statement stmt = ConnectionSingleton.getConnection().createStatement();
-            ResultSet resultado = stmt.executeQuery("SELECT * FROM catalogo");) {
+            ResultSet resultado = stmt.executeQuery("SELECT * FROM catalogo")) {
 
             List<Catalogo> itens = new ArrayList<>();
             while (resultado.next()) {
@@ -34,56 +33,48 @@ public class CatalogoDAO {
     }
 
     public void inserirItem(Catalogo catalogo) throws SQLException {
-        try (Connection connection = ConnectionSingleton.getConnection()) {
-            String sql = "INSERT INTO catalogo (Tipo, nome, categoria, valor) VALUES (?, ?, ?, ?)";
-            try (PreparedStatement stmt = connection.prepareStatement(sql)) {
-                stmt.setInt(1,catalogo.getTipo());
-                stmt.setString(2,catalogo.getNome());
-                stmt.setString(3,catalogo.getCategoria());
-                stmt.setDouble(4,catalogo.getValor());
+        String sql = "INSERT INTO catalogo (Tipo, nome, categoria, valor) VALUES (?, ?, ?, ?)";
+        try (PreparedStatement stmt = ConnectionSingleton.getConnection().prepareStatement(sql)) {
+            stmt.setInt(1,catalogo.getTipo());
+            stmt.setString(2,catalogo.getNome());
+            stmt.setString(3,catalogo.getCategoria());
+            stmt.setDouble(4,catalogo.getValor());
 
-
-                stmt.executeUpdate();
-            }
+            stmt.executeUpdate();
         }
     }
 
     public List<String> getCategorias() throws SQLException {
-        List<String> categorias = new ArrayList<>();
 
-        Connection connection = ConnectionSingleton.getConnection();
-        String sql = "SELECT DISTINCT categoria FROM Catalogo";
-        PreparedStatement stmt = connection.prepareStatement(sql);
-        ResultSet resultado = stmt.executeQuery();
+        try(Statement stmt = ConnectionSingleton.getConnection().createStatement();
+            ResultSet resultado = stmt.executeQuery("SELECT DISTINCT categoria FROM Catalogo")) {
 
-        while (resultado.next()) {
-            String categoria = resultado.getString("categoria");
-            categorias.add(categoria);
+            List<String> categorias = new ArrayList<>();
+            while (resultado.next()) {
+                String categoria = resultado.getString("categoria");
+                categorias.add(categoria);
+            }
+            return categorias;
         }
-
-        return categorias;
     }
 
     public void atualizarItem(Catalogo catalogo) throws SQLException {
-        try (Connection connection = ConnectionSingleton.getConnection()) {
-            String sql = "UPDATE catalogo SET Tipo = ?, nome = ?, categoria = ?, valor = ? WHERE Item_ID = ?";
-            try (PreparedStatement stmt = connection.prepareStatement(sql)) {
-                stmt.setInt(1, catalogo.getTipo());
-                stmt.setString(2, catalogo.getNome());
-                stmt.setString(3, catalogo.getCategoria());
-                stmt.setDouble(4, catalogo.getValor());
-                stmt.setInt(5, catalogo.getItemID());
+        String sql = "UPDATE catalogo SET Tipo = ?, nome = ?, categoria = ?, valor = ? WHERE Item_ID = ?";
+        try (PreparedStatement stmt = ConnectionSingleton.getConnection().prepareStatement(sql)) {
+            stmt.setInt(1, catalogo.getTipo());
+            stmt.setString(2, catalogo.getNome());
+            stmt.setString(3, catalogo.getCategoria());
+            stmt.setDouble(4, catalogo.getValor());
+            stmt.setInt(5, catalogo.getItemID());
 
-                stmt.executeUpdate();
-            }
+            stmt.executeUpdate();
         }
     }
 
     public boolean itemExiste(String nome, String categoria) throws SQLException {
         // Consultar o banco de dados para verificar se existe um item com o mesmo nome e categoria
         String sql = "SELECT COUNT(*) FROM catalogo WHERE nome = ? AND categoria = ?";
-        try (Connection connection = ConnectionSingleton.getConnection();
-             PreparedStatement stmt = connection.prepareStatement(sql)) {
+        try (PreparedStatement stmt = ConnectionSingleton.getConnection().prepareStatement(sql)) {
             stmt.setString(1, nome);
             stmt.setString(2, categoria);
             try (ResultSet rs = stmt.executeQuery()) {
@@ -99,13 +90,11 @@ public class CatalogoDAO {
     }
 
     public void removerItem(Catalogo catalogo) throws SQLException {
-        try (Connection connection = ConnectionSingleton.getConnection()) {
-            String sql = "DELETE FROM catalogo WHERE Item_ID = ?";
-            try (PreparedStatement stmt = connection.prepareStatement(sql)) {
-                stmt.setInt(1, catalogo.getItemID());
+        String sql = "DELETE FROM catalogo WHERE Item_ID = ?";
+        try (PreparedStatement stmt = ConnectionSingleton.getConnection().prepareStatement(sql)) {
+        stmt.setInt(1, catalogo.getItemID());
 
-                stmt.executeUpdate();
-            }
+        stmt.executeUpdate();
         }
     }
 }

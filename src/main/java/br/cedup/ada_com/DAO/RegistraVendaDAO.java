@@ -16,7 +16,7 @@ public class RegistraVendaDAO {
      * @param valorTotal o valor total da venda.
      * @return o ID da venda registrada.
      */
-    public int registrar(int vendedorID, int clienteID, List<ItemVendido> itensVendidos, double valorTotal) {
+    public int registrar(int vendedorID, int clienteID, List<ItemVendido> itensVendidos, double valorTotal) throws SQLException {
         String sql = "INSERT INTO registrovenda (Cliente_ID, Colaborador_ID, catalogo_Item_ID, Valor_Venda, Data_Venda, Quantidade_Vendida) VALUES (?, ?, ?, ?, ?, ?)";
         try (Connection connection = ConnectionSingleton.getConnection();
              PreparedStatement stmt = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
@@ -33,12 +33,9 @@ public class RegistraVendaDAO {
             if (rs.next()) {
                 return rs.getInt(1);
             }
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
         }
         return -1;
     }
-
 
     /**
      * Este método atualiza a observação do vendedor na tabela registrovenda.
@@ -46,15 +43,13 @@ public class RegistraVendaDAO {
      * @param vendaID o ID da venda cuja observação será atualizada.
      * @param observacao a observação do vendedor.
      */
-    public void atualizarObservacao(int vendaID, String observacao) {
+    public void atualizarObservacao(int vendaID, String observacao) throws SQLException {
         String sql = "UPDATE registrovenda SET anotacoes = ? WHERE Venda_ID = ?";
         try (Connection connection = ConnectionSingleton.getConnection();
              PreparedStatement stmt = connection.prepareStatement(sql)) {
             stmt.setString(1, observacao);
             stmt.setInt(2, vendaID);
             stmt.executeUpdate();
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
         }
     }
 }

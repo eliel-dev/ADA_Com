@@ -17,62 +17,64 @@ public class ColaboradorDAO {
     private static int vendedorLogadoID;
 
     public Colaborador loginUser(Colaborador colaborador) throws SQLException {
-        Connection connection = ConnectionSingleton.getConnection();
 
         String sql = "SELECT Colaborador_ID, nivel, usuario, senha, nomeColaborador, sobreNomeColab FROM colaborador WHERE usuario = ? AND senha = ?";
-        PreparedStatement stmt = connection.prepareStatement(sql);
-        stmt.setString(1, colaborador.getUser());
-        stmt.setString(2, colaborador.getPassword());
-        ResultSet resultado = stmt.executeQuery();
-        if (resultado.next()) {
-            int id = resultado.getInt(coluna_id);
-            int nivel = resultado.getInt(coluna_nivel);
-            String user = resultado.getString(coluna_usuario);
-            String password = resultado.getString(coluna_senha);
-            String nome = resultado.getString(coluna_nome);
-            String sobrenome = resultado.getString(coluna_sobrenome);
+        try(PreparedStatement stmt = ConnectionSingleton.getConnection().prepareStatement(sql)) {
+            stmt.setString(1, colaborador.getUser());
+            stmt.setString(2, colaborador.getPassword());
+            try(ResultSet resultado = stmt.executeQuery();) {
+                if (resultado.next()) {
+                    int id = resultado.getInt(coluna_id);
+                    int nivel = resultado.getInt(coluna_nivel);
+                    String user = resultado.getString(coluna_usuario);
+                    String password = resultado.getString(coluna_senha);
+                    String nome = resultado.getString(coluna_nome);
+                    String sobrenome = resultado.getString(coluna_sobrenome);
 
-            // Definir o ID do vendedor que logou
-            setVendedorLogadoID(id);
-
-            return new Colaborador(id, nivel, nome, sobrenome, user, password);
-        } else {
-            return null;
+                    // Definir o ID do vendedor que logou
+                    setVendedorLogadoID(id);
+                    return new Colaborador(id, nivel, nome, sobrenome, user, password);
+                } else {
+                    return null;
+                }
+            }
         }
     }
 
     public List<Colaborador> getColaboradores() throws SQLException {
-
         List<Colaborador> colaboradores = new ArrayList<>();
 
-        Connection connection = ConnectionSingleton.getConnection();
         String sql = "SELECT * FROM colaborador";
-        PreparedStatement stmt = connection.prepareStatement(sql);
-        ResultSet resultado = stmt.executeQuery();
-
-        while (resultado.next()) {
-            int id = resultado.getInt(coluna_id);
-            int nivel = resultado.getInt(coluna_nivel);
-            String user = resultado.getString(coluna_usuario);
-            String password = resultado.getString(coluna_senha);
-            String nome = resultado.getString(coluna_nome);
-            String sobrenome = resultado.getString(coluna_sobrenome);
-            colaboradores.add(new Colaborador(id, nivel, nome, sobrenome, user, password));
+        try(PreparedStatement stmt = ConnectionSingleton.getConnection().prepareStatement(sql);
+            ResultSet resultado = stmt.executeQuery()) {
+            while (resultado.next()) {
+                int id = resultado.getInt(coluna_id);
+                int nivel = resultado.getInt(coluna_nivel);
+                String user = resultado.getString(coluna_usuario);
+                String password = resultado.getString(coluna_senha);
+                String nome = resultado.getString(coluna_nome);
+                String sobrenome = resultado.getString(coluna_sobrenome);
+                colaboradores.add(new Colaborador(id, nivel, nome, sobrenome, user, password));
+            }
+            return colaboradores;
         }
-        return colaboradores;
     }
 
     public void inserirColaborador(Colaborador colaborador) throws SQLException {
-        try (Connection connection = ConnectionSingleton.getConnection()) {
-            String sql = "INSERT INTO colaborador (nivel, usuario, senha, nomeColaborador, sobreNomeColab) VALUES (?, ?, ?, ?, ?)";
-            try (PreparedStatement stmt = connection.prepareStatement(sql)) {
-                stmt.setInt(1, colaborador.getNivel());
-                stmt.setString(2, colaborador.getUser());
-                stmt.setString(3, colaborador.getPassword());
-                stmt.setString(4, colaborador.getNomeColaborador());
-                stmt.setString(5, colaborador.getSobrenome());
+        String sql = "INSERT INTO colaborador (nivel, usuario, senha, nomeColaborador, sobreNomeColab) VALUES (?, ?, ?, ?, ?)";
+        try (PreparedStatement stmt = ConnectionSingleton.getConnection().prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
 
-                stmt.executeUpdate();
+            stmt.setInt(1, colaborador.getNivel());
+            stmt.setString(2, colaborador.getUser());
+            stmt.setString(3, colaborador.getPassword());
+            stmt.setString(4, colaborador.getNomeColaborador());
+            stmt.setString(5, colaborador.getSobrenome());
+
+            stmt.executeUpdate();
+
+            try (ResultSet rs = stmt.getGeneratedKeys()) {
+                rs.next();
+                colaborador.setColaboradorId(rs.getInt(1));
             }
         }
     }
