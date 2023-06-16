@@ -21,10 +21,6 @@ public class HelloApplication extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        InputStream is = getClass().getResourceAsStream("/resources/JetBrainsMono-Thin.ttf");
-        Font font = Font.loadFont(is, 12);
-        
-
         scene = new Scene(loadFXML("login-view"), 600, 500);
         stage.setMaximized(false);
         stage.setTitle("Aplicação CEDUP");
