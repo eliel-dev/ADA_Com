@@ -1,0 +1,81 @@
+.table-column {
+    /* Estilo para TableColumn */
+    -fx-font-size: 12pt;
+    -fx-font-family: "JetBrainsMono-Thin";
+    -fx-text-fill: white;
+    -fx-alignment: center-left;
+    -fx-padding: 5;
+}
+
+.combo-box {
+    -fx-pref-width: 224px;
+    -fx-pref-height: 40px;
+    -fx-padding: 6px 0px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.25), 4, 0, 0, 4);
+}
+
+.radio-button {
+    /* Estilo para RadioButton */
+    -fx-font-size: 12pt;
+    -fx-font-family: "JetBrainsMono-Thin";
+    -fx-text-fill: white;
+    -fx-padding: 5;
+}
+
+.password-field {
+    /* Estilo para PasswordField */
+    -fx-font-size: 12pt;
+    -fx-font-family: "JetBrainsMono-Thin";
+    -fx-background-color: #1d1d1d;
+    -fx-text-fill: white;
+    -fx-padding: 5;
+}
+
+.menu-button {
+    /* Estilo para MenuButton */
+    -fx-font-size: 12pt;
+    -fx-font-family: "JetBrainsMono-Thin";
+    -fx-background-color: #1d1d1d;
+    -fx-text-fill: white;
+    -fx-padding: 5;
+}
+
+.progress-bar {
+    /* Estilo para ProgressBar */
+    -fx-font-size: 12pt;
+    -fx-font-family: "JetBrainsMono-Thin";
+    -fx-background-color: #1d1d1d;
+    -fx-text-fill: white;
+    -fx-accent: rgb(233, 20, 20);
+}
+
+.anchor-pane {
+    /* Estilo para AnchorPane */
+    -fx-background-color: #1d1d1d;
+    -fx-padding: 10;
+}
+
+.check-box {
+    /* Estilo para CheckBox */
+    -fx-font-size: 12pt;
+    -fx-font-family: "JetBrainsMono-Thin";
+    -fx-text-fill: white;
+    -fx-padding: 5;
+}
+
+.text {
+    /* Estilo para Text */
+    -fx-font-size: 12pt;
+    -fx-font-family: "JetBrainsMono-Thin";
+    -fx-text-fill: white;
+    -fx-padding: 5;
+}
+
+.text-area {
+    /* Estilo para TextArea */
+    -fx-font-size: 12pt;
+    -fx-font-family: "JetBrainsMono-Thin";
+    -fx-background-color: #1d1d1d;
+    -fx-text-fill: white;
+    -fx-padding: 5;
+}

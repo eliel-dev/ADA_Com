@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.cedup.ada_com.Controller.CatalogoModalController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@styles/css/estilo.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.cedup.ada_com.Controller.CatalogoModalController">
    <children>
       <Button fx:id="salvar" layoutX="501.0" layoutY="32.0" mnemonicParsing="false" onAction="#salvar" prefHeight="33.0" prefWidth="85.0" text="Salvar" />
       <Button layoutX="501.0" layoutY="342.0" mnemonicParsing="false" onAction="#cancelar" prefHeight="33.0" prefWidth="85.0" text="Cancelar" />
@@ -20,7 +20,7 @@
       <TextField fx:id="preco" layoutX="26.0" layoutY="182.0" />
       <RadioButton fx:id="radioButtonProduto" layoutX="25.0" layoutY="57.0" mnemonicParsing="false" text="Produto" />
       <RadioButton fx:id="radioButtonServico" layoutX="130.0" layoutY="57.0" mnemonicParsing="false" text="Serviço" />
-      <ComboBox fx:id="comboCategoria" layoutX="26.0" layoutY="256.0" prefWidth="150.0" />
+      <ComboBox fx:id="comboCategoria" layoutX="26.0" layoutY="256.0" prefHeight="0.0" prefWidth="150.0" />
       <Label fx:id="valorInvalido" layoutX="182.0" layoutY="186.0" />
    </children>
 </AnchorPane>

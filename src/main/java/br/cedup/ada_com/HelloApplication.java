@@ -6,12 +6,14 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
+import javafx.scene.text.Font;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.Window;
 import javafx.stage.WindowEvent;
 
 import java.io.IOException;
+import java.io.InputStream;
 
 public class HelloApplication extends Application {
     private static Scene scene;
@@ -19,6 +21,10 @@ public class HelloApplication extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
+        InputStream is = getClass().getResourceAsStream("/resources/JetBrainsMono-Thin.ttf");
+        Font font = Font.loadFont(is, 12);
+        
+
         scene = new Scene(loadFXML("login-view"), 600, 500);
         stage.setMaximized(false);
         stage.setTitle("Aplicação CEDUP");

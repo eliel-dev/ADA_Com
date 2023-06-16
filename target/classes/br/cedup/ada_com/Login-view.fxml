@@ -7,14 +7,14 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.cedup.ada_com.Controller.LoginController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@styles/css/estilo.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.cedup.ada_com.Controller.LoginController">
    <children>
       <Text layoutX="270.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ADA / Com" />
       <TextField fx:id="usuarioField" layoutX="145.0" layoutY="151.0" onAction="#entrar" prefHeight="25.0" prefWidth="364.0" />
       <PasswordField fx:id="senhaField" layoutX="147.0" layoutY="203.0" onAction="#entrar" prefHeight="25.0" prefWidth="364.0" />
-      <Button fx:id="entrarButon" layoutX="256.0" layoutY="288.0" mnemonicParsing="false" onAction="#entrar" prefHeight="35.0" prefWidth="104.0" stylesheets="@styles/styles.css" text="Entrar" />
-      <Label layoutX="92.0" layoutY="155.0" text="Usuario" />
-      <Label layoutX="99.0" layoutY="207.0" text="Senha" />
+      <Button fx:id="entrarButon" layoutX="256.0" layoutY="288.0" mnemonicParsing="false" onAction="#entrar" prefHeight="35.0" prefWidth="104.0" text="Entrar" />
+      <Label layoutX="83.0" layoutY="151.0" text="Usuario" />
+      <Label layoutX="89.0" layoutY="208.0" text="Senha" />
       <Label fx:id="labelEntrar" layoutX="299.0" layoutY="246.0" />
    </children>
 </AnchorPane>
