@@ -290,51 +290,60 @@ public class RegistraVendaController implements Initializable {
     }
 
     @FXML
-    public void registrar() throws IOException, SQLException {
-        ColaboradorDAO colaboradorDAO = new ColaboradorDAO();
-        int vendedorID = colaboradorDAO.getVendedorLogadoID();
+    public void registrar() throws IOException {
+        try {
+            ColaboradorDAO colaboradorDAO = new ColaboradorDAO();
+            int vendedorID = colaboradorDAO.getVendedorLogadoID();
 
-        List<Integer> itemIDs = new ArrayList<>();
-        List<Integer> quantidades = new ArrayList<>();
+            List<Integer> itemIDs = new ArrayList<>();
+            List<Integer> quantidades = new ArrayList<>();
 
-        double valorTotalCarrinho = 0;
-        for (ItemVendido itemVendido : tabelaItensCarrinho.getItems()) {
-            int itemID = itemVendido.getItemID();
-            int quantidade = itemVendido.getQuantidade();
+            double valorTotalCarrinho = 0;
+            for (ItemVendido itemVendido : tabelaItensCarrinho.getItems()) {
+                int itemID = itemVendido.getItemID();
+                int quantidade = itemVendido.getQuantidade();
 
-            itemIDs.add(itemID);
-            quantidades.add(quantidade);
-            valorTotalCarrinho += quantidade * itemVendido.getPreco();
-        }
-
-        System.out.println("##############################################");
-        System.out.println("Vendedor ID: " + vendedorID);
-        System.out.println("Cliente ID: " + clienteID);
-        System.out.println("Itens comprados ID: " + itemIDs);
-        System.out.println("Quantidades: " + quantidades);
-        System.out.println("Valor total do carrinho: " + valorTotalCarrinho);
-
-        // TODO: Registrar a venda no banco de dados usando as listas itemIDs e quantidades
-        List<Integer> perguntaIDs = new ArrayList<>();
-        List<Integer> alternativaIDs = new ArrayList<>();
-
-        for (ComboBox<Alternativa> comboBox : comboBoxes) {
-            Alternativa alternativaSelecionada = comboBox.getValue();
-            if (alternativaSelecionada != null) {
-                int perguntaID = alternativaSelecionada.getPerguntaID();
-                int alternativaID = alternativaSelecionada.getAlternativaID();
-
-                perguntaIDs.add(perguntaID);
-                alternativaIDs.add(alternativaID);
+                itemIDs.add(itemID);
+                quantidades.add(quantidade);
+                valorTotalCarrinho += quantidade * itemVendido.getPreco();
             }
+
+            System.out.println("##############################################");
+            System.out.println("Vendedor ID: " + vendedorID);
+            System.out.println("Cliente ID: " + clienteID);
+            System.out.println("Itens comprados ID: " + itemIDs);
+            System.out.println("Quantidades: " + quantidades);
+            System.out.println("Valor total do carrinho: " + valorTotalCarrinho);
+
+            List<Integer> perguntaIDs = new ArrayList<>();
+            List<Integer> alternativaIDs = new ArrayList<>();
+
+            for (ComboBox<Alternativa> comboBox : comboBoxes) {
+                Alternativa alternativaSelecionada = comboBox.getValue();
+                if (alternativaSelecionada != null) {
+                    int perguntaID = alternativaSelecionada.getPerguntaID();
+                    int alternativaID = alternativaSelecionada.getAlternativaID();
+
+                    perguntaIDs.add(perguntaID);
+                    alternativaIDs.add(alternativaID);
+                }
+            }
+
+            System.out.println("Perguntas IDs: " + perguntaIDs);
+            System.out.println("Alternativas IDs: " + alternativaIDs);
+
+            String obsCompra = ObsCompra.getText();
+            System.out.println("Observações da compra: " + obsCompra);
+
+            // Registrar a venda no banco de dados
+            RegistraVendaDAO registraVendaDAO = new RegistraVendaDAO();
+            registraVendaDAO.registrarVenda(clienteID, vendedorID, itemIDs, quantidades, valorTotalCarrinho, perguntaIDs, alternativaIDs, obsCompra);
+        } catch (SQLException e) {
+            // Tratamento da exceção SQLException
+            System.err.println("Erro ao registrar a venda no banco de dados: " + e.getMessage());
         }
-
-        System.out.println("Perguntas IDs: " + perguntaIDs);
-        System.out.println("Alternativas IDs: " + alternativaIDs);
-
-        String obsCompra = ObsCompra.getText();
-        System.out.println("Observações da compra: " + obsCompra);
     }
+
 
     //Volta para tela principal
     @FXML
