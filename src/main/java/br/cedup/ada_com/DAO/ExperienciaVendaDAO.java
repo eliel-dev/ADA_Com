@@ -1,5 +1,6 @@
 package br.cedup.ada_com.DAO;
 
+import br.cedup.ada_com.Alternativa;
 import br.cedup.ada_com.ConnectionSingleton;
 
 import java.sql.*;
@@ -32,18 +33,20 @@ public class ExperienciaVendaDAO {
      * @param expPerguntas_id o ID da pergunta cujas alternativas serão retornadas.
      * @return uma lista de Strings contendo todas as alternativas relacionadas à pergunta especificada armazenadas na tabela expAlternativas.
      */
-    public List<String> getAlternativas(int expPerguntas_id)  {
-        List<String> alternativas = new ArrayList<>();
-        String sql = "SELECT Alternativas FROM expAlternativas WHERE expPerguntas_expPerguntas_id = ?";
-        try (PreparedStatement stmt = ConnectionSingleton.getConnection().prepareStatement(sql)) {
-            stmt.setInt(1, expPerguntas_id);
-            try(ResultSet rs  = stmt.executeQuery()) {
+    public List<Alternativa> getAlternativas(int perguntaID) throws SQLException {
+        List<Alternativa> alternativas = new ArrayList<>();
+
+        String sql = "SELECT * FROM expAlternativas WHERE expPerguntas_expPerguntas_id = ?";
+        try (PreparedStatement stmt = ConnectionSingleton.getConnection().prepareStatement(sql)){
+            stmt.setInt(1, perguntaID);
+            try(ResultSet rs = stmt.executeQuery();) {
                 while (rs.next()) {
-                    alternativas.add(rs.getString("Alternativas"));
+                    int alternativaID = rs.getInt("expAlternativas_id");
+                    String texto = rs.getString("Alternativas");
+                    Alternativa alternativa = new Alternativa(perguntaID, alternativaID, texto);
+                    alternativas.add(alternativa);
                 }
             }
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
         }
         return alternativas;
     }

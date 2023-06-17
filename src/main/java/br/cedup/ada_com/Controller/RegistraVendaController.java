@@ -13,6 +13,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.util.Callback;
+import br.cedup.ada_com.ItemVendido;
 
 import java.io.IOException;
 import java.net.URL;
@@ -52,7 +53,7 @@ public class RegistraVendaController implements Initializable {
     @FXML
     Button botaoIncluir;
     @FXML
-    TableView tabelaItensCarrinho;
+    TableView<ItemVendido> tabelaItensCarrinho;
     @FXML
     TableColumn nomeItem;
     @FXML
@@ -72,19 +73,20 @@ public class RegistraVendaController implements Initializable {
     @FXML
     Label pergunta4;
     @FXML
-    ComboBox <String>comboP1;
+    ComboBox<Alternativa> comboP1;
     @FXML
-    ComboBox <String>comboP2;
+    ComboBox<Alternativa> comboP2;
     @FXML
-    ComboBox <String>comboP3;
+    ComboBox<Alternativa> comboP3;
     @FXML
-    ComboBox <String>comboP4;
+    ComboBox<Alternativa> comboP4;
 
     @FXML
     TextArea ObsCompra;
 
     private Cliente cliente;
     private int clienteID;
+    private List<ComboBox<Alternativa>> comboBoxes;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle)  {
@@ -175,8 +177,6 @@ public class RegistraVendaController implements Initializable {
             public void handle(ActionEvent event) {
                 if (comfirmaSelecao.isSelected()) {
                     clienteID = cliente.getClienteID();
-                    System.out.println("Cliente ID: " + clienteID);
-                    // use o clienteID para registrar na tabela registravenda do banco de dados
                 }
             }
         });
@@ -198,6 +198,8 @@ public class RegistraVendaController implements Initializable {
 
             // Limpar o campo quantidadeProduto
             quantidadeProduto.clear();
+
+
         });
         nomeItem.setCellValueFactory(new PropertyValueFactory<>("nome"));
         qtdItem.setCellValueFactory(new PropertyValueFactory<>("quantidade"));
@@ -216,24 +218,33 @@ public class RegistraVendaController implements Initializable {
         pergunta3.setText(perguntas.get(2));
         pergunta4.setText(perguntas.get(3));
 
-        // Recuperação das alternativas do banco de dados para cada pergunta
-        List<String> alternativasP1 = experienciaVendaDAO.getAlternativas(1);
-        List<String> alternativasP2 = experienciaVendaDAO.getAlternativas(2);
-        List<String> alternativasP3 = experienciaVendaDAO.getAlternativas(3);
-        List<String> alternativasP4 = experienciaVendaDAO.getAlternativas(4);
+        try {
+            List<Alternativa> alternativasP1 = experienciaVendaDAO.getAlternativas(1);
+            List<Alternativa> alternativasP2 = experienciaVendaDAO.getAlternativas(2);
+            List<Alternativa> alternativasP3 = experienciaVendaDAO.getAlternativas(3);
+            List<Alternativa> alternativasP4 = experienciaVendaDAO.getAlternativas(4);
 
-        // Exibição das alternativas nos combo boxes
-        comboP1.setItems(FXCollections.observableArrayList(alternativasP1));
-        comboP2.setItems(FXCollections.observableArrayList(alternativasP2));
-        comboP3.setItems(FXCollections.observableArrayList(alternativasP3));
-        comboP4.setItems(FXCollections.observableArrayList(alternativasP4));
+            // Exibição das alternativas nos combo boxes
+            comboP1.setItems(FXCollections.observableArrayList(alternativasP1));
+            comboP2.setItems(FXCollections.observableArrayList(alternativasP2));
+            comboP3.setItems(FXCollections.observableArrayList(alternativasP3));
+            comboP4.setItems(FXCollections.observableArrayList(alternativasP4));
+        } catch (SQLException e) {
+            // Tratamento da exceção SQLException
+            System.err.println("Erro ao recuperar as alternativas do banco de dados: " + e.getMessage());
+        }
+        comboBoxes = new ArrayList<>();
+        comboBoxes.add(comboP1);
+        comboBoxes.add(comboP2);
+        comboBoxes.add(comboP3);
+        comboBoxes.add(comboP4);
+
     }
 
     @FXML
     private void atualizaValorTotal() {
         double total = 0;
-        for (Object item : tabelaItensCarrinho.getItems()) {
-            ItemVendido itemVendido = (ItemVendido) item;
+        for (ItemVendido itemVendido : tabelaItensCarrinho.getItems()) {
             total += itemVendido.getPreco() * itemVendido.getQuantidade();
         }
 
@@ -250,16 +261,16 @@ public class RegistraVendaController implements Initializable {
     void onPesquisarCliente(ActionEvent event) throws SQLException {
         System.out.println("onPesquisarCliente chamado");
 
+        // limpa a seleção do CheckBox
         completaNome.setText("");
         completaDocumento.setText("");
         completaCidade.setText("");
-        comfirmaSelecao.setSelected(false); // limpa a seleção do CheckBox
+        comfirmaSelecao.setSelected(false);
 
         ClienteDAO dao = new ClienteDAO();
         String cpfCnpj = compoPesquisaCliente.getText();
         Cliente cliente = dao.getClienteByCpfCnpj(cpfCnpj);
         if (cliente != null) {
-            System.out.println("Cliente localizado: " + cliente.getNomeCliente()); // adicionado para depuração
             this.cliente = cliente; // atribui o cliente localizado ao campo cliente
 
             String nomeCompleto = cliente.getNomeCliente() + " " + cliente.getSobreNomeCliente();
@@ -279,13 +290,50 @@ public class RegistraVendaController implements Initializable {
     }
 
     @FXML
-    public void registrar () throws IOException, SQLException {
+    public void registrar() throws IOException, SQLException {
         ColaboradorDAO colaboradorDAO = new ColaboradorDAO();
         int vendedorID = colaboradorDAO.getVendedorLogadoID();
 
+        List<Integer> itemIDs = new ArrayList<>();
+        List<Integer> quantidades = new ArrayList<>();
 
+        double valorTotalCarrinho = 0;
+        for (ItemVendido itemVendido : tabelaItensCarrinho.getItems()) {
+            int itemID = itemVendido.getItemID();
+            int quantidade = itemVendido.getQuantidade();
+
+            itemIDs.add(itemID);
+            quantidades.add(quantidade);
+            valorTotalCarrinho += quantidade * itemVendido.getPreco();
+        }
+
+        System.out.println("##############################################");
         System.out.println("Vendedor ID: " + vendedorID);
         System.out.println("Cliente ID: " + clienteID);
+        System.out.println("Itens comprados ID: " + itemIDs);
+        System.out.println("Quantidades: " + quantidades);
+        System.out.println("Valor total do carrinho: " + valorTotalCarrinho);
+
+        // TODO: Registrar a venda no banco de dados usando as listas itemIDs e quantidades
+        List<Integer> perguntaIDs = new ArrayList<>();
+        List<Integer> alternativaIDs = new ArrayList<>();
+
+        for (ComboBox<Alternativa> comboBox : comboBoxes) {
+            Alternativa alternativaSelecionada = comboBox.getValue();
+            if (alternativaSelecionada != null) {
+                int perguntaID = alternativaSelecionada.getPerguntaID();
+                int alternativaID = alternativaSelecionada.getAlternativaID();
+
+                perguntaIDs.add(perguntaID);
+                alternativaIDs.add(alternativaID);
+            }
+        }
+
+        System.out.println("Perguntas IDs: " + perguntaIDs);
+        System.out.println("Alternativas IDs: " + alternativaIDs);
+
+        String obsCompra = ObsCompra.getText();
+        System.out.println("Observações da compra: " + obsCompra);
     }
 
     //Volta para tela principal
