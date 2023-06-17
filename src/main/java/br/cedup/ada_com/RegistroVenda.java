@@ -13,6 +13,10 @@ public class RegistroVenda {
     private int quantidadeVendida;
     private String anotacoes;
 
+    // Adicionar um campo para armazenar o nome completo do cliente
+    private String nomeCliente;
+    private String nomeColaborador;
+
     public RegistroVenda(int vendaId, int clienteId, int colaboradorId, int catalogoItemId, int experienciaId, double valorVenda, Date dataVenda, int quantidadeVendida, String anotacoes) {
         this.vendaId = vendaId;
         this.clienteId = clienteId;
@@ -23,6 +27,30 @@ public class RegistroVenda {
         this.dataVenda = dataVenda;
         this.quantidadeVendida = quantidadeVendida;
         this.anotacoes = anotacoes;
+    }
+
+
+    public void setNomeColaborador(String nomeColaborador) {
+        this.nomeColaborador = nomeColaborador;
+    }
+
+    // Adicionar um método getNomeCliente para acessar o nome completo do cliente
+    public String getNomeColaborador() {
+        return nomeColaborador;
+    }
+
+    // Adicionar um método setNomeCliente para armazenar o nome completo do cliente
+    public void setNomeCliente(String nomeCliente) {
+        this.nomeCliente = nomeCliente;
+    }
+
+    // Adicionar um método getNomeCliente para acessar o nome completo do cliente
+    public String getNomeCliente() {
+        return nomeCliente;
+    }
+
+    public double getValorTotal() {
+        return valorVenda * quantidadeVendida;
     }
 
     public int getVendaId() {
