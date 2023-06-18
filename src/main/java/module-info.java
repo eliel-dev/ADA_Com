@@ -4,6 +4,7 @@ module com.example.telas {
     requires java.sql;
     requires passay;
     requires com.calendarfx.view;
+    requires caelum.stella.core;
 
 
     opens br.cedup.ada_com to javafx.fxml;

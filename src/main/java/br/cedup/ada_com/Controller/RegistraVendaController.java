@@ -14,6 +14,9 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.util.Callback;
 import br.cedup.ada_com.ItemVendido;
+import br.com.caelum.stella.format.CPFFormatter;
+import br.com.caelum.stella.format.CNPJFormatter;
+
 
 import java.io.IOException;
 import java.net.URL;
@@ -88,6 +91,7 @@ public class RegistraVendaController implements Initializable {
     private Cliente cliente;
     private int clienteID;
     private List<ComboBox<Alternativa>> comboBoxes;
+    private boolean atualizandoCampo = false;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle)  {
@@ -182,26 +186,6 @@ public class RegistraVendaController implements Initializable {
             }
         });
 
-        botaoIncluir.setOnAction(event -> {
-            Catalogo itemSelecionado = produtosServicos.getValue();
-            int quantidade;
-            if (itemSelecionado.getTipo() == 2) {
-                // Se o item selecionado é um serviço, definir a quantidade como 1
-                quantidade = 1;
-            } else {
-                // Caso contrário, obter a quantidade digitada no campo quantidadeProduto
-                quantidade = Integer.parseInt(quantidadeProduto.getText());
-            }
-            ItemVendido itemVendido = new ItemVendido(itemSelecionado.getItemID(), itemSelecionado.getNome(), quantidade, itemSelecionado.getValor());
-
-            tabelaItensCarrinho.getItems().add(itemVendido);
-            atualizaValorTotal();
-
-            // Limpar o campo quantidadeProduto
-            quantidadeProduto.clear();
-
-
-        });
         nomeItem.setCellValueFactory(new PropertyValueFactory<>("nome"));
         qtdItem.setCellValueFactory(new PropertyValueFactory<>("quantidade"));
         precoItem.setCellValueFactory(new PropertyValueFactory<>("preco"));
@@ -240,6 +224,57 @@ public class RegistraVendaController implements Initializable {
         comboBoxes.add(comboP3);
         comboBoxes.add(comboP4);
 
+
+        // Adicionar ouvinte de texto ao campo compoPesquisaCliente
+        compoPesquisaCliente.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (!atualizandoCampo) {
+                atualizandoCampo = true;
+
+                // Remover caracteres não numéricos
+                String cpfCnpj = newValue.replaceAll("\\D", "");
+
+                // Limitar o tamanho do CPF/CNPJ a 14 dígitos
+                if (cpfCnpj.length() > 14) {
+                    cpfCnpj = cpfCnpj.substring(0, 14);
+                }
+
+                // Formatar como CPF ou CNPJ
+                if (cpfCnpj.length() == 11) {
+                    // Formatar como CPF
+                    CPFFormatter formatter = new CPFFormatter();
+                    cpfCnpj = formatter.format(cpfCnpj);
+                } else if (cpfCnpj.length() == 14) {
+                    // Formatar como CNPJ
+                    CNPJFormatter formatter = new CNPJFormatter();
+                    cpfCnpj = formatter.format(cpfCnpj);
+                }
+
+                // Atualizar o texto do campo compoPesquisaCliente
+                compoPesquisaCliente.setText(cpfCnpj);
+
+                atualizandoCampo = false;
+            }
+        });
+    }
+
+    @FXML
+    private void botaoIncluir() {
+        Catalogo itemSelecionado = produtosServicos.getValue();
+        int quantidade;
+        if (itemSelecionado.getTipo() == 2) {
+            // Se o item selecionado é um serviço, definir a quantidade como 1
+            quantidade = 1;
+        } else {
+            // Caso contrário, obter a quantidade digitada no campo quantidadeProduto
+            quantidade = Integer.parseInt(quantidadeProduto.getText());
+        }
+        ItemVendido itemVendido = new ItemVendido(itemSelecionado.getItemID(), itemSelecionado.getNome(), quantidade, itemSelecionado.getValor());
+
+        tabelaItensCarrinho.getItems().add(itemVendido);
+        atualizaValorTotal();
+
+        // Limpar o campo quantidadeProduto
+        quantidadeProduto.clear();
     }
 
     @FXML
@@ -270,6 +305,9 @@ public class RegistraVendaController implements Initializable {
 
         ClienteDAO dao = new ClienteDAO();
         String cpfCnpj = compoPesquisaCliente.getText();
+        // Remover caracteres de formatação
+        cpfCnpj = cpfCnpj.replaceAll("\\D", "");
+
         Cliente cliente = dao.getClienteByCpfCnpj(cpfCnpj);
         if (cliente != null) {
             this.cliente = cliente; // atribui o cliente localizado ao campo cliente
@@ -278,7 +316,7 @@ public class RegistraVendaController implements Initializable {
             completaNome.setText(nomeCompleto);
             String cidadeEstado = cliente.getCidade() + ", " + cliente.getEstado();
             completaCidade.setText(cidadeEstado);
-            completaDocumento.setText(String.valueOf(cliente.getCnpj_cpf()));
+            completaDocumento.setText((String.valueOf(cliente.getCnpj_cpf())));
             paneLocalizado.setVisible(true);
             naoLocalizado.setVisible(false);
         } else {
