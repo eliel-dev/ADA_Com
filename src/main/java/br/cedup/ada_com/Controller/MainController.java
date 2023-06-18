@@ -1,17 +1,20 @@
 package br.cedup.ada_com.Controller;
 
 import br.cedup.ada_com.HelloApplication;
+import br.cedup.ada_com.RegistroVenda;
+import com.calendarfx.view.CalendarView;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import com.calendarfx.view.CalendarView;
 import javafx.scene.control.MenuButton;
 import javafx.scene.layout.AnchorPane;
 
-
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 
@@ -34,10 +37,9 @@ public class MainController implements Initializable {
     @FXML
     Label nomeSobrenomeLogou;
 
-    CalendarView vendasMes = new CalendarView();
-
     @FXML
     AnchorPane paneCalendario;
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -58,16 +60,13 @@ public class MainController implements Initializable {
         gerenciarTaxaComissao.setDisable(true);
         gerenciarExp.setDisable(true);
 
-        CalendarView vendasMes = new CalendarView();
-        // Adicione o CalendarView ao AnchorPane
-        paneCalendario.getChildren().add(vendasMes);
-
-        // Ancore o CalendarView nas bordas do AnchorPane
-        AnchorPane.setTopAnchor(vendasMes, 0.0);
-        AnchorPane.setRightAnchor(vendasMes, 0.0);
-        AnchorPane.setBottomAnchor(vendasMes, 0.0);
-        AnchorPane.setLeftAnchor(vendasMes, 0.0);
     }
+
+    private List<RegistroVenda> getCompras(LocalDate date) {
+        // Implemente este método para retornar as compras para uma determinada data
+        return new ArrayList<>();
+    }
+
 
     @FXML
     public void gerenciaColaborador() throws IOException {

@@ -8,29 +8,28 @@ import java.util.List;
 public class RegistraVendaDAO {
     public void registrarVenda(int clienteID, int vendedorID, List<Integer> itemIDs, List<Integer> quantidades, double valorTotalCarrinho, List<Integer> perguntaIDs, List<Integer> alternativaIDs, String obsCompra) throws SQLException {
         // Registrar a venda
-        String sql = "INSERT INTO registrovenda (Cliente_ID, Colaborador_ID, catalogo_Item_ID, Valor_Venda, Data_Venda, Quantidade_Vendida) VALUES (?, ?, ?, ?, NOW(), ?)";
+        String sql = "INSERT INTO registrovenda (Cliente_ID, Colaborador_ID, Valor_Venda, Data_Venda) VALUES (?, ?, ?, NOW())";
         try (PreparedStatement stmt = ConnectionSingleton.getConnection().prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
             stmt.setInt(1, clienteID);
             stmt.setInt(2, vendedorID);
-            stmt.setInt(3, itemIDs.get(0)); // Adicionar o ID do primeiro item vendido
-            stmt.setDouble(4, Math.round(valorTotalCarrinho * 100.0) / 100.0); // Arredondar o valor para duas casas decimais
-            stmt.setInt(5, quantidades.get(0)); // Adicionar a quantidade do primeiro item vendido
+            stmt.setDouble(3, Math.round(valorTotalCarrinho * 100.0) / 100.0); // Arredondar o valor para duas casas decimais
             stmt.executeUpdate();
 
             // Obter o ID da venda registrada
             try (ResultSet rs = stmt.getGeneratedKeys()) {
                 if (rs.next()) {
                     int vendaID = rs.getInt(1);
+
                     // Registrar os itens vendidos
-                    for (int i = 1; i < itemIDs.size(); i++) { // Começar do segundo item vendido
+                    for (int i = 0; i < itemIDs.size(); i++) {
                         int itemID = itemIDs.get(i);
                         int quantidade = quantidades.get(i);
 
-                        sql = "UPDATE registrovenda SET catalogo_Item_ID = ?, Quantidade_Vendida = ? WHERE Venda_ID = ?";
+                        sql = "INSERT INTO registrovenda_item (Venda_ID, catalogo_Item_ID, Quantidade) VALUES (?, ?, ?)";
                         try (PreparedStatement stmt2 = ConnectionSingleton.getConnection().prepareStatement(sql)) {
-                            stmt2.setInt(1, itemID);
-                            stmt2.setInt(2, quantidade);
-                            stmt2.setInt(3, vendaID);
+                            stmt2.setInt(1, vendaID);
+                            stmt2.setInt(2, itemID);
+                            stmt2.setInt(3, quantidade);
                             stmt2.executeUpdate();
                         }
                     }

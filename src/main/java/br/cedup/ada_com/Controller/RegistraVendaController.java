@@ -63,7 +63,7 @@ public class RegistraVendaController implements Initializable {
     @FXML
     Label valorTotal;
 
-    //Passo 3 - Registre a experiencia do cliente.
+    //Passo 3 - Registre a experiência do cliente, onde é necessario escolher ao menos 1 alternativa para cada pergunta.
     @FXML
     Label pergunta1;
     @FXML
@@ -81,6 +81,7 @@ public class RegistraVendaController implements Initializable {
     @FXML
     ComboBox<Alternativa> comboP4;
 
+    //Passo 4 - Registra uma observação, caso necessario (Opcional)
     @FXML
     TextArea ObsCompra;
 
@@ -335,9 +336,81 @@ public class RegistraVendaController implements Initializable {
             String obsCompra = ObsCompra.getText();
             System.out.println("Observações da compra: " + obsCompra);
 
-            // Registrar a venda no banco de dados
-            RegistraVendaDAO registraVendaDAO = new RegistraVendaDAO();
-            registraVendaDAO.registrarVenda(clienteID, vendedorID, itemIDs, quantidades, valorTotalCarrinho, perguntaIDs, alternativaIDs, obsCompra);
+            // Verificar se todos os campos necessários foram preenchidos
+            if (comfirmaSelecao.isSelected()) {
+                if (!tabelaItensCarrinho.getItems().isEmpty()) {
+                    if (comboP1.getValue() != null && comboP2.getValue() != null && comboP3.getValue() != null && comboP4.getValue() != null) {
+                        // Todos os campos necessários foram preenchidos
+                        // Registrar a venda no banco de dados
+                        RegistraVendaDAO registraVendaDAO = new RegistraVendaDAO();
+                        registraVendaDAO.registrarVenda(clienteID, vendedorID, itemIDs, quantidades, valorTotalCarrinho, perguntaIDs, alternativaIDs, obsCompra);
+
+                        // Exibir alerta de sucesso
+                        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                        alert.setTitle("Venda registrada");
+                        alert.setHeaderText(null);
+                        alert.setContentText("A venda foi registrada com sucesso. Deseja realizar um novo cadastro?");
+
+                        ButtonType buttonTypeSim = new ButtonType("Sim");
+                        ButtonType buttonTypeNao = new ButtonType("Não");
+                        alert.getButtonTypes().setAll(buttonTypeSim, buttonTypeNao);
+
+                        Optional<ButtonType> result = alert.showAndWait();
+                        if (result.get() == buttonTypeSim){
+                            // Realizar novo cadastro
+                            // Limpar campos
+                            compoPesquisaCliente.clear();
+                            paneLocalizado.setVisible(false);
+                            comfirmaSelecao.setSelected(false);
+                            completaNome.setText("");
+                            completaDocumento.setText("");
+                            completaCidade.setText("");
+                            naoLocalizado.setVisible(false);
+                            nCliente.setText("");
+                            dCliente.setText("");
+                            eCliente.setText("");
+
+                            produtosServicos.setValue(null);
+                            quantidadeProduto.clear();
+                            tabelaItensCarrinho.getItems().clear();
+                            valorTotal.setText("");
+
+                            comboP1.setValue(null);
+                            comboP2.setValue(null);
+                            comboP3.setValue(null);
+                            comboP4.setValue(null);
+
+                            ObsCompra.clear();
+                        } else {
+                            HelloApplication.setRoot("Main-view");
+                        }
+                    } else {
+                        // Exibir alerta de erro
+                        Alert alert = new Alert(Alert.AlertType.ERROR);
+                        alert.setTitle("Erro");
+                        alert.setHeaderText(null);
+                        alert.setContentText("Pelo menos uma alternativa deve ser selecionada para cada pergunta.");
+
+                        alert.showAndWait();
+                    }
+                } else {
+                    // Exibir alerta de erro
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setTitle("Erro");
+                    alert.setHeaderText(null);
+                    alert.setContentText("Pelo menos um item deve ser adicionado ao carrinho.");
+
+                    alert.showAndWait();
+                }
+            } else {
+                // Exibir alerta de erro
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Erro");
+                alert.setHeaderText(null);
+                alert.setContentText("Um cliente deve ser selecionado.");
+
+                alert.showAndWait();
+            }
         } catch (SQLException e) {
             // Tratamento da exceção SQLException
             System.err.println("Erro ao registrar a venda no banco de dados: " + e.getMessage());

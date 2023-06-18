@@ -24,7 +24,7 @@
                <content>
                   <AnchorPane prefHeight="371.0" prefWidth="700.0">
                      <children>
-                        <TextField fx:id="compoPesquisaCliente" layoutX="93.0" layoutY="45.0" onAction="#onPesquisarCliente" prefHeight="25.0" prefWidth="439.0" />
+                        <TextField fx:id="compoPesquisaCliente" layoutX="81.0" layoutY="45.0" onAction="#onPesquisarCliente" prefHeight="25.0" prefWidth="439.0" />
                         <Text layoutX="15.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CPF/CNPJ:" />
                         <Button fx:id="pesquisaCliente" layoutX="547.0" layoutY="45.0" mnemonicParsing="false" onAction="#onPesquisarCliente" prefHeight="25.0" prefWidth="105.0" text="Pesquisar" />
                         <Label fx:id="naoLocalizado" layoutX="95.0" layoutY="80.0" prefHeight="25.0" prefWidth="433.0" />
