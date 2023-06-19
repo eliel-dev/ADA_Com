@@ -1,0 +1,16 @@
+
+`	java:S112D"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ
+`	java:S112X"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ
+a	java:S112œ"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ
+a	java:S112¬"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ
+Q	java:S1101"<This class has 9 parents which is greater than 5 authorized.(Û´—Ê
+n	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ªÍÊ
+Q
+java:S2696L"6Make the enclosing method "static" or remove this set.(Ó’Ï–ÿÿÿÿÿ
+S	java:S106_"9Replace this use of System.out or System.err by a logger.(ı‚°ùÿÿÿÿ
+M	java:S106b"9Replace this use of System.out or System.err by a logger.(´’¼^
+S	java:S106m"9Replace this use of System.out or System.err by a logger.(œÓûÿÿÿÿ
+T
+java:S1128"9Remove this unused import 'br.cedup.ada_com.Colaborador'.(Ã¸Ííûÿÿÿÿ
+V
+java:S1128"@Remove this unused import 'br.cedup.ada_com.DAO.ColaboradorDAO'.(®ä¶ù
