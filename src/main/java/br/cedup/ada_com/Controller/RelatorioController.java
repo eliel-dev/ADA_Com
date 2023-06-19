@@ -35,7 +35,6 @@ public class RelatorioController implements Initializable {
     ComboBox<String> comboRelatorios;
 
 
-    @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         dataVendaColumn.setCellValueFactory(new PropertyValueFactory<>("dataVenda"));
         vendaIdColumn.setCellValueFactory(new PropertyValueFactory<>("vendaId"));
@@ -46,7 +45,14 @@ public class RelatorioController implements Initializable {
         RelatorioDAO relatorioDAO = new RelatorioDAO();
         List<RegistroVenda> resumoVendas = null;
         try {
-            resumoVendas = relatorioDAO.gerarResumoVendas();
+            if (LoginController.nivelDeAcesso == 1) {
+                // Gerar relatório apenas para as vendas feitas pelo vendedor nível 1 que está logado
+                int colaboradorID = LoginController.colaboradorID;
+                resumoVendas = relatorioDAO.gerarResumoVendas(colaboradorID);
+            } else {
+                // Gerar relatório para todas as vendas
+                resumoVendas = relatorioDAO.gerarResumoVendasGestor();
+            }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
