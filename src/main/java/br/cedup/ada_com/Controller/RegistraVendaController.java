@@ -190,7 +190,6 @@ public class RegistraVendaController implements Initializable {
         qtdItem.setCellValueFactory(new PropertyValueFactory<>("quantidade"));
         precoItem.setCellValueFactory(new PropertyValueFactory<>("preco"));
 
-
         // Declaração do DAO
         ExperienciaVendaDAO experienciaVendaDAO = new ExperienciaVendaDAO();
 
@@ -224,7 +223,6 @@ public class RegistraVendaController implements Initializable {
         comboBoxes.add(comboP3);
         comboBoxes.add(comboP4);
 
-
         // Adicionar ouvinte de texto ao campo compoPesquisaCliente
         compoPesquisaCliente.textProperty().addListener((observable, oldValue, newValue) -> {
             if (!atualizandoCampo) {
@@ -237,7 +235,6 @@ public class RegistraVendaController implements Initializable {
                 if (cpfCnpj.length() > 14) {
                     cpfCnpj = cpfCnpj.substring(0, 14);
                 }
-
                 // Formatar como CPF ou CNPJ
                 if (cpfCnpj.length() == 11) {
                     // Formatar como CPF
@@ -454,7 +451,6 @@ public class RegistraVendaController implements Initializable {
             System.err.println("Erro ao registrar a venda no banco de dados: " + e.getMessage());
         }
     }
-
 
     //Volta para tela principal
     @FXML

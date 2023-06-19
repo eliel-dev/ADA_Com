@@ -1,5 +1,6 @@
 package br.cedup.ada_com.Controller;
 
+import br.cedup.ada_com.DAO.ComissaoDAO;
 import br.cedup.ada_com.HelloApplication;
 import br.cedup.ada_com.RegistroVenda;
 import com.calendarfx.view.CalendarView;
@@ -12,9 +13,12 @@ import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
+import java.text.NumberFormat;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.ResourceBundle;
 
 
@@ -38,8 +42,7 @@ public class MainController implements Initializable {
     Label nomeSobrenomeLogou;
 
     @FXML
-    AnchorPane paneCalendario;
-
+    Label comissaoAtualV;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -59,6 +62,22 @@ public class MainController implements Initializable {
         gerenciarEndereco.setDisable(true);
         gerenciarTaxaComissao.setDisable(true);
         gerenciarExp.setDisable(true);
+
+        if (LoginController.nivelDeAcesso == 1) {
+            ComissaoDAO comissaoDAO = new ComissaoDAO();
+            double valorComissao = 0;
+            try {
+                valorComissao = comissaoDAO.getValorComissaoAtual(LoginController.colaboradorID);
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+            NumberFormat format = NumberFormat.getCurrencyInstance(new Locale("pt", "BR"));
+            String valorComissaoFormatado = format.format(valorComissao);
+            comissaoAtualV.setText("Comissão atual: " + valorComissaoFormatado);
+        } else {
+            comissaoAtualV.setText("");
+        }
+
 
     }
 

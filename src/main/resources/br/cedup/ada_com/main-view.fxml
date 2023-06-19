@@ -51,5 +51,6 @@
             </MenuItem>
         </items>
       </MenuButton>
+      <Label fx:id="comissaoAtualV" layoutX="343.0" layoutY="484.0" prefHeight="38.0" prefWidth="281.0" text="Comissao atual do vendedor" />
    </children>
 </AnchorPane>

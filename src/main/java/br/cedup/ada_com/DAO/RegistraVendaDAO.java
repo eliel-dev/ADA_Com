@@ -58,6 +58,9 @@ public class RegistraVendaDAO {
                             stmt2.executeUpdate();
                         }
                     }
+                    // Calcular o valor da comissão e atualizar a tabela comissao
+                    ComissaoDAO comissaoDAO = new ComissaoDAO();
+                    comissaoDAO.calcularComissao(vendedorID, valorTotalCarrinho);
                 }
             }
         }

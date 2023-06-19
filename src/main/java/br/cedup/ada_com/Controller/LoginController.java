@@ -14,6 +14,7 @@ import java.sql.SQLException;
 public class LoginController {
     public static int nivelDeAcesso;
     public static String nomeLogou1;
+    public static int colaboradorID;
 
     @FXML
     TextField usuarioField;
@@ -35,6 +36,7 @@ public class LoginController {
         } else {
             nivelDeAcesso = usuarioExiste.getNivel();
             nomeLogou1 = usuarioExiste.getNomeColaborador() + " " + usuarioExiste.getSobrenome() + ".";
+            colaboradorID = usuarioExiste.getColaboradorId();
             HelloApplication.setRoot("main-view");
         }
     }
