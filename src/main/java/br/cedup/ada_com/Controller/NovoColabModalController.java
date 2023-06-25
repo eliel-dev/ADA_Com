@@ -59,60 +59,10 @@ public class NovoColabModalController implements Initializable {
         radioButtonVendedor.setSelected(true);
         radioButtonVendedor.setDisable(true);
 
-        // Adicionar listener ao campo senhafield para atualizar o passwordStrengthBar
-        senhafield.textProperty().addListener((observable, oldValue, newValue) -> {
-            // Calcular o nível de força da senha
-            int passwordStrength = calculatePasswordStrength(newValue);
 
-            // Atualizar a barra de progresso
-            passwordStrengthBar.setProgress(passwordStrength / 100.0);
-
-            // Alterar a cor da barra de progresso com base no nível de força da senha
-            if (passwordStrength < 30) {
-                passwordStrengthBar.setStyle("-fx-accent: #ff0000;");
-            } else if (passwordStrength < 60) {
-                passwordStrengthBar.setStyle("-fx-accent: #ffff00;");
-            } else {
-                passwordStrengthBar.setStyle("-fx-accent: #00ff00;");
-            }
-        });
     }
 
-    // Método para calcular o nível de força da senha
-    private int calculatePasswordStrength(String password) {
-        // Regras para validar a senha
-        List<Rule> rules = Arrays.asList(
-                new LengthRule(8, 30),
-                new CharacterRule(EnglishCharacterData.UpperCase, 1),
-                new CharacterRule(EnglishCharacterData.LowerCase, 1),
-                new CharacterRule(EnglishCharacterData.Digit, 1),
-                new CharacterRule(EnglishCharacterData.Special, 1),
-                new WhitespaceRule()
-        );
 
-        // Validar a senha
-        PasswordValidator validator = new PasswordValidator(rules);
-        RuleResult result = validator.validate(new PasswordData(password));
-
-        // Calcular o nível de força da senha
-        int passwordStrength = 100;
-        if (!result.isValid()) {
-            for (String msg : validator.getMessages(result)) {
-                if (msg.contains("Length")) {
-                    passwordStrength -= 20;
-                } else if (msg.contains("uppercase")) {
-                    passwordStrength -= 20;
-                } else if (msg.contains("lowercase")) {
-                    passwordStrength -= 20;
-                } else if (msg.contains("digit")) {
-                    passwordStrength -= 20;
-                } else if (msg.contains("special")) {
-                    passwordStrength -= 20;
-                }
-            }
-        }
-        return passwordStrength;
-    }
 
 
     public static void setColaborador (Colaborador colaborador){

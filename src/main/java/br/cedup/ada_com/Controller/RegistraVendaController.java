@@ -177,12 +177,9 @@ public class RegistraVendaController implements Initializable {
             }
         });
 
-        comfirmaSelecao.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                if (comfirmaSelecao.isSelected()) {
-                    clienteID = cliente.getClienteID();
-                }
+        comfirmaSelecao.setOnAction(event -> {
+            if (comfirmaSelecao.isSelected()) {
+                clienteID = cliente.getClienteID();
             }
         });
 
@@ -344,13 +341,6 @@ public class RegistraVendaController implements Initializable {
                 valorTotalCarrinho += quantidade * itemVendido.getPreco();
             }
 
-            System.out.println("##############################################");
-            System.out.println("Vendedor ID: " + vendedorID);
-            System.out.println("Cliente ID: " + clienteID);
-            System.out.println("Itens comprados ID: " + itemIDs);
-            System.out.println("Quantidades: " + quantidades);
-            System.out.println("Valor total do carrinho: " + valorTotalCarrinho);
-
             List<Integer> perguntaIDs = new ArrayList<>();
             List<Integer> alternativaIDs = new ArrayList<>();
 
@@ -365,15 +355,15 @@ public class RegistraVendaController implements Initializable {
                 }
             }
 
-            System.out.println("Perguntas IDs: " + perguntaIDs);
-            System.out.println("Alternativas IDs: " + alternativaIDs);
-
+            //instância compra e obtêm o texto do campo ObsCompra e armazena na variavel obsCompra
             String obsCompra = ObsCompra.getText();
-            System.out.println("Observações da compra: " + obsCompra);
 
             // Verificar se todos os campos necessários foram preenchidos
+            //se um cliente foi selecionado
             if (comfirmaSelecao.isSelected()) {
+                //se pelo menos 1 item foi colocado ao "carrinho de compras" = tabelaItensCarrinho
                 if (!tabelaItensCarrinho.getItems().isEmpty()) {
+                    //se as perguntas da experiência de venda foram preenchidas
                     if (comboP1.getValue() != null && comboP2.getValue() != null && comboP3.getValue() != null && comboP4.getValue() != null) {
                         // Todos os campos necessários foram preenchidos
                         // Registrar a venda no banco de dados
