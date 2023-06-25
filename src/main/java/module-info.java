@@ -9,6 +9,8 @@ module com.example.telas {
 
     opens br.cedup.ada_com to javafx.fxml;
     exports br.cedup.ada_com;
-    exports br.cedup.ada_com.Controller;
-    opens br.cedup.ada_com.Controller to javafx.fxml;
+    exports br.cedup.ada_com.controller;
+    opens br.cedup.ada_com.controller to javafx.fxml;
+    exports br.cedup.ada_com.model;
+    opens br.cedup.ada_com.model to javafx.fxml;
 }

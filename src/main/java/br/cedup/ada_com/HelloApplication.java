@@ -35,9 +35,7 @@ public class HelloApplication extends Application {
                 ((Pane) scene.getRoot()).requestLayout();
             }
         });
-
         stage.show();
-
     }
     public static void main(String[] args) {
         launch();
@@ -50,7 +48,6 @@ public class HelloApplication extends Application {
         return fxmlLoader.load();
     }
     public static void showModal(String fxml) throws IOException {
-        // Obtém a tela atual
         // Obtém a tela atual
         Window primaryStage = scene.getRoot().getScene().getWindow();
 
@@ -70,9 +67,8 @@ public class HelloApplication extends Application {
         // Restaura a cena original
         scene = originalScene;
     }
-    /**
-     * Fecha a janela atual
-     */
+
+     //Fecha a janela atual
     public static void closeCurrentWindow() {
         ((Stage) scene.getRoot().getScene().getWindow()).close();
     }

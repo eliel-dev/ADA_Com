@@ -1,7 +1,7 @@
-package br.cedup.ada_com.Controller;
+package br.cedup.ada_com.controller;
 
-import br.cedup.ada_com.Colaborador;
-import br.cedup.ada_com.DAO.ColaboradorDAO;
+import br.cedup.ada_com.model.Colaborador;
+import br.cedup.ada_com.model.dao.ColaboradorDAO;
 import br.cedup.ada_com.HelloApplication;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -18,10 +18,8 @@ public class LoginController {
 
     @FXML
     TextField usuarioField;
-
     @FXML
     PasswordField senhaField;
-
     @FXML
     Label labelEntrar;
 
@@ -29,7 +27,6 @@ public class LoginController {
     public void entrar() throws IOException, SQLException {
         Colaborador loginUser = new Colaborador(0, 0, nomeLogou1, nomeLogou1, usuarioField.getText(), senhaField.getText());
         Colaborador usuarioExiste = new ColaboradorDAO().loginUser(loginUser);
-
 
         if (usuarioExiste == null) {
             labelEntrar.setText("Usuário ou senha incorretos!");

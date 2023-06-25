@@ -1,9 +1,7 @@
-package br.cedup.ada_com.Controller;
+package br.cedup.ada_com.controller;
 
-import br.cedup.ada_com.Catalogo;
-import br.cedup.ada_com.Colaborador;
-import br.cedup.ada_com.DAO.CatalogoDAO;
-import br.cedup.ada_com.DAO.ColaboradorDAO;
+import br.cedup.ada_com.model.Catalogo;
+import br.cedup.ada_com.model.dao.CatalogoDAO;
 import br.cedup.ada_com.HelloApplication;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
@@ -33,7 +31,6 @@ public class CatalogoController implements Initializable {
     TableColumn<Catalogo, String> colunaCategoria;
     @FXML
     TableColumn<Catalogo, String> colunaTipo;
-
 
 
     @Override
@@ -69,8 +66,6 @@ public class CatalogoController implements Initializable {
         }
     }
 
-
-
     @FXML
     public void novoItem () throws IOException {
         CatalogoModalController.catalogoItem = null;
@@ -92,10 +87,7 @@ public class CatalogoController implements Initializable {
 
     @FXML
     public void editarItem() throws IOException, SQLException {
-        System.out.println("Método editarItem chamado");
-
         Catalogo itemSelecionado = tabelaCatalogo.getSelectionModel().getSelectedItem();
-        System.out.println("Item selecionado: " + itemSelecionado);
 
         if (itemSelecionado != null) {
             // Envia o produto para o model da edição
@@ -122,7 +114,6 @@ public class CatalogoController implements Initializable {
             dao.atualizarItem(itemSelecionado);
         }
     }
-
 
     @FXML
     public void removerItem() {
@@ -155,13 +146,12 @@ public class CatalogoController implements Initializable {
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }
-
             // Atualizar a tabela de itens
             atualizarTabelaItens();
         }
     }
 
-
+    @FXML
     private void atualizarTabelaItens() {
         // Consultar o banco de dados para obter a lista atualizada de itens
         CatalogoDAO catalogoDAO = new CatalogoDAO();

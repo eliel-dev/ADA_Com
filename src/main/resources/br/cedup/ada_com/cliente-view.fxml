@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="634.0" prefWidth="1104.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.cedup.ada_com.controller.ClienteController">
+   <children>
+      <Button layoutX="957.0" layoutY="40.0" mnemonicParsing="false" onAction="#novo" prefHeight="44.0" prefWidth="84.0" text="Novo" AnchorPane.rightAnchor="63.0" AnchorPane.topAnchor="40.0" />
+      <Button layoutX="957.0" layoutY="118.0" mnemonicParsing="false" onAction="#editar" prefHeight="44.0" prefWidth="84.0" text="Editar" AnchorPane.rightAnchor="63.0" AnchorPane.topAnchor="118.0" />
+      <Button layoutX="957.0" layoutY="194.0" mnemonicParsing="false" onAction="#detetar" prefHeight="44.0" prefWidth="84.0" text="Deletar" AnchorPane.rightAnchor="63.0" AnchorPane.topAnchor="194.0" />
+      <Button layoutX="957.0" layoutY="566.0" mnemonicParsing="false" onAction="#voltar" prefHeight="44.0" prefWidth="84.0" text="Voltar" AnchorPane.bottomAnchor="24.0" AnchorPane.rightAnchor="63.0" />
+      <TabPane layoutX="14.0" layoutY="14.0" prefHeight="609.0" prefWidth="900.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="11.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="190.0" AnchorPane.topAnchor="14.0">
+        <tabs>
+            <Tab text="Clientes">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="nomeCliente" layoutY="3.0" prefHeight="580.0" prefWidth="900.0">
+                          <columns>
+                            <TableColumn fx:id="codCliente" prefWidth="107.0" text="Codigo" />
+                            <TableColumn prefWidth="324.0" text="Nome" />
+                              <TableColumn prefWidth="468.0" text="Endereço" />
+                          </columns>
+                        </TableView>
+                     </children></AnchorPane>
+              </content>
+            </Tab>
+          <Tab fx:id="expCliente" text="Experiência de venda">
+               <content>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <ListView fx:id="exPerguntas" editable="true" layoutX="14.0" layoutY="14.0" prefHeight="549.0" prefWidth="420.0" />
+                        <ListView fx:id="exAlternativas" layoutX="440.0" layoutY="14.0" prefHeight="551.0" prefWidth="438.0" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+          <Tab text="Endereços">
+               <content>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <ListView fx:id="listEstados" layoutX="2.0" layoutY="16.0" prefHeight="549.0" prefWidth="444.0" />
+                        <ListView fx:id="listCidades" layoutX="457.0" layoutY="15.0" prefHeight="551.0" prefWidth="429.0" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>

@@ -1,7 +1,7 @@
-package br.cedup.ada_com.Controller;
+package br.cedup.ada_com.controller;
 
-import br.cedup.ada_com.Catalogo;
-import br.cedup.ada_com.DAO.CatalogoDAO;
+import br.cedup.ada_com.model.Catalogo;
+import br.cedup.ada_com.model.dao.CatalogoDAO;
 import br.cedup.ada_com.HelloApplication;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -159,12 +159,6 @@ public class CatalogoModalController implements Initializable {
         double valor = Double.parseDouble(preco.getText());
         int tipo = radioButtonProduto.isSelected() ? 1 : 2;
 
-        System.out.println("Valores dos campos:");
-        System.out.println("Categoria: " + categoria);
-        System.out.println("Nome: " + nome);
-        System.out.println("Valor: " + valor);
-        System.out.println("Tipo: " + tipo);
-
         // Criar um novo objeto Catalogo
         Catalogo novoItem = new Catalogo(0, nome, valor, categoria, tipo);
 
@@ -174,7 +168,6 @@ public class CatalogoModalController implements Initializable {
         // Fechar a janela modal
         HelloApplication.closeCurrentWindow();
     }
-
 
     @FXML
     public void cancelar(){

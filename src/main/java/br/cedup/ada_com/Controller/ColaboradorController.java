@@ -1,7 +1,7 @@
-package br.cedup.ada_com.Controller;
+package br.cedup.ada_com.controller;
 
-import br.cedup.ada_com.Colaborador;
-import br.cedup.ada_com.DAO.ColaboradorDAO;
+import br.cedup.ada_com.model.Colaborador;
+import br.cedup.ada_com.model.dao.ColaboradorDAO;
 import br.cedup.ada_com.HelloApplication;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.ObservableList;

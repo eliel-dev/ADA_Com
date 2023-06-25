@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.cedup.ada_com.Controller.LoginController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.cedup.ada_com.controller.LoginController">
    <children>
       <Text layoutX="270.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ADA / Com" />
       <TextField fx:id="usuarioField" layoutX="145.0" layoutY="151.0" onAction="#entrar" prefHeight="25.0" prefWidth="364.0" />

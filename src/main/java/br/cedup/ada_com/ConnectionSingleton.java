@@ -12,7 +12,6 @@ public class ConnectionSingleton {
     private ConnectionSingleton() {
         // Singleton class
     }
-
     /**
      * Obtém a conexão ativa com o banco.
      * Caso não exista nenhuma conexão ativa ainda, cria uma nova.

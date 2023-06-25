@@ -1,15 +1,13 @@
-package br.cedup.ada_com.Controller;
+package br.cedup.ada_com.controller;
 
-import br.cedup.ada_com.DAO.ComissaoDAO;
+import br.cedup.ada_com.model.dao.ComissaoDAO;
 import br.cedup.ada_com.HelloApplication;
-import br.cedup.ada_com.RegistroVenda;
-import com.calendarfx.view.CalendarView;
+import br.cedup.ada_com.model.RegistroVenda;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuButton;
-import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
 import java.net.URL;
@@ -33,12 +31,6 @@ public class MainController implements Initializable {
     @FXML
     Button gerenciarCliente;
     @FXML
-    Button gerenciarEndereco;
-    @FXML
-    Button gerenciarTaxaComissao;
-    @FXML
-    Button gerenciarExp;
-    @FXML
     Label nomeSobrenomeLogou;
 
     @FXML
@@ -53,15 +45,7 @@ public class MainController implements Initializable {
             gerenciaCatG.setVisible(false);
             gerenciarGeral.setVisible(false);
             gerenciarCliente.setVisible(false);
-            gerenciarEndereco.setVisible(false);
-            gerenciarTaxaComissao.setVisible(false);
-            gerenciarExp.setVisible(false);
         }
-        //Talvez no futuro
-        gerenciarCliente.setDisable(true);
-        gerenciarEndereco.setDisable(true);
-        gerenciarTaxaComissao.setDisable(true);
-        gerenciarExp.setDisable(true);
 
         if (LoginController.nivelDeAcesso == 1) {
             ComissaoDAO comissaoDAO = new ComissaoDAO();
@@ -107,6 +91,11 @@ public class MainController implements Initializable {
     public void registrarVenda() throws IOException {
         HelloApplication.setRoot("registraVenda-view");
 
+    }
+
+    @FXML
+    public void gerenciaCliente() throws IOException {
+        HelloApplication.setRoot("cliente-view");
     }
 
     @FXML

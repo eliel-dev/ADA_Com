@@ -2,23 +2,42 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="516.0" prefWidth="810.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.cedup.ada_com.Controller.ColaboradorController">
+<AnchorPane prefHeight="781.0" prefWidth="1096.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.cedup.ada_com.controller.ColaboradorController">
    <children>
-      <TableView fx:id="tabelaColaborador" prefHeight="516.0" prefWidth="690.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="120.0" AnchorPane.topAnchor="0.0">
-        <columns>
-          <TableColumn fx:id="colunaNome" prefWidth="343.0" text="Nome" />
-            <TableColumn fx:id="colunaFuncao" prefWidth="169.0" text="Função" />
-            <TableColumn fx:id="colunaUsuario" prefWidth="177.0" text="Usuário" />
-        </columns>
-      </TableView>
       <Button layoutX="697.0" layoutY="14.0" mnemonicParsing="false" onAction="#novo" prefHeight="47.0" prefWidth="106.0" text="Novo" AnchorPane.rightAnchor="7.0" AnchorPane.topAnchor="14.0" />
       <Button layoutX="697.0" layoutY="78.0" mnemonicParsing="false" onAction="#editar" prefHeight="47.0" prefWidth="106.0" text="Editar" AnchorPane.rightAnchor="7.0" AnchorPane.topAnchor="78.0" />
       <Button fx:id="botaoRemover" layoutX="697.0" layoutY="142.0" mnemonicParsing="false" onAction="#remover" prefHeight="47.0" prefWidth="106.0" text="Remover" AnchorPane.rightAnchor="7.0" AnchorPane.topAnchor="142.0" />
       <Button layoutX="697.0" layoutY="455.0" mnemonicParsing="false" onAction="#voltar" prefHeight="47.0" prefWidth="106.0" text="Voltar" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="7.0" />
       <Label fx:id="labelCopia" layoutX="411.0" layoutY="258.0" prefHeight="17.0" prefWidth="371.0" />
+      <TabPane layoutX="14.0" layoutY="25.0" prefHeight="665.0" prefWidth="940.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Colaboradores">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="tabelaColaborador" prefHeight="636.0" prefWidth="940.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                          <columns>
+                            <TableColumn fx:id="colunaNome" prefWidth="343.0" text="Nome" />
+                              <TableColumn fx:id="colunaFuncao" prefWidth="169.0" text="Função" />
+                              <TableColumn fx:id="colunaUsuario" prefWidth="177.0" text="Usuário" />
+                          </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Taxa de Comissão">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
    </children>
 </AnchorPane>

@@ -1,10 +1,12 @@
-package br.cedup.ada_com.Controller;
+package br.cedup.ada_com.controller;
 
 import br.cedup.ada_com.*;
-import br.cedup.ada_com.DAO.*;
+import br.cedup.ada_com.model.dao.*;
+import br.cedup.ada_com.model.Exp_cliente;
+import br.cedup.ada_com.model.Catalogo;
+import br.cedup.ada_com.model.Cliente;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
@@ -13,7 +15,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.util.Callback;
-import br.cedup.ada_com.ItemVendido;
+import br.cedup.ada_com.model.ItemVendido;
 import br.com.caelum.stella.format.CPFFormatter;
 import br.com.caelum.stella.format.CNPJFormatter;
 
@@ -76,13 +78,13 @@ public class RegistraVendaController implements Initializable {
     @FXML
     Label pergunta4;
     @FXML
-    ComboBox<Alternativa> comboP1;
+    ComboBox<Exp_cliente> comboP1;
     @FXML
-    ComboBox<Alternativa> comboP2;
+    ComboBox<Exp_cliente> comboP2;
     @FXML
-    ComboBox<Alternativa> comboP3;
+    ComboBox<Exp_cliente> comboP3;
     @FXML
-    ComboBox<Alternativa> comboP4;
+    ComboBox<Exp_cliente> comboP4;
 
     //Passo 4 - Registra uma observação, caso necessario (Opcional)
     @FXML
@@ -90,7 +92,7 @@ public class RegistraVendaController implements Initializable {
 
     private Cliente cliente;
     private int clienteID;
-    private List<ComboBox<Alternativa>> comboBoxes;
+    private List<ComboBox<Exp_cliente>> comboBoxes;
     private boolean atualizandoCampo = false;
 
     @Override
@@ -200,10 +202,10 @@ public class RegistraVendaController implements Initializable {
         pergunta4.setText(perguntas.get(3));
 
         try {
-            List<Alternativa> alternativasP1 = experienciaVendaDAO.getAlternativas(1);
-            List<Alternativa> alternativasP2 = experienciaVendaDAO.getAlternativas(2);
-            List<Alternativa> alternativasP3 = experienciaVendaDAO.getAlternativas(3);
-            List<Alternativa> alternativasP4 = experienciaVendaDAO.getAlternativas(4);
+            List<Exp_cliente> alternativasP1 = experienciaVendaDAO.getAlternativas(1);
+            List<Exp_cliente> alternativasP2 = experienciaVendaDAO.getAlternativas(2);
+            List<Exp_cliente> alternativasP3 = experienciaVendaDAO.getAlternativas(3);
+            List<Exp_cliente> alternativasP4 = experienciaVendaDAO.getAlternativas(4);
 
             // Exibição das alternativas nos combo boxes
             comboP1.setItems(FXCollections.observableArrayList(alternativasP1));
@@ -286,11 +288,8 @@ public class RegistraVendaController implements Initializable {
         valorTotal.setText(valorFormatado);
     }
 
-
     @FXML
     void onPesquisarCliente(ActionEvent event) throws SQLException {
-        System.out.println("onPesquisarCliente chamado");
-
         // limpa a seleção do CheckBox
         completaNome.setText("");
         completaDocumento.setText("");
@@ -344,11 +343,11 @@ public class RegistraVendaController implements Initializable {
             List<Integer> perguntaIDs = new ArrayList<>();
             List<Integer> alternativaIDs = new ArrayList<>();
 
-            for (ComboBox<Alternativa> comboBox : comboBoxes) {
-                Alternativa alternativaSelecionada = comboBox.getValue();
-                if (alternativaSelecionada != null) {
-                    int perguntaID = alternativaSelecionada.getPerguntaID();
-                    int alternativaID = alternativaSelecionada.getAlternativaID();
+            for (ComboBox<Exp_cliente> comboBox : comboBoxes) {
+                Exp_cliente expclienteSelecionada = comboBox.getValue();
+                if (expclienteSelecionada != null) {
+                    int perguntaID = expclienteSelecionada.getPerguntaID();
+                    int alternativaID = expclienteSelecionada.getAlternativaID();
 
                     perguntaIDs.add(perguntaID);
                     alternativaIDs.add(alternativaID);

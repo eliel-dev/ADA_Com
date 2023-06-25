@@ -1,8 +1,8 @@
-package br.cedup.ada_com.Controller;
+package br.cedup.ada_com.controller;
 
-import br.cedup.ada_com.DAO.RelatorioDAO;
+import br.cedup.ada_com.model.dao.RelatorioDAO;
 import br.cedup.ada_com.HelloApplication;
-import br.cedup.ada_com.RegistroVenda;
+import br.cedup.ada_com.model.RegistroVenda;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;

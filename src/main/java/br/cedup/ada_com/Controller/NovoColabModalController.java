@@ -1,18 +1,15 @@
-package br.cedup.ada_com.Controller;
+package br.cedup.ada_com.controller;
 
-import br.cedup.ada_com.Colaborador;
-import br.cedup.ada_com.DAO.ColaboradorDAO;
+import br.cedup.ada_com.model.Colaborador;
+import br.cedup.ada_com.model.dao.ColaboradorDAO;
 import br.cedup.ada_com.HelloApplication;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-import org.passay.*;
 
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
-import java.util.Arrays;
-import java.util.List;
 import java.util.ResourceBundle;
 
 public class NovoColabModalController implements Initializable {
@@ -58,12 +55,7 @@ public class NovoColabModalController implements Initializable {
         // Primeira versão: radioButtonVendedor sempre selecionado e desabilitado
         radioButtonVendedor.setSelected(true);
         radioButtonVendedor.setDisable(true);
-
-
     }
-
-
-
 
     public static void setColaborador (Colaborador colaborador){
         NovoColabModalController.colaborador = colaborador;
