@@ -48,6 +48,15 @@ public class ClienteController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
+
+        List<Cliente> clientes = null;
+        try {
+            clientes = clienteDAO.getClientes();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        listaCliente.setItems(FXCollections.observableArrayList(clientes));
+
         //Lista as cidades do estado selecionado
         try {
             List<Estado> estados = enderecoDAO.getEstados();
@@ -56,8 +65,8 @@ public class ClienteController implements Initializable {
 
             listEstados.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
                 if (newValue != null) {
-                    Estado estadoSelecionado = (Estado) newValue;
-                    List<Cidade> cidades = null;
+                    Estado estadoSelecionado = (newValue);
+                    List<Cidade> cidades;
                     try {
                         cidades = enderecoDAO.getCidadesByEstadoID(estadoSelecionado.getEstadoID());
                     } catch (SQLException e) {
@@ -85,9 +94,6 @@ public class ClienteController implements Initializable {
             alternativasListView.getItems().clear();
             alternativasListView.getItems().addAll(alternativas);
         });
-
-        nomeCliente.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getNomeCliente() + " " + cellData.getValue().getSobreNomeCliente()));
-        enderecoCliente.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getCidade() + ", " + cellData.getValue().getEstado()));
     }
 
     @FXML
@@ -139,18 +145,17 @@ public class ClienteController implements Initializable {
                 listCidades.getItems().remove(cidadeSelecionada);
             }
 
-        } else if (estadoSelecionado != null) {
+        } else {
             TextInputDialog dialog = new TextInputDialog("");
             dialog.setTitle("Aviso");
-            dialog.setHeaderText("Deletar um estado, apaga todas cidades ligadas a ele");
+            dialog.setHeaderText("Deletar um estado, apaga todas cidades ligadas a ele.");
             dialog.setContentText("Caso tenha certeza que deseja isso, digite 'sim': ");
 
             Optional<String> result = dialog.showAndWait();
             // The Java 8 way to get the response value (with lambda expression).
             result.ifPresent(resposta -> {
-                System.out.println("Your name: " + resposta);
                 if (resposta.equalsIgnoreCase("sim")) {
-                    System.out.println("O " + estadoSelecionado.getNomeEstado() + " foi excluido");
+                    System.out.println("O estado de " + estadoSelecionado.getNomeEstado() + " foi excluído");
                 }
             });
         }
