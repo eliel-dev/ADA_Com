@@ -133,7 +133,6 @@ public class ColaboradorController implements Initializable {
             colaboradorSelecionado.setUser(colaboradorAlterado.getUser());
             colaboradorSelecionado.setPassword(colaboradorAlterado.getPassword());
 
-
             // Atualiza a lista gráfica para aplicar as alterações do produto
             this.tabelaColaborador.refresh();
 
@@ -141,7 +140,6 @@ public class ColaboradorController implements Initializable {
             ColaboradorDAO dao = new ColaboradorDAO();
             dao.update(colaboradorSelecionado);
         }
-
     }
 
     @FXML

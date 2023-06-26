@@ -9,12 +9,14 @@ public class Cliente {
     public String cidade;
     public String estado;
 
-    public Cliente(int clienteID, int enderecoID, String nomeCliente, String sobreNomeCliente, String cnpj_cpf) {
+    public Cliente(int clienteID, int enderecoID, String nomeCliente, String sobreNomeCliente, String cnpj_cpf, String cidade, String estado) {
         this.clienteID = clienteID;
         this.enderecoID = enderecoID;
         this.nomeCliente = nomeCliente;
         this.sobreNomeCliente = sobreNomeCliente;
         this.cnpj_cpf = cnpj_cpf;
+        this.cidade = cidade;
+        this.estado = estado;
     }
 
     public String getCidade() {

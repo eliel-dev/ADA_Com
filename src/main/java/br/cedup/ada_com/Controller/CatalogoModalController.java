@@ -35,7 +35,6 @@ public class CatalogoModalController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         // Adicionar um ouvinte ao valor selecionado do ComboBox
         comboCategoria.valueProperty().addListener((observable, oldValue, newValue) -> {
-            System.out.println("Ouvinte chamado com novo valor: " + newValue);
             // Se o novo valor não estiver na lista de opções do ComboBox, adicione-o
             if (!comboCategoria.getItems().contains(newValue)) {
                 comboCategoria.getItems().add(newValue);
@@ -50,10 +49,8 @@ public class CatalogoModalController implements Initializable {
             preco.setText(String.valueOf(catalogoItem.getValor()));
             if (catalogoItem.getTipo() == 1) {
                 radioButtonProduto.setSelected(true);
-                System.out.println("radioButtonProduto selecionado");
             } else {
                 radioButtonServico.setSelected(true);
-                System.out.println("radioButtonServico selecionado");
             }
         }
 

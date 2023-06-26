@@ -28,9 +28,7 @@ public class ClienteDAO {
                     String cnpj_cpf = rs.getString("cnpj_cpf");
                     String nomeCidade = rs.getString("nomeCidade");
                     String nomeEstado = rs.getString("nomeEstado");
-                    cliente = new Cliente(clienteID, enderecoID, nomeCliente, sobreNomeCliente, cnpj_cpf);
-                    cliente.setCidade(nomeCidade);
-                    cliente.setEstado(nomeEstado);
+                    cliente = new Cliente(clienteID, enderecoID, nomeCliente, sobreNomeCliente, cnpj_cpf, nomeCidade, nomeEstado);
                 }
             }return cliente;
         }

@@ -20,11 +20,11 @@
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <TableView fx:id="nomeCliente" layoutY="3.0" prefHeight="580.0" prefWidth="900.0">
+                        <TableView fx:id="listaCliente" layoutY="3.0" prefHeight="580.0" prefWidth="900.0">
                           <columns>
                             <TableColumn fx:id="codCliente" prefWidth="107.0" text="Codigo" />
-                            <TableColumn prefWidth="324.0" text="Nome" />
-                              <TableColumn prefWidth="468.0" text="Endereço" />
+                            <TableColumn fx:id="nomeCliente" prefWidth="324.0" text="Nome" />
+                              <TableColumn fx:id="enderecoCliente" prefWidth="468.0" text="Endereço" />
                           </columns>
                         </TableView>
                      </children></AnchorPane>
@@ -34,8 +34,8 @@
                <content>
                   <AnchorPane prefHeight="200.0" prefWidth="200.0">
                      <children>
-                        <ListView fx:id="exPerguntas" editable="true" layoutX="14.0" layoutY="14.0" prefHeight="549.0" prefWidth="420.0" />
-                        <ListView fx:id="exAlternativas" layoutX="440.0" layoutY="14.0" prefHeight="551.0" prefWidth="438.0" />
+                        <ListView fx:id="perguntasListView" editable="true" layoutX="14.0" layoutY="14.0" prefHeight="549.0" prefWidth="420.0" />
+                        <ListView fx:id="alternativasListView" layoutX="440.0" layoutY="14.0" prefHeight="551.0" prefWidth="438.0" />
                      </children>
                   </AnchorPane>
                </content>
