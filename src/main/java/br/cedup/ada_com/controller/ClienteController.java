@@ -140,17 +140,19 @@ public class ClienteController implements Initializable {
             }
 
         } else if (estadoSelecionado != null) {
-            // um estado está selecionado
-            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-            alert.setTitle("Confirmação");
-            alert.setHeaderText(null);
-            alert.setContentText("Ao remover " + estadoSelecionado.getNomeEstado() + "todas cidades ligadas a esse estado serão deletadas, tem certeza?");
+            TextInputDialog dialog = new TextInputDialog("");
+            dialog.setTitle("Aviso");
+            dialog.setHeaderText("Deletar um estado, apaga todas cidades ligadas a ele");
+            dialog.setContentText("Caso tenha certeza que deseja isso, digite 'sim': ");
 
-            Optional<ButtonType> result = alert.showAndWait();
-            if (result.get() == ButtonType.OK){
-                new EnderecoDAO().excluirEstado(estadoSelecionado.getEstadoID());
-                listCidades.getItems().remove(estadoSelecionado);
-            }
+            Optional<String> result = dialog.showAndWait();
+            // The Java 8 way to get the response value (with lambda expression).
+            result.ifPresent(resposta -> {
+                System.out.println("Your name: " + resposta);
+                if (resposta.equalsIgnoreCase("sim")) {
+                    System.out.println("O " + estadoSelecionado.getNomeEstado() + " foi excluido");
+                }
+            });
         }
     }
 
