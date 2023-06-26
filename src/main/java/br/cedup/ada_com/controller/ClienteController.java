@@ -5,6 +5,7 @@ import br.cedup.ada_com.model.Cidade;
 import br.cedup.ada_com.model.Cliente;
 import br.cedup.ada_com.model.Estado;
 import br.cedup.ada_com.model.Exp_cliente;
+import br.cedup.ada_com.model.dao.ClienteDAO;
 import br.cedup.ada_com.model.dao.EnderecoDAO;
 import br.cedup.ada_com.model.dao.ExperienciaVendaDAO;
 import javafx.beans.property.SimpleStringProperty;
@@ -13,6 +14,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.io.IOException;
 import java.net.URL;
@@ -44,10 +46,16 @@ public class ClienteController implements Initializable {
 
     EnderecoDAO enderecoDAO = new EnderecoDAO();
     ExperienciaVendaDAO dao = new ExperienciaVendaDAO();
+    ClienteDAO clienteDAO = new ClienteDAO();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
+        //new PropertyValueFactory() o valor é exibido da mesma forma como está no BD
+        codCliente.setCellValueFactory(new PropertyValueFactory<>("clienteID"));
+        //cellData posso personalizar a lógica de exibição dos dados
+        nomeCliente.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getNomeCliente() + " " + cellData.getValue().getSobreNomeCliente()));
+        enderecoCliente.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getCidade() + ", " + cellData.getValue().getEstado()));
 
         List<Cliente> clientes = null;
         try {
