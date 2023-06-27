@@ -27,8 +27,7 @@ public class CatalogoDAO {
                 String categoria = resultado.getString(coluna_categoria);
                 int tipo = resultado.getInt(coluna_tipo);
                 itens.add(new Catalogo(id, nome, valor, categoria, tipo));
-            }
-            return itens;
+            }return itens;
         }
     }
 
@@ -53,8 +52,7 @@ public class CatalogoDAO {
             while (resultado.next()) {
                 String categoria = resultado.getString("categoria");
                 categorias.add(categoria);
-            }
-            return categorias;
+            }return categorias;
         }
     }
 

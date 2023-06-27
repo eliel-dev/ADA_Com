@@ -32,8 +32,7 @@ public class ClienteDAO {
                 Cliente cliente = new Cliente(clienteID, enderecoID, nomeCliente, sobreNomeCliente, cnpj_cpf, nomeCidade, nomeEstado);
                 clientes.add(cliente);
             }
-        }
-        return clientes;
+        }return clientes;
     }
 
     public Cliente getClienteByCpfCnpj(String cpfCnpj) throws SQLException {

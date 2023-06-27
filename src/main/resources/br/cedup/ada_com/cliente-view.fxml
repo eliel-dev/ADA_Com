@@ -10,9 +10,9 @@
 
 <AnchorPane prefHeight="634.0" prefWidth="1104.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.cedup.ada_com.controller.ClienteController">
    <children>
-      <Button layoutX="957.0" layoutY="40.0" mnemonicParsing="false" onAction="#novo" prefHeight="44.0" prefWidth="84.0" text="Novo" AnchorPane.rightAnchor="63.0" AnchorPane.topAnchor="40.0" />
-      <Button layoutX="957.0" layoutY="118.0" mnemonicParsing="false" onAction="#editar" prefHeight="44.0" prefWidth="84.0" text="Editar" AnchorPane.rightAnchor="63.0" AnchorPane.topAnchor="118.0" />
-      <Button layoutX="957.0" layoutY="194.0" mnemonicParsing="false" onAction="#detetar" prefHeight="44.0" prefWidth="84.0" text="Deletar" AnchorPane.rightAnchor="63.0" AnchorPane.topAnchor="194.0" />
+      <Button disable="true" layoutX="957.0" layoutY="40.0" mnemonicParsing="false" onAction="#novo" prefHeight="44.0" prefWidth="84.0" text="Novo" AnchorPane.rightAnchor="63.0" AnchorPane.topAnchor="40.0" />
+      <Button disable="true" layoutX="957.0" layoutY="118.0" mnemonicParsing="false" onAction="#editar" prefHeight="44.0" prefWidth="84.0" text="Editar" AnchorPane.rightAnchor="63.0" AnchorPane.topAnchor="118.0" />
+      <Button disable="true" layoutX="957.0" layoutY="194.0" mnemonicParsing="false" onAction="#detetar" prefHeight="44.0" prefWidth="84.0" text="Deletar" AnchorPane.rightAnchor="63.0" AnchorPane.topAnchor="194.0" />
       <Button layoutX="957.0" layoutY="566.0" mnemonicParsing="false" onAction="#voltar" prefHeight="44.0" prefWidth="84.0" text="Voltar" AnchorPane.bottomAnchor="24.0" AnchorPane.rightAnchor="63.0" />
       <TabPane layoutX="14.0" layoutY="14.0" prefHeight="609.0" prefWidth="900.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="11.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="190.0" AnchorPane.topAnchor="14.0">
         <tabs>

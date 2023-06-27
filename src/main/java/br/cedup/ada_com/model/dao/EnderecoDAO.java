@@ -1,6 +1,5 @@
 package br.cedup.ada_com.model.dao;
 
-
 import br.cedup.ada_com.ConnectionSingleton;
 import br.cedup.ada_com.model.Cidade;
 import br.cedup.ada_com.model.Estado;
@@ -26,8 +25,7 @@ public class EnderecoDAO {
                 estado.setEstadoID(estadoID);
                 estados.add(estado);
             }
-        }
-        return estados;
+        }return estados;
     }
 
     public List<Cidade> getCidadesByEstadoID(int estadoID) throws SQLException {
@@ -44,8 +42,7 @@ public class EnderecoDAO {
                     cidades.add(cidade);
                 }
             }
-        }
-        return cidades;
+        }return cidades;
     }
 
     public void cadastrarCidade(Cidade cidade) throws SQLException {

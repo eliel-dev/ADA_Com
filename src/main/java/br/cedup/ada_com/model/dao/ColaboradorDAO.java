@@ -55,8 +55,7 @@ public class ColaboradorDAO {
                 String nome = resultado.getString(coluna_nome);
                 String sobrenome = resultado.getString(coluna_sobrenome);
                 colaboradores.add(new Colaborador(id, nivel, nome, sobrenome, user, password));
-            }
-            return colaboradores;
+            }return colaboradores;
         }
     }
 

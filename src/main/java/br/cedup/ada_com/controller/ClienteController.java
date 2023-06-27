@@ -106,18 +106,9 @@ public class ClienteController implements Initializable {
 
     @FXML
     public void novo(){
-        Estado estadoSelecionado = listEstados.getSelectionModel().getSelectedItem();
-        Cidade cidadeSelecionada = listCidades.getSelectionModel().getSelectedItem();
-
-
-        if (estadoSelecionado != null){
-
-
-        }else if (cidadeSelecionada != null ){
-
-        }
 
     }
+
     @FXML
     public void editar() throws IOException {
         Estado estadoSelecionado = listEstados.getSelectionModel().getSelectedItem();
@@ -131,7 +122,6 @@ public class ClienteController implements Initializable {
             //NovoEnderecoModalController.setCidade(cidadeSelecionada);
             HelloApplication.showModal("novoEnderecoModal");
         }
-
     }
     @FXML
     public void detetar() throws SQLException {

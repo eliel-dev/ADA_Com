@@ -3,6 +3,7 @@ package br.cedup.ada_com.controller;
 import br.cedup.ada_com.model.Colaborador;
 import br.cedup.ada_com.model.dao.ColaboradorDAO;
 import br.cedup.ada_com.HelloApplication;
+import br.cedup.ada_com.model.dao.ComissaoDAO;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -24,18 +25,23 @@ public class ColaboradorController implements Initializable {
 
     @FXML
     TableView<Colaborador> tabelaColaborador;
-
     @FXML
     TableColumn<Colaborador, String> colunaNome;
-
     @FXML
     TableColumn<Colaborador, String> colunaFuncao;
-
     @FXML
     TableColumn<Colaborador, String> colunaUsuario;
+    @FXML
+    TableColumn <Colaborador, String> taxaComissaoVendedor;
+    @FXML
+    TableColumn <Colaborador,String> dataAtual;
 
     @FXML
     Label labelCopia;
+    @FXML
+    Label comissao3;
+    @FXML
+    Label comissao5;
 
     @FXML
     Button botaoRemover;
@@ -62,6 +68,22 @@ public class ColaboradorController implements Initializable {
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
+
+        // Define a fábrica de células da coluna taxaComissaoVendedor para exibir a taxa de comissão atual do vendedor
+        taxaComissaoVendedor.setCellValueFactory(cellData -> {
+            // Cria um objeto ComissaoDAO para acessar o banco de dados
+            ComissaoDAO dao2 = new ComissaoDAO();
+            try {
+                // Obtém a taxa de comissão atual do vendedor do banco de dados
+                double taxaComissao = dao2.getTaxaComissaoAtual(cellData.getValue().getColaboradorId());
+                System.out.println("Taxa de comissão: " + taxaComissao);
+                // Retorna a taxa de comissão como uma StringProperty
+                return new SimpleStringProperty(String.valueOf(taxaComissao * 100 + " %"));
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+        });
+
 
         //Código que permite que um dado seja copiado da tabela
         tabelaColaborador.setOnKeyPressed(event -> {
