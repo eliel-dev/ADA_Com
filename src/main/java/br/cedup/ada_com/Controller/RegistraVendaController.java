@@ -222,28 +222,11 @@ public class RegistraVendaController implements Initializable {
         comboBoxes.add(comboP3);
         comboBoxes.add(comboP4);
 
-        // Adicionar ouvinte de texto ao campo compoPesquisaCliente
         compoPesquisaCliente.textProperty().addListener((observable, oldValue, newValue) -> {
             if (!atualizandoCampo) {
                 atualizandoCampo = true;
 
-                // Remover caracteres não numéricos
-                String cpfCnpj = newValue.replaceAll("\\D", "");
-
-                // Limitar o tamanho do CPF/CNPJ a 14 dígitos
-                if (cpfCnpj.length() > 14) {
-                    cpfCnpj = cpfCnpj.substring(0, 14);
-                }
-                // Formatar como CPF ou CNPJ
-                if (cpfCnpj.length() == 11) {
-                    // Formatar como CPF
-                    CPFFormatter formatter = new CPFFormatter();
-                    cpfCnpj = formatter.format(cpfCnpj);
-                } else if (cpfCnpj.length() == 14) {
-                    // Formatar como CNPJ
-                    CNPJFormatter formatter = new CNPJFormatter();
-                    cpfCnpj = formatter.format(cpfCnpj);
-                }
+                String cpfCnpj = formatarCpfCnpj(newValue);
 
                 // Atualizar o texto do campo compoPesquisaCliente
                 compoPesquisaCliente.setText(cpfCnpj);
@@ -251,6 +234,27 @@ public class RegistraVendaController implements Initializable {
                 atualizandoCampo = false;
             }
         });
+    }
+
+    private String formatarCpfCnpj(String cpfCnpj) {
+        // Remover caracteres não numéricos
+        cpfCnpj = cpfCnpj.replaceAll("\\D", "");
+
+        // Limitar o tamanho do CPF/CNPJ a 14 dígitos
+        if (cpfCnpj.length() > 14) {
+            cpfCnpj = cpfCnpj.substring(0, 14);
+        }
+        // Formatar como CPF ou CNPJ
+        if (cpfCnpj.length() == 11) {
+            // Formatar como CPF
+            CPFFormatter formatter = new CPFFormatter();
+            cpfCnpj = formatter.format(cpfCnpj);
+        } else if (cpfCnpj.length() == 14) {
+            // Formatar como CNPJ
+            CNPJFormatter formatter = new CNPJFormatter();
+            cpfCnpj = formatter.format(cpfCnpj);
+        }
+        return cpfCnpj;
     }
 
     @FXML
@@ -343,6 +347,7 @@ public class RegistraVendaController implements Initializable {
             List<Integer> perguntaIDs = new ArrayList<>();
             List<Integer> alternativaIDs = new ArrayList<>();
 
+            //for-each
             for (ComboBox<Exp_cliente> comboBox : comboBoxes) {
                 Exp_cliente expclienteSelecionada = comboBox.getValue();
                 if (expclienteSelecionada != null) {
