@@ -30,17 +30,12 @@ public class ComissaoDAO {
         double taxaComissao;
         if (valorVendido > valorTotalVendido) {
             taxaComissao = taxaComissao2;
-            System.out.println("Taxa de comissão: " + taxaComissao2);
         } else {
             taxaComissao = taxaComissao1;
-            System.out.println("Taxa de comissão: " + taxaComissao1);
         }
 
         // Calcular o valor da comissão
         double valorComissao = valorTotalCarrinho * taxaComissao;
-
-        System.out.println("Valor vendido: " + valorVendido);
-
 
         // Atualizar a tabela comissao
         sql = "INSERT INTO comissao (Valor_comissao, TaxaComissao, Data, colaborador_Colaborador_ID) VALUES (?, ?, CURRENT_DATE(), ?) ON DUPLICATE KEY UPDATE Valor_comissao = Valor_comissao + ?, TaxaComissao = ?";
