@@ -8,7 +8,7 @@ import java.sql.SQLException;
 
 public class ComissaoDAO {
     public void calcularComissao(int vendedorID, double valorTotalCarrinho) throws SQLException {
-        double valorTotalVendido = 5000;
+        double valorTotalVendido = 15000;
         double taxaComissao1 = 0.03;
         double taxaComissao2 = 0.05;
         double valorVendido;

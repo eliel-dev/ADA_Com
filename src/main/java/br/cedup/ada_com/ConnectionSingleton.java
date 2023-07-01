@@ -6,7 +6,6 @@ import java.sql.SQLException;
 
 //Classe que centraliza a conexão com o banco de dados
 public class ConnectionSingleton {
-
     private static Connection connection;
 
     private ConnectionSingleton() {

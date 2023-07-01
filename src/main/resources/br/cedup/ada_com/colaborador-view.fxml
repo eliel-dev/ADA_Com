@@ -38,8 +38,8 @@
         </tabs>
       </TabPane>
       <Text layoutX="21.0" layoutY="714.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Taxa de comissão geral:" />
-      <Label layoutX="21.0" layoutY="728.0" text="Até 5 mil:" />
-      <Label layoutX="21.0" layoutY="745.0" text="Mais de 5 mil:" />
+      <Label layoutX="21.0" layoutY="728.0" text="Até 15 mil:" />
+      <Label layoutX="21.0" layoutY="745.0" text="Mais de 15 mil:" />
       <Label fx:id="comissao3" layoutX="132.0" layoutY="728.0" text="3%" />
       <Label fx:id="comissao5" layoutX="132.0" layoutY="745.0" text="5%" />
    </children>

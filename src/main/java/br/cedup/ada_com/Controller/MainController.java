@@ -53,7 +53,8 @@ public class MainController implements Initializable {
             try {
                 valorComissao = comissaoDAO.getValorComissaoAtual(LoginController.colaboradorID);
             } catch (SQLException e) {
-                throw new RuntimeException(e);
+                System.err.println("Erro ao recuperar as alternativas do banco de dados: " + e.getMessage());;
+
             }
             NumberFormat format = NumberFormat.getCurrencyInstance(new Locale("pt", "BR"));
             String valorComissaoFormatado = format.format(valorComissao);
@@ -61,8 +62,6 @@ public class MainController implements Initializable {
         } else {
             comissaoAtualV.setText("");
         }
-
-
     }
 
     private List<RegistroVenda> getCompras(LocalDate date) {

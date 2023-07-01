@@ -4,8 +4,11 @@ import br.cedup.ada_com.ConnectionSingleton;
 import br.cedup.ada_com.model.RegistroVenda;
 
 import java.sql.*;
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
 public class RelatorioDAO {
 
@@ -55,5 +58,22 @@ public class RelatorioDAO {
             }
         }return resumoVendas;
     }
+
+
+    public Map<LocalDate, Double> getVendasPorDia() throws SQLException {
+        Map<LocalDate, Double> vendasPorDia = new LinkedHashMap<>();
+
+        String sql = "SELECT DATE(data_venda) AS data, SUM(valor_venda) AS total_vendas FROM registrovenda GROUP BY DATE(data_venda)";
+        try (Statement stmt = ConnectionSingleton.getConnection().createStatement();
+             ResultSet rs = stmt.executeQuery(sql)) {
+            while (rs.next()) {
+                LocalDate data = rs.getDate("data").toLocalDate();
+                double totalVendas = rs.getDouble("total_vendas");
+                vendasPorDia.put(data, totalVendas);
+            }
+        }
+        return vendasPorDia;
+    }
+
 }
 
