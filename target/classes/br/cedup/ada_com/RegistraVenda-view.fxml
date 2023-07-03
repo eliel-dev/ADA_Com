@@ -14,7 +14,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="760.0" prefWidth="1123.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.cedup.ada_com.controller.RegistraVendaController">
+<AnchorPane prefHeight="760.0" prefWidth="1123.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.cedup.ada_com.controller.RegistraVendaController">
    <children>
       <Button layoutX="616.0" layoutY="674.0" mnemonicParsing="false" onAction="#registrar" prefHeight="48.0" prefWidth="163.0" text="Registrar" AnchorPane.bottomAnchor="38.0" AnchorPane.rightAnchor="344.0" />
       <Button layoutX="911.0" layoutY="674.0" mnemonicParsing="false" onAction="#fechar" prefHeight="48.0" prefWidth="149.0" text="Cancelar" AnchorPane.bottomAnchor="38.0" AnchorPane.rightAnchor="63.0" />
@@ -39,6 +39,11 @@
                               <CheckBox fx:id="comfirmaSelecao" layoutX="21.0" layoutY="38.0" mnemonicParsing="false" />
                            </children>
                         </AnchorPane>
+                        <Text fill="#f50202" layoutX="70.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
                      </children>
                   </AnchorPane>
                </content>
@@ -66,6 +71,16 @@
                         <Button fx:id="botaoIncluir" layoutX="865.0" layoutY="23.0" mnemonicParsing="false" onAction="#botaoIncluir" prefHeight="25.0" prefWidth="105.0" text="Incluir" />
                         <Button fx:id="botaoEditar" layoutX="865.0" layoutY="65.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="105.0" text="Editar" />
                         <Button fx:id="botaoExcluir" layoutX="865.0" layoutY="110.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="105.0" text="Excluir" />
+                        <Text fill="#fc0606" layoutX="70.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                        <Text fill="#fc0606" layoutX="95.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*" wrappingWidth="16.505859375">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
                      </children>
                   </AnchorPane>
                </content>
@@ -82,11 +97,31 @@
                         <ComboBox fx:id="comboP2" layoutX="20.0" layoutY="124.0" prefHeight="25.0" prefWidth="558.0" />
                         <ComboBox fx:id="comboP3" layoutX="20.0" layoutY="196.0" prefHeight="25.0" prefWidth="558.0" />
                         <ComboBox fx:id="comboP4" layoutX="20.0" layoutY="270.0" prefHeight="25.0" prefWidth="558.0" />
-                        <Label fx:id="pergunta1" layoutX="23.0" layoutY="26.0" text="Pergunta 1" />
-                        <Label fx:id="pergunta2" layoutX="23.0" layoutY="98.0" text="Pergunta 2" />
-                        <Label fx:id="pergunta3" layoutX="23.0" layoutY="173.0" text="Pergunta 3" />
-                        <Label fx:id="pergunta4" layoutX="23.0" layoutY="245.0" text="Pergunta 4" />
+                        <Label fx:id="pergunta1" layoutX="23.0" layoutY="26.0" text="Pergunta 01:" />
+                        <Label fx:id="pergunta2" layoutX="23.0" layoutY="98.0" text="Pergunta 02:" />
+                        <Label fx:id="pergunta3" layoutX="23.0" layoutY="173.0" text="Pergunta 03:" />
+                        <Label fx:id="pergunta4" layoutX="23.0" layoutY="245.0" text="Pergunta 04:" />
                         <TextArea fx:id="ObsCompra" layoutX="23.0" layoutY="362.0" prefHeight="114.0" prefWidth="579.0" />
+                        <Text fill="#f50808" layoutX="90.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                        <Text fill="#f50808" layoutX="90.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                        <Text fill="#f80303" layoutX="90.0" layoutY="188.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                        <Text fill="#f80303" layoutX="90.0" layoutY="260.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
                      </children>
                   </AnchorPane>
                </content>

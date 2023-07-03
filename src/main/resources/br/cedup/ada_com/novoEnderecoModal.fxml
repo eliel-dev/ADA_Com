@@ -3,9 +3,10 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="318.0" prefWidth="635.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.cedup.ada_com.controller.NovoEnderecoModalController">
+<AnchorPane prefHeight="318.0" prefWidth="635.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.cedup.ada_com.controller.NovoEnderecoModalController">
    <children>
       <Text layoutX="41.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Estado:" />
       <ComboBox fx:id="comboEstado" layoutX="41.0" layoutY="79.0" prefHeight="25.0" prefWidth="326.0" />
@@ -13,5 +14,15 @@
       <ComboBox fx:id="comboCidade" layoutX="41.0" layoutY="193.0" prefHeight="25.0" prefWidth="326.0" />
       <Button layoutX="454.0" layoutY="54.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="103.0" text="Salvar" />
       <Button layoutX="454.0" layoutY="180.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="103.0" text="Cancelar" />
+      <Text fill="#f50202" layoutX="81.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text fill="#f50202" layoutX="81.0" layoutY="179.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>
