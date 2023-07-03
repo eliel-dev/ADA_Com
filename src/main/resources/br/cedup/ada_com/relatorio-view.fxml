@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.chart.BarChart?>
 <?import javafx.scene.chart.CategoryAxis?>
-<?import javafx.scene.chart.LineChart?>
 <?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
@@ -13,14 +13,14 @@
       <Label layoutX="37.0" layoutY="23.0" text="Relatorio Geral" />
       <Button layoutX="1113.0" layoutY="861.0" mnemonicParsing="false" onAction="#voltar" prefHeight="44.0" prefWidth="93.0" text="Voltar" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="33.0" />
       <ComboBox fx:id="comboRelatorios" layoutX="36.0" layoutY="53.0" prefHeight="38.0" prefWidth="923.0" />
-      <Button layoutX="1046.0" layoutY="50.0" mnemonicParsing="false" onAction="#atualizarGraficoVendasPorDia" prefHeight="44.0" prefWidth="160.0" text="Gerar Relatorio" />
-      <LineChart fx:id="rteste" layoutX="37.0" layoutY="121.0" prefHeight="719.0" prefWidth="1172.0">
+      <Button fx:id="btnGerarRelatorios" layoutX="1046.0" layoutY="50.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="160.0" text="Gerar Relatorio" />
+      <BarChart fx:id="rteste" layoutX="36.0" layoutY="101.0" prefHeight="752.0" prefWidth="1172.0" title="Relatório">
         <xAxis>
-          <CategoryAxis side="BOTTOM" />
+          <CategoryAxis label="Categoria" side="BOTTOM" />
         </xAxis>
         <yAxis>
-          <NumberAxis side="LEFT" />
+          <NumberAxis label="Valor" side="LEFT" />
         </yAxis>
-      </LineChart>
+      </BarChart>
    </children>
 </AnchorPane>

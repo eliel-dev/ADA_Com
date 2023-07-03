@@ -1,78 +1,79 @@
 package br.cedup.ada_com.model.dao;
-
 import br.cedup.ada_com.ConnectionSingleton;
-import br.cedup.ada_com.model.RegistroVenda;
 
 import java.sql.*;
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.LinkedHashMap;
-import java.util.List;
 import java.util.Map;
 
 public class RelatorioDAO {
+    public Map<LocalDate, Integer> getNumVendasDiaGeral() throws SQLException {
+        Map<LocalDate, Integer> vendasPorDia = new LinkedHashMap<>();
 
-    public List<RegistroVenda> gerarResumoVendas(int colaboradorID) throws SQLException {
-        List<RegistroVenda> resumoVendas = new ArrayList<>();
-
-        String sql = "SELECT rv.Venda_ID, rv.Data_Venda, c.NomeCliente, c.SobreNomeCliente, co.NomeColaborador, co.SobreNomeColab FROM registrovenda rv JOIN cliente c ON rv.Cliente_ID = c.Cliente_ID JOIN colaborador co ON rv.Colaborador_ID = co.Colaborador_ID WHERE rv.Colaborador_ID = ? GROUP BY rv.Venda_ID";
-        try (PreparedStatement stmt = ConnectionSingleton.getConnection().prepareStatement(sql);){
-            stmt.setInt(1, colaboradorID);
-            try(ResultSet rs = stmt.executeQuery();) {
-                while (rs.next()) {
-                    int vendaID = rs.getInt("Venda_ID");
-                    Date dataVenda = rs.getDate("Data_Venda");
-                    String nomeCliente = rs.getString("NomeCliente");
-                    String sobrenomeCliente = rs.getString("SobreNomeCliente");
-                    String nomeColaborador = rs.getString("NomeColaborador");
-                    String sobrenomeColaborador = rs.getString("SobreNomeColab");
-
-                    RegistroVenda resumoVenda = new RegistroVenda(vendaID, 0, 0, 0, 0, 0.0, dataVenda, 0, "");
-                    resumoVenda.setNomeCliente(nomeCliente + " " + sobrenomeCliente);
-                    resumoVenda.setNomeColaborador(nomeColaborador + " " + sobrenomeColaborador);
-                    resumoVendas.add(resumoVenda);
-                }
-            }
-        }return resumoVendas;
-    }
-
-    public List<RegistroVenda> gerarResumoVendasGestor() throws SQLException {
-        List<RegistroVenda> resumoVendas = new ArrayList<>();
-
-        String sql = "SELECT rv.Venda_ID, rv.Data_Venda, c.NomeCliente, c.SobreNomeCliente, co.NomeColaborador, co.SobreNomeColab FROM registrovenda rv JOIN cliente c ON rv.Cliente_ID = c.Cliente_ID JOIN colaborador co ON rv.Colaborador_ID = co.Colaborador_ID GROUP BY rv.Venda_ID";
-
-        try(PreparedStatement stmt = ConnectionSingleton.getConnection().prepareStatement(sql);
-            ResultSet rs = stmt.executeQuery();) {
-            while (rs.next()) {
-                int vendaID = rs.getInt("Venda_ID");
-                Date dataVenda = rs.getDate("Data_Venda");
-                String nomeCliente = rs.getString("NomeCliente");
-                String sobrenomeCliente = rs.getString("SobreNomeCliente");
-                String nomeColaborador = rs.getString("NomeColaborador");
-                String sobrenomeColaborador = rs.getString("SobreNomeColab");
-
-                RegistroVenda resumoVenda = new RegistroVenda(vendaID, 0, 0, 0, 0, 0.0, dataVenda, 0, "");
-                resumoVenda.setNomeCliente(nomeCliente + " " + sobrenomeCliente);
-                resumoVenda.setNomeColaborador(nomeColaborador + " " + sobrenomeColaborador);
-                resumoVendas.add(resumoVenda);
-            }
-        }return resumoVendas;
-    }
-
-
-    public Map<LocalDate, Double> getVendasPorDia() throws SQLException {
-        Map<LocalDate, Double> vendasPorDia = new LinkedHashMap<>();
-
-        String sql = "SELECT DATE(data_venda) AS data, SUM(valor_venda) AS total_vendas FROM registrovenda GROUP BY DATE(data_venda)";
+        String sql = "SELECT DATE(data_venda) AS data, COUNT(*) AS numero_vendas FROM registrovenda GROUP BY DATE(data_venda)";
         try (Statement stmt = ConnectionSingleton.getConnection().createStatement();
              ResultSet rs = stmt.executeQuery(sql)) {
             while (rs.next()) {
                 LocalDate data = rs.getDate("data").toLocalDate();
-                double totalVendas = rs.getDouble("total_vendas");
-                vendasPorDia.put(data, totalVendas);
+                int numeroVendas = rs.getInt("numero_vendas");
+                vendasPorDia.put(data, numeroVendas);
             }
         }
         return vendasPorDia;
+    }
+
+    public Map<LocalDate, Integer> getNumVendasDiaVendedor(int idVendedor) throws SQLException {
+        Map<LocalDate, Integer> vendasPorDia = new LinkedHashMap<>();
+
+        String sql = "SELECT DATE(data_venda) AS data, COUNT(*) AS numero_vendas FROM registrovenda WHERE Colaborador_ID = ? GROUP BY DATE(data_venda)";
+        try (PreparedStatement stmt = ConnectionSingleton.getConnection().prepareStatement(sql)) {
+            stmt.setInt(1, idVendedor);
+            try (ResultSet rs = stmt.executeQuery()) {
+                while (rs.next()) {
+                    LocalDate data = rs.getDate("data").toLocalDate();
+                    int numeroVendas = rs.getInt("numero_vendas");
+                    vendasPorDia.put(data, numeroVendas);
+                }
+            }
+        }
+        return vendasPorDia;
+    }
+
+    public Map<String, Integer> getNumVendasPorColaboradorVendedor() throws SQLException {
+        Map<String, Integer> numVendasPorColaborador = new LinkedHashMap<>();
+
+        String sql = "SELECT colaborador.NomeColaborador, COUNT(*) AS numero_vendas " +
+                "FROM colaborador " +
+                "INNER JOIN registrovenda ON colaborador.Colaborador_ID = registrovenda.Colaborador_ID " +
+                "WHERE colaborador.Nivel = 1 " +
+                "GROUP BY colaborador.Colaborador_ID";
+        try (Statement stmt = ConnectionSingleton.getConnection().createStatement();
+             ResultSet rs = stmt.executeQuery(sql)) {
+            while (rs.next()) {
+                String nomeColaborador = rs.getString("NomeColaborador");
+                int numeroVendas = rs.getInt("numero_vendas");
+                numVendasPorColaborador.put(nomeColaborador, numeroVendas);
+            }
+        }
+        return numVendasPorColaborador;
+    }
+
+    public Map<String, Integer> getNumVendasPorItemCatalogo() throws SQLException {
+        Map<String, Integer> numVendasPorItem = new LinkedHashMap<>();
+
+        String sql = "SELECT catalogo.nome, SUM(registrovenda_item.Quantidade) AS numero_vendas " +
+                "FROM catalogo " +
+                "INNER JOIN registrovenda_item ON catalogo.Item_ID = registrovenda_item.catalogo_Item_ID " +
+                "GROUP BY catalogo.Item_ID";
+        try (Statement stmt = ConnectionSingleton.getConnection().createStatement();
+             ResultSet rs = stmt.executeQuery(sql)) {
+            while (rs.next()) {
+                String nomeItem = rs.getString("nome");
+                int numeroVendas = rs.getInt("numero_vendas");
+                numVendasPorItem.put(nomeItem, numeroVendas);
+            }
+        }
+        return numVendasPorItem;
     }
 
 }

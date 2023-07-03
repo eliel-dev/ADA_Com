@@ -51,7 +51,7 @@ public class ComissaoDAO {
 
     public double getValorComissaoAtual(int colaboradorID) throws SQLException {
         double valorComissao = 0;
-        String sql = "SELECT Valor_comissao FROM comissao WHERE Data = CURRENT_DATE() AND colaborador_Colaborador_ID = ? ORDER BY Comissao_ID DESC LIMIT 1";
+        String sql = "SELECT SUM(Valor_comissao) FROM comissao WHERE Data >= DATE(CONCAT_WS('-', YEAR(CURRENT_DATE() - INTERVAL 20 DAY), MONTH(CURRENT_DATE() - INTERVAL 20 DAY), 20)) AND Data < DATE(CONCAT_WS('-', YEAR(CURRENT_DATE() + INTERVAL 10 DAY), MONTH(CURRENT_DATE() + INTERVAL 10 DAY), 20)) AND colaborador_Colaborador_ID = ?";
         try (PreparedStatement stmt = ConnectionSingleton.getConnection().prepareStatement(sql)) {
             stmt.setInt(1, colaboradorID);
             try (ResultSet rs = stmt.executeQuery()) {
