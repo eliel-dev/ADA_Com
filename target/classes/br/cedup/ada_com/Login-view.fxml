@@ -8,21 +8,27 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.cedup.ada_com.controller.LoginController">
+<AnchorPane maxHeight="506.0" maxWidth="705.0" minHeight="506.0" minWidth="705.0" prefHeight="506.0" prefWidth="705.0" snapToPixel="false" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.cedup.ada_com.controller.LoginController">
    <children>
-      <Text layoutX="270.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ADA / Com" />
-      <TextField fx:id="usuarioField" layoutX="145.0" layoutY="151.0" onAction="#entrar" prefHeight="25.0" prefWidth="364.0" />
-      <PasswordField fx:id="senhaField" layoutX="147.0" layoutY="203.0" onAction="#entrar" prefHeight="25.0" prefWidth="364.0" styleClass="text" />
-      <Button fx:id="entrarButon" layoutX="256.0" layoutY="288.0" mnemonicParsing="false" onAction="#entrar" prefHeight="35.0" prefWidth="104.0" text="Entrar" />
-      <Label layoutX="83.0" layoutY="151.0" text="Usuario" />
-      <Label layoutX="89.0" layoutY="208.0" text="Senha" />
-      <Label fx:id="labelEntrar" layoutX="299.0" layoutY="246.0" />
-      <Text fill="#e10505" layoutX="124.0" layoutY="166.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*">
+      <Text layoutX="320.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ADA / Com" />
+      <TextField fx:id="usuarioField" layoutX="230.0" layoutY="197.0" onAction="#entrar" prefHeight="25.0" prefWidth="272.0" />
+      <PasswordField fx:id="senhaField" layoutX="230.0" layoutY="277.0" onAction="#entrar" prefHeight="25.0" prefWidth="272.0" styleClass="text" />
+      <Button fx:id="entrarButon" layoutX="298.0" layoutY="372.0" mnemonicParsing="false" onAction="#entrar" prefHeight="35.0" prefWidth="104.0" text="Entrar" />
+      <Label layoutX="139.0" layoutY="196.0" text="Usuario">
+         <font>
+            <Font size="18.0" />
+         </font></Label>
+      <Label layoutX="147.0" layoutY="262.0" text="Senha">
+         <font>
+            <Font size="18.0" />
+         </font></Label>
+      <Label fx:id="labelEntrar" layoutX="265.0" layoutY="328.0" prefHeight="17.0" prefWidth="176.0" />
+      <Text fill="#e10505" layoutX="200.0" layoutY="216.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*" wrappingWidth="7.505859375">
          <font>
             <Font size="18.0" />
          </font>
       </Text>
-      <Text fill="#e10505" layoutX="124.0" layoutY="223.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*">
+      <Text fill="#e10505" layoutX="196.0" layoutY="282.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*">
          <font>
             <Font size="18.0" />
          </font>

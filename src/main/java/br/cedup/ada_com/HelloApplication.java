@@ -21,10 +21,11 @@ public class HelloApplication extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("login-view"), 600, 500);
+        scene = new Scene(loadFXML("login-view"));
         stage.setMaximized(false);
         stage.setTitle("ADA/Com");
         stage.setScene(scene);
+        stage.setResizable(false);
         stage.show();
 
         // Adicionar o manipulador de eventos aqui
@@ -62,6 +63,7 @@ public class HelloApplication extends Application {
         dialog.initModality(Modality.APPLICATION_MODAL);
         dialog.initOwner(primaryStage);
         dialog.setScene(scene);
+        dialog.setResizable(false);
         dialog.showAndWait();
 
         // Restaura a cena original
