@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Accordion?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.ComboBox?>
@@ -9,127 +8,100 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="760.0" prefWidth="1123.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.cedup.ada_com.controller.RegistraVendaController">
+<AnchorPane prefHeight="922.0" prefWidth="1214.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.cedup.ada_com.controller.RegistraVendaController">
    <children>
-      <Button layoutX="616.0" layoutY="674.0" mnemonicParsing="false" onAction="#registrar" prefHeight="48.0" prefWidth="163.0" text="Registrar" AnchorPane.bottomAnchor="38.0" AnchorPane.rightAnchor="344.0" />
-      <Button layoutX="911.0" layoutY="674.0" mnemonicParsing="false" onAction="#fechar" prefHeight="48.0" prefWidth="149.0" text="Cancelar" AnchorPane.bottomAnchor="38.0" AnchorPane.rightAnchor="63.0" />
-      <Accordion layoutX="13.0" layoutY="125.0" prefHeight="470.0" prefWidth="1097.0">
-        <panes>
-          <TitledPane expanded="false" text="Passo 1 - Selecione um cliente.">
-               <content>
-                  <AnchorPane prefHeight="371.0" prefWidth="700.0">
-                     <children>
-                        <TextField fx:id="compoPesquisaCliente" layoutX="81.0" layoutY="45.0" onAction="#onPesquisarCliente" prefHeight="25.0" prefWidth="439.0" />
-                        <Text layoutX="15.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CPF/CNPJ:" />
-                        <Button fx:id="pesquisaCliente" layoutX="547.0" layoutY="45.0" mnemonicParsing="false" onAction="#onPesquisarCliente" prefHeight="25.0" prefWidth="105.0" text="Pesquisar" />
-                        <Label fx:id="naoLocalizado" layoutX="95.0" layoutY="80.0" prefHeight="25.0" prefWidth="433.0" />
-                        <AnchorPane fx:id="paneLocalizado" layoutX="28.0" layoutY="120.0" prefHeight="247.0" prefWidth="469.0" visible="false">
-                           <children>
-                              <Text fx:id="nCliente" layoutX="47.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nome::" />
-                              <Label fx:id="completaNome" layoutX="92.0" layoutY="38.0" prefHeight="17.0" prefWidth="225.0" />
-                              <Text fx:id="dCliente" layoutX="47.0" layoutY="97.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Documento:" />
-                              <Label fx:id="completaDocumento" layoutX="114.0" layoutY="84.0" prefHeight="17.0" prefWidth="105.0" />
-                              <Text fx:id="eCliente" layoutX="47.0" layoutY="132.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Endereço:" />
-                              <Label fx:id="completaCidade" layoutX="112.0" layoutY="119.0" prefHeight="17.0" prefWidth="314.0" />
-                              <CheckBox fx:id="comfirmaSelecao" layoutX="21.0" layoutY="38.0" mnemonicParsing="false" />
-                           </children>
-                        </AnchorPane>
-                        <Text fill="#f50202" layoutX="70.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Text>
-                     </children>
-                  </AnchorPane>
-               </content>
+      <Button layoutX="728.0" layoutY="854.0" mnemonicParsing="false" onAction="#registrar" prefHeight="48.0" prefWidth="163.0" text="Registrar" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="524.0" />
+      <Button layoutX="1141.0" layoutY="854.0" mnemonicParsing="false" onAction="#fechar" prefHeight="48.0" prefWidth="149.0" text="Cancelar" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="125.0" />
+      <AnchorPane layoutX="14.0" layoutY="21.0" prefHeight="371.0" prefWidth="636.0">
+         <children>
+            <TextField fx:id="compoPesquisaCliente" layoutX="81.0" layoutY="45.0" onAction="#onPesquisarCliente" prefHeight="25.0" prefWidth="439.0" />
+            <Text layoutX="15.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CPF/CNPJ:" />
+            <Button fx:id="pesquisaCliente" layoutX="533.0" layoutY="45.0" mnemonicParsing="false" onAction="#onPesquisarCliente" prefHeight="25.0" prefWidth="105.0" text="Pesquisar" />
+            <Label fx:id="naoLocalizado" layoutX="95.0" layoutY="80.0" prefHeight="25.0" prefWidth="433.0" />
+            <AnchorPane fx:id="paneLocalizado" layoutX="28.0" layoutY="120.0" prefHeight="247.0" prefWidth="469.0" visible="false">
+               <children>
+                  <Text fx:id="nCliente" layoutX="47.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nome::" />
+                  <Label fx:id="completaNome" layoutX="92.0" layoutY="38.0" prefHeight="17.0" prefWidth="225.0" />
+                  <Text fx:id="dCliente" layoutX="47.0" layoutY="97.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Documento:" />
+                  <Label fx:id="completaDocumento" layoutX="114.0" layoutY="84.0" prefHeight="17.0" prefWidth="105.0" />
+                  <Text fx:id="eCliente" layoutX="47.0" layoutY="132.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Endereço:" />
+                  <Label fx:id="completaCidade" layoutX="112.0" layoutY="119.0" prefHeight="17.0" prefWidth="314.0" />
+                  <CheckBox fx:id="comfirmaSelecao" layoutX="21.0" layoutY="38.0" mnemonicParsing="false" />
+               </children>
+            </AnchorPane>
+            <Text fill="#f50202" layoutX="70.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*">
                <font>
-                  <Font size="17.0" />
+                  <Font size="18.0" />
                </font>
-          </TitledPane>
-          <TitledPane expanded="false" text="Passo 2 - Registre os itens vendidos.">
-               <content>
-                  <AnchorPane prefHeight="432.0" prefWidth="697.0">
-                     <children>
-                        <TableView fx:id="tabelaItensCarrinho" layoutX="68.6" layoutY="93.6" prefHeight="220.0" prefWidth="777.0" AnchorPane.bottomAnchor="55.0" AnchorPane.leftAnchor="55.0" AnchorPane.topAnchor="80.0">
-                          <columns>
-                            <TableColumn fx:id="nomeItem" prefWidth="457.0" text="Nome" />
-                              <TableColumn fx:id="qtdItem" prefWidth="95.0" text="Qtd" />
-                            <TableColumn fx:id="precoItem" prefWidth="130.0" text="Preço" />
-                          </columns>
-                        </TableView>
-                        <Text layoutX="5.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Quantidade:" />
-                        <TextField fx:id="quantidadeProduto" layoutX="103.0" layoutY="50.0" onAction="#botaoIncluir" prefHeight="25.0" prefWidth="174.0" />
-                        <Text layoutX="5.0" layoutY="25.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Produto/Serviço:" />
-                        <ComboBox fx:id="produtosServicos" layoutX="103.0" layoutY="8.0" prefHeight="25.0" prefWidth="535.0" />
-                        <Text layoutX="648.0" layoutY="312.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Valor Total:" AnchorPane.bottomAnchor="39.0" AnchorPane.leftAnchor="648.0" />
-                        <Label fx:id="valorTotal" layoutX="738.0" layoutY="299.0" prefHeight="17.0" prefWidth="105.0" text="Label" AnchorPane.bottomAnchor="39.0" AnchorPane.leftAnchor="738.0" />
-                        <Button fx:id="botaoIncluir" layoutX="865.0" layoutY="23.0" mnemonicParsing="false" onAction="#botaoIncluir" prefHeight="25.0" prefWidth="105.0" text="Incluir" />
-                        <Button fx:id="botaoEditar" layoutX="865.0" layoutY="65.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="105.0" text="Editar" />
-                        <Button fx:id="botaoExcluir" layoutX="865.0" layoutY="110.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="105.0" text="Excluir" />
-                        <Text fill="#fc0606" layoutX="70.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Text>
-                        <Text fill="#fc0606" layoutX="95.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*" wrappingWidth="16.505859375">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Text>
-                     </children>
-                  </AnchorPane>
-               </content>
+            </Text>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="14.0" layoutY="446.0" prefHeight="404.0" prefWidth="648.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="568.0" AnchorPane.topAnchor="446.0">
+         <children>
+            <TableView fx:id="tabelaItensCarrinho" layoutX="55.0" layoutY="82.0" prefHeight="297.0" prefWidth="593.0" AnchorPane.bottomAnchor="53.0" AnchorPane.topAnchor="82.0">
+              <columns>
+                <TableColumn fx:id="nomeItem" prefWidth="403.0" text="Nome" />
+                  <TableColumn fx:id="qtdItem" prefWidth="74.0" text="Qtd" />
+                <TableColumn fx:id="precoItem" prefWidth="114.0" text="Preço" />
+              </columns>
+            </TableView>
+            <Text layoutX="5.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Quantidade:" />
+            <TextField fx:id="quantidadeProduto" layoutX="103.0" layoutY="50.0" onAction="#botaoIncluir" prefHeight="25.0" prefWidth="174.0" AnchorPane.bottomAnchor="329.0" AnchorPane.leftAnchor="103.0" AnchorPane.rightAnchor="371.0" />
+            <Text layoutX="5.0" layoutY="25.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Produto/Serviço:" />
+            <ComboBox fx:id="produtosServicos" layoutX="103.0" layoutY="8.0" prefHeight="25.0" prefWidth="308.0" AnchorPane.bottomAnchor="371.0" AnchorPane.leftAnchor="103.0" AnchorPane.rightAnchor="237.0" />
+            <Text layoutX="453.0" layoutY="400.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Valor Total:" AnchorPane.bottomAnchor="28.0" AnchorPane.leftAnchor="453.0" />
+            <Label fx:id="valorTotal" layoutX="543.0" layoutY="387.0" prefHeight="17.0" prefWidth="105.0" AnchorPane.bottomAnchor="28.0" AnchorPane.leftAnchor="543.0" />
+            <Button fx:id="botaoIncluir" layoutX="543.0" layoutY="8.0" mnemonicParsing="false" onAction="#botaoIncluir" prefHeight="25.0" prefWidth="105.0" text="Incluir" AnchorPane.bottomAnchor="371.0" AnchorPane.leftAnchor="543.0" AnchorPane.rightAnchor="0.0" />
+            <Button fx:id="botaoExcluir" layoutX="543.0" layoutY="42.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="105.0" text="Excluir" AnchorPane.bottomAnchor="337.0" AnchorPane.leftAnchor="543.0" AnchorPane.rightAnchor="0.0" />
+            <Text fill="#fc0606" layoutX="70.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*">
                <font>
-                  <Font size="17.0" />
+                  <Font size="18.0" />
                </font>
-          </TitledPane>
-          <TitledPane expanded="false" text="Passo 3 - Registre a experiencia do cliente.">
-               <content>
-                  <AnchorPane prefHeight="522.0" prefWidth="713.0">
-                     <children>
-                        <Text layoutX="14.0" layoutY="324.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Observações gerais:" />
-                        <ComboBox fx:id="comboP1" layoutX="20.0" layoutY="56.0" prefHeight="25.0" prefWidth="558.0" />
-                        <ComboBox fx:id="comboP2" layoutX="20.0" layoutY="124.0" prefHeight="25.0" prefWidth="558.0" />
-                        <ComboBox fx:id="comboP3" layoutX="20.0" layoutY="196.0" prefHeight="25.0" prefWidth="558.0" />
-                        <ComboBox fx:id="comboP4" layoutX="20.0" layoutY="270.0" prefHeight="25.0" prefWidth="558.0" />
-                        <Label fx:id="pergunta1" layoutX="23.0" layoutY="26.0" text="Pergunta 01:" />
-                        <Label fx:id="pergunta2" layoutX="23.0" layoutY="98.0" text="Pergunta 02:" />
-                        <Label fx:id="pergunta3" layoutX="23.0" layoutY="173.0" text="Pergunta 03:" />
-                        <Label fx:id="pergunta4" layoutX="23.0" layoutY="245.0" text="Pergunta 04:" />
-                        <TextArea fx:id="ObsCompra" layoutX="23.0" layoutY="362.0" prefHeight="114.0" prefWidth="579.0" />
-                        <Text fill="#f50808" layoutX="90.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Text>
-                        <Text fill="#f50808" layoutX="90.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Text>
-                        <Text fill="#f80303" layoutX="90.0" layoutY="188.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Text>
-                        <Text fill="#f80303" layoutX="90.0" layoutY="260.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Text>
-                     </children>
-                  </AnchorPane>
-               </content>
+            </Text>
+            <Text fill="#fc0606" layoutX="95.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*" wrappingWidth="16.505859375">
                <font>
-                  <Font size="17.0" />
+                  <Font size="18.0" />
                </font>
-          </TitledPane>
-        </panes>
-      </Accordion>
+            </Text>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="668.0" layoutY="14.0" prefHeight="811.0" prefWidth="562.0" AnchorPane.leftAnchor="668.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <Text layoutX="23.0" layoutY="340.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Observações gerais:" />
+            <ComboBox fx:id="comboP1" layoutX="20.0" layoutY="56.0" prefHeight="25.0" prefWidth="523.0" />
+            <ComboBox fx:id="comboP2" layoutX="20.0" layoutY="124.0" prefHeight="25.0" prefWidth="523.0" />
+            <ComboBox fx:id="comboP3" layoutX="20.0" layoutY="196.0" prefHeight="25.0" prefWidth="523.0" />
+            <ComboBox fx:id="comboP4" layoutX="20.0" layoutY="270.0" prefHeight="25.0" prefWidth="523.0" AnchorPane.bottomAnchor="516.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="19.0" />
+            <Label fx:id="pergunta1" layoutX="23.0" layoutY="26.0" text="Onde você ouviu falar da nossa empresa/produto/serviço pela primeira vez?" AnchorPane.bottomAnchor="768.0" AnchorPane.leftAnchor="23.0" AnchorPane.rightAnchor="136.0" />
+            <Label fx:id="pergunta2" layoutX="23.0" layoutY="98.0" text="Qual foi o motivo que o levou a visitar nosso site?" AnchorPane.bottomAnchor="696.0" AnchorPane.leftAnchor="23.0" AnchorPane.rightAnchor="275.0" />
+            <Label fx:id="pergunta3" layoutX="23.0" layoutY="173.0" text="Como você descreveria sua familiaridade com nossa empresa antes de visitar nosso site?" AnchorPane.bottomAnchor="621.0" AnchorPane.leftAnchor="23.0" AnchorPane.rightAnchor="71.0" />
+            <Label fx:id="pergunta4" layoutX="23.0" layoutY="245.0" prefHeight="17.0" prefWidth="425.0" text="Você participou de algum evento ou feira onde nossa empresa estava presente?" AnchorPane.bottomAnchor="549.0" AnchorPane.leftAnchor="23.0" AnchorPane.rightAnchor="114.0" />
+            <TextArea fx:id="ObsCompra" layoutX="20.0" layoutY="362.0" prefHeight="449.0" prefWidth="523.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="19.0" />
+            <Text fill="#f50808" layoutX="426.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*" AnchorPane.bottomAnchor="773.482421875" AnchorPane.leftAnchor="425.505859375" AnchorPane.rightAnchor="128.494140625">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Text fill="#f50808" layoutX="287.0" layoutY="105.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*" AnchorPane.bottomAnchor="701.482421875" AnchorPane.leftAnchor="286.505859375" AnchorPane.rightAnchor="267.494140625">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Text fill="#f80303" layoutX="491.0" layoutY="180.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*" AnchorPane.bottomAnchor="626.482421875" AnchorPane.leftAnchor="490.505859375" AnchorPane.rightAnchor="63.494140625">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Text fill="#f80303" layoutX="448.0" layoutY="252.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*" AnchorPane.bottomAnchor="554.482421875" AnchorPane.leftAnchor="448.0" AnchorPane.rightAnchor="106.494140625">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>

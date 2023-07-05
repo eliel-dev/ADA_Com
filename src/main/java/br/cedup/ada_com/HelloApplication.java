@@ -23,7 +23,7 @@ public class HelloApplication extends Application {
     public void start(Stage stage) throws IOException {
         scene = new Scene(loadFXML("login-view"), 600, 500);
         stage.setMaximized(false);
-        stage.setTitle("Aplicação CEDUP");
+        stage.setTitle("ADA/Com");
         stage.setScene(scene);
         stage.show();
 
