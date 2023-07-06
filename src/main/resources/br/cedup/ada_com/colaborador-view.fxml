@@ -7,28 +7,60 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="797.0" prefWidth="1096.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.cedup.ada_com.controller.ColaboradorController">
+<AnchorPane prefHeight="797.0" prefWidth="1096.0" style="-fx-background-color: #2c2c2c;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.cedup.ada_com.controller.ColaboradorController">
    <children>
-      <Button layoutX="697.0" layoutY="14.0" mnemonicParsing="false" onAction="#novo" prefHeight="47.0" prefWidth="106.0" text="Novo" AnchorPane.rightAnchor="7.0" AnchorPane.topAnchor="14.0" />
-      <Button layoutX="697.0" layoutY="78.0" mnemonicParsing="false" onAction="#editar" prefHeight="47.0" prefWidth="106.0" text="Editar" AnchorPane.rightAnchor="7.0" AnchorPane.topAnchor="78.0" />
-      <Button fx:id="botaoRemover" layoutX="697.0" layoutY="142.0" mnemonicParsing="false" onAction="#remover" prefHeight="47.0" prefWidth="106.0" text="Remover" AnchorPane.rightAnchor="7.0" AnchorPane.topAnchor="142.0" />
-      <Button layoutX="697.0" layoutY="455.0" mnemonicParsing="false" onAction="#voltar" prefHeight="47.0" prefWidth="106.0" text="Voltar" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="7.0" />
+      <Button layoutX="948.0" layoutY="86.0" mnemonicParsing="false" onAction="#novo" prefHeight="47.0" prefWidth="106.0" style="-fx-font-size: 18;" text="Novo" AnchorPane.rightAnchor="42.0" AnchorPane.topAnchor="86.0">
+         <font>
+            <Font size="18.0" />
+         </font></Button>
+      <Button layoutX="948.0" layoutY="177.0" mnemonicParsing="false" onAction="#editar" prefHeight="47.0" prefWidth="106.0" text="Editar" AnchorPane.rightAnchor="42.0" AnchorPane.topAnchor="177.0">
+         <font>
+            <Font size="18.0" />
+         </font></Button>
+      <Button fx:id="botaoRemover" layoutX="948.0" layoutY="268.0" mnemonicParsing="false" onAction="#remover" prefHeight="47.0" prefWidth="106.0" text="Excluir" AnchorPane.rightAnchor="42.0" AnchorPane.topAnchor="268.0">
+         <font>
+            <Font size="18.0" />
+         </font></Button>
+      <Button layoutX="948.0" layoutY="632.0" mnemonicParsing="false" onAction="#voltar" prefHeight="47.0" prefWidth="106.0" text="Voltar" AnchorPane.bottomAnchor="118.0" AnchorPane.rightAnchor="42.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+         <textFill>
+            <RadialGradient centerX="1.0" centerY="0.476303317535545" radius="0.5">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.9342105388641357" green="0.012975146062672138" blue="0.012975146062672138" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.9736841917037964" green="0.040570177137851715" blue="0.040570177137851715" />
+                     </color>
+                  </Stop>
+               </stops>
+            </RadialGradient>
+         </textFill></Button>
       <Label fx:id="labelCopia" layoutX="417.0" layoutY="720.0" prefHeight="17.0" prefWidth="371.0" />
-      <TabPane layoutX="14.0" layoutY="25.0" prefHeight="665.0" prefWidth="940.0" tabClosingPolicy="UNAVAILABLE">
+      <TabPane layoutX="14.0" layoutY="14.0" prefHeight="665.0" prefWidth="884.0" style="-fx-background-color: #000000;" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="118.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="198.0" AnchorPane.topAnchor="14.0">
         <tabs>
-          <Tab text="Colaboradores">
+          <Tab style="-fx-font-size: 18;" text="Colaboradores">
             <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="629.0" prefWidth="884.0">
                      <children>
-                        <TableView fx:id="tabelaColaborador" prefHeight="636.0" prefWidth="940.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <TableView fx:id="tabelaColaborador" layoutX="-2.0" layoutY="1.0" prefHeight="635.0" prefWidth="890.0" AnchorPane.bottomAnchor="-1.0" AnchorPane.leftAnchor="-2.0" AnchorPane.rightAnchor="-4.0" AnchorPane.topAnchor="1.0">
                           <columns>
-                            <TableColumn fx:id="colunaNome" prefWidth="242.0" text="Nome" />
-                              <TableColumn fx:id="colunaFuncao" prefWidth="131.0" text="Função" />
-                              <TableColumn fx:id="colunaUsuario" prefWidth="188.0" text="Usuário" />
-                              <TableColumn fx:id="taxaComissaoVendedor" prefWidth="157.0" text="Taxa de comissão" />
-                            <TableColumn fx:id="dataAtual" prefWidth="190.0" text="Data" />
+                            <TableColumn fx:id="colunaNome" prefWidth="170.0" style="-fx-font-size: 18;" text="Nome" />
+                              <TableColumn fx:id="colunaFuncao" prefWidth="134.0" style="-fx-font-size: 18;" text="Função" />
+                              <TableColumn fx:id="colunaUsuario" prefWidth="191.0" style="-fx-font-size: 18;" text="Usuário" />
+                              <TableColumn fx:id="taxaComissaoVendedor" prefWidth="210.0" style="-fx-font-size: 18;" text="Taxa de comissão" />
+                            <TableColumn fx:id="dataAtual" prefWidth="203.0" style="-fx-font-size: 18;" text="Data" />
                           </columns>
                         </TableView>
                      </children>
@@ -37,10 +69,25 @@
           </Tab>
         </tabs>
       </TabPane>
-      <Text layoutX="21.0" layoutY="714.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Taxa de comissão geral:" />
-      <Label layoutX="21.0" layoutY="728.0" text="Até 15 mil:" />
-      <Label layoutX="21.0" layoutY="745.0" text="Mais de 15 mil:" />
-      <Label fx:id="comissao3" layoutX="132.0" layoutY="728.0" text="3%" />
-      <Label fx:id="comissao5" layoutX="132.0" layoutY="745.0" text="5%" />
+      <Text fill="#eeecec" layoutX="21.0" layoutY="714.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Taxa de Comissão Geral" AnchorPane.bottomAnchor="79.98828125" AnchorPane.leftAnchor="21.0">
+         <font>
+            <Font size="18.0" />
+         </font></Text>
+      <Label layoutX="21.0" layoutY="728.0" text="Até 15 mil:" textFill="#f5eeee" AnchorPane.bottomAnchor="52.0" AnchorPane.leftAnchor="21.0">
+         <font>
+            <Font size="18.0" />
+         </font></Label>
+      <Label layoutX="21.0" layoutY="745.0" text="Mais de 15 mil:" textFill="#ebe7e7" AnchorPane.bottomAnchor="35.0" AnchorPane.leftAnchor="21.0">
+         <font>
+            <Font size="18.0" />
+         </font></Label>
+      <Label fx:id="comissao3" layoutX="157.0" layoutY="718.0" text="3%" textFill="#fff9f9" AnchorPane.bottomAnchor="52.0" AnchorPane.leftAnchor="157.0">
+         <font>
+            <Font size="18.0" />
+         </font></Label>
+      <Label fx:id="comissao5" layoutX="157.0" layoutY="735.0" text="5%" textFill="#f2eded" AnchorPane.bottomAnchor="35.0" AnchorPane.leftAnchor="157.0">
+         <font>
+            <Font size="18.0" />
+         </font></Label>
    </children>
 </AnchorPane>

@@ -4,21 +4,25 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane maxWidth="891.0" minWidth="754.0" prefHeight="510.0" prefWidth="881.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.cedup.ada_com.controller.CatalogoController">
+<AnchorPane maxWidth="1378.0" minWidth="754.0" prefHeight="617.0" prefWidth="1194.0" style="-fx-background-color: #c90909;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.cedup.ada_com.controller.CatalogoController">
    <children>
-      <TableView fx:id="tabelaCatalogo" prefHeight="510.0" prefWidth="762.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="119.0" AnchorPane.topAnchor="0.0">
+      <TableView fx:id="tabelaCatalogo" layoutX="17.0" layoutY="4.0" prefHeight="609.0" prefWidth="998.0" AnchorPane.bottomAnchor="4.0" AnchorPane.leftAnchor="17.0" AnchorPane.rightAnchor="179.0" AnchorPane.topAnchor="4.0">
         <columns>
-          <TableColumn fx:id="colunaId" maxWidth="77.0" prefWidth="77.0" text="Código" />
-          <TableColumn fx:id="colunaNome" maxWidth="517.0" minWidth="0.0" prefWidth="299.0" text="Nome" />
-            <TableColumn fx:id="colunaValor" maxWidth="200.0" minWidth="0.0" prefWidth="73.0" text="Preço" />
-            <TableColumn fx:id="colunaCategoria" maxWidth="300.0" prefWidth="186.0" text="Categoria" />
-            <TableColumn fx:id="colunaTipo" prefWidth="124.0" text="Tipo" />
+          <TableColumn fx:id="colunaId" maxWidth="294.0" prefWidth="135.6666717529297" text="Código" />
+          <TableColumn fx:id="colunaNome" maxWidth="517.0" minWidth="0.0" prefWidth="158.66668701171875" text="Nome" />
+            <TableColumn fx:id="colunaValor" maxWidth="493.0" minWidth="0.0" prefWidth="171.66668701171875" text="Preço" />
+            <TableColumn fx:id="colunaCategoria" maxWidth="541.0" minWidth="0.0" prefWidth="177.33331298828125" text="Categoria" />
+            <TableColumn fx:id="colunaTipo" prefWidth="211.0" text="Tipo" />
         </columns>
       </TableView>
-      <Button layoutX="656.0" layoutY="25.0" mnemonicParsing="false" onAction="#novoItem" prefHeight="44.0" prefWidth="84.0" text="Novo" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="25.0" />
-      <Button layoutX="656.0" layoutY="84.0" mnemonicParsing="false" onAction="#editarItem" prefHeight="44.0" prefWidth="84.0" text="Editar" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="84.0" />
-      <Button layoutX="656.0" layoutY="145.0" mnemonicParsing="false" onAction="#removerItem" prefHeight="44.0" prefWidth="84.0" text="Deletar" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="145.0" />
-      <Button layoutX="656.0" layoutY="452.0" mnemonicParsing="false" onAction="#voltar" prefHeight="44.0" prefWidth="84.0" text="Voltar" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="14.0" />
+      <Button layoutX="1223.0" layoutY="69.0" mnemonicParsing="false" onAction="#novoItem" prefHeight="44.0" prefWidth="84.0" text="Novo" textFill="#250303" AnchorPane.rightAnchor="51.0" AnchorPane.topAnchor="69.0">
+         <font>
+            <Font name="System Italic" size="12.0" />
+         </font></Button>
+      <Button layoutX="1223.0" layoutY="151.0" mnemonicParsing="false" onAction="#editarItem" prefHeight="44.0" prefWidth="84.0" text="Editar" AnchorPane.rightAnchor="51.0" AnchorPane.topAnchor="151.0" />
+      <Button layoutX="1223.0" layoutY="233.0" mnemonicParsing="false" onAction="#removerItem" prefHeight="44.0" prefWidth="84.0" text="Excluir" AnchorPane.rightAnchor="51.0" AnchorPane.topAnchor="233.0" />
+      <Button layoutX="1223.0" layoutY="693.0" mnemonicParsing="false" onAction="#voltar" prefHeight="44.0" prefWidth="84.0" text="Voltar" AnchorPane.bottomAnchor="109.0" AnchorPane.rightAnchor="51.0" />
    </children>
 </AnchorPane>
