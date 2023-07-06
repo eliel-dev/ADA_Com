@@ -11,34 +11,55 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.cedup.ada_com.controller.CatalogoModalController">
    <children>
-      <Button fx:id="salvar" layoutX="501.0" layoutY="32.0" mnemonicParsing="false" onAction="#salvar" prefHeight="33.0" prefWidth="85.0" text="Salvar" />
-      <Button layoutX="501.0" layoutY="342.0" mnemonicParsing="false" onAction="#cancelar" prefHeight="33.0" prefWidth="85.0" text="Cancelar" />
-      <TextField fx:id="nomeItem" layoutX="24.0" layoutY="122.0" />
-      <Text layoutX="24.0" layoutY="118.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nome:" />
-      <Text layoutX="25.0" layoutY="178.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Preço:" />
-      <Text layoutX="26.0" layoutY="240.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Categoria:" />
-      <Text layoutX="26.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tipo:" />
-      <TextField fx:id="preco" layoutX="26.0" layoutY="182.0" />
-      <RadioButton fx:id="radioButtonProduto" layoutX="25.0" layoutY="57.0" mnemonicParsing="false" text="Produto" />
-      <RadioButton fx:id="radioButtonServico" layoutX="130.0" layoutY="57.0" mnemonicParsing="false" text="Serviço" />
-      <ComboBox fx:id="comboCategoria" layoutX="26.0" layoutY="256.0" prefHeight="0.0" prefWidth="150.0" />
-      <Label fx:id="valorInvalido" layoutX="182.0" layoutY="186.0" />
-      <Text fill="#e80909" layoutX="59.0" layoutY="120.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*" wrappingWidth="14.0078125">
+      <Button fx:id="salvar" layoutX="462.0" layoutY="140.0" mnemonicParsing="false" onAction="#salvar" prefHeight="39.0" prefWidth="97.0" style="-fx-font-size: 18;" text="Salvar" AnchorPane.rightAnchor="41.0" AnchorPane.topAnchor="140.0" />
+      <Button layoutX="462.0" layoutY="258.0" mnemonicParsing="false" onAction="#cancelar" prefHeight="39.0" prefWidth="103.0" style="-fx-font-size: 18;" text="Cancelar" textFill="#c32424c7" AnchorPane.rightAnchor="35.0" AnchorPane.topAnchor="258.0">
+         <font>
+            <Font size="18.0" />
+         </font></Button>
+      <TextField fx:id="nomeItem" layoutX="81.0" layoutY="147.0" prefHeight="25.0" prefWidth="344.0" AnchorPane.leftAnchor="81.0" AnchorPane.rightAnchor="175.0" AnchorPane.topAnchor="147.0" />
+      <Text layoutX="83.0" layoutY="136.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nome:" AnchorPane.leftAnchor="83.0" AnchorPane.topAnchor="123.05078125">
+         <font>
+            <Font size="18.0" />
+         </font></Text>
+      <Text layoutX="84.0" layoutY="196.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Preço:" AnchorPane.leftAnchor="84.0" AnchorPane.topAnchor="183.05078125">
+         <font>
+            <Font size="18.0" />
+         </font></Text>
+      <Text layoutX="85.0" layoutY="258.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Categoria:" AnchorPane.leftAnchor="85.0" AnchorPane.topAnchor="245.05078125">
+         <font>
+            <Font size="18.0" />
+         </font></Text>
+      <Text layoutX="85.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tipo:" AnchorPane.leftAnchor="85.0" AnchorPane.topAnchor="42.05078125">
+         <font>
+            <Font size="18.0" />
+         </font></Text>
+      <TextField fx:id="preco" layoutX="85.0" layoutY="209.0" prefHeight="25.0" prefWidth="337.0" AnchorPane.leftAnchor="85.0" AnchorPane.rightAnchor="178.0" AnchorPane.topAnchor="209.0" />
+      <RadioButton fx:id="radioButtonProduto" layoutX="84.0" layoutY="75.0" mnemonicParsing="false" text="Produto" AnchorPane.leftAnchor="84.0" AnchorPane.topAnchor="75.0">
+         <font>
+            <Font size="18.0" />
+         </font></RadioButton>
+      <RadioButton fx:id="radioButtonServico" layoutX="215.0" layoutY="80.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="112.0" text="Serviço" AnchorPane.leftAnchor="215.0" AnchorPane.topAnchor="80.0">
+         <font>
+            <Font size="18.0" />
+         </font></RadioButton>
+      <ComboBox fx:id="comboCategoria" layoutX="85.0" layoutY="274.0" prefHeight="25.0" prefWidth="337.0" AnchorPane.leftAnchor="85.0" />
+      <Label fx:id="valorInvalido" layoutX="241.0" layoutY="204.0" />
+      <Text fill="#e80909" layoutX="125.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*" wrappingWidth="14.0078125" AnchorPane.leftAnchor="125.0" AnchorPane.topAnchor="41.576171875">
          <font>
             <Font size="18.0" />
          </font>
       </Text>
-      <Text fill="#e80909" layoutX="59.0" layoutY="180.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*" wrappingWidth="14.0078125">
+      <Text fill="#e80909" layoutX="131.0" layoutY="202.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*" wrappingWidth="14.0078125" AnchorPane.leftAnchor="131.0" AnchorPane.topAnchor="182.576171875">
          <font>
             <Font size="18.0" />
          </font>
       </Text>
-      <Text fill="#e80909" layoutX="82.0" layoutY="242.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*" wrappingWidth="14.0078125">
+      <Text fill="#e80909" layoutX="168.0" layoutY="264.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*" wrappingWidth="14.0078125" AnchorPane.leftAnchor="168.0" AnchorPane.topAnchor="244.0">
          <font>
             <Font size="18.0" />
          </font>
       </Text>
-      <Text fill="#e80909" layoutX="52.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*" wrappingWidth="14.0078125">
+      <Text fill="#e80909" layoutX="134.0" layoutY="142.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*" wrappingWidth="14.0078125" AnchorPane.leftAnchor="134.0" AnchorPane.topAnchor="122.576171875">
          <font>
             <Font size="18.0" />
          </font>
