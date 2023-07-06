@@ -25,7 +25,7 @@ public class HelloApplication extends Application {
         stage.setMaximized(false);
         stage.setTitle("ADA/Com");
         stage.setScene(scene);
-        stage.setResizable(false);
+        stage.setResizable(true);
         stage.show();
 
         // Adicionar o manipulador de eventos aqui
@@ -38,6 +38,8 @@ public class HelloApplication extends Application {
         });
         stage.show();
     }
+
+
     public static void main(String[] args) {
         launch();
     }
@@ -74,4 +76,6 @@ public class HelloApplication extends Application {
     public static void closeCurrentWindow() {
         ((Stage) scene.getRoot().getScene().getWindow()).close();
     }
+
+
 }
