@@ -179,12 +179,6 @@ public class RegistraVendaController implements Initializable {
             }
         });
 
-        comfirmaSelecao.setOnAction(event -> {
-            if (comfirmaSelecao.isSelected()) {
-                clienteID = cliente.getClienteID();
-            }
-        });
-
         nomeItem.setCellValueFactory(new PropertyValueFactory<>("nome"));
         qtdItem.setCellValueFactory(new PropertyValueFactory<>("quantidade"));
         precoItem.setCellValueFactory(new PropertyValueFactory<>("preco"));
@@ -234,6 +228,7 @@ public class RegistraVendaController implements Initializable {
                 atualizandoCampo = false;
             }
         });
+
     }
 
     private String formatarCpfCnpj(String cpfCnpj) {
@@ -298,7 +293,6 @@ public class RegistraVendaController implements Initializable {
         completaNome.setText("");
         completaDocumento.setText("");
         completaCidade.setText("");
-        comfirmaSelecao.setSelected(false);
 
         ClienteDAO dao = new ClienteDAO();
         String cpfCnpj = compoPesquisaCliente.getText();
@@ -307,7 +301,9 @@ public class RegistraVendaController implements Initializable {
 
         Cliente cliente = dao.getClienteByCpfCnpj(cpfCnpj);
         if (cliente != null) {
-            this.cliente = cliente; // atribui o cliente localizado ao campo cliente
+            clienteID = cliente.getClienteID();
+            System.out.println(clienteID);
+            //this.cliente = cliente; // atribui o cliente localizado ao campo cliente
 
             String nomeCompleto = cliente.getNomeCliente() + " " + cliente.getSobreNomeCliente();
             completaNome.setText(nomeCompleto);
@@ -364,7 +360,7 @@ public class RegistraVendaController implements Initializable {
 
             // Verificar se todos os campos necessários foram preenchidos
             //se um cliente foi selecionado
-            if (comfirmaSelecao.isSelected()) {
+            if (clienteID != 0) {
                 //se pelo menos 1 item foi colocado ao "carrinho de compras" = tabelaItensCarrinho
                 if (!tabelaItensCarrinho.getItems().isEmpty()) {
                     //se as perguntas da experiência de venda foram preenchidas
@@ -436,7 +432,7 @@ public class RegistraVendaController implements Initializable {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Erro");
                 alert.setHeaderText(null);
-                alert.setContentText("Um cliente deve ser selecionado.");
+                alert.setContentText("Nenhum cliente localizado.");
 
                 alert.showAndWait();
             }

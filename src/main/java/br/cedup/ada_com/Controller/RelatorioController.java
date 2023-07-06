@@ -2,9 +2,13 @@ package br.cedup.ada_com.controller;
 
 import br.cedup.ada_com.model.dao.RelatorioDAO;
 import br.cedup.ada_com.HelloApplication;
+import javafx.application.Platform;
+import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.chart.BarChart;
+import javafx.collections.FXCollections;
+import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Button;
@@ -26,6 +30,8 @@ public class RelatorioController implements Initializable {
 
     @FXML
     BarChart<String, Number> rteste;
+
+    CategoryAxis xAxis = new CategoryAxis();
 
     RelatorioDAO relatorioDAO = new RelatorioDAO();
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -58,7 +64,6 @@ public class RelatorioController implements Initializable {
                 }
             }
         });
-
     }
 
     @FXML
@@ -93,6 +98,7 @@ public class RelatorioController implements Initializable {
         // Limpar os dados existentes do gráfico e adicionar a nova série de dados
         rteste.getData().clear();
         rteste.getData().add(series);
+        rteste.setAnimated(false);
     }
 
     @FXML
@@ -114,6 +120,7 @@ public class RelatorioController implements Initializable {
         // Limpar os dados existentes do gráfico e adicionar a nova série de dados
         rteste.getData().clear();
         rteste.getData().add(series);
+        rteste.setAnimated(false);
     }
 
 
@@ -136,6 +143,7 @@ public class RelatorioController implements Initializable {
         // Limpar os dados existentes do gráfico e adicionar a nova série de dados
         rteste.getData().clear();
         rteste.getData().add(series);
+        rteste.setAnimated(false);
     }
 
     @FXML
