@@ -103,7 +103,7 @@
          </font></Label>
       <ImageView fitHeight="300.0" fitWidth="313.0" layoutX="517.0" layoutY="108.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@adacom1.jpg" />
+            <Image url="@images/adacom1.jpg" />
          </image>
       </ImageView>
    </children>
