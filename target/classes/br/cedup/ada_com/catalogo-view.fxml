@@ -13,8 +13,8 @@
           <TableColumn fx:id="colunaId" maxWidth="294.0" prefWidth="135.6666717529297" text="Código" />
           <TableColumn fx:id="colunaNome" maxWidth="517.0" minWidth="0.0" prefWidth="158.66668701171875" text="Nome" />
             <TableColumn fx:id="colunaValor" maxWidth="493.0" minWidth="0.0" prefWidth="171.66668701171875" text="Preço" />
-            <TableColumn fx:id="colunaCategoria" maxWidth="541.0" minWidth="0.0" prefWidth="177.33331298828125" text="Categoria" />
-            <TableColumn fx:id="colunaTipo" prefWidth="211.0" text="Tipo" />
+            <TableColumn fx:id="colunaCategoria" maxWidth="541.0" minWidth="0.0" prefWidth="288.0" text="Categoria" />
+            <TableColumn fx:id="colunaTipo" prefWidth="240.0" resizable="false" text="Tipo" />
         </columns>
       </TableView>
       <Button layoutX="1223.0" layoutY="69.0" mnemonicParsing="false" onAction="#novoItem" prefHeight="44.0" prefWidth="84.0" text="Novo" textFill="#250303" AnchorPane.rightAnchor="51.0" AnchorPane.topAnchor="69.0">
