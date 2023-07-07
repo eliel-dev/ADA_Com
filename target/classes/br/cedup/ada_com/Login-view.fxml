@@ -8,31 +8,30 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="912.0" maxWidth="1315.0" minHeight="506.0" minWidth="705.0" prefHeight="554.0" prefWidth="908.0" snapToPixel="false" style="-fx-background-color: #2c2c2c;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.cedup.ada_com.controller.LoginController">
+<AnchorPane maxHeight="912.0" maxWidth="1315.0" minHeight="506.0" minWidth="705.0" prefHeight="554.0" prefWidth="908.0" snapToPixel="false" style="-fx-background-color: #B22222;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.cedup.ada_com.controller.LoginController">
    <children>
-      <AnchorPane layoutX="130.0" layoutY="81.0" prefHeight="419.0" prefWidth="685.0" style="-fx-background-color: #FFE4E1;" AnchorPane.bottomAnchor="54.0" AnchorPane.leftAnchor="130.0" AnchorPane.rightAnchor="93.0" AnchorPane.topAnchor="81.0">
+      <AnchorPane layoutX="83.0" layoutY="62.0" prefHeight="438.0" prefWidth="755.0" style="-fx-background-color: #FFE4E1;" AnchorPane.bottomAnchor="54.0" AnchorPane.leftAnchor="83.0" AnchorPane.rightAnchor="70.0" AnchorPane.topAnchor="62.0">
          <children>
-            <Text layoutX="299.0" layoutY="84.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ADA / Com" />
-            <TextField fx:id="usuarioField" layoutX="160.0" layoutY="157.0" onAction="#entrar" prefHeight="25.0" prefWidth="360.0" />
-            <PasswordField fx:id="senhaField" layoutX="160.0" layoutY="237.0" onAction="#entrar" prefHeight="25.0" prefWidth="360.0" styleClass="text" />
-            <Button fx:id="entrarButon" layoutX="309.0" layoutY="327.0" mnemonicParsing="false" onAction="#entrar" prefHeight="35.0" prefWidth="104.0" text="Entrar" />
-            <Label layoutX="58.0" layoutY="157.0" text="Usuario" textFill="#070000">
+            <TextField fx:id="usuarioField" layoutX="221.0" layoutY="166.0" onAction="#entrar" prefHeight="26.0" prefWidth="388.0" />
+            <PasswordField fx:id="senhaField" layoutX="221.0" layoutY="246.0" onAction="#entrar" prefHeight="26.0" prefWidth="388.0" styleClass="text" />
+            <Button fx:id="entrarButon" layoutX="329.0" layoutY="331.0" mnemonicParsing="false" onAction="#entrar" prefHeight="35.0" prefWidth="104.0" text="Entrar" />
+            <Label layoutX="147.0" layoutY="166.0" text="Usuario" textFill="#070000">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label layoutX="66.0" layoutY="235.0" text="Senha" textFill="#0d0101">
+            <Label layoutX="155.0" layoutY="244.0" text="Senha" textFill="#0d0101">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label fx:id="labelEntrar" layoutX="195.0" layoutY="288.0" prefHeight="17.0" prefWidth="176.0" />
-            <Text fill="#e10505" layoutX="119.0" layoutY="164.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*" wrappingWidth="7.505859375">
+            <Label fx:id="labelEntrar" layoutX="290.0" layoutY="296.0" prefHeight="17.0" prefWidth="176.0" />
+            <Text fill="#e10505" layoutX="208.0" layoutY="173.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*" wrappingWidth="7.505859375">
                <font>
                   <Font size="18.0" />
                </font>
             </Text>
-            <Text fill="#e10505" layoutX="119.0" layoutY="253.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*">
+            <Text fill="#e10505" layoutX="208.0" layoutY="262.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*">
                <font>
                   <Font size="18.0" />
                </font>
