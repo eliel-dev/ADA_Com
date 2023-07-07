@@ -9,11 +9,11 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="634.0" prefWidth="1104.0" style="-fx-background-color: #2c2c2c;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.cedup.ada_com.controller.ClienteController">
+<AnchorPane prefHeight="634.0" prefWidth="1104.0" style="-fx-background-color: #2c2c2c;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.cedup.ada_com.controller.ClienteController">
    <children>
-      <Button disable="true" layoutX="957.0" layoutY="40.0" mnemonicParsing="false" onAction="#novo" prefHeight="44.0" prefWidth="84.0" style="-fx-font-size: 18;" text="Novo" AnchorPane.rightAnchor="63.0" AnchorPane.topAnchor="40.0" />
-      <Button disable="true" layoutX="957.0" layoutY="118.0" mnemonicParsing="false" onAction="#editar" prefHeight="44.0" prefWidth="84.0" style="-fx-font-size: 18;" text="Editar" AnchorPane.rightAnchor="63.0" AnchorPane.topAnchor="118.0" />
-      <Button disable="true" layoutX="957.0" layoutY="194.0" mnemonicParsing="false" onAction="#detetar" prefHeight="44.0" prefWidth="84.0" style="-fx-font-size: 18;" text="Deletar" AnchorPane.rightAnchor="63.0" AnchorPane.topAnchor="194.0" />
+      <Button layoutX="957.0" layoutY="40.0" mnemonicParsing="false" onAction="#novo" prefHeight="44.0" prefWidth="84.0" style="-fx-font-size: 18;" text="Novo" AnchorPane.rightAnchor="63.0" AnchorPane.topAnchor="40.0" />
+      <Button layoutX="957.0" layoutY="118.0" mnemonicParsing="false" onAction="#editar" prefHeight="44.0" prefWidth="84.0" style="-fx-font-size: 18;" text="Editar" AnchorPane.rightAnchor="63.0" AnchorPane.topAnchor="118.0" />
+      <Button layoutX="957.0" layoutY="194.0" mnemonicParsing="false" onAction="#detetar" prefHeight="44.0" prefWidth="84.0" style="-fx-font-size: 18;" text="Deletar" AnchorPane.rightAnchor="63.0" AnchorPane.topAnchor="194.0" />
       <Button layoutX="957.0" layoutY="566.0" mnemonicParsing="false" onAction="#voltar" prefHeight="44.0" prefWidth="84.0" style="-fx-font-size: 18;" text="Voltar" textFill="#eb0404" AnchorPane.bottomAnchor="24.0" AnchorPane.rightAnchor="63.0">
          <font>
             <Font size="18.0" />
@@ -38,8 +38,8 @@
                <content>
                   <AnchorPane prefHeight="200.0" prefWidth="200.0">
                      <children>
-                        <ListView fx:id="perguntasListView" editable="true" layoutX="14.0" layoutY="14.0" prefHeight="549.0" prefWidth="420.0" />
-                        <ListView fx:id="alternativasListView" layoutX="440.0" layoutY="14.0" prefHeight="551.0" prefWidth="438.0" />
+                        <ListView fx:id="perguntasListView" editable="true" layoutX="14.0" layoutY="14.0" prefHeight="549.0" prefWidth="420.0" AnchorPane.bottomAnchor="16.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="466.0" AnchorPane.topAnchor="14.0" />
+                        <ListView fx:id="alternativasListView" layoutX="440.0" layoutY="14.0" prefHeight="551.0" prefWidth="438.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="440.0" AnchorPane.rightAnchor="22.0" AnchorPane.topAnchor="14.0" />
                      </children>
                   </AnchorPane>
                </content>
@@ -48,8 +48,8 @@
                <content>
                   <AnchorPane prefHeight="200.0" prefWidth="200.0">
                      <children>
-                        <ListView fx:id="listEstados" layoutX="2.0" layoutY="16.0" prefHeight="549.0" prefWidth="444.0" />
-                        <ListView fx:id="listCidades" layoutX="457.0" layoutY="15.0" prefHeight="551.0" prefWidth="429.0" />
+                        <ListView fx:id="listEstados" layoutX="2.0" layoutY="16.0" prefHeight="549.0" prefWidth="444.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="454.0" AnchorPane.topAnchor="16.0" />
+                        <ListView fx:id="listCidades" layoutX="457.0" layoutY="15.0" prefHeight="551.0" prefWidth="429.0" AnchorPane.bottomAnchor="13.0" AnchorPane.leftAnchor="457.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="15.0" />
                      </children>
                   </AnchorPane>
                </content>

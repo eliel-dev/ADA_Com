@@ -45,6 +45,22 @@ public class EnderecoDAO {
         }return cidades;
     }
 
+    public int getEnderecoIDByCidadeAndEstado(int cidadeID, int estadoID) throws SQLException {
+        int enderecoID = 0;
+        String sql = "SELECT idEndereco FROM endereco WHERE Cidade_id_Cidade = ? AND Cidade_id_Estado = ?";
+        try (PreparedStatement stmt = ConnectionSingleton.getConnection().prepareStatement(sql)) {
+            stmt.setInt(1, cidadeID);
+            stmt.setInt(2, estadoID);
+            try (ResultSet rs = stmt.executeQuery()) {
+                if (rs.next()) {
+                    enderecoID = rs.getInt("idEndereco");
+                }
+            }
+        }
+        return enderecoID;
+    }
+
+
     public void cadastrarCidade(Cidade cidade) throws SQLException {
         String sql = "INSERT INTO cidade (Nome_Cidade, id_Estado) VALUES (?, ?)";
         try (PreparedStatement stmt = ConnectionSingleton.getConnection().prepareStatement(sql)) {

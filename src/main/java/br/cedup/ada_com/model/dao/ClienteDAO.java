@@ -60,6 +60,38 @@ public class ClienteDAO {
         }
     }
 
+    public boolean verificarCpfCnpjJaCadastrado(String cpfCnpj) throws SQLException {
+        boolean cpfCnpjJaCadastrado = false;
+        String sql = "SELECT COUNT(*) FROM cliente WHERE cnpj_cpf = ?";
+        try (PreparedStatement stmt = ConnectionSingleton.getConnection().prepareStatement(sql)) {
+            stmt.setString(1, cpfCnpj);
+            try (ResultSet rs = stmt.executeQuery()) {
+                if (rs.next()) {
+                    int count = rs.getInt(1);
+                    cpfCnpjJaCadastrado = count > 0;
+                }
+            }
+        }
+        return cpfCnpjJaCadastrado;
+    }
+
+    public boolean verificarNomeSobrenomeJaCadastrado(String nomeCliente, String sobreNomeCliente) throws SQLException {
+        boolean nomeSobrenomeJaCadastrado = false;
+        String sql = "SELECT COUNT(*) FROM cliente WHERE NomeCliente = ? AND SobreNomeCliente = ?";
+        try (PreparedStatement stmt = ConnectionSingleton.getConnection().prepareStatement(sql)) {
+            stmt.setString(1, nomeCliente);
+            stmt.setString(2, sobreNomeCliente);
+            try (ResultSet rs = stmt.executeQuery()) {
+                if (rs.next()) {
+                    int count = rs.getInt(1);
+                    nomeSobrenomeJaCadastrado = count > 0;
+                }
+            }
+        }
+        return nomeSobrenomeJaCadastrado;
+    }
+
+
     public void cadastrarCliente(Cliente cliente) throws SQLException {
         String sql = "INSERT INTO cliente (NomeCliente, SobreNomeCliente, cnpj_cpf, Endereco_idEndereco) VALUES (?, ?, ?, ?)";
         try (PreparedStatement stmt = ConnectionSingleton.getConnection().prepareStatement(sql)) {
@@ -89,4 +121,6 @@ public class ClienteDAO {
             stmt.executeUpdate();
         }
     }
+
+
 }

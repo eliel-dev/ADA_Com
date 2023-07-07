@@ -105,58 +105,17 @@ public class ClienteController implements Initializable {
     }
 
     @FXML
-    public void novo(){
-
+    public void novo() throws IOException {
+        HelloApplication.showModal("novoClienteModal");
     }
 
     @FXML
     public void editar() throws IOException {
-        Estado estadoSelecionado = listEstados.getSelectionModel().getSelectedItem();
-        Cidade cidadeSelecionada = listCidades.getSelectionModel().getSelectedItem();
 
-        if (estadoSelecionado != null){
-            //NovoEnderecoModalController.setEstado(estadoSelecionado);
-            HelloApplication.showModal("novoEnderecoModal");
-
-        }else if (cidadeSelecionada != null ){
-            //NovoEnderecoModalController.setCidade(cidadeSelecionada);
-            HelloApplication.showModal("novoEnderecoModal");
-        }
     }
     @FXML
     public void detetar() throws SQLException {
-        Estado estadoSelecionado = listEstados.getSelectionModel().getSelectedItem();
-        Cidade cidadeSelecionada = listCidades.getSelectionModel().getSelectedItem();
 
-        if (cidadeSelecionada == null && estadoSelecionado == null) {
-            // nenhum cidade ou estado selecionado
-        } else if (cidadeSelecionada != null) {
-            // uma cidade está selecionada
-            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-            alert.setTitle("Confirmação");
-            alert.setHeaderText(null);
-            alert.setContentText("Deseja remover " + cidadeSelecionada.getNomeCidade() + "?");
-
-            Optional<ButtonType> result = alert.showAndWait();
-            if (result.get() == ButtonType.OK){
-                new EnderecoDAO().excluirCidade(cidadeSelecionada.getCidadeID());
-                listCidades.getItems().remove(cidadeSelecionada);
-            }
-
-        } else {
-            TextInputDialog dialog = new TextInputDialog("");
-            dialog.setTitle("Aviso");
-            dialog.setHeaderText("Deletar um estado, apaga todas cidades ligadas a ele.");
-            dialog.setContentText("Caso tenha certeza que deseja isso, digite 'sim': ");
-
-            Optional<String> result = dialog.showAndWait();
-            // The Java 8 way to get the response value (with lambda expression).
-            result.ifPresent(resposta -> {
-                if (resposta.equalsIgnoreCase("sim")) {
-                    System.out.println("O estado de " + estadoSelecionado.getNomeEstado() + " foi excluído");
-                }
-            });
-        }
     }
 
     @FXML
