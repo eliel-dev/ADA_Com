@@ -55,7 +55,7 @@
                   <Font size="18.0" />
                </font>
             </Text>
-            <TableView fx:id="tabelaItensCarrinho" layoutX="16.0" layoutY="434.0" prefHeight="320.0" prefWidth="611.0" AnchorPane.leftAnchor="16.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="434.0">
+            <TableView fx:id="tabelaItensCarrinho" layoutX="16.0" layoutY="434.0" prefHeight="320.0" prefWidth="611.0" AnchorPane.bottomAnchor="125.0" AnchorPane.leftAnchor="16.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="434.0">
                <columns>
                   <TableColumn fx:id="nomeItem" prefWidth="403.0" text="Nome" />
                   <TableColumn fx:id="qtdItem" prefWidth="74.0" text="Qtd" />
@@ -83,8 +83,6 @@
             </Text>
             <Text layoutX="422.0" layoutY="787.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Valor Total:" AnchorPane.bottomAnchor="88.0" AnchorPane.rightAnchor="152.046875" />
             <Label fx:id="valorTotal" layoutX="515.0" layoutY="774.0" prefHeight="17.0" prefWidth="105.0" AnchorPane.bottomAnchor="88.0" AnchorPane.rightAnchor="14.0" />
-            <Line endX="535.0" layoutX="105.0" layoutY="338.0" startX="-105.0" stroke="#0d01016b" />
-            <Line endX="221.0" layoutX="412.0" layoutY="802.0" startX="-413.0" stroke="#0d01016b" />
          </children>
       </AnchorPane>
       <AnchorPane prefHeight="852.0" prefWidth="613.0" GridPane.columnIndex="1">
@@ -98,7 +96,7 @@
             <Label fx:id="pergunta2" layoutX="23.0" layoutY="98.0" text="Qual foi o motivo que o levou a visitar nosso site?" />
             <Label fx:id="pergunta3" layoutX="23.0" layoutY="173.0" text="Como você descreveria sua familiaridade com nossa empresa antes de visitar nosso site?" />
             <Label fx:id="pergunta4" layoutX="23.0" layoutY="245.0" prefHeight="17.0" prefWidth="425.0" text="Você participou de algum evento ou feira onde nossa empresa estava presente?" />
-            <TextArea fx:id="ObsCompra" layoutX="20.0" layoutY="361.0" prefHeight="395.0" prefWidth="523.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="89.0" AnchorPane.topAnchor="361.0" />
+            <TextArea fx:id="ObsCompra" layoutX="20.0" layoutY="361.0" prefHeight="395.0" prefWidth="523.0" AnchorPane.bottomAnchor="123.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="89.0" AnchorPane.topAnchor="361.0" />
             <Text fill="#f50808" layoutX="426.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*">
                <font>
                   <Font size="18.0" />
@@ -119,10 +117,8 @@
                   <Font size="18.0" />
                </font>
             </Text>
-            <Button layoutX="128.0" layoutY="817.0" mnemonicParsing="false" onAction="#registrar" prefHeight="48.0" prefWidth="163.0" text="Registrar" AnchorPane.rightAnchor="341.0" />
-            <Button layoutX="394.0" layoutY="817.0" mnemonicParsing="false" onAction="#fechar" prefHeight="48.0" prefWidth="149.0" text="Cancelar" AnchorPane.rightAnchor="89.0" />
-            <Line endX="-1.5" endY="-147.0" layoutX="9.0" layoutY="147.0" startX="-1.5" startY="654.5" stroke="#0d01016b" />
-            <Line endX="505.0" layoutX="127.0" layoutY="802.0" startX="-127.0" stroke="#0d01016b" />
+            <Button layoutX="128.0" layoutY="817.0" mnemonicParsing="false" onAction="#registrar" prefHeight="48.0" prefWidth="163.0" text="Registrar" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="341.0" />
+            <Button layoutX="394.0" layoutY="817.0" mnemonicParsing="false" onAction="#fechar" prefHeight="48.0" prefWidth="149.0" text="Cancelar" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="89.0" />
          </children>
       </AnchorPane>
    </children>
