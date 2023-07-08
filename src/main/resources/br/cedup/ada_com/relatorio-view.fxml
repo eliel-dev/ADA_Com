@@ -6,20 +6,37 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.Glow?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="919.0" prefWidth="1239.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.cedup.ada_com.controller.RelatorioController">
+<AnchorPane prefHeight="100.0" prefWidth="1239.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.cedup.ada_com.controller.RelatorioController">
    <children>
-      <Label layoutX="37.0" layoutY="23.0" text="Relatorio Geral" />
-      <Button layoutX="1113.0" layoutY="861.0" mnemonicParsing="false" onAction="#voltar" prefHeight="44.0" prefWidth="93.0" text="Voltar" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="33.0" />
-      <ComboBox fx:id="comboRelatorios" layoutX="36.0" layoutY="53.0" prefHeight="38.0" prefWidth="923.0" />
-      <Button fx:id="btnGerarRelatorios" layoutX="1046.0" layoutY="50.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="160.0" text="Gerar Relatorio" />
-      <BarChart fx:id="rteste" layoutX="36.0" layoutY="101.0" prefHeight="752.0" prefWidth="1172.0" title="Relatório">
+      <Label layoutX="101.0" layoutY="17.0" text="Relatorio Geral" textFill="#f2eded" AnchorPane.leftAnchor="101.0" AnchorPane.topAnchor="17.0">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font></Label>
+      <Button layoutX="1077.0" layoutY="766.0" mnemonicParsing="false" onAction="#voltar" prefHeight="44.0" prefWidth="93.0" style="-fx-background-color: black; -fx-border-color: white; -fx-border-radius: 3;" text="Voltar" textFill="#f8f7f7" AnchorPane.bottomAnchor="109.0" AnchorPane.rightAnchor="69.0">
+         <font>
+            <Font size="18.0" />
+         </font></Button>
+      <ComboBox fx:id="comboRelatorios" layoutX="100.0" layoutY="53.0" prefHeight="38.0" prefWidth="859.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="242.0" AnchorPane.topAnchor="53.0" />
+      <Button fx:id="btnGerarRelatorios" layoutX="1001.0" layoutY="50.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="160.0" style="-fx-background-color: black; -fx-border-color: white; -fx-border-radius: 3;" text="Gerar Relatorio" textFill="#f8f6f6" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="50.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+         <effect>
+            <Glow />
+         </effect></Button>
+      <BarChart fx:id="rteste" layoutX="40.0" layoutY="143.0" prefHeight="600.0" prefWidth="978.0" title="Relatório" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="221.0" AnchorPane.topAnchor="143.0">
         <xAxis>
-          <CategoryAxis label="Categoria" side="BOTTOM" />
+          <CategoryAxis label="Categoria" side="BOTTOM" style="-fx-background-color: black;" tickLabelFill="WHITE">
+               <effect>
+                  <Glow />
+               </effect></CategoryAxis>
         </xAxis>
         <yAxis>
-          <NumberAxis label="Valor" side="LEFT" />
+          <NumberAxis label="Valor" side="LEFT" tickLabelFill="#f2eded" />
         </yAxis>
       </BarChart>
    </children>

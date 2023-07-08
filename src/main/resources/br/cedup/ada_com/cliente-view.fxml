@@ -19,23 +19,23 @@
          <font>
             <Font size="18.0" />
          </font></Button>
-      <TabPane layoutX="29.0" layoutY="13.0" prefHeight="609.0" prefWidth="858.0" style="-fx-border-color: red; -fx-background-color: black;" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="12.0" AnchorPane.leftAnchor="29.0" AnchorPane.rightAnchor="217.0" AnchorPane.topAnchor="13.0">
+      <TabPane layoutX="29.0" layoutY="13.0" prefHeight="609.0" prefWidth="856.0" style="-fx-border-color: red; -fx-background-color: black;" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="12.0" AnchorPane.leftAnchor="29.0" AnchorPane.rightAnchor="219.0" AnchorPane.topAnchor="13.0">
         <tabs>
-            <Tab style="-fx-font-size: 18; -fx-background-color: white; -fx-border-color: red;" text="Clientes">
+            <Tab style="-fx-font-size: 18; -fx-background-color: #d3d3d3; -fx-border-color: #d3d3d3;" text="Clientes">
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="575.0" prefWidth="859.0">
                      <children>
                         <TableView fx:id="listaCliente" layoutY="3.0" prefHeight="570.0" prefWidth="858.0" style="-fx-border-color: red;" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-2.0" AnchorPane.topAnchor="3.0">
                           <columns>
-                            <TableColumn fx:id="codCliente" prefWidth="194.0" style="-fx-font-size: 18; -fx-border-color: black;" text="Codigo" />
-                            <TableColumn fx:id="nomeCliente" prefWidth="330.0" style="-fx-font-size: 18; -fx-border-color: black;" text="Nome" />
-                              <TableColumn fx:id="enderecoCliente" prefWidth="375.0" style="-fx-font-size: 18; -fx-border-color: black;" text="Endereço" />
+                            <TableColumn fx:id="codCliente" prefWidth="194.0" style="-fx-font-size: 16; -fx-border-color: #d3d3d3; -fx-background-color: #d3d3d3;" text="Codigo" />
+                            <TableColumn fx:id="nomeCliente" prefWidth="330.0" style="-fx-font-size: 16; -fx-border-color: #d3d3d3; -fx-background-color: #d3d3d3;" text="Nome" />
+                              <TableColumn fx:id="enderecoCliente" prefWidth="327.0" style="-fx-font-size: 18; -fx-border-color: #d3d3d3; -fx-background-color: #d3d3d3;" text="Endereço" />
                           </columns>
                         </TableView>
                      </children></AnchorPane>
               </content>
             </Tab>
-          <Tab fx:id="expCliente" style="-fx-font-size: 18; -fx-background-color: white; -fx-border-color: red;" text="Experiência de venda">
+          <Tab fx:id="expCliente" style="-fx-font-size: 18; -fx-background-color: #d3d3d3; -fx-border-color: #d3d3d3;" text="Experiência de venda">
                <content>
                   <AnchorPane prefHeight="562.0" prefWidth="898.0">
                      <children>
@@ -55,12 +55,12 @@
                   </AnchorPane>
                </content>
             </Tab>
-          <Tab style="-fx-font-size: 18; -fx-background-color: white; -fx-border-color: red;" text="Endereços">
+          <Tab style="-fx-font-size: 18; -fx-background-color: #d3d3d3; -fx-border-color: #d3d3d3;" text="Endereços">
                <content>
                   <AnchorPane prefHeight="200.0" prefWidth="200.0">
                      <children>
-                        <ListView fx:id="listEstados" layoutX="2.0" layoutY="16.0" prefHeight="549.0" prefWidth="444.0" style="-fx-border-color: red;" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="454.0" AnchorPane.topAnchor="16.0" />
-                        <ListView fx:id="listCidades" layoutX="457.0" layoutY="15.0" prefHeight="551.0" prefWidth="429.0" style="-fx-border-color: red;" AnchorPane.bottomAnchor="13.0" AnchorPane.leftAnchor="457.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="15.0" />
+                        <ListView fx:id="listEstados" layoutX="20.0" layoutY="16.0" prefHeight="545.0" prefWidth="380.0" style="-fx-border-color: red;" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="454.0" AnchorPane.topAnchor="16.0" />
+                        <ListView fx:id="listCidades" layoutX="457.0" layoutY="15.0" prefHeight="547.0" prefWidth="373.0" style="-fx-border-color: red;" AnchorPane.bottomAnchor="13.0" AnchorPane.leftAnchor="457.0" AnchorPane.rightAnchor="24.0" AnchorPane.topAnchor="15.0" />
                      </children>
                   </AnchorPane>
                </content>

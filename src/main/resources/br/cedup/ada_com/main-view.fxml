@@ -25,7 +25,7 @@
             <font>
                 <Font size="18.0" />
             </font></Button>
-        <Label fx:id="comissaoAtualV" layoutX="690.0" layoutY="96.0" prefHeight="38.0" prefWidth="167.0" text="Comissão atual:" textFill="#f8f8f8" AnchorPane.leftAnchor="690.0" AnchorPane.topAnchor="96.0">
+        <Label fx:id="comissaoAtualV" layoutX="763.0" layoutY="95.0" prefHeight="38.0" prefWidth="167.0" text="Comissão atual:" textFill="#f8f8f8" AnchorPane.leftAnchor="763.0" AnchorPane.rightAnchor="70.0" AnchorPane.topAnchor="95.0">
             <font>
                 <Font name="Century Gothic" size="18.0" />
             </font></Label>
@@ -48,7 +48,7 @@
                     <children>
                         <Button fx:id="GeV" layoutX="28.0" layoutY="34.0" mnemonicParsing="false" onAction="#relatorio" prefHeight="66.0" prefWidth="238.0" style="-fx-font-size: 18; -fx-background-color: #000000; -fx-border-color: white; -fx-border-radius: 3; -fx-border-width: 2;" text="Relatórios" AnchorPane.leftAnchor="28.0" AnchorPane.rightAnchor="41.0" AnchorPane.topAnchor="34.0">
                             <font>
-                                <Font size="18.0" />
+                                <Font size="24.0" />
                             </font>
                             <textFill>
                                 <LinearGradient endX="1.0" endY="1.0" startX="0.4265402843601896">
@@ -73,7 +73,7 @@
                     <children>
                         <Button fx:id="registrarVendaV" layoutX="67.0" layoutY="40.0" mnemonicParsing="false" onAction="#registrarVenda" prefHeight="66.0" prefWidth="238.0" style="-fx-font-size: 18; -fx-background-color: #000000; -fx-border-color: white; -fx-border-radius: 3; -fx-border-width: 2;" text="Registrar Venda" AnchorPane.leftAnchor="67.0" AnchorPane.rightAnchor="59.0" AnchorPane.topAnchor="40.0">
                             <font>
-                                <Font size="96.0" />
+                                <Font name="System Bold" size="24.0" />
                             </font>
                             <textFill>
                                 <LinearGradient endX="1.0" endY="1.0">
@@ -124,7 +124,7 @@
                                 </MenuItem>
                             </items>
                             <font>
-                                <Font size="18.0" />
+                                <Font size="24.0" />
                             </font>
                             <textFill>
                                 <LinearGradient endX="1.0" endY="1.0" startX="1.0">
