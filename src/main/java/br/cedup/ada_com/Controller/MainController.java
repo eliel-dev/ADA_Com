@@ -41,6 +41,9 @@ public class MainController implements Initializable {
     @FXML
     Label comissaoAtualV;
 
+    @FXML
+    Button bSair;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         nomeSobrenomeLogou.setText("Bem vindo(a) " + LoginController.nomeLogou1);
@@ -79,6 +82,8 @@ public class MainController implements Initializable {
         bGerenciar.setOnMouseEntered(e -> bGerenciar.setStyle("-fx-font-size: 18; -fx-background-color: white; -fx-text-fill: black; -fx-border-color: white; -fx-border-radius: 3; -fx-border-width: 2;"));
         bGerenciar.setOnMouseExited(e -> bGerenciar.setStyle("-fx-font-size: 18; -fx-background-color: #000000; -fx-text-fill: white; -fx-border-color: white; -fx-border-radius: 3; -fx-border-width: 2;"));
 
+        bSair.setOnMouseEntered(e -> bSair.setStyle("-fx-font-size: 18; -fx-background-color: red; -fx-border-color: red; -fx-border-radius: 3; -fx-border-width: 2;"));
+        bSair.setOnMouseExited(e -> bSair.setStyle("-fx-font-size: 18; -fx-background-color: #000000; -fx-border-color: red; -fx-border-radius: 3; -fx-border-width: 2;"));
     }
 
     private List<RegistroVenda> getCompras(LocalDate date) {
