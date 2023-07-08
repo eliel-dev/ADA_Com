@@ -46,7 +46,7 @@
             </Text>
             <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="308.0" layoutY="73.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@style/adacom1.jpg" />
+                  <Image url="@images/adacom1.jpg" />
                </image>
             </ImageView>
          </children>
