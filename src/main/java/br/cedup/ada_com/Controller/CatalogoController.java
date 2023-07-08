@@ -32,6 +32,15 @@ public class CatalogoController implements Initializable {
     @FXML
     TableColumn<Catalogo, String> colunaTipo;
 
+    @FXML
+    Button bNovo;
+    @FXML
+    Button bEditar;
+    @FXML
+    Button bExcluir;
+    @FXML
+    Button bVoltar;
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -64,6 +73,22 @@ public class CatalogoController implements Initializable {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+
+        //Botão verde:
+        bNovo.setOnMouseEntered(e -> bNovo.setStyle("-fx-font-size: 18; -fx-background-color: green; -fx-border-color: green; -fx-border-radius: 3; -fx-border-width: 2;"));
+        bNovo.setOnMouseExited(e -> bNovo.setStyle("-fx-font-size: 18; -fx-background-color: #000000;  -fx-border-color: green; -fx-border-radius: 3; -fx-border-width: 2;"));
+
+        //Botão branco:
+        Button[] branco = {bEditar, bVoltar};
+
+        for (Button button : branco) {
+            button.setOnMouseEntered(e -> button.setStyle("-fx-font-size: 18; -fx-background-color: white; -fx-text-fill: black; -fx-border-color: white; -fx-border-radius: 3; -fx-border-width: 2;"));
+            button.setOnMouseExited(e -> button.setStyle("-fx-font-size: 18; -fx-background-color: #000000; -fx-text-fill: white; -fx-border-color: white; -fx-border-radius: 3; -fx-border-width: 2;"));
+        }
+
+        //Botão vermelho:
+        bExcluir.setOnMouseEntered(e -> bExcluir.setStyle("-fx-font-size: 18; -fx-background-color: red; -fx-border-color: red; -fx-border-radius: 3; -fx-border-width: 2;"));
+        bExcluir.setOnMouseExited(e -> bExcluir.setStyle("-fx-font-size: 18; -fx-background-color: #000000; -fx-border-color: red; -fx-border-radius: 3; -fx-border-width: 2;"));
     }
 
     @FXML
