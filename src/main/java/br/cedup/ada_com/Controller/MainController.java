@@ -23,16 +23,21 @@ import java.util.ResourceBundle;
 public class MainController implements Initializable {
 
     @FXML
+    Button bRegistrarVenda;
+    @FXML
+    Button bRelatorio;
+
+    @FXML
+    MenuButton bGerenciar;
+    @FXML
     Button gerenciaUsuarioG;
     @FXML
     Button gerenciaCatG;
     @FXML
-    MenuButton gerenciarGeral;
-    @FXML
     Button gerenciarCliente;
+
     @FXML
     Label nomeSobrenomeLogou;
-
     @FXML
     Label comissaoAtualV;
 
@@ -43,7 +48,7 @@ public class MainController implements Initializable {
         if (LoginController.nivelDeAcesso == 1) {
             gerenciaUsuarioG.setVisible(false);
             gerenciaCatG.setVisible(false);
-            gerenciarGeral.setVisible(false);
+            bGerenciar.setVisible(false);
             gerenciarCliente.setVisible(false);
         }
 
@@ -62,6 +67,18 @@ public class MainController implements Initializable {
         } else {
             comissaoAtualV.setText("");
         }
+
+        //Style
+        Button[] buttons = {bRegistrarVenda, bRelatorio, gerenciaUsuarioG, gerenciaCatG, gerenciarCliente};
+
+        for (Button button : buttons) {
+            button.setOnMouseEntered(e -> button.setStyle("-fx-font-size: 18; -fx-background-color: white; -fx-text-fill: black; -fx-border-color: white; -fx-border-radius: 3; -fx-border-width: 2;"));
+            button.setOnMouseExited(e -> button.setStyle("-fx-font-size: 18; -fx-background-color: #000000; -fx-text-fill: white; -fx-border-color: white; -fx-border-radius: 3; -fx-border-width: 2;"));
+        }
+
+        bGerenciar.setOnMouseEntered(e -> bGerenciar.setStyle("-fx-font-size: 18; -fx-background-color: white; -fx-text-fill: black; -fx-border-color: white; -fx-border-radius: 3; -fx-border-width: 2;"));
+        bGerenciar.setOnMouseExited(e -> bGerenciar.setStyle("-fx-font-size: 18; -fx-background-color: #000000; -fx-text-fill: white; -fx-border-color: white; -fx-border-radius: 3; -fx-border-width: 2;"));
+
     }
 
     private List<RegistroVenda> getCompras(LocalDate date) {
