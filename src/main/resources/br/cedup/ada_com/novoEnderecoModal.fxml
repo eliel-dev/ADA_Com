@@ -6,20 +6,32 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="318.0" prefWidth="635.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.cedup.ada_com.controller.NovoEnderecoModalController">
+<AnchorPane prefHeight="318.0" prefWidth="635.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.cedup.ada_com.controller.NovoEnderecoModalController">
    <children>
-      <Text layoutX="41.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Estado:" />
+      <Text fill="#fcf8f8" layoutX="41.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Estado:">
+         <font>
+            <Font size="18.0" />
+         </font></Text>
       <ComboBox fx:id="comboEstado" layoutX="41.0" layoutY="79.0" prefHeight="25.0" prefWidth="326.0" AnchorPane.leftAnchor="41.0" AnchorPane.rightAnchor="268.0" />
-      <Text layoutX="41.0" layoutY="177.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cidade:" />
+      <Text fill="#fcfafa" layoutX="41.0" layoutY="177.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cidade:">
+         <font>
+            <Font size="18.0" />
+         </font></Text>
       <ComboBox fx:id="comboCidade" layoutX="41.0" layoutY="193.0" prefHeight="25.0" prefWidth="326.0" AnchorPane.leftAnchor="41.0" AnchorPane.rightAnchor="268.0" />
-      <Button layoutX="454.0" layoutY="54.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="103.0" text="Salvar" AnchorPane.rightAnchor="78.0" />
-      <Button layoutX="454.0" layoutY="180.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="103.0" text="Cancelar" AnchorPane.rightAnchor="78.0" />
-      <Text fill="#f50202" layoutX="81.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*">
+      <Button layoutX="454.0" layoutY="54.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="103.0" style="-fx-background-color: black; -fx-border-radius: 3; -fx-border-color: #FF00FF;" text="Salvar" textFill="#fffdfd" AnchorPane.rightAnchor="78.0">
+         <font>
+            <Font size="18.0" />
+         </font></Button>
+      <Button layoutX="454.0" layoutY="180.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="103.0" style="-fx-background-color: black; -fx-border-color: red; -fx-border-radius: 3;" text="Cancelar" textFill="#f5f4f4" AnchorPane.rightAnchor="78.0">
+         <font>
+            <Font size="18.0" />
+         </font></Button>
+      <Text fill="#f50202" layoutX="98.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*">
          <font>
             <Font size="18.0" />
          </font>
       </Text>
-      <Text fill="#f50202" layoutX="81.0" layoutY="179.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*">
+      <Text fill="#f50202" layoutX="102.0" layoutY="176.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*">
          <font>
             <Font size="18.0" />
          </font>

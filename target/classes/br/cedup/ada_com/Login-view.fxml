@@ -4,38 +4,51 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="912.0" maxWidth="1315.0" minHeight="506.0" minWidth="705.0" prefHeight="554.0" prefWidth="908.0" snapToPixel="false" style="-fx-background-color: #B22222;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.cedup.ada_com.controller.LoginController">
+<AnchorPane maxHeight="912.0" maxWidth="1315.0" minHeight="506.0" minWidth="705.0" prefHeight="623.0" prefWidth="865.0" snapToPixel="false" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.cedup.ada_com.controller.LoginController">
    <children>
-      <AnchorPane layoutX="83.0" layoutY="62.0" prefHeight="438.0" prefWidth="755.0" style="-fx-background-color: #FFE4E1;" AnchorPane.bottomAnchor="54.0" AnchorPane.leftAnchor="83.0" AnchorPane.rightAnchor="70.0" AnchorPane.topAnchor="62.0">
+      <AnchorPane layoutX="33.0" layoutY="57.0" prefHeight="505.0" prefWidth="804.0" style="-fx-background-color: black; -fx-border-radius: 10; -fx-border-color: red;" AnchorPane.bottomAnchor="61.0" AnchorPane.leftAnchor="33.0" AnchorPane.rightAnchor="28.0" AnchorPane.topAnchor="57.0">
          <children>
-            <TextField fx:id="usuarioField" layoutX="221.0" layoutY="166.0" onAction="#entrar" prefHeight="26.0" prefWidth="388.0" />
-            <PasswordField fx:id="senhaField" layoutX="221.0" layoutY="246.0" onAction="#entrar" prefHeight="26.0" prefWidth="388.0" styleClass="text" />
-            <Button fx:id="entrarButon" layoutX="329.0" layoutY="331.0" mnemonicParsing="false" onAction="#entrar" prefHeight="35.0" prefWidth="104.0" text="Entrar" />
-            <Label layoutX="147.0" layoutY="166.0" text="Usuario" textFill="#070000">
+            <TextField fx:id="usuarioField" layoutX="231.0" layoutY="217.0" onAction="#entrar" prefHeight="26.0" prefWidth="388.0" style="-fx-background-color: white; -fx-font-style: red;">
+               <font>
+                  <Font size="11.0" />
+               </font></TextField>
+            <PasswordField fx:id="senhaField" layoutX="231.0" layoutY="297.0" onAction="#entrar" prefHeight="26.0" prefWidth="388.0" style="-fx-background-color: white;" styleClass="text" />
+            <Button fx:id="entrarButon" layoutX="343.0" layoutY="378.0" mnemonicParsing="false" onAction="#entrar" prefHeight="42.0" prefWidth="130.0" style="-fx-background-color: black; -fx-border-color: white;" text="Entrar" textFill="#fffefe" wrapText="true">
+               <font>
+                  <Font size="18.0" />
+               </font></Button>
+            <Label layoutX="157.0" layoutY="217.0" text="Usuario" textFill="WHITE">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label layoutX="155.0" layoutY="244.0" text="Senha" textFill="#0d0101">
+            <Label layoutX="165.0" layoutY="295.0" text="Senha" textFill="#fffafa">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label fx:id="labelEntrar" layoutX="290.0" layoutY="296.0" prefHeight="17.0" prefWidth="176.0" />
-            <Text fill="#e10505" layoutX="208.0" layoutY="173.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*" wrappingWidth="7.505859375">
+            <Label fx:id="labelEntrar" layoutX="300.0" layoutY="347.0" prefHeight="17.0" prefWidth="176.0" />
+            <Text fill="#e10505" layoutX="218.0" layoutY="224.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*" wrappingWidth="7.505859375">
                <font>
                   <Font size="18.0" />
                </font>
             </Text>
-            <Text fill="#e10505" layoutX="208.0" layoutY="262.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*">
+            <Text fill="#e10505" layoutX="218.0" layoutY="313.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*">
                <font>
                   <Font size="18.0" />
                </font>
             </Text>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="308.0" layoutY="73.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/adacom1.jpg" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
    </children>

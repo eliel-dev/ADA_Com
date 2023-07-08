@@ -16,127 +16,127 @@
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="824.0" prefWidth="1237.0" style="-fx-background-color: #000000;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.cedup.ada_com.controller.MainController">
-   <children>
-      <Label fx:id="nomeSobrenomeLogou" layoutX="439.0" layoutY="99.0" prefHeight="32.0" prefWidth="348.0" textFill="WHITE">
-         <font>
-            <Font size="22.0" />
-         </font></Label>
-      <Button fx:id="relatorioGerente1" layoutX="135.0" layoutY="687.0" mnemonicParsing="false" onAction="#sair" prefHeight="66.0" prefWidth="238.0" style="-fx-background-color: black; -fx-border-color: red; -fx-border-radius: 3;" text="Sair" textFill="#f8f1f1" AnchorPane.bottomAnchor="74.0" AnchorPane.leftAnchor="135.0">
-         <font>
-            <Font size="18.0" />
-         </font></Button>
-      <Label fx:id="comissaoAtualV" layoutX="827.0" layoutY="96.0" prefHeight="38.0" prefWidth="275.0" text="Comissão atual:" textFill="#f8f8f8" AnchorPane.leftAnchor="819.0" AnchorPane.rightAnchor="143.0" AnchorPane.topAnchor="96.0">
-         <font>
-            <Font name="Century Gothic" size="18.0" />
-         </font></Label>
-      <ImageView fitHeight="95.0" fitWidth="285.0" layoutX="135.0" layoutY="74.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="655.0" AnchorPane.leftAnchor="135.0" AnchorPane.rightAnchor="817.0" AnchorPane.topAnchor="74.0">
-         <image>
-            <Image url="@images/adacom1.jpg" />
-         </image>
-      </ImageView>
-      <GridPane layoutX="-6.0" layoutY="373.0" prefHeight="123.0" prefWidth="1331.0" AnchorPane.bottomAnchor="372.0" AnchorPane.leftAnchor="-6.0" AnchorPane.rightAnchor="6.0" AnchorPane.topAnchor="373.0">
-        <columnConstraints>
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-        </columnConstraints>
-        <rowConstraints>
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        </rowConstraints>
-         <children>
-            <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
-               <children>
-                  <Button fx:id="GeV" layoutX="89.0" layoutY="29.0" mnemonicParsing="false" onAction="#relatorio" prefHeight="66.0" prefWidth="238.0" style="-fx-font-size: 18; -fx-background-color: #000000; -fx-border-color: white; -fx-border-radius: 3; -fx-border-width: 2;" text="Relatórios" AnchorPane.leftAnchor="89.0" AnchorPane.rightAnchor="117.0">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                     <textFill>
-                        <LinearGradient endX="1.0" endY="1.0" startX="0.4265402843601896">
-                           <stops>
-                              <Stop>
-                                 <color>
-                                    <Color red="0.9736841917037964" green="0.9556530117988586" blue="0.9556530117988586" />
-                                 </color>
-                              </Stop>
-                              <Stop offset="1.0">
-                                 <color>
-                                    <Color red="0.9868420958518982" green="0.9731359481811523" blue="0.9731359481811523" />
-                                 </color>
-                              </Stop>
-                           </stops>
-                        </LinearGradient>
-                     </textFill>
-                  </Button>
-               </children>
-            </AnchorPane>
-            <AnchorPane prefHeight="200.0" prefWidth="200.0">
-               <children>
-                  <Button fx:id="registrarVendaV" layoutX="148.0" layoutY="29.0" mnemonicParsing="false" onAction="#registrarVenda" prefHeight="66.0" prefWidth="238.0" style="-fx-font-size: 18; -fx-background-color: #000000; -fx-border-color: white; -fx-border-radius: 3; -fx-border-width: 2;" text="Registrar Venda" AnchorPane.leftAnchor="148.0" AnchorPane.rightAnchor="58.0">
-                     <font>
-                        <Font size="96.0" />
-                     </font>
-                     <textFill>
-                        <LinearGradient endX="1.0" endY="1.0">
-                           <stops>
-                              <Stop>
-                                 <color>
-                                    <Color red="0.9868420958518982" green="0.9548611044883728" blue="0.9548611044883728" />
-                                 </color>
-                              </Stop>
-                              <Stop offset="1.0">
-                                 <color>
-                                    <Color red="0.9868420958518982" green="0.9777047038078308" blue="0.9777047038078308" />
-                                 </color>
-                              </Stop>
-                           </stops>
-                        </LinearGradient>
-                     </textFill>
-                  </Button>
-               </children>
-            </AnchorPane>
-            <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2">
-               <children>
-                  <MenuButton fx:id="gerenciarGeral" layoutX="14.0" layoutY="29.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="275.0" style="-fx-font-size: 18; -fx-background-color: black; -fx-border-color: white; -fx-border-width: 2; -fx-border-radius: 3;" text="Gerenciar" textAlignment="CENTER" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="154.0">
-                    <items>
-                      <MenuItem mnemonicParsing="false">
-                           <graphic>
-                              <Button fx:id="gerenciaCatG" mnemonicParsing="false" onAction="#gerenciaCatalogo" prefHeight="38.0" prefWidth="205.0" text="Catálogo" />
-                           </graphic>
-                        </MenuItem>
-                      <MenuItem mnemonicParsing="false">
-                           <graphic>
-                              <Button fx:id="gerenciaUsuarioG" mnemonicParsing="false" onAction="#gerenciaColaborador" prefHeight="38.0" prefWidth="205.0" text="Colaboradores" />
-                           </graphic>
-                        </MenuItem>
-                        <MenuItem mnemonicParsing="false">
-                           <graphic>
-                              <Button fx:id="gerenciarCliente" mnemonicParsing="false" onAction="#gerenciaCliente" prefHeight="38.0" prefWidth="205.0" text="Clientes" />
-                           </graphic>
-                        </MenuItem>
-                    </items>
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                     <textFill>
-                        <LinearGradient endX="1.0" endY="1.0" startX="1.0">
-                           <stops>
-                              <Stop>
-                                 <color>
-                                    <Color red="0.9342105388641357" green="0.9255604147911072" blue="0.9255604147911072" />
-                                 </color>
-                              </Stop>
-                              <Stop offset="1.0">
-                                 <color>
-                                    <Color red="1.0" green="0.9953703880310059" blue="0.9953703880310059" />
-                                 </color>
-                              </Stop>
-                           </stops>
-                        </LinearGradient>
-                     </textFill>
-                  </MenuButton>
-               </children>
-            </AnchorPane>
-         </children>
-      </GridPane>
-   </children>
+    <children>
+        <Label fx:id="nomeSobrenomeLogou" layoutX="439.0" layoutY="99.0" prefHeight="32.0" prefWidth="348.0" textFill="WHITE">
+            <font>
+                <Font size="22.0" />
+            </font></Label>
+        <Button fx:id="relatorioGerente1" layoutX="135.0" layoutY="687.0" mnemonicParsing="false" onAction="#sair" prefHeight="66.0" prefWidth="238.0" style="-fx-background-color: black; -fx-border-color: red; -fx-border-radius: 3;" text="Sair" textFill="#f8f1f1" AnchorPane.bottomAnchor="74.0" AnchorPane.leftAnchor="135.0">
+            <font>
+                <Font size="18.0" />
+            </font></Button>
+        <Label fx:id="comissaoAtualV" layoutX="827.0" layoutY="96.0" prefHeight="38.0" prefWidth="275.0" text="Comissão atual:" textFill="#f8f8f8" AnchorPane.leftAnchor="819.0" AnchorPane.rightAnchor="143.0" AnchorPane.topAnchor="96.0">
+            <font>
+                <Font name="Century Gothic" size="18.0" />
+            </font></Label>
+        <ImageView fitHeight="95.0" fitWidth="285.0" layoutX="135.0" layoutY="74.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="655.0" AnchorPane.leftAnchor="135.0" AnchorPane.rightAnchor="817.0" AnchorPane.topAnchor="74.0">
+            <image>
+                <Image url="@images/adacom1.jpg" />
+            </image>
+        </ImageView>
+        <GridPane layoutX="-6.0" layoutY="373.0" prefHeight="123.0" prefWidth="1331.0" AnchorPane.bottomAnchor="372.0" AnchorPane.leftAnchor="-6.0" AnchorPane.rightAnchor="6.0" AnchorPane.topAnchor="373.0">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+            <children>
+                <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
+                    <children>
+                        <Button fx:id="GeV" layoutX="89.0" layoutY="29.0" mnemonicParsing="false" onAction="#relatorio" prefHeight="66.0" prefWidth="238.0" style="-fx-font-size: 18; -fx-background-color: #000000; -fx-border-color: white; -fx-border-radius: 3; -fx-border-width: 2;" text="Relatórios" AnchorPane.leftAnchor="89.0" AnchorPane.rightAnchor="117.0">
+                            <font>
+                                <Font size="18.0" />
+                            </font>
+                            <textFill>
+                                <LinearGradient endX="1.0" endY="1.0" startX="0.4265402843601896">
+                                    <stops>
+                                        <Stop>
+                                            <color>
+                                                <Color red="0.9736841917037964" green="0.9556530117988586" blue="0.9556530117988586" />
+                                            </color>
+                                        </Stop>
+                                        <Stop offset="1.0">
+                                            <color>
+                                                <Color red="0.9868420958518982" green="0.9731359481811523" blue="0.9731359481811523" />
+                                            </color>
+                                        </Stop>
+                                    </stops>
+                                </LinearGradient>
+                            </textFill>
+                        </Button>
+                    </children>
+                </AnchorPane>
+                <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                    <children>
+                        <Button fx:id="registrarVendaV" layoutX="148.0" layoutY="29.0" mnemonicParsing="false" onAction="#registrarVenda" prefHeight="66.0" prefWidth="238.0" style="-fx-font-size: 18; -fx-background-color: #000000; -fx-border-color: white; -fx-border-radius: 3; -fx-border-width: 2;" text="Registrar Venda" AnchorPane.leftAnchor="148.0" AnchorPane.rightAnchor="58.0">
+                            <font>
+                                <Font size="96.0" />
+                            </font>
+                            <textFill>
+                                <LinearGradient endX="1.0" endY="1.0">
+                                    <stops>
+                                        <Stop>
+                                            <color>
+                                                <Color red="0.9868420958518982" green="0.9548611044883728" blue="0.9548611044883728" />
+                                            </color>
+                                        </Stop>
+                                        <Stop offset="1.0">
+                                            <color>
+                                                <Color red="0.9868420958518982" green="0.9777047038078308" blue="0.9777047038078308" />
+                                            </color>
+                                        </Stop>
+                                    </stops>
+                                </LinearGradient>
+                            </textFill>
+                        </Button>
+                    </children>
+                </AnchorPane>
+                <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2">
+                    <children>
+                        <MenuButton fx:id="gerenciarGeral" layoutX="14.0" layoutY="29.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="275.0" style="-fx-font-size: 18; -fx-background-color: black; -fx-border-color: white; -fx-border-width: 2; -fx-border-radius: 3;" text="Gerenciar" textAlignment="CENTER" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="154.0">
+                            <items>
+                                <MenuItem mnemonicParsing="false">
+                                    <graphic>
+                                        <Button fx:id="gerenciaCatG" mnemonicParsing="false" onAction="#gerenciaCatalogo" prefHeight="38.0" prefWidth="205.0" text="Catálogo" />
+                                    </graphic>
+                                </MenuItem>
+                                <MenuItem mnemonicParsing="false">
+                                    <graphic>
+                                        <Button fx:id="gerenciaUsuarioG" mnemonicParsing="false" onAction="#gerenciaColaborador" prefHeight="38.0" prefWidth="205.0" text="Colaboradores" />
+                                    </graphic>
+                                </MenuItem>
+                                <MenuItem mnemonicParsing="false">
+                                    <graphic>
+                                        <Button fx:id="gerenciarCliente" mnemonicParsing="false" onAction="#gerenciaCliente" prefHeight="38.0" prefWidth="205.0" text="Clientes" />
+                                    </graphic>
+                                </MenuItem>
+                            </items>
+                            <font>
+                                <Font size="18.0" />
+                            </font>
+                            <textFill>
+                                <LinearGradient endX="1.0" endY="1.0" startX="1.0">
+                                    <stops>
+                                        <Stop>
+                                            <color>
+                                                <Color red="0.9342105388641357" green="0.9255604147911072" blue="0.9255604147911072" />
+                                            </color>
+                                        </Stop>
+                                        <Stop offset="1.0">
+                                            <color>
+                                                <Color red="1.0" green="0.9953703880310059" blue="0.9953703880310059" />
+                                            </color>
+                                        </Stop>
+                                    </stops>
+                                </LinearGradient>
+                            </textFill>
+                        </MenuButton>
+                    </children>
+                </AnchorPane>
+            </children>
+        </GridPane>
+    </children>
 </AnchorPane>

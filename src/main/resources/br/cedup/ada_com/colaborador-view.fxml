@@ -13,21 +13,21 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="797.0" prefWidth="1096.0" style="-fx-background-color: #2c2c2c;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.cedup.ada_com.controller.ColaboradorController">
+<AnchorPane prefHeight="797.0" prefWidth="1096.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.cedup.ada_com.controller.ColaboradorController">
    <children>
-      <Button layoutX="948.0" layoutY="86.0" mnemonicParsing="false" onAction="#novo" prefHeight="47.0" prefWidth="106.0" style="-fx-font-size: 18;" text="Novo" AnchorPane.rightAnchor="42.0" AnchorPane.topAnchor="86.0">
+      <Button layoutX="948.0" layoutY="86.0" mnemonicParsing="false" onAction="#novo" prefHeight="47.0" prefWidth="106.0" style="-fx-background-color: black; -fx-border-color: green; -fx-border-radius: 3;" text="Novo" textFill="#fcf9f9" AnchorPane.rightAnchor="42.0" AnchorPane.topAnchor="86.0">
          <font>
             <Font size="18.0" />
          </font></Button>
-      <Button layoutX="948.0" layoutY="177.0" mnemonicParsing="false" onAction="#editar" prefHeight="47.0" prefWidth="106.0" text="Editar" AnchorPane.rightAnchor="42.0" AnchorPane.topAnchor="177.0">
+      <Button layoutX="948.0" layoutY="177.0" mnemonicParsing="false" onAction="#editar" prefHeight="47.0" prefWidth="106.0" style="-fx-background-color: black; -fx-border-color: orange; -fx-border-radius: 3;" text="Editar" textFill="#f8f1f1" AnchorPane.rightAnchor="42.0" AnchorPane.topAnchor="177.0">
          <font>
             <Font size="18.0" />
          </font></Button>
-      <Button fx:id="botaoRemover" layoutX="948.0" layoutY="268.0" mnemonicParsing="false" onAction="#remover" prefHeight="47.0" prefWidth="106.0" text="Excluir" AnchorPane.rightAnchor="42.0" AnchorPane.topAnchor="268.0">
+      <Button fx:id="botaoRemover" layoutX="948.0" layoutY="268.0" mnemonicParsing="false" onAction="#remover" prefHeight="47.0" prefWidth="106.0" style="-fx-background-color: black; -fx-border-color: red; -fx-border-radius: 3;" text="Excluir" textFill="#f5eded" AnchorPane.rightAnchor="42.0" AnchorPane.topAnchor="268.0">
          <font>
             <Font size="18.0" />
          </font></Button>
-      <Button layoutX="948.0" layoutY="632.0" mnemonicParsing="false" onAction="#voltar" prefHeight="47.0" prefWidth="106.0" text="Voltar" AnchorPane.bottomAnchor="118.0" AnchorPane.rightAnchor="42.0">
+      <Button layoutX="948.0" layoutY="632.0" mnemonicParsing="false" onAction="#voltar" prefHeight="47.0" prefWidth="106.0" style="-fx-background-color: black; -fx-border-color: red; -fx-border-radius: 3;" text="Voltar" AnchorPane.bottomAnchor="118.0" AnchorPane.rightAnchor="42.0">
          <font>
             <Font size="18.0" />
          </font>
@@ -36,31 +36,31 @@
                <stops>
                   <Stop>
                      <color>
-                        <Color red="0.9342105388641357" green="0.012975146062672138" blue="0.012975146062672138" />
+                        <Color red="0.9342105388641357" green="0.8952850699424744" blue="0.8952850699424744" />
                      </color>
                   </Stop>
                   <Stop offset="1.0">
                      <color>
-                        <Color red="0.9736841917037964" green="0.040570177137851715" blue="0.040570177137851715" />
+                        <Color red="1.0" green="1.0" blue="1.0" />
                      </color>
                   </Stop>
                </stops>
             </RadialGradient>
          </textFill></Button>
       <Label fx:id="labelCopia" layoutX="417.0" layoutY="720.0" prefHeight="17.0" prefWidth="371.0" />
-      <TabPane layoutX="14.0" layoutY="14.0" prefHeight="665.0" prefWidth="884.0" style="-fx-background-color: #000000;" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="118.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="198.0" AnchorPane.topAnchor="14.0">
+      <TabPane layoutX="19.0" layoutY="24.0" prefHeight="657.0" prefWidth="879.0" style="-fx-background-color: black; -fx-border-color: red; -fx-border-radius: 10;" styleClass="radiu" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="116.0" AnchorPane.leftAnchor="19.0" AnchorPane.rightAnchor="198.0" AnchorPane.topAnchor="24.0">
         <tabs>
-          <Tab style="-fx-font-size: 18;" text="Colaboradores">
+          <Tab style="-fx-font-size: 20; -fx-background-color: white; -fx-border-color: red;" text="Colaboradores">
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="629.0" prefWidth="884.0">
                      <children>
-                        <TableView fx:id="tabelaColaborador" layoutX="-2.0" layoutY="1.0" prefHeight="635.0" prefWidth="890.0" AnchorPane.bottomAnchor="-1.0" AnchorPane.leftAnchor="-2.0" AnchorPane.rightAnchor="-4.0" AnchorPane.topAnchor="1.0">
+                        <TableView fx:id="tabelaColaborador" layoutX="-3.0" layoutY="14.0" prefHeight="635.0" prefWidth="890.0" style="-fx-border-color: red; -fx-border-radius: 5;" AnchorPane.bottomAnchor="-14.0" AnchorPane.leftAnchor="-3.0" AnchorPane.rightAnchor="-3.0" AnchorPane.topAnchor="14.0">
                           <columns>
-                            <TableColumn fx:id="colunaNome" prefWidth="170.0" style="-fx-font-size: 18;" text="Nome" />
-                              <TableColumn fx:id="colunaFuncao" prefWidth="134.0" style="-fx-font-size: 18;" text="Função" />
-                              <TableColumn fx:id="colunaUsuario" prefWidth="191.0" style="-fx-font-size: 18;" text="Usuário" />
-                              <TableColumn fx:id="taxaComissaoVendedor" prefWidth="210.0" style="-fx-font-size: 18;" text="Taxa de comissão" />
-                            <TableColumn fx:id="dataAtual" prefWidth="203.0" style="-fx-font-size: 18;" text="Data" />
+                            <TableColumn fx:id="colunaNome" prefWidth="170.0" style="-fx-font-size: 18; -fx-border-color: red;" text="Nome" />
+                              <TableColumn fx:id="colunaFuncao" prefWidth="134.0" style="-fx-font-size: 18; -fx-border-color: black;" text="Função" />
+                              <TableColumn fx:id="colunaUsuario" prefWidth="191.0" style="-fx-font-size: 18; -fx-border-color: red;" text="Usuário" />
+                              <TableColumn fx:id="taxaComissaoVendedor" prefWidth="210.0" style="-fx-font-size: 18; -fx-border-color: black;" text="Taxa de comissão" />
+                            <TableColumn fx:id="dataAtual" prefWidth="203.0" style="-fx-font-size: 18; -fx-border-color: red;" text="Data" />
                           </columns>
                         </TableView>
                      </children>

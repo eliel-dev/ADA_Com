@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
@@ -9,47 +10,57 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="634.0" prefWidth="1104.0" style="-fx-background-color: #2c2c2c;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.cedup.ada_com.controller.ClienteController">
+<AnchorPane prefHeight="634.0" prefWidth="1104.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.cedup.ada_com.controller.ClienteController">
    <children>
-      <Button layoutX="957.0" layoutY="40.0" mnemonicParsing="false" onAction="#novo" prefHeight="44.0" prefWidth="84.0" style="-fx-font-size: 18;" text="Novo" AnchorPane.rightAnchor="63.0" AnchorPane.topAnchor="40.0" />
-      <Button layoutX="957.0" layoutY="118.0" mnemonicParsing="false" onAction="#editar" prefHeight="44.0" prefWidth="84.0" style="-fx-font-size: 18;" text="Editar" AnchorPane.rightAnchor="63.0" AnchorPane.topAnchor="118.0" />
-      <Button layoutX="957.0" layoutY="194.0" mnemonicParsing="false" onAction="#detetar" prefHeight="44.0" prefWidth="84.0" style="-fx-font-size: 18;" text="Deletar" AnchorPane.rightAnchor="63.0" AnchorPane.topAnchor="194.0" />
-      <Button layoutX="957.0" layoutY="566.0" mnemonicParsing="false" onAction="#voltar" prefHeight="44.0" prefWidth="84.0" style="-fx-font-size: 18;" text="Voltar" textFill="#eb0404" AnchorPane.bottomAnchor="24.0" AnchorPane.rightAnchor="63.0">
+      <Button layoutX="957.0" layoutY="60.0" mnemonicParsing="false" onAction="#novo" prefHeight="44.0" prefWidth="84.0" style="-fx-font-size: 18; -fx-background-color: black; -fx-border-radius: 3; -fx-border-color: green;" text="Novo" textFill="#f8f7f7" AnchorPane.rightAnchor="63.0" AnchorPane.topAnchor="60.0" />
+      <Button layoutX="957.0" layoutY="143.0" mnemonicParsing="false" onAction="#editar" prefHeight="44.0" prefWidth="84.0" style="-fx-font-size: 18; -fx-background-color: black; -fx-border-radius: 3; -fx-border-color: orange;" text="Editar" textFill="#f8f7f7" AnchorPane.rightAnchor="63.0" AnchorPane.topAnchor="143.0" />
+      <Button layoutX="957.0" layoutY="226.0" mnemonicParsing="false" onAction="#detetar" prefHeight="44.0" prefWidth="84.0" style="-fx-font-size: 18; -fx-background-color: black; -fx-border-radius: 3; -fx-border-color: red;" text="Excluir" textFill="#f8f4f4" AnchorPane.rightAnchor="63.0" AnchorPane.topAnchor="226.0" />
+      <Button layoutX="957.0" layoutY="534.0" mnemonicParsing="false" onAction="#voltar" prefHeight="44.0" prefWidth="84.0" style="-fx-font-size: 18; -fx-background-color: black; -fx-border-color: red; -fx-border-radius: 3;" text="Voltar" textFill="#fffbfb" AnchorPane.bottomAnchor="56.0" AnchorPane.rightAnchor="63.0">
          <font>
             <Font size="18.0" />
          </font></Button>
-      <TabPane layoutX="14.0" layoutY="14.0" prefHeight="609.0" prefWidth="900.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="11.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="190.0" AnchorPane.topAnchor="14.0">
+      <TabPane layoutX="29.0" layoutY="13.0" prefHeight="609.0" prefWidth="858.0" style="-fx-border-color: red; -fx-background-color: black;" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="12.0" AnchorPane.leftAnchor="29.0" AnchorPane.rightAnchor="217.0" AnchorPane.topAnchor="13.0">
         <tabs>
-            <Tab style="-fx-font-size: 18;" text="Clientes">
+            <Tab style="-fx-font-size: 18; -fx-background-color: white; -fx-border-color: red;" text="Clientes">
               <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="575.0" prefWidth="859.0">
                      <children>
-                        <TableView fx:id="listaCliente" layoutY="3.0" prefHeight="580.0" prefWidth="900.0" AnchorPane.bottomAnchor="-4.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="3.0">
+                        <TableView fx:id="listaCliente" layoutY="3.0" prefHeight="570.0" prefWidth="858.0" style="-fx-border-color: red;" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-2.0" AnchorPane.topAnchor="3.0">
                           <columns>
-                            <TableColumn fx:id="codCliente" prefWidth="194.0" style="-fx-font-size: 18;" text="Codigo" />
-                            <TableColumn fx:id="nomeCliente" prefWidth="330.0" style="-fx-font-size: 18;" text="Nome" />
-                              <TableColumn fx:id="enderecoCliente" prefWidth="375.0" style="-fx-font-size: 18;" text="Endereço" />
+                            <TableColumn fx:id="codCliente" prefWidth="194.0" style="-fx-font-size: 18; -fx-border-color: black;" text="Codigo" />
+                            <TableColumn fx:id="nomeCliente" prefWidth="330.0" style="-fx-font-size: 18; -fx-border-color: black;" text="Nome" />
+                              <TableColumn fx:id="enderecoCliente" prefWidth="375.0" style="-fx-font-size: 18; -fx-border-color: black;" text="Endereço" />
                           </columns>
                         </TableView>
                      </children></AnchorPane>
               </content>
             </Tab>
-          <Tab fx:id="expCliente" style="-fx-font-size: 18;" text="Experiência de venda">
+          <Tab fx:id="expCliente" style="-fx-font-size: 18; -fx-background-color: white; -fx-border-color: red;" text="Experiência de venda">
                <content>
-                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                  <AnchorPane prefHeight="562.0" prefWidth="898.0">
                      <children>
-                        <ListView fx:id="perguntasListView" editable="true" layoutX="14.0" layoutY="14.0" prefHeight="549.0" prefWidth="420.0" AnchorPane.bottomAnchor="16.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="466.0" AnchorPane.topAnchor="14.0" />
-                        <ListView fx:id="alternativasListView" layoutX="440.0" layoutY="14.0" prefHeight="551.0" prefWidth="438.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="440.0" AnchorPane.rightAnchor="22.0" AnchorPane.topAnchor="14.0" />
+                        <ListView fx:id="perguntasListView" editable="true" layoutX="14.0" layoutY="51.0" prefHeight="510.0" prefWidth="418.0" style="-fx-border-color: red;" AnchorPane.bottomAnchor="16.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="466.0" AnchorPane.topAnchor="51.0" />
+                        <ListView fx:id="alternativasListView" layoutX="440.0" layoutY="49.0" prefHeight="514.0" prefWidth="436.0" style="-fx-border-color: red;" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="440.0" AnchorPane.rightAnchor="22.0" AnchorPane.topAnchor="49.0" />
+                        <Label layoutX="14.0" layoutY="19.0" prefHeight="27.0" prefWidth="108.0" style="-fx-background-color: BLACK;" text="Perguntas :" textAlignment="CENTER" textFill="#fcf5f5">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="440.0" layoutY="19.0" text="Alterantivas :" textFill="#fcfafa">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
                      </children>
                   </AnchorPane>
                </content>
             </Tab>
-          <Tab style="-fx-font-size: 18;" text="Endereços">
+          <Tab style="-fx-font-size: 18; -fx-background-color: white; -fx-border-color: red;" text="Endereços">
                <content>
                   <AnchorPane prefHeight="200.0" prefWidth="200.0">
                      <children>
-                        <ListView fx:id="listEstados" layoutX="2.0" layoutY="16.0" prefHeight="549.0" prefWidth="444.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="454.0" AnchorPane.topAnchor="16.0" />
-                        <ListView fx:id="listCidades" layoutX="457.0" layoutY="15.0" prefHeight="551.0" prefWidth="429.0" AnchorPane.bottomAnchor="13.0" AnchorPane.leftAnchor="457.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="15.0" />
+                        <ListView fx:id="listEstados" layoutX="2.0" layoutY="16.0" prefHeight="549.0" prefWidth="444.0" style="-fx-border-color: red;" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="454.0" AnchorPane.topAnchor="16.0" />
+                        <ListView fx:id="listCidades" layoutX="457.0" layoutY="15.0" prefHeight="551.0" prefWidth="429.0" style="-fx-border-color: red;" AnchorPane.bottomAnchor="13.0" AnchorPane.leftAnchor="457.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="15.0" />
                      </children>
                   </AnchorPane>
                </content>
