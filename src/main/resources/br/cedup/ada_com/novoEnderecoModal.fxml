@@ -18,7 +18,7 @@
             <Font size="18.0" />
          </font></Text>
       <ComboBox fx:id="comboCidade" layoutX="41.0" layoutY="193.0" prefHeight="25.0" prefWidth="326.0" AnchorPane.leftAnchor="41.0" AnchorPane.rightAnchor="268.0" />
-      <Button layoutX="454.0" layoutY="54.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="103.0" style="-fx-background-color: black; -fx-border-radius: 3; -fx-border-color: #FF00FF;" text="Salvar" textFill="#fffdfd" AnchorPane.rightAnchor="78.0">
+      <Button layoutX="454.0" layoutY="54.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="103.0" style="-fx-background-color: black; -fx-border-radius: 3; -fx-border-color: white;" text="Salvar" textFill="#fffdfd" AnchorPane.rightAnchor="78.0">
          <font>
             <Font size="18.0" />
          </font></Button>
