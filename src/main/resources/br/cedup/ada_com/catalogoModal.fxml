@@ -9,23 +9,29 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: black; -fx-border-color: red;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.cedup.ada_com.controller.CatalogoModalController">
+<AnchorPane prefHeight="448.0" prefWidth="714.0" style="-fx-background-color: black; -fx-border-color: red;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.cedup.ada_com.controller.CatalogoModalController">
    <children>
-      <Button fx:id="salvar" layoutX="462.0" layoutY="140.0" mnemonicParsing="false" onAction="#salvar" prefHeight="39.0" prefWidth="97.0" style="-fx-font-size: 18; -fx-background-color: black; -fx-border-radius: 3; -fx-border-color: white;" text="Salvar" textFill="#ebeaea" AnchorPane.rightAnchor="41.0" AnchorPane.topAnchor="140.0" />
-      <Button layoutX="462.0" layoutY="258.0" mnemonicParsing="false" onAction="#cancelar" prefHeight="39.0" prefWidth="103.0" style="-fx-font-size: 18; -fx-background-color: black; -fx-border-radius: 3; -fx-border-color: red;" text="Cancelar" textFill="#f8f7f7c7" AnchorPane.rightAnchor="35.0" AnchorPane.topAnchor="258.0">
+      <Button fx:id="bSalvarModal" disable="true" layoutX="574.0" layoutY="143.0" mnemonicParsing="false" onAction="#salvaritem" prefHeight="52.0" prefWidth="118.0" style="-fx-font-size: 18; -fx-background-color: black; -fx-border-radius: 3; -fx-border-color: green;" text="Salvar" textFill="#ebeaea" AnchorPane.rightAnchor="22.0" AnchorPane.topAnchor="143.0">
          <font>
             <Font size="18.0" />
          </font></Button>
-      <TextField fx:id="nomeItem" layoutX="81.0" layoutY="147.0" prefHeight="25.0" prefWidth="344.0" AnchorPane.leftAnchor="81.0" AnchorPane.rightAnchor="175.0" AnchorPane.topAnchor="147.0" />
+      <Button fx:id="bCancelarModal" layoutX="462.0" layoutY="260.0" mnemonicParsing="false" onAction="#cancelar" prefHeight="52.0" prefWidth="118.0" style="-fx-font-size: 18; -fx-background-color: black; -fx-border-radius: 3; -fx-border-color: red;" text="Cancelar" textFill="#f8f7f7c7" AnchorPane.rightAnchor="21.0" AnchorPane.topAnchor="259.0">
+         <font>
+            <Font size="18.0" />
+         </font></Button>
+      <TextField fx:id="nomeItem" layoutX="83.0" layoutY="149.0" prefHeight="24.0" prefWidth="342.0" AnchorPane.leftAnchor="82.0" AnchorPane.rightAnchor="176.0" AnchorPane.topAnchor="148.0">
+         <font>
+            <Font size="18.0" />
+         </font></TextField>
       <Text fill="#fff8f8" layoutX="83.0" layoutY="136.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nome:" AnchorPane.leftAnchor="83.0" AnchorPane.topAnchor="123.05078125">
          <font>
             <Font size="18.0" />
          </font></Text>
-      <Text fill="#f2ecec" layoutX="84.0" layoutY="196.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Preço:" AnchorPane.leftAnchor="84.0" AnchorPane.topAnchor="183.05078125">
+      <Text fill="#f2ecec" layoutX="84.0" layoutY="233.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Preço:" AnchorPane.leftAnchor="84.0" AnchorPane.topAnchor="213.576171875">
          <font>
             <Font size="18.0" />
          </font></Text>
-      <Text fill="#f8f1f1" layoutX="85.0" layoutY="258.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Categoria:" AnchorPane.leftAnchor="85.0" AnchorPane.topAnchor="245.05078125">
+      <Text fill="#f8f1f1" layoutX="86.0" layoutY="319.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Categoria:" AnchorPane.leftAnchor="86.0" AnchorPane.topAnchor="299.0">
          <font>
             <Font size="18.0" />
          </font></Text>
@@ -33,7 +39,10 @@
          <font>
             <Font size="18.0" />
          </font></Text>
-      <TextField fx:id="preco" layoutX="85.0" layoutY="209.0" prefHeight="25.0" prefWidth="337.0" AnchorPane.leftAnchor="85.0" AnchorPane.rightAnchor="178.0" AnchorPane.topAnchor="209.0" />
+      <TextField fx:id="preco" layoutX="85.0" layoutY="241.0" prefHeight="25.0" prefWidth="342.0" AnchorPane.leftAnchor="85.0" AnchorPane.rightAnchor="177.0" AnchorPane.topAnchor="241.0">
+         <font>
+            <Font size="18.0" />
+         </font></TextField>
       <RadioButton fx:id="radioButtonProduto" layoutX="84.0" layoutY="75.0" mnemonicParsing="false" text="Produto" textFill="#fffafa" AnchorPane.leftAnchor="84.0" AnchorPane.topAnchor="75.0">
          <font>
             <Font size="18.0" />
@@ -42,19 +51,22 @@
          <font>
             <Font size="18.0" />
          </font></RadioButton>
-      <ComboBox fx:id="comboCategoria" layoutX="85.0" layoutY="274.0" prefHeight="25.0" prefWidth="337.0" AnchorPane.leftAnchor="85.0" />
-      <Label fx:id="valorInvalido" layoutX="241.0" layoutY="204.0" />
+      <ComboBox fx:id="comboCategoria" layoutX="86.0" layoutY="331.0" prefHeight="25.0" prefWidth="342.0" style="-fx-font-size: 18;" AnchorPane.leftAnchor="86.0" />
+      <Label fx:id="valorInvalido" layoutX="157.0" layoutY="188.0" prefHeight="25.0" prefWidth="118.0" text="Valor invalido!" textFill="RED" visible="false">
+         <font>
+            <Font size="16.0" />
+         </font></Label>
       <Text fill="#e80909" layoutX="125.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*" wrappingWidth="14.0078125" AnchorPane.leftAnchor="125.0" AnchorPane.topAnchor="41.576171875">
          <font>
             <Font size="18.0" />
          </font>
       </Text>
-      <Text fill="#e80909" layoutX="131.0" layoutY="202.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*" wrappingWidth="14.0078125" AnchorPane.leftAnchor="131.0" AnchorPane.topAnchor="182.576171875">
+      <Text fill="#e80909" layoutX="133.0" layoutY="233.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*" wrappingWidth="8.0" AnchorPane.leftAnchor="133.0" AnchorPane.topAnchor="213.0">
          <font>
             <Font size="18.0" />
          </font>
       </Text>
-      <Text fill="#e80909" layoutX="168.0" layoutY="264.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*" wrappingWidth="14.0078125" AnchorPane.leftAnchor="168.0" AnchorPane.topAnchor="244.0">
+      <Text fill="#e80909" layoutX="169.0" layoutY="318.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*" wrappingWidth="14.0078125" AnchorPane.leftAnchor="169.0" AnchorPane.topAnchor="298.0">
          <font>
             <Font size="18.0" />
          </font>
@@ -64,5 +76,20 @@
             <Font size="18.0" />
          </font>
       </Text>
+      <Label fx:id="aviso" layoutX="83.0" layoutY="407.0" text="Aviso: Campos com " textFill="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="aviso2" layoutX="240.0" layoutY="407.0" text="devem ser preenchidos antes de salvar." textFill="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="aviso1" layoutX="226.0" layoutY="407.0" text="*" textFill="RED">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

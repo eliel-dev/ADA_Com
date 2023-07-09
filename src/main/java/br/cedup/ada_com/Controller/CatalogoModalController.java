@@ -25,14 +25,41 @@ public class CatalogoModalController implements Initializable {
     @FXML
     TextField preco;
     @FXML
-    Button salvar;
-    @FXML
     Label valorInvalido;
+
+    @FXML
+    Button bSalvarModal;
+    @FXML
+    Button bCancelarModal;
+
+    @FXML
+    Label aviso;
+    @FXML
+    Label aviso1;
+    @FXML
+    Label aviso2;
 
     public static Catalogo catalogoItem;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        Label[] alerta ={aviso, aviso1, aviso2};
+
+        // Adicionar um ouvinte ao texto do campo nomeItem
+        nomeItem.textProperty().addListener((obs, oldValue, newValue) -> {
+            verificarCamposVazios(alerta);
+        });
+
+        // Adicionar um ouvinte ao texto do campo preco
+        preco.textProperty().addListener((obs, oldValue, newValue) -> {
+            verificarCamposVazios(alerta);
+        });
+
+        // Adicionar um ouvinte ao valor selecionado do comboCategoria
+        comboCategoria.getEditor().textProperty().addListener((obs, oldValue, newValue) -> {
+            verificarCamposVazios(alerta);
+        });
+
         // Adicionar um ouvinte ao valor selecionado do ComboBox
         comboCategoria.valueProperty().addListener((observable, oldValue, newValue) -> {
             // Se o novo valor não estiver na lista de opções do ComboBox, adicione-o
@@ -86,23 +113,24 @@ public class CatalogoModalController implements Initializable {
             if (!newValue.matches("\\d*(\\.\\d*)?")) {
                 // Se não for um número válido, alterar a cor do texto para vermelho
                 preco.setStyle("-fx-text-fill: red;");
-
-                // Desativar o botão salvar
-                salvar.setDisable(true);
-
                 // Exibir a mensagem de valor inválido no Label valorInvalido
+                valorInvalido.setVisible(true);
                 valorInvalido.setText("Valor inválido!");
             } else {
                 // Se for um número válido, alterar a cor do texto para preto
                 preco.setStyle("-fx-text-fill: black;");
-
-                // Ativar o botão salvar
-                salvar.setDisable(false);
-
                 // Limpar o texto do Label valorInvalido
                 valorInvalido.setText("");
             }
         });
+
+        //Botão verde:
+        bSalvarModal.setOnMouseEntered(e -> bSalvarModal.setStyle("-fx-font-size: 18; -fx-background-color: green; -fx-border-color: green; -fx-border-radius: 3; -fx-border-width: 2;"));
+        bSalvarModal.setOnMouseExited(e -> bSalvarModal.setStyle("-fx-font-size: 18; -fx-background-color: #000000;  -fx-border-color: green; -fx-border-radius: 3; -fx-border-width: 2;"));
+
+        //Botão vermelho:
+        bCancelarModal.setOnMouseEntered(e -> bCancelarModal.setStyle("-fx-font-size: 18; -fx-background-color: red; -fx-border-color: red; -fx-border-radius: 3; -fx-border-width: 2;"));
+        bCancelarModal.setOnMouseExited(e -> bCancelarModal.setStyle("-fx-font-size: 18; -fx-background-color: #000000; -fx-border-color: red; -fx-border-radius: 3; -fx-border-width: 2;"));
     }
 
     public static void setCatalogoItem(Catalogo catalogo) {
@@ -113,23 +141,22 @@ public class CatalogoModalController implements Initializable {
         return CatalogoModalController.catalogoItem;
     }
 
-    @FXML
-    public void salvar() {
-        System.out.println("Método salvar chamado");
-
-        // Verificar se todos os campos estão preenchidos
-        if ((catalogoItem == null && comboCategoria.getValue() == null) ||
-                nomeItem.getText().isEmpty() ||
-                preco.getText().isEmpty()) {
-            // Exibir mensagem de erro
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Erro");
-            alert.setHeaderText("Campos vazios");
-            alert.setContentText("Por favor, preencha todos os campos antes de salvar.");
-            alert.showAndWait();
-            return;
+    private void verificarCamposVazios(Label[] alerta) {
+        if (nomeItem.getText().isEmpty() || preco.getText().isEmpty() || comboCategoria.getEditor().getText().isEmpty()) {
+            for (Label label : alerta) {
+                label.setVisible(true);
+            }
+            bSalvarModal.setDisable(true);
+        } else {
+            for (Label label : alerta) {
+                label.setVisible(false);
+            }
+            bSalvarModal.setDisable(false);
         }
+    }
 
+    @FXML
+    public void salvaritem() {
         if (catalogoItem == null ||
                 !nomeItem.getText().equals(catalogoItem.getNome()) ||
                 !comboCategoria.getValue().equals(catalogoItem.getCategoria())) {

@@ -41,7 +41,6 @@ public class CatalogoController implements Initializable {
     @FXML
     Button bVoltar;
 
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
