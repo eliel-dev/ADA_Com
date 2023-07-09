@@ -74,6 +74,13 @@ public class CatalogoController implements Initializable {
             throw new RuntimeException(e);
         }
 
+        tabelaCatalogo.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
+            if (newSelection != null) {
+                bEditar.setDisable(false);
+                bExcluir.setDisable(false);
+            }
+        });
+
         //Botão verde:
         bNovo.setOnMouseEntered(e -> bNovo.setStyle("-fx-font-size: 18; -fx-background-color: green; -fx-border-color: green; -fx-border-radius: 3; -fx-border-width: 2;"));
         bNovo.setOnMouseExited(e -> bNovo.setStyle("-fx-font-size: 18; -fx-background-color: #000000;  -fx-border-color: green; -fx-border-radius: 3; -fx-border-width: 2;"));
@@ -144,17 +151,6 @@ public class CatalogoController implements Initializable {
     public void removerItem() {
         // Obter o item selecionado na tabela de itens
         Catalogo itemSelecionado = tabelaCatalogo.getSelectionModel().getSelectedItem();
-
-        // Verificar se um item foi selecionado
-        if (itemSelecionado == null) {
-            // Exibir mensagem de erro
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Erro");
-            alert.setHeaderText("Nenhum item selecionado");
-            alert.setContentText("Por favor, selecione um item antes de remover.");
-            alert.showAndWait();
-            return;
-        }
 
         // Exibir mensagem de confirmação
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);

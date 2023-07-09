@@ -28,7 +28,7 @@ import java.util.*;
 
 public class RegistraVendaController implements Initializable {
 
-    //Passo 1 - Selecione um cliente.
+    //Selecione um cliente.
     @FXML
     TextField compoPesquisaCliente;
     @FXML
@@ -50,7 +50,7 @@ public class RegistraVendaController implements Initializable {
     @FXML
     Text eCliente;
 
-    //Passo 2 - Registre os itens vendidos.
+    //Registre os itens vendidos.
     @FXML
     ComboBox <Catalogo> produtosServicos;
     @FXML
@@ -67,8 +67,10 @@ public class RegistraVendaController implements Initializable {
     TableColumn precoItem;
     @FXML
     Label valorTotal;
+    @FXML
+    Button botaoExcluir;
 
-    //Passo 3 - Registre a experiência do cliente, onde é necessario escolher ao menos 1 alternativa para cada pergunta.
+    //Registre a experiência do cliente, onde é necessario escolher ao menos 1 alternativa para cada pergunta.
     @FXML
     Label pergunta1;
     @FXML
@@ -163,9 +165,6 @@ public class RegistraVendaController implements Initializable {
             }
         });
 
-        // Desativar o botão incluir inicialmente
-        botaoIncluir.setDisable(true);
-
         // Adicionar um ouvinte de texto ao campo quantidadeProduto
         quantidadeProduto.textProperty().addListener((observable, oldValue, newValue) -> {
             try {
@@ -178,6 +177,13 @@ public class RegistraVendaController implements Initializable {
                 botaoIncluir.setDisable(true);
             }
         });
+
+        tabelaItensCarrinho.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
+            if (newSelection != null) {
+                botaoExcluir.setDisable(false);
+            }
+        });
+
 
         nomeItem.setCellValueFactory(new PropertyValueFactory<>("nome"));
         qtdItem.setCellValueFactory(new PropertyValueFactory<>("quantidade"));
@@ -270,6 +276,24 @@ public class RegistraVendaController implements Initializable {
 
         // Limpar o campo quantidadeProduto
         quantidadeProduto.clear();
+    }
+
+    @FXML
+    public void botaoExcluir(){
+        // Obter o item selecionado na tabela de itens
+        ItemVendido itemSelecionado2 = tabelaItensCarrinho.getSelectionModel().getSelectedItem();
+
+        // Exibir mensagem de confirmação
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Confirmação");
+        alert.setHeaderText("Remover item");
+        alert.setContentText("Tem certeza de que deseja remover o item selecionado?");
+
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.isPresent() && result.get() == ButtonType.OK) {
+            // Remover o item selecionado da tabela de itens do carrinho
+            tabelaItensCarrinho.getItems().remove(itemSelecionado2);
+        }
     }
 
     @FXML
