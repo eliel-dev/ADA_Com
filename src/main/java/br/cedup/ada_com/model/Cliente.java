@@ -1,5 +1,11 @@
 package br.cedup.ada_com.model;
 
+import br.com.caelum.stella.format.CNPJFormatter;
+import br.com.caelum.stella.format.CPFFormatter;
+import br.com.caelum.stella.validation.CNPJValidator;
+import br.com.caelum.stella.validation.CPFValidator;
+import br.com.caelum.stella.validation.InvalidStateException;
+
 public class Cliente {
     public int clienteID;
     public int enderecoID;

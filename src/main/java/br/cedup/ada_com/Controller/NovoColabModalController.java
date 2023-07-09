@@ -66,7 +66,7 @@ public class NovoColabModalController implements Initializable {
     }
 
     @FXML
-    public void salvar() throws SQLException {
+    public void salvar() {
         // Verificar se todos os campos estão preenchidos
         if (nomefield.getText().isEmpty() ||
                 sobrenomefield.getText().isEmpty() ||

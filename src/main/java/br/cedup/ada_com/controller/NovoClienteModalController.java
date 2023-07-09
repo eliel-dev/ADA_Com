@@ -3,6 +3,7 @@ package br.cedup.ada_com.controller;
 import br.cedup.ada_com.HelloApplication;
 import br.cedup.ada_com.model.Cidade;
 import br.cedup.ada_com.model.Cliente;
+import br.cedup.ada_com.model.Colaborador;
 import br.cedup.ada_com.model.Estado;
 import br.cedup.ada_com.model.dao.ClienteDAO;
 import br.cedup.ada_com.model.dao.EnderecoDAO;
@@ -11,6 +12,7 @@ import br.com.caelum.stella.format.CPFFormatter;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 
@@ -33,9 +35,24 @@ public class NovoClienteModalController implements Initializable {
     @FXML
     TextField fieldDocumento;
 
+    @FXML
+    Button bSalvar;
+    @FXML
+    Button bCancelar;
+
     private boolean atualizandoCampo = false;
+    public static Cliente cliente;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        Cliente clienteSelecionado = NovoClienteModalController.cliente;
+        // Verificar se um cliente foi enviado
+        if (clienteSelecionado != null) {
+            // Inicializar os campos do modal com os valores do cliente
+            fieldNome.setText(clienteSelecionado.getNomeCliente());
+            fieldSobrenome.setText(clienteSelecionado.getSobreNomeCliente());
+            fieldDocumento.setText(clienteSelecionado.getCnpj_cpf());
+        }
 
         // Criar um novo objeto EnderecoDAO
         EnderecoDAO enderecoDAO = new EnderecoDAO();
@@ -74,6 +91,27 @@ public class NovoClienteModalController implements Initializable {
             }
         });
 
+        // Verificar se um cliente foi enviado
+        if (cliente != null) {
+            // Selecionar o estado do cliente no ComboBox comboEstado
+            Estado estadoCliente = estados.stream()
+                    .filter(estado -> estado.getNomeEstado().equals(cliente.getEstado()))
+                    .findFirst()
+                    .orElse(null);
+            if (estadoCliente != null) {
+                comboEstado.getSelectionModel().select(estadoCliente);
+            }
+
+            // Selecionar a cidade do cliente no ComboBox comboCidade
+            Cidade cidadeCliente = comboCidade.getItems().stream()
+                    .filter(cidade -> cidade.getNomeCidade().equals(cliente.getCidade()))
+                    .findFirst()
+                    .orElse(null);
+            if (cidadeCliente != null) {
+                comboCidade.getSelectionModel().select(cidadeCliente);
+            }
+        }
+
         // Adicionar um ouvinte à propriedade text do campo fieldDocumento
         fieldDocumento.textProperty().addListener((observable, oldValue, newValue) -> {
             if (!atualizandoCampo) {
@@ -90,7 +128,17 @@ public class NovoClienteModalController implements Initializable {
         });
     }
 
-    public void salvar(){
+
+    public static void setCliente(Cliente cliente) {
+        NovoClienteModalController.cliente = cliente;
+    }
+
+    public static Cliente getCliente() {
+        return NovoClienteModalController.cliente;
+    }
+
+
+    public void salvarModal() {
         // Verificar se todos os campos estão preenchidos
         if (comboEstado.getValue() == null ||
                 comboCidade.getValue() == null ||
@@ -102,87 +150,65 @@ public class NovoClienteModalController implements Initializable {
             alert.setTitle("Erro");
             alert.setHeaderText("Preencha todos os campos!");
             alert.showAndWait();
-        } else {
-            // Obter os valores dos campos
-            String nomeCliente = fieldNome.getText();
-            String sobreNomeCliente = fieldSobrenome.getText();
-            String cnpj_cpf = formatarCpfCnpj(fieldDocumento.getText());
-            String nomeCidade = comboCidade.getValue().getNomeCidade();
-            String nomeEstado = comboEstado.getValue().getNomeEstado();
-
-            // Remover caracteres de formatação do CPF/CNPJ
-            cnpj_cpf = cnpj_cpf.replaceAll("\\D", "");
-
-            // Criar um novo objeto ClienteDAO
-            ClienteDAO clienteDAO = new ClienteDAO();
-
-            // Verificar se o CPF/CNPJ informado já está cadastrado
-            boolean cpfCnpjJaCadastrado = false;
-            try {
-                cpfCnpjJaCadastrado = clienteDAO.verificarCpfCnpjJaCadastrado(cnpj_cpf);
-            } catch (SQLException e) {
-                throw new RuntimeException(e);
-            }
-
-            if (cpfCnpjJaCadastrado) {
-                // Exibir mensagem de erro
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("Erro");
-                alert.setHeaderText("O CPF/CNPJ informado já está cadastrado!");
-                alert.showAndWait();
-                return;
-            }
-
-            // Verificar se a combinação de nome e sobrenome informada já está cadastrada
-            boolean nomeSobrenomeJaCadastrado = false;
-            try {
-                nomeSobrenomeJaCadastrado = clienteDAO.verificarNomeSobrenomeJaCadastrado(nomeCliente, sobreNomeCliente);
-            } catch (SQLException e) {
-                throw new RuntimeException(e);
-            }
-
-            if (nomeSobrenomeJaCadastrado) {
-                // Exibir mensagem de erro
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("Erro");
-                alert.setHeaderText("A combinação de nome e sobrenome informada já está cadastrada!");
-                alert.showAndWait();
-                return;
-            }
-
-            // Obter o ID da cidade selecionada
-            int cidadeID = comboCidade.getValue().getCidadeID();
-
-            // Obter o ID do estado selecionado
-            int estadoID = comboEstado.getValue().getEstadoID();
-
-
-            // Criar um novo objeto EnderecoDAO
-            EnderecoDAO enderecoDAO = new EnderecoDAO();
-
-            // Consultar o banco de dados para obter o ID do endereço resultante da combinação dos IDs de cidade e estado
-            int enderecoID = 0;
-            try {
-                enderecoID = enderecoDAO.getEnderecoIDByCidadeAndEstado(cidadeID, estadoID);
-            } catch (SQLException e) {
-                throw new RuntimeException(e);
-            }
-
-            // Criar um novo objeto Cliente com os valores dos campos
-            Cliente cliente = new Cliente(0, enderecoID, nomeCliente, sobreNomeCliente, cnpj_cpf, nomeCidade, nomeEstado);
-
-
-            // Cadastrar o novo cliente no banco de dados
-            ClienteDAO clienteDAO2 = new ClienteDAO();
-            try {
-                clienteDAO2.cadastrarCliente(cliente);
-            } catch (SQLException e) {
-                throw new RuntimeException(e);
-            }
-
-            HelloApplication.closeCurrentWindow();
+            return;
         }
+
+        // Verificar se já existe um cliente com a mesma combinação de nome e sobrenome ou com o mesmo CPF/CNPJ
+        ClienteDAO clienteDAO = new ClienteDAO();
+        try {
+            if (clienteDAO.verificarCpfCnpjJaCadastrado(fieldDocumento.getText()) || clienteDAO.verificarNomeSobrenomeJaCadastrado(fieldNome.getText(), fieldSobrenome.getText())) {
+                // Verificar se é um novo cadastro
+                if (NovoClienteModalController.cliente.getClienteID() == 0) {
+                    // Exibir mensagem de erro
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setTitle("Erro");
+                    alert.setHeaderText("Cliente duplicado");
+                    alert.setContentText("Já existe um cliente com a mesma combinação de nome e sobrenome ou com o mesmo CPF/CNPJ!");
+                    alert.showAndWait();
+                    return;
+                }
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        // Obter os valores dos campos
+        String nomeCliente = fieldNome.getText();
+        String sobreNomeCliente = fieldSobrenome.getText();
+        String cnpj_cpf = formatarCpfCnpj(fieldDocumento.getText());
+        String nomeCidade = comboCidade.getValue().getNomeCidade();
+        String nomeEstado = comboEstado.getValue().getNomeEstado();
+
+        // Remover caracteres de formatação do CPF/CNPJ
+        cnpj_cpf = cnpj_cpf.replaceAll("\\D", "");
+
+        // Obter o ID da cidade selecionada
+        int cidadeID = comboCidade.getValue().getCidadeID();
+
+        // Obter o ID do estado selecionado
+        int estadoID = comboEstado.getValue().getEstadoID();
+
+        // Criar um novo objeto EnderecoDAO
+        EnderecoDAO enderecoDAO = new EnderecoDAO();
+
+        // Consultar o banco de dados para obter o ID do endereço resultante da combinação dos IDs de cidade e estado
+        int enderecoID = 0;
+        try {
+            enderecoID = enderecoDAO.getEnderecoIDByCidadeAndEstado(cidadeID, estadoID);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        // Criar um novo objeto Cliente com as informações obtidas dos campos e o ID do endereço resultante da combinação dos IDs de cidade e estado
+        Cliente cliente = new Cliente(0, enderecoID, nomeCliente, sobreNomeCliente, cnpj_cpf, nomeCidade, nomeEstado);
+
+        // Atribuir o novo cliente ao atributo estático cliente
+        NovoClienteModalController.cliente = cliente;
+
+        // Fechar a janela modal
+        HelloApplication.closeCurrentWindow();
     }
+
 
     private String formatarCpfCnpj(String cpfCnpj) {
         // Remover caracteres não numéricos

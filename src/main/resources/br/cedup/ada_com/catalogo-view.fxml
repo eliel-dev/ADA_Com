@@ -8,19 +8,19 @@
 
 <AnchorPane maxWidth="1378.0" minWidth="754.0" prefHeight="902.0" prefWidth="1302.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.cedup.ada_com.controller.CatalogoController">
    <children>
-      <TableView fx:id="tabelaCatalogo" layoutX="17.0" layoutY="17.0" prefHeight="865.0" prefWidth="1087.0" style="-fx-border-color: red; -fx-background-color: white; -fx-border-radius: 1; -fx-font-size: 18;" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="17.0" AnchorPane.rightAnchor="198.0" AnchorPane.topAnchor="17.0">
+      <TableView fx:id="tabelaCatalogo" layoutX="17.0" layoutY="17.0" prefHeight="865.0" prefWidth="1087.0" style="-fx-border-color: red; -fx-background-color: white; -fx-border-radius: 1; -fx-font-size: 18;" tableMenuButtonVisible="true" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="17.0" AnchorPane.rightAnchor="198.0" AnchorPane.topAnchor="17.0">
         <columns>
-          <TableColumn fx:id="colunaId" maxWidth="294.0" prefWidth="83.0" style="-fx-border-color: black;" text="Código" />
-          <TableColumn fx:id="colunaNome" maxWidth="517.0" minWidth="0.0" prefWidth="505.0" style="-fx-border-color: black;" text="Nome" />
-            <TableColumn fx:id="colunaValor" maxWidth="493.0" minWidth="0.0" prefWidth="141.66665649414062" style="-fx-border-color: black;" text="Preço" />
-            <TableColumn fx:id="colunaCategoria" maxWidth="541.0" minWidth="0.0" prefWidth="171.33333587646484" style="-fx-border-color: black;" text="Categoria" />
-            <TableColumn fx:id="colunaTipo" prefWidth="151.66666412353516" resizable="false" style="-fx-border-color: black;" text="Tipo" />
+          <TableColumn fx:id="colunaId" maxWidth="294.0" prefWidth="83.0" style="-fx-border-color: #d3d3d3;" text="Código" />
+          <TableColumn fx:id="colunaNome" maxWidth="517.0" minWidth="0.0" prefWidth="505.0" style="-fx-border-color: #d3d3d3;" text="Nome" />
+            <TableColumn fx:id="colunaValor" maxWidth="493.0" minWidth="0.0" prefWidth="141.66665649414062" style="-fx-border-color: #d3d3d3;" text="Preço" />
+            <TableColumn fx:id="colunaCategoria" maxWidth="541.0" minWidth="0.0" prefWidth="171.33333587646484" style="-fx-border-color: #d3d3d3;" text="Categoria" />
+            <TableColumn fx:id="colunaTipo" prefWidth="151.66666412353516" resizable="false" style="-fx-border-color: #d3d3d3;" text="Tipo" />
         </columns>
          <columnResizePolicy>
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
       </TableView>
-      <Button fx:id="bNovo" layoutX="1154.0" layoutY="68.0" mnemonicParsing="false" onAction="#novoItem" prefHeight="62.0" prefWidth="116.0" style="-fx-background-color: black; -fx-border-color: green; -fx-border-radius: 3;" text="Novo" textFill="#fffafa" AnchorPane.rightAnchor="32.0" AnchorPane.topAnchor="68.0">
+      <Button fx:id="bNovo" layoutX="1154.0" layoutY="68.0" mnemonicParsing="false" onAction="#novoItem" prefHeight="62.0" prefWidth="116.0" style="-fx-background-color: black; -fx-border-color: white; -fx-border-radius: 3;" text="Novo" textFill="#fffafa" AnchorPane.rightAnchor="32.0" AnchorPane.topAnchor="68.0">
          <font>
             <Font size="18.0" />
          </font></Button>
@@ -32,7 +32,7 @@
          <font>
             <Font size="18.0" />
          </font></Button>
-      <Button fx:id="bVoltar" layoutX="1154.0" layoutY="820.0" mnemonicParsing="false" onAction="#voltar" prefHeight="62.0" prefWidth="116.0" style="-fx-background-color: black; -fx-border-color: red; -fx-border-radius: 3;" text="Voltar" textFill="#f2eeee" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="32.0">
+      <Button fx:id="bVoltar" layoutX="1154.0" layoutY="820.0" mnemonicParsing="false" onAction="#voltar" prefHeight="62.0" prefWidth="116.0" style="-fx-background-color: black; -fx-border-color: white; -fx-border-radius: 3;" text="Voltar" textFill="#f2eeee" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="32.0">
          <font>
             <Font size="18.0" />
          </font></Button>

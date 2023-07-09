@@ -99,6 +99,9 @@ public class ClienteDAO {
             stmt.setString(2, cliente.getSobreNomeCliente());
             stmt.setString(3, cliente.getCnpj_cpf());
             stmt.setInt(4, cliente.getEnderecoID());
+
+            System.out.println("Conexão: " + ConnectionSingleton.getConnection());
+            System.out.println("PreparedStatement: " + stmt);
             stmt.executeUpdate();
         }
     }
@@ -110,7 +113,14 @@ public class ClienteDAO {
             stmt.setString(2, cliente.getSobreNomeCliente());
             stmt.setString(3, cliente.getCnpj_cpf());
             stmt.setInt(4, cliente.getClienteID());
+
+            System.out.println("Conexão: " + ConnectionSingleton.getConnection());
+            System.out.println("PreparedStatement: " + stmt);
+
             stmt.executeUpdate();
+        } catch (SQLException e) {
+            System.err.println("Erro ao editar cliente: " + e.getMessage());
+            throw e;
         }
     }
 
@@ -121,6 +131,4 @@ public class ClienteDAO {
             stmt.executeUpdate();
         }
     }
-
-
 }

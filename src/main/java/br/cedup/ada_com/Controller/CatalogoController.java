@@ -14,7 +14,9 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.text.NumberFormat;
 import java.util.List;
+import java.util.Locale;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
@@ -50,18 +52,24 @@ public class CatalogoController implements Initializable {
         this.colunaCategoria.setCellValueFactory(new PropertyValueFactory<>("categoria"));
         this.colunaTipo.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getTipo() == 1 ? "Produto" : "Serviço"));
 
-        // Define o cellFactory personalizado para a coluna colunaValor
-        this.colunaValor.setCellFactory(column -> new TableCell<Catalogo, Double>() {
-            @Override
-            protected void updateItem(Double item, boolean empty) {
-                super.updateItem(item, empty);
+        // Criar uma instância de NumberFormat para formatar os valores como moeda
+        NumberFormat format = NumberFormat.getCurrencyInstance(new Locale("pt", "BR"));
 
-                if (item == null || empty) {
-                    setText(null);
-                } else {
-                    setText(String.format("R$ %.2f", item));
+        // Definir o cellFactory da coluna colunaValor
+        colunaValor.setCellFactory(column -> {
+            return new TableCell<>() {
+                @Override
+                protected void updateItem(Double item, boolean empty) {
+                    super.updateItem(item, empty);
+
+                    if (item == null || empty) {
+                        setText(null);
+                    } else {
+                        // Formatar o valor como moeda e exibi-lo na célula
+                        setText(format.format(item));
+                    }
                 }
-            }
+            };
         });
 
         CatalogoDAO dao = new CatalogoDAO();
