@@ -21,11 +21,11 @@
             <font>
                 <Font size="22.0" />
             </font></Label>
-        <Button fx:id="bSair" layoutX="59.0" layoutY="635.0" mnemonicParsing="false" onAction="#sair" prefHeight="66.0" prefWidth="238.0" style="-fx-background-color: black; -fx-border-color: red; -fx-border-radius: 3;" text="Sair" textFill="#f8f1f1" AnchorPane.bottomAnchor="54.0" AnchorPane.leftAnchor="59.0">
+        <Button fx:id="bSair" layoutX="54.0" layoutY="636.0" mnemonicParsing="false" onAction="#sair" prefHeight="78.0" prefWidth="200.0" style="-fx-background-color: black; -fx-border-color: red; -fx-border-radius: 3;" text="Sair" textFill="#f8f1f1" AnchorPane.bottomAnchor="41.0" AnchorPane.leftAnchor="54.0">
             <font>
                 <Font size="18.0" />
             </font></Button>
-        <Label fx:id="comissaoAtualV" layoutX="763.0" layoutY="95.0" prefHeight="38.0" prefWidth="167.0" text="Comissão atual:" textFill="#f8f8f8" AnchorPane.leftAnchor="763.0" AnchorPane.rightAnchor="70.0" AnchorPane.topAnchor="95.0">
+        <Label fx:id="comissaoAtualV" layoutX="763.0" layoutY="99.0" prefHeight="38.0" prefWidth="167.0" text="Comissão atual:" textFill="#f8f8f8" AnchorPane.leftAnchor="763.0" AnchorPane.rightAnchor="70.0" AnchorPane.topAnchor="99.0">
             <font>
                 <Font name="Century Gothic" size="18.0" />
             </font></Label>
@@ -46,7 +46,7 @@
             <children>
                 <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
                     <children>
-                        <Button fx:id="bRelatorio" layoutX="64.0" layoutY="34.0" mnemonicParsing="false" onAction="#relatorio" prefHeight="66.0" prefWidth="238.0" style="-fx-font-size: 18; -fx-background-color: #000000; -fx-border-color: white; -fx-border-radius: 3; -fx-border-width: 2;" text="Relatórios" AnchorPane.leftAnchor="64.0" AnchorPane.rightAnchor="31.0" AnchorPane.topAnchor="34.0">
+                        <Button fx:id="bRelatorio" layoutX="48.0" layoutY="40.0" mnemonicParsing="false" onAction="#relatorio" prefHeight="78.0" prefWidth="277.0" style="-fx-font-size: 18; -fx-background-color: #000000; -fx-border-color: white; -fx-border-radius: 3; -fx-border-width: 2;" text="Relatórios" AnchorPane.leftAnchor="48.0" AnchorPane.rightAnchor="47.0" AnchorPane.topAnchor="40.0">
                             <font>
                                 <Font size="24.0" />
                             </font>
@@ -71,7 +71,7 @@
                 </AnchorPane>
                 <AnchorPane prefHeight="200.0" prefWidth="200.0">
                     <children>
-                        <Button fx:id="bRegistrarVenda" layoutX="69.0" layoutY="40.0" mnemonicParsing="false" onAction="#registrarVenda" prefHeight="66.0" prefWidth="238.0" style="-fx-font-size: 18; -fx-background-color: #000000; -fx-border-color: white; -fx-border-radius: 3; -fx-border-width: 2;" text="Registrar Venda" AnchorPane.leftAnchor="69.0" AnchorPane.rightAnchor="27.0" AnchorPane.topAnchor="40.0">
+                        <Button fx:id="bRegistrarVenda" layoutX="55.0" layoutY="40.0" mnemonicParsing="false" onAction="#registrarVenda" prefHeight="78.0" prefWidth="238.0" style="-fx-font-size: 18; -fx-background-color: #000000; -fx-border-color: white; -fx-border-radius: 3; -fx-border-width: 2;" text="Registrar Venda" AnchorPane.leftAnchor="55.0" AnchorPane.rightAnchor="41.0" AnchorPane.topAnchor="40.0">
                             <font>
                                 <Font name="System Bold" size="24.0" />
                             </font>
@@ -96,11 +96,11 @@
                 </AnchorPane>
                 <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2">
                     <children>
-                        <MenuButton fx:id="bGerenciar" layoutX="57.0" layoutY="33.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="238.0" style="-fx-font-size: 18; -fx-background-color: black; -fx-border-color: white; -fx-border-width: 2; -fx-border-radius: 3;" text="Gerenciar" textAlignment="CENTER" AnchorPane.leftAnchor="57.0" AnchorPane.rightAnchor="38.0" AnchorPane.topAnchor="33.0">
+                        <MenuButton fx:id="bGerenciar" layoutX="55.0" layoutY="40.0" mnemonicParsing="false" prefHeight="78.0" prefWidth="238.0" style="-fx-font-size: 18; -fx-background-color: black; -fx-border-color: white; -fx-border-width: 2; -fx-border-radius: 3;" text="Gerenciar" textAlignment="CENTER" AnchorPane.leftAnchor="55.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="40.0">
                             <items>
                                 <MenuItem mnemonicParsing="false" style="-fx-background-color: black;">
                                     <graphic>
-                                        <Button fx:id="gerenciaCatG" mnemonicParsing="false" onAction="#gerenciaCatalogo" prefHeight="38.0" prefWidth="205.0" style="-fx-background-color: black; -fx-border-radius: 3; -fx-border-color: red;" text="Catálogo" textFill="#f5f4f4">
+                                        <Button fx:id="gerenciaCatG" mnemonicParsing="false" onAction="#gerenciaCatalogo" prefHeight="38.0" prefWidth="238.0" style="-fx-background-color: black; -fx-border-radius: 3; -fx-border-color: red;" text="Catálogo" textFill="#f5f4f4">
                                  <font>
                                     <Font size="18.0" />
                                  </font></Button>
@@ -108,7 +108,7 @@
                                 </MenuItem>
                                 <MenuItem mnemonicParsing="false" style="-fx-background-color: black;">
                                     <graphic>
-                                        <Button fx:id="gerenciaUsuarioG" mnemonicParsing="false" onAction="#gerenciaColaborador" prefHeight="38.0" prefWidth="205.0" style="-fx-background-color: black; -fx-border-color: red; -fx-border-radius: 3;" text="Colaboradores" textFill="#f8f6f6">
+                                        <Button fx:id="gerenciaUsuarioG" mnemonicParsing="false" onAction="#gerenciaColaborador" prefHeight="38.0" prefWidth="238.0" style="-fx-background-color: black; -fx-border-color: red; -fx-border-radius: 3;" text="Colaboradores" textFill="#f8f6f6">
                                  <font>
                                     <Font size="18.0" />
                                  </font></Button>

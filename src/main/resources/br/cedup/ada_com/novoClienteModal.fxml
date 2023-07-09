@@ -2,79 +2,95 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="377.0" prefWidth="721.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.cedup.ada_com.controller.NovoClienteModalController">
+<AnchorPane prefHeight="448.0" prefWidth="714.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.cedup.ada_com.controller.NovoClienteModalController">
    <children>
-      <TextField fx:id="fieldNome" layoutX="45.0" layoutY="47.0" prefHeight="25.0" prefWidth="156.0">
+      <TextField fx:id="fieldNome" layoutX="45.0" layoutY="111.0" prefHeight="25.0" prefWidth="156.0">
          <font>
             <Font size="18.0" />
          </font></TextField>
-      <TextField fx:id="fieldSobrenome" layoutX="233.0" layoutY="47.0" prefHeight="25.0" prefWidth="261.0">
+      <TextField fx:id="fieldSobrenome" layoutX="235.0" layoutY="111.0" prefHeight="25.0" prefWidth="261.0">
          <font>
             <Font size="18.0" />
          </font></TextField>
-      <Text fill="#f2eded" layoutX="45.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nome:">
+      <Text fill="#f2eded" layoutX="47.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nome:">
          <font>
             <Font size="18.0" />
          </font></Text>
-      <Text fill="#fcf9f9" layoutX="233.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sobrenome:">
+      <Text fill="#fcf9f9" layoutX="235.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sobrenome:">
          <font>
             <Font size="18.0" />
          </font></Text>
-      <TextField fx:id="fieldDocumento" layoutX="45.0" layoutY="108.0" prefHeight="25.0" prefWidth="261.0">
+      <TextField fx:id="fieldDocumento" layoutX="45.0" layoutY="191.0" prefHeight="25.0" prefWidth="261.0">
          <font>
             <Font size="18.0" />
          </font></TextField>
-      <Text fill="#eeebeb" layoutX="45.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CPF/CNPJ:">
+      <Text fill="#eeebeb" layoutX="47.0" layoutY="186.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CPF/CNPJ:">
          <font>
             <Font size="18.0" />
          </font></Text>
-      <Text fill="#fffefe" layoutX="258.0" layoutY="205.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cidade:">
+      <Text fill="#fffefe" layoutX="260.0" layoutY="275.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cidade:">
          <font>
             <Font size="18.0" />
          </font></Text>
-      <Text fill="#f5f3f3" layoutX="45.0" layoutY="205.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Estado:">
+      <Text fill="#f5f3f3" layoutX="46.0" layoutY="276.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Estado:">
          <font>
             <Font size="18.0" />
          </font></Text>
-      <Button fx:id="bSalvar" layoutX="546.0" layoutY="63.0" mnemonicParsing="false" onAction="#salvarModal" prefHeight="39.0" prefWidth="130.0" style="-fx-background-color: black; -fx-border-color: green; -fx-border-radius: 3;" text="Salvar" textFill="#f2eded">
+      <Button fx:id="bSalvar" layoutX="544.0" layoutY="113.0" mnemonicParsing="false" onAction="#salvarModal" prefHeight="52.0" prefWidth="130.0" style="-fx-background-color: black; -fx-border-color: green; -fx-border-radius: 3;" text="Salvar" textFill="#f2eded">
          <font>
             <Font size="18.0" />
          </font></Button>
-      <Button fx:id="bCancelar" layoutX="546.0" layoutY="216.0" mnemonicParsing="false" onAction="#cancelar" prefHeight="39.0" prefWidth="130.0" style="-fx-background-color: black; -fx-border-color: red; -fx-border-radius: 3;" text="Voltar" textFill="#f2efef">
+      <Button fx:id="bCancelar" layoutX="544.0" layoutY="292.0" mnemonicParsing="false" onAction="#cancelar" prefHeight="52.0" prefWidth="130.0" style="-fx-background-color: black; -fx-border-color: red; -fx-border-radius: 3;" text="Voltar" textFill="#f2efef">
          <font>
             <Font size="18.0" />
          </font></Button>
-      <ComboBox fx:id="comboEstado" layoutX="45.0" layoutY="217.0" prefWidth="150.0" style="-fx-font-size: 18;" />
-      <ComboBox fx:id="comboCidade" layoutX="258.0" layoutY="217.0" prefWidth="150.0" style="-fx-font-size: 18;" />
-      <Text fill="#eb0202" layoutX="99.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*">
+      <ComboBox fx:id="comboEstado" layoutX="45.0" layoutY="281.0" prefWidth="150.0" style="-fx-font-size: 18;" />
+      <ComboBox fx:id="comboCidade" layoutX="260.0" layoutY="281.0" prefWidth="150.0" style="-fx-font-size: 18;" />
+      <Text fill="#eb0202" layoutX="100.0" layoutY="103.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*">
          <font>
             <Font size="18.0" />
          </font>
       </Text>
-      <Text fill="#eb0202" layoutX="127.0" layoutY="103.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*">
+      <Text fill="#eb0202" layoutX="128.0" layoutY="182.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*">
          <font>
             <Font size="18.0" />
          </font>
       </Text>
-      <Text fill="#eb0202" layoutX="329.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*">
+      <Text fill="#eb0202" layoutX="332.0" layoutY="103.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*">
          <font>
             <Font size="18.0" />
          </font>
       </Text>
-      <Text fill="#eb0202" layoutX="103.0" layoutY="204.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*">
+      <Text fill="#eb0202" layoutX="104.0" layoutY="272.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*">
          <font>
             <Font size="18.0" />
          </font>
       </Text>
-      <Text fill="#eb0202" layoutX="313.0" layoutY="203.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*" wrappingWidth="7.505859375">
+      <Text fill="#eb0202" layoutX="320.0" layoutY="270.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*" wrappingWidth="7.505859375">
          <font>
             <Font size="18.0" />
          </font>
       </Text>
+      <Label fx:id="aviso" layoutX="47.0" layoutY="392.0" text="Aviso: Campos com " textFill="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="aviso2" layoutX="204.0" layoutY="392.0" text="devem ser preenchidos antes de salvar." textFill="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="aviso1" layoutX="191.0" layoutY="392.0" text="*" textFill="RED">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
