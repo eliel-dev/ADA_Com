@@ -84,13 +84,12 @@ public class ClienteController implements Initializable {
                 bExcluir.setDisable(true);
             }
         });
-        
+
         //new PropertyValueFactory() o valor é exibido da mesma forma como está no BD
         codCliente.setCellValueFactory(new PropertyValueFactory<>("clienteID"));
         //cellData posso personalizar a lógica de exibição dos dados
         nomeCliente.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getNomeCliente() + " " + cellData.getValue().getSobreNomeCliente()));
         enderecoCliente.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getCidade() + ", " + cellData.getValue().getEstado()));
-
 
         documentoCliente.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Cliente, String>, ObservableValue<String>>() {
             @Override
@@ -98,7 +97,6 @@ public class ClienteController implements Initializable {
                 return new SimpleStringProperty(formatarCpfCnpj(param.getValue().getCnpj_cpf()));
             }
         });
-
 
         List<Cliente> clientes = null;
         try {

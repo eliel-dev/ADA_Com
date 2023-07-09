@@ -46,7 +46,7 @@
             <children>
                 <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
                     <children>
-                        <Button fx:id="bRelatorio" layoutX="28.0" layoutY="34.0" mnemonicParsing="false" onAction="#relatorio" prefHeight="66.0" prefWidth="238.0" style="-fx-font-size: 18; -fx-background-color: #000000; -fx-border-color: white; -fx-border-radius: 3; -fx-border-width: 2;" text="Relatórios" AnchorPane.leftAnchor="28.0" AnchorPane.rightAnchor="41.0" AnchorPane.topAnchor="34.0">
+                        <Button fx:id="bRelatorio" layoutX="64.0" layoutY="34.0" mnemonicParsing="false" onAction="#relatorio" prefHeight="66.0" prefWidth="238.0" style="-fx-font-size: 18; -fx-background-color: #000000; -fx-border-color: white; -fx-border-radius: 3; -fx-border-width: 2;" text="Relatórios" AnchorPane.leftAnchor="64.0" AnchorPane.rightAnchor="31.0" AnchorPane.topAnchor="34.0">
                             <font>
                                 <Font size="24.0" />
                             </font>
@@ -71,7 +71,7 @@
                 </AnchorPane>
                 <AnchorPane prefHeight="200.0" prefWidth="200.0">
                     <children>
-                        <Button fx:id="bRegistrarVenda" layoutX="67.0" layoutY="40.0" mnemonicParsing="false" onAction="#registrarVenda" prefHeight="66.0" prefWidth="238.0" style="-fx-font-size: 18; -fx-background-color: #000000; -fx-border-color: white; -fx-border-radius: 3; -fx-border-width: 2;" text="Registrar Venda" AnchorPane.leftAnchor="67.0" AnchorPane.rightAnchor="59.0" AnchorPane.topAnchor="40.0">
+                        <Button fx:id="bRegistrarVenda" layoutX="69.0" layoutY="40.0" mnemonicParsing="false" onAction="#registrarVenda" prefHeight="66.0" prefWidth="238.0" style="-fx-font-size: 18; -fx-background-color: #000000; -fx-border-color: white; -fx-border-radius: 3; -fx-border-width: 2;" text="Registrar Venda" AnchorPane.leftAnchor="69.0" AnchorPane.rightAnchor="27.0" AnchorPane.topAnchor="40.0">
                             <font>
                                 <Font name="System Bold" size="24.0" />
                             </font>
@@ -96,7 +96,7 @@
                 </AnchorPane>
                 <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2">
                     <children>
-                        <MenuButton fx:id="bGerenciar" layoutX="14.0" layoutY="29.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="275.0" style="-fx-font-size: 18; -fx-background-color: black; -fx-border-color: white; -fx-border-width: 2; -fx-border-radius: 3;" text="Gerenciar" textAlignment="CENTER" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="44.0" AnchorPane.topAnchor="29.0">
+                        <MenuButton fx:id="bGerenciar" layoutX="57.0" layoutY="33.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="238.0" style="-fx-font-size: 18; -fx-background-color: black; -fx-border-color: white; -fx-border-width: 2; -fx-border-radius: 3;" text="Gerenciar" textAlignment="CENTER" AnchorPane.leftAnchor="57.0" AnchorPane.rightAnchor="38.0" AnchorPane.topAnchor="33.0">
                             <items>
                                 <MenuItem mnemonicParsing="false" style="-fx-background-color: black;">
                                     <graphic>
