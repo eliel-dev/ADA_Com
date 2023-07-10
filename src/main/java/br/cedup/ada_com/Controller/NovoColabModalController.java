@@ -126,7 +126,6 @@ public class NovoColabModalController implements Initializable {
         }
 
         int codigoUsuario = 1;
-        usuariofield.setText(nomefield.getText() + "." + sobrenomefield.getText());
         Colaborador novoColab = new Colaborador(
                 0,
                 codigoUsuario,
