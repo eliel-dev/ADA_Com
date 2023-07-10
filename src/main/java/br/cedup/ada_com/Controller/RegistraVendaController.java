@@ -56,7 +56,7 @@ public class RegistraVendaController implements Initializable {
     @FXML
     TextField quantidadeProduto;
     @FXML
-    Button botaoIncluir;
+    Button bIncluir;
     @FXML
     TableView<ItemVendido> tabelaItensCarrinho;
     @FXML
@@ -68,7 +68,7 @@ public class RegistraVendaController implements Initializable {
     @FXML
     Label valorTotal;
     @FXML
-    Button botaoExcluir;
+    Button bExcluir;
 
     //Registre a experiência do cliente, onde é necessario escolher ao menos 1 alternativa para cada pergunta.
     @FXML
@@ -91,6 +91,13 @@ public class RegistraVendaController implements Initializable {
     //Passo 4 - Registra uma observação, caso necessario (Opcional)
     @FXML
     TextArea ObsCompra;
+
+    @FXML
+    Button bPesquisar;
+    @FXML
+    Button bRegistrar;
+    @FXML
+    Button bVoltar;
 
     private Cliente cliente;
     private int clienteID;
@@ -151,16 +158,16 @@ public class RegistraVendaController implements Initializable {
                 // Desativar o TextField quantidadeProduto
                 quantidadeProduto.setDisable(true);
                 // Ativar o botão incluir
-                botaoIncluir.setDisable(false);
+                bIncluir.setDisable(false);
             } else {
                 // Ativar o TextField quantidadeProduto
                 quantidadeProduto.setDisable(false);
                 // Desativar o botão incluir se a quantidade não for válida
                 try {
                     int quantidade = Integer.parseInt(quantidadeProduto.getText());
-                    botaoIncluir.setDisable(quantidade <= 0);
+                    bIncluir.setDisable(quantidade <= 0);
                 } catch (NumberFormatException e) {
-                    botaoIncluir.setDisable(true);
+                    bIncluir.setDisable(true);
                 }
             }
         });
@@ -171,16 +178,16 @@ public class RegistraVendaController implements Initializable {
                 // Tentar converter o texto digitado em um número inteiro
                 int quantidade = Integer.parseInt(newValue);
                 // Se a conversão for bem-sucedida e a quantidade for maior que 0, ativar o botão incluir
-                botaoIncluir.setDisable(quantidade <= 0);
+                bIncluir.setDisable(quantidade <= 0);
             } catch (NumberFormatException e) {
                 // Se a conversão falhar, desativar o botão incluir
-                botaoIncluir.setDisable(true);
+                bIncluir.setDisable(true);
             }
         });
 
         tabelaItensCarrinho.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
             if (newSelection != null) {
-                botaoExcluir.setDisable(false);
+                bExcluir.setDisable(false);
             }
         });
 
@@ -235,6 +242,21 @@ public class RegistraVendaController implements Initializable {
             }
         });
 
+        //Botão branco:
+        Button[] branco = {bPesquisar, bIncluir, bVoltar};
+
+        for (Button button : branco) {
+            button.setOnMouseEntered(e -> button.setStyle("-fx-font-size: 18; -fx-background-color: white; -fx-text-fill: black; -fx-border-color: white; -fx-border-radius: 3; -fx-border-width: 2;"));
+            button.setOnMouseExited(e -> button.setStyle("-fx-font-size: 18; -fx-background-color: #000000; -fx-text-fill: white; -fx-border-color: white; -fx-border-radius: 3; -fx-border-width: 2;"));
+        }
+
+        //Botão verde:
+        bRegistrar.setOnMouseEntered(e -> bRegistrar.setStyle("-fx-font-size: 18; -fx-background-color: green; -fx-border-color: green; -fx-border-radius: 3; -fx-border-width: 2;"));
+        bRegistrar.setOnMouseExited(e -> bRegistrar.setStyle("-fx-font-size: 18; -fx-background-color: #000000;  -fx-border-color: green; -fx-border-radius: 3; -fx-border-width: 2;"));
+
+        //Botão vermelho:
+        bExcluir.setOnMouseEntered(e -> bExcluir.setStyle("-fx-font-size: 18; -fx-background-color: red; -fx-border-color: red; -fx-border-radius: 3; -fx-border-width: 2;"));
+        bExcluir.setOnMouseExited(e -> bExcluir.setStyle("-fx-font-size: 18; -fx-background-color: #000000; -fx-border-color: red; -fx-border-radius: 3; -fx-border-width: 2;"));
     }
 
     private String formatarCpfCnpj(String cpfCnpj) {

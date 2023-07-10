@@ -21,7 +21,7 @@
             <font>
                 <Font size="22.0" />
             </font></Label>
-        <Button fx:id="bSair" layoutX="54.0" layoutY="636.0" mnemonicParsing="false" onAction="#sair" prefHeight="78.0" prefWidth="200.0" style="-fx-background-color: black; -fx-border-color: red; -fx-border-radius: 3;" text="Sair" textFill="#f8f1f1" AnchorPane.bottomAnchor="41.0" AnchorPane.leftAnchor="54.0">
+        <Button fx:id="bSair" layoutX="48.0" layoutY="635.0" mnemonicParsing="false" onAction="#sair" prefHeight="78.0" prefWidth="200.0" style="-fx-background-color: black; -fx-border-color: red; -fx-border-radius: 3;" text="Sair" textFill="#f8f1f1" AnchorPane.bottomAnchor="42.0" AnchorPane.leftAnchor="48.0">
             <font>
                 <Font size="18.0" />
             </font></Button>

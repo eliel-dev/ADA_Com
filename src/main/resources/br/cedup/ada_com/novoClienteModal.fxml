@@ -42,11 +42,11 @@
          <font>
             <Font size="18.0" />
          </font></Text>
-      <Button fx:id="bSalvar" layoutX="544.0" layoutY="113.0" mnemonicParsing="false" onAction="#salvarModal" prefHeight="52.0" prefWidth="130.0" style="-fx-background-color: black; -fx-border-color: green; -fx-border-radius: 3;" text="Salvar" textFill="#f2eded">
+      <Button fx:id="bSalvar" disable="true" layoutX="544.0" layoutY="105.0" mnemonicParsing="false" onAction="#salvarModal" prefHeight="52.0" prefWidth="130.0" style="-fx-background-color: black; -fx-border-color: green; -fx-border-radius: 3;" text="Salvar" textFill="#f2eded" AnchorPane.bottomAnchor="291.0" AnchorPane.leftAnchor="544.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="105.0">
          <font>
             <Font size="18.0" />
          </font></Button>
-      <Button fx:id="bCancelar" layoutX="544.0" layoutY="292.0" mnemonicParsing="false" onAction="#cancelar" prefHeight="52.0" prefWidth="130.0" style="-fx-background-color: black; -fx-border-color: red; -fx-border-radius: 3;" text="Voltar" textFill="#f2efef">
+      <Button fx:id="bCancelar" layoutX="544.0" layoutY="366.0" mnemonicParsing="false" onAction="#cancelar" prefHeight="52.0" prefWidth="130.0" style="-fx-background-color: black; -fx-border-color: red; -fx-border-radius: 3;" text="Cancelar" textFill="#f2efef" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="544.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="366.0">
          <font>
             <Font size="18.0" />
          </font></Button>
@@ -77,17 +77,17 @@
             <Font size="18.0" />
          </font>
       </Text>
-      <Label fx:id="aviso" layoutX="47.0" layoutY="392.0" text="Aviso: Campos com " textFill="WHITE">
+      <Label fx:id="aviso" layoutX="47.0" layoutY="392.0" text="Aviso: Campos com " textFill="WHITE" AnchorPane.bottomAnchor="31.0" AnchorPane.leftAnchor="47.0" AnchorPane.rightAnchor="524.0" AnchorPane.topAnchor="392.0">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <Label fx:id="aviso2" layoutX="204.0" layoutY="392.0" text="devem ser preenchidos antes de salvar." textFill="WHITE">
+      <Label fx:id="aviso2" layoutX="204.0" layoutY="392.0" text="devem ser preenchidos antes de salvar." textFill="WHITE" AnchorPane.bottomAnchor="31.0" AnchorPane.leftAnchor="204.0" AnchorPane.rightAnchor="233.0" AnchorPane.topAnchor="392.0">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <Label fx:id="aviso1" layoutX="191.0" layoutY="392.0" text="*" textFill="RED">
+      <Label fx:id="aviso1" layoutX="191.0" layoutY="392.0" text="*" textFill="RED" AnchorPane.bottomAnchor="29.0" AnchorPane.leftAnchor="191.0" AnchorPane.rightAnchor="515.0" AnchorPane.topAnchor="392.0">
          <font>
             <Font size="18.0" />
          </font>

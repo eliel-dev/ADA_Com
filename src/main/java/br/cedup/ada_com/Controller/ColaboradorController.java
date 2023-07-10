@@ -3,7 +3,6 @@ package br.cedup.ada_com.controller;
 import br.cedup.ada_com.model.Colaborador;
 import br.cedup.ada_com.model.dao.ColaboradorDAO;
 import br.cedup.ada_com.HelloApplication;
-import br.cedup.ada_com.model.dao.ComissaoDAO;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -31,10 +30,10 @@ public class ColaboradorController implements Initializable {
     TableColumn<Colaborador, String> colunaFuncao;
     @FXML
     TableColumn<Colaborador, String> colunaUsuario;
-    @FXML
-    TableColumn <Colaborador, String> taxaComissaoVendedor;
-    @FXML
-    TableColumn <Colaborador,String> dataAtual;
+//    @FXML
+//    TableColumn <Colaborador, String> taxaComissaoVendedor;
+//    @FXML
+//    TableColumn <Colaborador,String> dataAtual;
 
     @FXML
     Label labelCopia;
@@ -44,19 +43,22 @@ public class ColaboradorController implements Initializable {
     Label comissao5;
 
     @FXML
-    Button botaoRemover;
-
+    Button bNovo;
+    @FXML
+    Button bEditar;
+    @FXML
+    Button bExcluir;
+    @FXML
+    Button bVoltar;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
         // Define a fábrica de células da coluna colunaNome para exibir o nome completo do colaborador (nome e sobrenome)
         colunaNome.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getNomeColaborador() + " " + cellData.getValue().getSobrenome()));
         colunaUsuario.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getUser().toLowerCase()));
 
         // Define a fábrica de células da coluna colunaFuncao para exibir o cargo do colaborador com base no valor da propriedade nivel
         colunaFuncao.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getNivel() == 1 ? "Vendedor" : "Gestor"));
-
 
         // Cria um objeto ColaboradorDAO para acessar o banco de dados
         ColaboradorDAO dao = new ColaboradorDAO();
@@ -69,20 +71,20 @@ public class ColaboradorController implements Initializable {
             throw new RuntimeException(e);
         }
 
-        // Define a fábrica de células da coluna taxaComissaoVendedor para exibir a taxa de comissão atual do vendedor
-        taxaComissaoVendedor.setCellValueFactory(cellData -> {
-            // Cria um objeto ComissaoDAO para acessar o banco de dados
-            ComissaoDAO dao2 = new ComissaoDAO();
-            try {
-                // Obtém a taxa de comissão atual do vendedor do banco de dados
-                double taxaComissao = dao2.getTaxaComissaoAtual(cellData.getValue().getColaboradorId());
-                System.out.println("Taxa de comissão: " + taxaComissao);
-                // Retorna a taxa de comissão como uma StringProperty
-                return new SimpleStringProperty(String.valueOf(taxaComissao * 100 + " %"));
-            } catch (Exception e) {
-                throw new RuntimeException(e);
-            }
-        });
+//        // Define a fábrica de células da coluna taxaComissaoVendedor para exibir a taxa de comissão atual do vendedor
+//        taxaComissaoVendedor.setCellValueFactory(cellData -> {
+//            // Cria um objeto ComissaoDAO para acessar o banco de dados
+//            ComissaoDAO dao2 = new ComissaoDAO();
+//            try {
+//                // Obtém a taxa de comissão atual do vendedor do banco de dados
+//                double taxaComissao = dao2.getTaxaComissaoAtual(cellData.getValue().getColaboradorId());
+//                System.out.println("Taxa de comissão: " + taxaComissao);
+//                // Retorna a taxa de comissão como uma StringProperty
+//                return new SimpleStringProperty(String.valueOf(taxaComissao * 100 + " %"));
+//            } catch (Exception e) {
+//                throw new RuntimeException(e);
+//            }
+//        });
 
 
         //Código que permite que um dado seja copiado da tabela
@@ -103,17 +105,25 @@ public class ColaboradorController implements Initializable {
             }
         });
 
-        // Adicionar um ouvinte de alteração à propriedade selectedItem da TableView
         tabelaColaborador.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
-            // Verificar se o novo colaborador selecionado é um gestor (nível 2)
-            if (newSelection != null && newSelection.getNivel() == 2) {
-                // Desativar o botão remover
-                botaoRemover.setDisable(true);
-            } else {
-                // Ativar o botão remover
-                botaoRemover.setDisable(false);
+            if (newSelection != null) {
+                bEditar.setDisable(false);
+                bExcluir.setDisable(false);
             }
         });
+
+        //Botão branco:
+        Button[] branco = {bNovo, bEditar, bVoltar};
+
+        for (Button button : branco) {
+            button.setOnMouseEntered(e -> button.setStyle("-fx-font-size: 18; -fx-background-color: white; -fx-text-fill: black; -fx-border-color: white; -fx-border-radius: 3; -fx-border-width: 2;"));
+            button.setOnMouseExited(e -> button.setStyle("-fx-font-size: 18; -fx-background-color: #000000; -fx-text-fill: white; -fx-border-color: white; -fx-border-radius: 3; -fx-border-width: 2;"));
+        }
+
+        //Botão vermelho:
+        bExcluir.setOnMouseEntered(e -> bExcluir.setStyle("-fx-font-size: 18; -fx-background-color: red; -fx-border-color: red; -fx-border-radius: 3; -fx-border-width: 2;"));
+        bExcluir.setOnMouseExited(e -> bExcluir.setStyle("-fx-font-size: 18; -fx-background-color: #000000; -fx-border-color: red; -fx-border-radius: 3; -fx-border-width: 2;"));
+
     }
 
     @FXML
@@ -165,7 +175,7 @@ public class ColaboradorController implements Initializable {
     }
 
     @FXML
-    public void remover(){
+    public void excluir(){
         // Obtenha o colaborador selecionado na tabela
         Colaborador colaboradorSelecionado = tabelaColaborador.getSelectionModel().getSelectedItem();
 
@@ -174,7 +184,7 @@ public class ColaboradorController implements Initializable {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setTitle("Confirmação");
             alert.setHeaderText(null);
-            alert.setContentText("Deseja remover " + colaboradorSelecionado.getNomeColaborador() + " " + colaboradorSelecionado.getSobrenome() + "?");
+            alert.setContentText("Deseja excluir " + colaboradorSelecionado.getNomeColaborador() + " " + colaboradorSelecionado.getSobrenome() + "?");
 
             // Exibe o Alert e aguarda a resposta do usuário
             Optional<ButtonType> result = alert.showAndWait();
@@ -192,10 +202,8 @@ public class ColaboradorController implements Initializable {
         }
     }
 
-
     @FXML
     public void voltar() throws IOException {
         HelloApplication.setRoot("main-view");
     }
-
 }

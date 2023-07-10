@@ -11,10 +11,7 @@ import br.com.caelum.stella.format.CNPJFormatter;
 import br.com.caelum.stella.format.CPFFormatter;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 
 import java.net.URL;
 import java.sql.SQLException;
@@ -40,10 +37,44 @@ public class NovoClienteModalController implements Initializable {
     @FXML
     Button bCancelar;
 
+    @FXML
+    Label aviso;
+    @FXML
+    Label aviso1;
+    @FXML
+    Label aviso2;
+
     private boolean atualizandoCampo = false;
     public static Cliente cliente;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        Label[] alerta ={aviso, aviso1, aviso2};
+
+        // Adicionar um ouvinte ao valor selecionado do comboEstado
+        comboEstado.valueProperty().addListener((obs, oldValue, newValue) -> {
+            verificarCamposVazios(alerta);
+        });
+
+        // Adicionar um ouvinte ao valor selecionado do comboCidade
+        comboCidade.valueProperty().addListener((obs, oldValue, newValue) -> {
+            verificarCamposVazios(alerta);
+        });
+
+        // Adicionar um ouvinte ao texto do campo fieldNome
+        fieldNome.textProperty().addListener((obs, oldValue, newValue) -> {
+            verificarCamposVazios(alerta);
+        });
+
+        // Adicionar um ouvinte ao texto do campo fieldSobrenome
+        fieldSobrenome.textProperty().addListener((obs, oldValue, newValue) -> {
+            verificarCamposVazios(alerta);
+        });
+
+        // Adicionar um ouvinte ao texto do campo fieldDocumento
+        fieldDocumento.textProperty().addListener((obs, oldValue, newValue) -> {
+            verificarCamposVazios(alerta);
+        });
 
         Cliente clienteSelecionado = NovoClienteModalController.cliente;
         // Verificar se um cliente foi enviado
@@ -126,6 +157,14 @@ public class NovoClienteModalController implements Initializable {
                 atualizandoCampo = false;
             }
         });
+
+        //Botão verde:
+        bSalvar.setOnMouseEntered(e -> bSalvar.setStyle("-fx-font-size: 18; -fx-background-color: green; -fx-border-color: green; -fx-border-radius: 3; -fx-border-width: 2;"));
+        bSalvar.setOnMouseExited(e -> bSalvar.setStyle("-fx-font-size: 18; -fx-background-color: #000000;  -fx-border-color: green; -fx-border-radius: 3; -fx-border-width: 2;"));
+
+        //Botão vermelho:
+        bCancelar.setOnMouseEntered(e -> bCancelar.setStyle("-fx-font-size: 18; -fx-background-color: red; -fx-border-color: red; -fx-border-radius: 3; -fx-border-width: 2;"));
+        bCancelar.setOnMouseExited(e -> bCancelar.setStyle("-fx-font-size: 18; -fx-background-color: #000000; -fx-border-color: red; -fx-border-radius: 3; -fx-border-width: 2;"));
     }
 
 
@@ -139,20 +178,6 @@ public class NovoClienteModalController implements Initializable {
 
 
     public void salvarModal() {
-        // Verificar se todos os campos estão preenchidos
-        if (comboEstado.getValue() == null ||
-                comboCidade.getValue() == null ||
-                fieldNome.getText().isEmpty() ||
-                fieldSobrenome.getText().isEmpty() ||
-                fieldDocumento.getText().isEmpty()) {
-            // Exibir mensagem de erro
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Erro");
-            alert.setHeaderText("Preencha todos os campos!");
-            alert.showAndWait();
-            return;
-        }
-
         // Verificar se já existe um cliente com a mesma combinação de nome e sobrenome ou com o mesmo CPF/CNPJ
         ClienteDAO clienteDAO = new ClienteDAO();
         try {
@@ -230,6 +255,23 @@ public class NovoClienteModalController implements Initializable {
         }
         return cpfCnpj;
     }
+
+    private void verificarCamposVazios(Label[] alerta) {
+        // Remover caracteres não numéricos do documento
+        String documento = fieldDocumento.getText().replaceAll("\\D", "");
+        if (comboEstado.getValue() == null || comboCidade.getValue() == null || fieldNome.getText().isEmpty() || fieldSobrenome.getText().isEmpty() || documento.length() != 11 && documento.length() != 14) {
+            for (Label label : alerta) {
+                label.setVisible(true);
+            }
+            bSalvar.setDisable(true);
+        } else {
+            for (Label label : alerta) {
+                label.setVisible(false);
+            }
+            bSalvar.setDisable(false);
+        }
+    }
+
 
 
     public void cancelar(){

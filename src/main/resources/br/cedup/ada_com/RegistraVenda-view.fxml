@@ -27,7 +27,7 @@
    <children>
       <AnchorPane prefHeight="753.0" prefWidth="635.0" style="-fx-background-color: black; -fx-border-color: white;">
          <children>
-            <TextField fx:id="compoPesquisaCliente" layoutX="112.0" layoutY="45.0" onAction="#onPesquisarCliente" prefHeight="25.0" prefWidth="394.0" AnchorPane.leftAnchor="112.0" AnchorPane.rightAnchor="127.0">
+            <TextField fx:id="compoPesquisaCliente" layoutX="114.0" layoutY="45.0" onAction="#onPesquisarCliente" prefHeight="25.0" prefWidth="378.0" AnchorPane.leftAnchor="113.0" AnchorPane.rightAnchor="147.0">
                <tooltip>
                   <Tooltip text="Teste" />
                </tooltip>
@@ -36,7 +36,7 @@
                <font>
                   <Font size="18.0" />
                </font></Text>
-            <Button fx:id="pesquisaCliente" layoutX="514.0" layoutY="30.0" mnemonicParsing="false" onAction="#onPesquisarCliente" prefHeight="48.0" prefWidth="105.0" style="-fx-background-color: black; -fx-border-color: white; -fx-border-radius: 3;" text="Pesquisar" textFill="#fffdfd" AnchorPane.rightAnchor="14.0">
+            <Button fx:id="bPesquisar" layoutX="498.0" layoutY="37.0" mnemonicParsing="false" onAction="#onPesquisarCliente" prefHeight="41.0" prefWidth="124.0" style="-fx-background-color: black; -fx-border-color: white; -fx-border-radius: 3;" text="Pesquisar" textFill="#fffdfd" AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="37.0">
                <font>
                   <Font size="18.0" />
                </font></Button>
@@ -74,7 +74,7 @@
                   <Line endX="354.79290771484375" layoutX="206.0" layoutY="76.0" startX="-100.0" stroke="#0d01016b" AnchorPane.leftAnchor="105.5" AnchorPane.rightAnchor="55.70709228515625" />
                </children>
             </AnchorPane>
-            <Text fill="#f50202" layoutX="99.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*">
+            <Text fill="#f50202" layoutX="97.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*">
                <font>
                   <Font size="18.0" />
                </font>
@@ -89,7 +89,7 @@
                   <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                </columnResizePolicy>
             </TableView>
-            <Text fill="#f8f8f8" layoutX="15.0" layoutY="418.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Quantidade:">
+            <Text fill="#f8f8f8" layoutX="17.0" layoutY="418.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Quantidade:">
                <font>
                   <Font size="18.0" />
                </font></Text>
@@ -99,83 +99,86 @@
                   <Font size="18.0" />
                </font></Text>
             <ComboBox fx:id="produtosServicos" layoutX="163.0" layoutY="348.0" prefHeight="25.0" prefWidth="308.0" AnchorPane.leftAnchor="163.0" AnchorPane.rightAnchor="166.0" />
-            <Button fx:id="botaoIncluir" disable="true" layoutX="495.0" layoutY="340.0" mnemonicParsing="false" onAction="#botaoIncluir" prefHeight="27.0" prefWidth="124.0" style="-fx-background-color: BLACK; -fx-border-radius: 3; -fx-border-color: WHITE;" text="Incluir" textFill="#f5f4f4" AnchorPane.rightAnchor="14.0">
+            <Button fx:id="bIncluir" disable="true" layoutX="498.0" layoutY="340.0" mnemonicParsing="false" onAction="#botaoIncluir" prefHeight="27.0" prefWidth="124.0" style="-fx-background-color: BLACK; -fx-border-radius: 3; -fx-border-color: WHITE;" text="Incluir" textFill="#f5f4f4" AnchorPane.rightAnchor="16.0">
                <font>
                   <Font size="18.0" />
                </font></Button>
-            <Button fx:id="botaoExcluir" disable="true" layoutX="522.0" layoutY="393.0" mnemonicParsing="false" onAction="#botaoExcluir" prefHeight="39.0" prefWidth="124.0" style="-fx-background-color: BLACK; -fx-border-radius: 3; -fx-border-color: red;" text="Excluir" textFill="#fcf9f9" AnchorPane.rightAnchor="15.0">
+            <Button fx:id="bExcluir" disable="true" layoutX="522.0" layoutY="393.0" mnemonicParsing="false" onAction="#botaoExcluir" prefHeight="39.0" prefWidth="124.0" style="-fx-background-color: BLACK; -fx-border-radius: 3; -fx-border-color: red;" text="Excluir" textFill="#fcf9f9" AnchorPane.rightAnchor="15.0">
                <font>
                   <Font size="18.0" />
                </font></Button>
-            <Text fill="#fc0606" layoutX="112.0" layoutY="417.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*">
+            <Text fill="#fc0606" layoutX="115.0" layoutY="415.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*">
                <font>
                   <Font size="18.0" />
                </font>
             </Text>
-            <Text fill="#fc0606" layoutX="147.0" layoutY="375.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*" wrappingWidth="16.505859375">
+            <Text fill="#fc0606" layoutX="150.0" layoutY="366.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*" wrappingWidth="16.505859375">
                <font>
                   <Font size="18.0" />
                </font>
             </Text>
-            <Text fill="#fffdfd" layoutX="189.0" layoutY="809.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Valor Total:" wrappingWidth="105.0" AnchorPane.bottomAnchor="65.482421875" AnchorPane.rightAnchor="339.0">
+            <Text fill="#fffdfd" layoutX="385.0" layoutY="816.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Valor Total:" wrappingWidth="105.0" AnchorPane.bottomAnchor="68.482421875" AnchorPane.rightAnchor="148.0">
                <font>
                   <Font size="18.0" />
                </font></Text>
-            <Label fx:id="valorTotal" layoutX="515.0" layoutY="774.0" prefHeight="17.0" prefWidth="105.0" AnchorPane.bottomAnchor="88.0" AnchorPane.rightAnchor="14.0" />
+            <Label fx:id="valorTotal" layoutX="507.0" layoutY="797.0" prefHeight="17.0" prefWidth="105.0" textFill="WHITE" AnchorPane.bottomAnchor="65.0" AnchorPane.rightAnchor="26.0">
+               <font>
+                  <Font size="18.0" />
+               </font></Label>
          </children>
       </AnchorPane>
       <AnchorPane prefHeight="885.0" prefWidth="660.0" style="-fx-background-color: black; -fx-border-color: white;" GridPane.columnIndex="1">
          <children>
-            <Text fill="#fffdfd" layoutX="23.0" layoutY="439.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Observações Gerais:" AnchorPane.leftAnchor="23.0" AnchorPane.topAnchor="419.576171875">
+            <Text fill="#fffdfd" layoutX="23.0" layoutY="443.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Observações Gerais:" AnchorPane.leftAnchor="21.1611328125" AnchorPane.topAnchor="423.576171875">
                <font>
                   <Font size="18.0" />
                </font></Text>
-            <ComboBox fx:id="comboP1" layoutX="23.0" layoutY="71.0" prefHeight="25.0" prefWidth="601.0" AnchorPane.leftAnchor="23.0" AnchorPane.rightAnchor="10.0" />
-            <ComboBox fx:id="comboP2" layoutX="23.0" layoutY="139.0" prefHeight="25.0" prefWidth="599.0" AnchorPane.leftAnchor="23.0" AnchorPane.rightAnchor="12.0" />
-            <ComboBox fx:id="comboP3" layoutX="23.0" layoutY="211.0" prefHeight="25.0" prefWidth="597.0" AnchorPane.leftAnchor="23.0" AnchorPane.rightAnchor="14.0" />
-            <ComboBox fx:id="comboP4" layoutX="23.0" layoutY="283.0" prefHeight="25.0" prefWidth="595.0" AnchorPane.leftAnchor="23.0" AnchorPane.rightAnchor="16.0" />
-            <Label fx:id="pergunta1" layoutX="24.0" layoutY="40.0" prefHeight="27.0" prefWidth="615.0" text="Onde você ouviu falar da nossa empresa/produto/serviço pela primeira vez?" textFill="#fffdfd">
+            <ComboBox fx:id="comboP1" layoutX="23.0" layoutY="65.0" prefHeight="25.0" prefWidth="601.0" AnchorPane.leftAnchor="24.0" AnchorPane.rightAnchor="18.0" />
+            <ComboBox fx:id="comboP2" layoutX="23.0" layoutY="160.0" prefHeight="25.0" prefWidth="599.0" AnchorPane.leftAnchor="23.0" AnchorPane.rightAnchor="17.0" />
+            <ComboBox fx:id="comboP3" layoutX="23.0" layoutY="255.0" prefHeight="25.0" prefWidth="597.0" AnchorPane.leftAnchor="24.0" AnchorPane.rightAnchor="18.0" />
+            <ComboBox fx:id="comboP4" layoutX="23.0" layoutY="343.0" prefHeight="25.0" prefWidth="595.0" AnchorPane.leftAnchor="24.0" AnchorPane.rightAnchor="18.0" />
+            <Label fx:id="pergunta1" layoutX="23.0" layoutY="37.0" prefHeight="27.0" prefWidth="615.0" text="Onde você ouviu falar da nossa empresa/produto/serviço pela primeira vez?" textFill="#fffdfd">
                <font>
                   <Font size="18.0" />
                </font></Label>
-            <Label fx:id="pergunta2" layoutX="24.0" layoutY="113.0" text="Qual foi o motivo que o levou a visitar nosso site?" textFill="#eeecec">
+            <Label fx:id="pergunta2" layoutX="23.0" layoutY="133.0" text="Qual foi o motivo que o levou a visitar nosso site?" textFill="#eeecec">
                <font>
                   <Font size="18.0" />
                </font></Label>
-            <Label fx:id="pergunta3" layoutX="24.0" layoutY="188.0" text="Como você conhecia ou entendia a empresa antes de visitar nosso site?" textFill="#f8f3f3">
+            <Label fx:id="pergunta3" layoutX="23.0" layoutY="228.0" text="Como você conhecia ou entendia a empresa antes de visitar nosso site?" textFill="#f8f3f3">
                <font>
                   <Font size="18.0" />
                </font></Label>
-            <Label fx:id="pergunta4" layoutX="24.0" layoutY="260.0" prefHeight="27.0" prefWidth="603.0" text="Você participou de algum evento que a empresa estava presente?" textFill="#f5f2f2">
+            <Label fx:id="pergunta4" layoutX="23.0" layoutY="316.0" prefHeight="27.0" prefWidth="603.0" text="Você participou de algum evento que a empresa estava presente?" textFill="#f5f2f2">
                <font>
                   <Font size="18.0" />
                </font></Label>
-            <TextArea fx:id="ObsCompra" layoutX="23.0" layoutY="459.0" prefHeight="326.0" prefWidth="597.0" style="-fx-border-color: RED;" AnchorPane.bottomAnchor="105.0" AnchorPane.leftAnchor="22.0" AnchorPane.rightAnchor="21.0" AnchorPane.topAnchor="458.0" />
-            <Text fill="#f50808" layoutX="625.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*">
+            <TextArea fx:id="ObsCompra" layoutX="23.0" layoutY="459.0" prefHeight="326.0" prefWidth="597.0" style="-fx-border-color: RED;" AnchorPane.bottomAnchor="105.0" AnchorPane.leftAnchor="21.0" AnchorPane.rightAnchor="21.0" AnchorPane.topAnchor="457.0" />
+            <Text fill="#f50808" layoutX="626.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*">
                <font>
                   <Font size="18.0" />
                </font>
             </Text>
-            <Text fill="#f50808" layoutX="419.0" layoutY="118.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*">
+            <Text fill="#f50808" layoutX="418.0" layoutY="145.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*">
                <font>
                   <Font size="18.0" />
                </font>
             </Text>
-            <Text fill="#f80303" layoutX="591.0" layoutY="193.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*">
+            <Text fill="#f80303" layoutX="590.0" layoutY="241.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*">
                <font>
                   <Font size="18.0" />
                </font>
             </Text>
-            <Text fill="#f80303" layoutX="544.0" layoutY="265.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*">
+            <Text fill="#f80303" layoutX="545.0" layoutY="329.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*">
                <font>
                   <Font size="18.0" />
                </font>
             </Text>
-            <Button layoutX="256.0" layoutY="798.0" mnemonicParsing="false" onAction="#registrar" prefHeight="48.0" prefWidth="163.0" style="-fx-background-color: BLACK; -fx-border-color: #007100; -fx-border-radius: 3;" text="Registrar" textFill="#f5f8f5" AnchorPane.bottomAnchor="33.0" AnchorPane.rightAnchor="213.0">
+            <Button fx:id="bRegistrar" layoutX="25.0" layoutY="805.0" mnemonicParsing="false" onAction="#registrar" prefHeight="62.0" prefWidth="163.0" style="-fx-background-color: BLACK; -fx-border-color: #007100; -fx-border-radius: 3;" text="Registrar" textFill="#f5f8f5" AnchorPane.bottomAnchor="22.0" AnchorPane.leftAnchor="25.0">
                <font>
                   <Font size="18.0" />
                </font></Button>
-            <Button layoutX="462.0" layoutY="799.0" mnemonicParsing="false" onAction="#fechar" prefHeight="48.0" prefWidth="149.0" style="-fx-background-color: BLACK; -fx-border-radius: 3; -fx-border-color: red;" text="Voltar" textFill="#f5f3f3" AnchorPane.bottomAnchor="32.0" AnchorPane.rightAnchor="21.0">
+            <Button fx:id="bVoltar" layoutX="461.0" layoutY="806.0" mnemonicParsing="false" onAction="#fechar" prefHeight="62.0" prefWidth="149.0" style="-fx-background-color: BLACK; -fx-border-radius: 3; -fx-border-color: red;" text="Voltar" textFill="#f5f3f3" AnchorPane.bottomAnchor="21.0" AnchorPane.rightAnchor="31.0">
                <font>
                   <Font size="18.0" />
                </font></Button>

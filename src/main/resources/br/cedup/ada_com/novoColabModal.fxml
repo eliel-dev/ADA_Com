@@ -9,68 +9,95 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="924.0" prefWidth="1319.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.cedup.ada_com.controller.NovoColabModalController">
+<AnchorPane prefHeight="448.0" prefWidth="714.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.cedup.ada_com.controller.NovoColabModalController">
    <children>
-      <Button layoutX="58.0" layoutY="454.0" mnemonicParsing="false" onAction="#salvar" prefHeight="39.0" prefWidth="101.0" style="-fx-background-color: black; -fx-border-color: #007100; -fx-border-radius: 3;" text="Salvar" textFill="#f8f4f4" AnchorPane.leftAnchor="58.0" AnchorPane.topAnchor="454.0">
+      <Button fx:id="bSalvar" disable="true" layoutX="544.0" layoutY="105.0" mnemonicParsing="false" onAction="#salvar" prefHeight="52.0" prefWidth="130.0" style="-fx-background-color: black; -fx-border-color: #007100; -fx-border-radius: 3;" text="Salvar" textFill="#f8f4f4">
          <font>
             <Font size="18.0" />
          </font></Button>
-      <Button layoutX="190.0" layoutY="454.0" mnemonicParsing="false" onAction="#cancelar" prefHeight="39.0" prefWidth="94.0" style="-fx-background-color: black; -fx-border-color: red; -fx-border-radius: 3;" text="Voltar" textFill="#fffdfd" AnchorPane.leftAnchor="190.0" AnchorPane.topAnchor="454.0">
+      <Button fx:id="bCancelar" layoutX="544.0" layoutY="366.0" mnemonicParsing="false" onAction="#cancelar" prefHeight="52.0" prefWidth="130.0" style="-fx-background-color: black; -fx-border-color: red; -fx-border-radius: 3;" text="Cancelar" textFill="#fffdfd">
          <font>
             <Font size="18.0" />
          </font></Button>
-      <TextField fx:id="nomefield" layoutX="51.0" layoutY="117.0" prefHeight="25.0" prefWidth="139.0" AnchorPane.leftAnchor="51.0" />
-      <Label layoutX="51.0" layoutY="81.0" text="Nome:" textFill="#fcfcfc" AnchorPane.leftAnchor="51.0">
+      <TextField fx:id="nomefield" layoutX="47.0" layoutY="73.0" prefHeight="39.0" prefWidth="177.0">
+         <font>
+            <Font size="18.0" />
+         </font></TextField>
+      <Label layoutX="47.0" layoutY="45.0" text="Nome:" textFill="#fcfcfc">
          <font>
             <Font size="18.0" />
          </font></Label>
-      <Label layoutX="55.0" layoutY="178.0" text="Cargo:" textFill="#f8f8f8" AnchorPane.leftAnchor="55.0">
+      <Label layoutX="47.0" layoutY="133.0" text="Cargo:" textFill="#f8f8f8">
          <font>
             <Font size="18.0" />
          </font></Label>
-      <Label layoutX="55.0" layoutY="347.0" text="Senha:" textFill="#fffefe" AnchorPane.leftAnchor="55.0">
+      <Label layoutX="47.0" layoutY="300.0" text="Senha:" textFill="#fffefe">
          <font>
             <Font size="18.0" />
          </font></Label>
-      <TextField fx:id="sobrenomefield" layoutX="222.0" layoutY="117.0" prefHeight="25.0" prefWidth="986.0" AnchorPane.leftAnchor="222.0" AnchorPane.rightAnchor="111.0" />
-      <Label layoutX="226.0" layoutY="90.0" text="Sobrenome:" textFill="#fffefe" AnchorPane.leftAnchor="226.0">
+      <TextField fx:id="sobrenomefield" layoutX="237.0" layoutY="73.0" prefHeight="39.0" prefWidth="253.0">
+         <font>
+            <Font size="18.0" />
+         </font></TextField>
+      <Label layoutX="238.0" layoutY="46.0" text="Sobrenome:" textFill="#fffefe">
          <font>
             <Font size="18.0" />
          </font></Label>
-      <RadioButton fx:id="radioButtonVendedor" layoutX="51.0" layoutY="207.0" mnemonicParsing="false" text="Vendedor" textFill="WHITE" AnchorPane.leftAnchor="51.0" AnchorPane.topAnchor="207.0">
+      <RadioButton fx:id="radioButtonVendedor" layoutX="47.0" layoutY="163.0" mnemonicParsing="false" text="Vendedor" textFill="WHITE" AnchorPane.topAnchor="163.0">
          <font>
             <Font size="18.0" />
          </font></RadioButton>
-      <PasswordField fx:id="senhafield" layoutX="54.0" layoutY="371.0" prefHeight="25.0" prefWidth="1148.0" AnchorPane.leftAnchor="54.0" AnchorPane.rightAnchor="117.0" />
-      <TextField fx:id="usuariofield" layoutX="54.0" layoutY="286.0" prefHeight="25.0" prefWidth="1148.0" AnchorPane.leftAnchor="54.0" AnchorPane.rightAnchor="117.0" />
-      <Label layoutX="53.0" layoutY="256.0" text="Usuario:" textFill="#f2f0f0">
+      <PasswordField fx:id="senhafield" layoutX="47.0" layoutY="327.0" prefHeight="39.0" prefWidth="277.0">
+         <font>
+            <Font size="18.0" />
+         </font></PasswordField>
+      <TextField fx:id="usuariofield" layoutX="47.0" layoutY="242.0" prefHeight="39.0" prefWidth="277.0">
+         <font>
+            <Font size="18.0" />
+         </font></TextField>
+      <Label layoutX="47.0" layoutY="215.0" text="Usuario:" textFill="#f2f0f0">
          <font>
             <Font size="18.0" />
          </font></Label>
-      <Text fill="#f80202" layoutX="105.0" layoutY="97.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*" wrappingWidth="27.505859375">
+      <Text fill="#f80202" layoutX="101.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*" wrappingWidth="27.505859375">
          <font>
             <Font size="18.0" />
          </font>
       </Text>
-      <Text fill="#f80202" layoutX="322.0" layoutY="108.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*">
+      <Text fill="#f80202" layoutX="334.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*">
          <font>
             <Font size="18.0" />
          </font>
       </Text>
-      <Text fill="#f80202" layoutX="114.0" layoutY="198.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*" wrappingWidth="27.505859375">
+      <Text fill="#f80202" layoutX="100.0" layoutY="148.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*" wrappingWidth="27.505859375">
          <font>
             <Font size="18.0" />
          </font>
       </Text>
-      <Text fill="#f80202" layoutX="120.0" layoutY="276.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*" wrappingWidth="15.505859375">
+      <Text fill="#f80202" layoutX="113.0" layoutY="231.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*" wrappingWidth="15.505859375">
          <font>
             <Font size="18.0" />
          </font>
       </Text>
-      <Text fill="#f80202" layoutX="108.0" layoutY="364.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*" wrappingWidth="15.505859375">
+      <Text fill="#f80202" layoutX="101.0" layoutY="316.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*" wrappingWidth="15.505859375">
          <font>
             <Font size="18.0" />
          </font>
       </Text>
+      <Label fx:id="aviso" layoutX="47.0" layoutY="392.0" text="Aviso: Campos com " textFill="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="aviso2" layoutX="204.0" layoutY="392.0" text="devem ser preenchidos antes de salvar." textFill="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="aviso1" layoutX="191.0" layoutY="392.0" text="*" textFill="RED">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

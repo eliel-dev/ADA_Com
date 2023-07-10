@@ -27,11 +27,13 @@ public class RelatorioController implements Initializable {
     ComboBox <String> comboRelatorios;
     @FXML
     Button btnGerarRelatorios;
+    @FXML
+    Button bVoltar;
 
     @FXML
     BarChart<String, Number> rteste;
 
-    CategoryAxis xAxis = new CategoryAxis();
+    //CategoryAxis xAxis = new CategoryAxis();
 
     RelatorioDAO relatorioDAO = new RelatorioDAO();
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -64,6 +66,14 @@ public class RelatorioController implements Initializable {
                 }
             }
         });
+
+        //Botão branco:
+        Button[] branco = {btnGerarRelatorios, bVoltar};
+
+        for (Button button : branco) {
+            button.setOnMouseEntered(e -> button.setStyle("-fx-font-size: 18; -fx-background-color: white; -fx-text-fill: black; -fx-border-color: white; -fx-border-radius: 3; -fx-border-width: 2;"));
+            button.setOnMouseExited(e -> button.setStyle("-fx-font-size: 18; -fx-background-color: #000000; -fx-text-fill: white; -fx-border-color: white; -fx-border-radius: 3; -fx-border-width: 2;"));
+        }
     }
 
     @FXML

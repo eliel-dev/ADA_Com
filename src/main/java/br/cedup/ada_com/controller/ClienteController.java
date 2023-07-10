@@ -144,6 +144,13 @@ public class ClienteController implements Initializable {
             alternativasListView.getItems().addAll(alternativas);
         });
 
+        listaCliente.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
+            if (newSelection != null) {
+                bEditar.setDisable(false);
+                bExcluir.setDisable(false);
+            }
+        });
+
         //Botão branco:
         Button[] branco = {bNovo, bEditar, bVoltar};
 
