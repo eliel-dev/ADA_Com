@@ -126,11 +126,11 @@ public class CatalogoModalController implements Initializable {
 
         //Botão verde:
         bSalvarModal.setOnMouseEntered(e -> bSalvarModal.setStyle("-fx-font-size: 18; -fx-background-color: green; -fx-border-color: green; -fx-border-radius: 3; -fx-border-width: 2;"));
-        bSalvarModal.setOnMouseExited(e -> bSalvarModal.setStyle("-fx-font-size: 18; -fx-background-color: #000000;  -fx-border-color: green; -fx-border-radius: 3; -fx-border-width: 2;"));
+        bSalvarModal.setOnMouseExited(e -> bSalvarModal.setStyle("-fx-font-size: 18; -fx-background-color: #0c0c0c;  -fx-border-color: green; -fx-border-radius: 3; -fx-border-width: 2;"));
 
         //Botão vermelho:
         bCancelarModal.setOnMouseEntered(e -> bCancelarModal.setStyle("-fx-font-size: 18; -fx-background-color: red; -fx-border-color: red; -fx-border-radius: 3; -fx-border-width: 2;"));
-        bCancelarModal.setOnMouseExited(e -> bCancelarModal.setStyle("-fx-font-size: 18; -fx-background-color: #000000; -fx-border-color: red; -fx-border-radius: 3; -fx-border-width: 2;"));
+        bCancelarModal.setOnMouseExited(e -> bCancelarModal.setStyle("-fx-font-size: 18; -fx-background-color: #0c0c0c; -fx-border-color: red; -fx-border-radius: 3; -fx-border-width: 2;"));
     }
 
     public static void setCatalogoItem(Catalogo catalogo) {

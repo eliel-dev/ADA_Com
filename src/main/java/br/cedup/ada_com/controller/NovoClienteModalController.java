@@ -160,11 +160,11 @@ public class NovoClienteModalController implements Initializable {
 
         //Botão verde:
         bSalvar.setOnMouseEntered(e -> bSalvar.setStyle("-fx-font-size: 18; -fx-background-color: green; -fx-border-color: green; -fx-border-radius: 3; -fx-border-width: 2;"));
-        bSalvar.setOnMouseExited(e -> bSalvar.setStyle("-fx-font-size: 18; -fx-background-color: #000000;  -fx-border-color: green; -fx-border-radius: 3; -fx-border-width: 2;"));
+        bSalvar.setOnMouseExited(e -> bSalvar.setStyle("-fx-font-size: 18; -fx-background-color: #0c0c0c;  -fx-border-color: green; -fx-border-radius: 3; -fx-border-width: 2;"));
 
         //Botão vermelho:
         bCancelar.setOnMouseEntered(e -> bCancelar.setStyle("-fx-font-size: 18; -fx-background-color: red; -fx-border-color: red; -fx-border-radius: 3; -fx-border-width: 2;"));
-        bCancelar.setOnMouseExited(e -> bCancelar.setStyle("-fx-font-size: 18; -fx-background-color: #000000; -fx-border-color: red; -fx-border-radius: 3; -fx-border-width: 2;"));
+        bCancelar.setOnMouseExited(e -> bCancelar.setStyle("-fx-font-size: 18; -fx-background-color: #0c0c0c; -fx-border-color: red; -fx-border-radius: 3; -fx-border-width: 2;"));
     }
 
 

@@ -9,13 +9,13 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="448.0" prefWidth="714.0" style="-fx-background-color: black; -fx-border-color: red;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.cedup.ada_com.controller.CatalogoModalController">
+<AnchorPane prefHeight="448.0" prefWidth="714.0" style="-fx-background-color: #0c0c0c; -fx-border-color: red;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.cedup.ada_com.controller.CatalogoModalController">
    <children>
-      <Button fx:id="bSalvarModal" disable="true" layoutX="560.0" layoutY="139.0" mnemonicParsing="false" onAction="#salvaritem" prefHeight="52.0" prefWidth="130.0" style="-fx-font-size: 18; -fx-background-color: black; -fx-border-radius: 3; -fx-border-color: green;" text="Salvar" textFill="#ebeaea" AnchorPane.bottomAnchor="291.0" AnchorPane.leftAnchor="544.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="105.0">
+      <Button fx:id="bSalvarModal" disable="true" layoutX="560.0" layoutY="139.0" mnemonicParsing="false" onAction="#salvaritem" prefHeight="52.0" prefWidth="130.0" style="-fx-font-size: 18; -fx-background-color: #0c0c0c; -fx-border-radius: 3; -fx-border-color: green;" text="Salvar" textFill="#ebeaea" AnchorPane.bottomAnchor="291.0" AnchorPane.leftAnchor="544.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="105.0">
          <font>
             <Font size="18.0" />
          </font></Button>
-      <Button fx:id="bCancelarModal" layoutX="544.0" layoutY="366.0" mnemonicParsing="false" onAction="#cancelar" prefHeight="56.0" prefWidth="130.0" style="-fx-font-size: 18; -fx-background-color: black; -fx-border-radius: 3; -fx-border-color: red;" text="Cancelar" textFill="#f8f7f7c7" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="544.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="366.0">
+      <Button fx:id="bCancelarModal" layoutX="544.0" layoutY="366.0" mnemonicParsing="false" onAction="#cancelar" prefHeight="56.0" prefWidth="130.0" style="-fx-font-size: 18; -fx-background-color: #0c0c0c; -fx-border-radius: 3; -fx-border-color: red;" text="Cancelar" textFill="#f8f7f7c7" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="544.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="366.0">
          <font>
             <Font size="18.0" />
          </font></Button>

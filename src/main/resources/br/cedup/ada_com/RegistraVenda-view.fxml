@@ -16,7 +16,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="889.0" prefWidth="1276.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.cedup.ada_com.controller.RegistraVendaController">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="889.0" prefWidth="1276.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.cedup.ada_com.controller.RegistraVendaController">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -25,7 +25,7 @@
     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <AnchorPane prefHeight="753.0" prefWidth="635.0" style="-fx-background-color: black; -fx-border-color: white;">
+      <AnchorPane prefHeight="753.0" prefWidth="635.0" style="-fx-background-color: #0c0c0c; -fx-border-color: white;">
          <children>
             <TextField fx:id="compoPesquisaCliente" layoutX="114.0" layoutY="45.0" onAction="#onPesquisarCliente" prefHeight="25.0" prefWidth="378.0" AnchorPane.leftAnchor="113.0" AnchorPane.rightAnchor="147.0">
                <tooltip>
@@ -36,7 +36,7 @@
                <font>
                   <Font size="18.0" />
                </font></Text>
-            <Button fx:id="bPesquisar" layoutX="498.0" layoutY="37.0" mnemonicParsing="false" onAction="#onPesquisarCliente" prefHeight="41.0" prefWidth="124.0" style="-fx-background-color: black; -fx-border-color: white; -fx-border-radius: 3;" text="Pesquisar" textFill="#fffdfd" AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="37.0">
+            <Button fx:id="bPesquisar" layoutX="498.0" layoutY="37.0" mnemonicParsing="false" onAction="#onPesquisarCliente" prefHeight="41.0" prefWidth="124.0" style="-fx-background-color: #0c0c0c; -fx-border-color: white; -fx-border-radius: 3;" text="Pesquisar" textFill="#fffdfd" AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="37.0">
                <font>
                   <Font size="18.0" />
                </font></Button>
@@ -99,11 +99,11 @@
                   <Font size="18.0" />
                </font></Text>
             <ComboBox fx:id="produtosServicos" layoutX="163.0" layoutY="348.0" prefHeight="25.0" prefWidth="308.0" AnchorPane.leftAnchor="163.0" AnchorPane.rightAnchor="166.0" />
-            <Button fx:id="bIncluir" disable="true" layoutX="498.0" layoutY="340.0" mnemonicParsing="false" onAction="#botaoIncluir" prefHeight="27.0" prefWidth="124.0" style="-fx-background-color: BLACK; -fx-border-radius: 3; -fx-border-color: WHITE;" text="Incluir" textFill="#f5f4f4" AnchorPane.rightAnchor="16.0">
+            <Button fx:id="bIncluir" disable="true" layoutX="498.0" layoutY="340.0" mnemonicParsing="false" onAction="#botaoIncluir" prefHeight="27.0" prefWidth="124.0" style="-fx-background-color: #0c0c0c; -fx-border-radius: 3; -fx-border-color: WHITE;" text="Incluir" textFill="#f5f4f4" AnchorPane.rightAnchor="16.0">
                <font>
                   <Font size="18.0" />
                </font></Button>
-            <Button fx:id="bExcluir" disable="true" layoutX="522.0" layoutY="393.0" mnemonicParsing="false" onAction="#botaoExcluir" prefHeight="39.0" prefWidth="124.0" style="-fx-background-color: BLACK; -fx-border-radius: 3; -fx-border-color: red;" text="Excluir" textFill="#fcf9f9" AnchorPane.rightAnchor="15.0">
+            <Button fx:id="bExcluir" disable="true" layoutX="522.0" layoutY="393.0" mnemonicParsing="false" onAction="#botaoExcluir" prefHeight="39.0" prefWidth="124.0" style="-fx-background-color: #0c0c0c; -fx-border-radius: 3; -fx-border-color: red;" text="Excluir" textFill="#fcf9f9" AnchorPane.rightAnchor="15.0">
                <font>
                   <Font size="18.0" />
                </font></Button>
@@ -127,7 +127,7 @@
                </font></Label>
          </children>
       </AnchorPane>
-      <AnchorPane prefHeight="885.0" prefWidth="660.0" style="-fx-background-color: black; -fx-border-color: white;" GridPane.columnIndex="1">
+      <AnchorPane prefHeight="885.0" prefWidth="660.0" style="-fx-background-color: #0c0c0c; -fx-border-color: white;" GridPane.columnIndex="1">
          <children>
             <Text fill="#fffdfd" layoutX="23.0" layoutY="443.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Observações Gerais:" AnchorPane.leftAnchor="21.1611328125" AnchorPane.topAnchor="423.576171875">
                <font>
@@ -174,11 +174,11 @@
                   <Font size="18.0" />
                </font>
             </Text>
-            <Button fx:id="bRegistrar" layoutX="25.0" layoutY="805.0" mnemonicParsing="false" onAction="#registrar" prefHeight="62.0" prefWidth="163.0" style="-fx-background-color: BLACK; -fx-border-color: #007100; -fx-border-radius: 3;" text="Registrar" textFill="#f5f8f5" AnchorPane.bottomAnchor="22.0" AnchorPane.leftAnchor="25.0">
+            <Button fx:id="bRegistrar" layoutX="25.0" layoutY="805.0" mnemonicParsing="false" onAction="#registrar" prefHeight="62.0" prefWidth="163.0" style="-fx-background-color: #0c0c0c; -fx-border-color: #007100; -fx-border-radius: 3;" text="Registrar" textFill="#f5f8f5" AnchorPane.bottomAnchor="22.0" AnchorPane.leftAnchor="25.0">
                <font>
                   <Font size="18.0" />
                </font></Button>
-            <Button fx:id="bVoltar" layoutX="461.0" layoutY="806.0" mnemonicParsing="false" onAction="#fechar" prefHeight="62.0" prefWidth="149.0" style="-fx-background-color: BLACK; -fx-border-radius: 3; -fx-border-color: red;" text="Voltar" textFill="#f5f3f3" AnchorPane.bottomAnchor="21.0" AnchorPane.rightAnchor="31.0">
+            <Button fx:id="bVoltar" layoutX="461.0" layoutY="806.0" mnemonicParsing="false" onAction="#fechar" prefHeight="62.0" prefWidth="149.0" style="-fx-background-color: #0c0c0c; -fx-border-radius: 3; -fx-border-color: red;" text="Voltar" textFill="#f5f3f3" AnchorPane.bottomAnchor="21.0" AnchorPane.rightAnchor="31.0">
                <font>
                   <Font size="18.0" />
                </font></Button>

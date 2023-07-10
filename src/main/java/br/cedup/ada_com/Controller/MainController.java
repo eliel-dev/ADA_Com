@@ -75,15 +75,15 @@ public class MainController implements Initializable {
         Button[] buttons = {bRegistrarVenda, bRelatorio, gerenciaUsuarioG, gerenciaCatG, gerenciarCliente};
 
         for (Button button : buttons) {
-            button.setOnMouseEntered(e -> button.setStyle("-fx-font-size: 18; -fx-background-color: white; -fx-text-fill: black; -fx-border-color: white; -fx-border-radius: 3; -fx-border-width: 2;"));
-            button.setOnMouseExited(e -> button.setStyle("-fx-font-size: 18; -fx-background-color: #000000; -fx-text-fill: white; -fx-border-color: white; -fx-border-radius: 3; -fx-border-width: 2;"));
+            button.setOnMouseEntered(e -> button.setStyle("-fx-font-size: 18; -fx-background-color: white; -fx-text-fill: #0c0c0c; -fx-border-color: white; -fx-border-radius: 3; -fx-border-width: 2;"));
+            button.setOnMouseExited(e -> button.setStyle("-fx-font-size: 18; -fx-background-color: #0c0c0c; -fx-text-fill: white; -fx-border-color: white; -fx-border-radius: 3; -fx-border-width: 2;"));
         }
 
         bGerenciar.setOnMouseEntered(e -> bGerenciar.setStyle("-fx-font-size: 18; -fx-background-color: white; -fx-text-fill: black; -fx-border-color: white; -fx-border-radius: 3; -fx-border-width: 2;"));
-        bGerenciar.setOnMouseExited(e -> bGerenciar.setStyle("-fx-font-size: 18; -fx-background-color: #000000; -fx-text-fill: white; -fx-border-color: white; -fx-border-radius: 3; -fx-border-width: 2;"));
+        bGerenciar.setOnMouseExited(e -> bGerenciar.setStyle("-fx-font-size: 18; -fx-background-color: #0c0c0c; -fx-text-fill: white; -fx-border-color: white; -fx-border-radius: 3; -fx-border-width: 2;"));
 
         bSair.setOnMouseEntered(e -> bSair.setStyle("-fx-font-size: 18; -fx-background-color: red; -fx-border-color: red; -fx-border-radius: 3; -fx-border-width: 2;"));
-        bSair.setOnMouseExited(e -> bSair.setStyle("-fx-font-size: 18; -fx-background-color: #000000; -fx-border-color: red; -fx-border-radius: 3; -fx-border-width: 2;"));
+        bSair.setOnMouseExited(e -> bSair.setStyle("-fx-font-size: 18; -fx-background-color: #0c0c0c; -fx-border-color: red; -fx-border-radius: 3; -fx-border-width: 2;"));
     }
 
     private List<RegistroVenda> getCompras(LocalDate date) {

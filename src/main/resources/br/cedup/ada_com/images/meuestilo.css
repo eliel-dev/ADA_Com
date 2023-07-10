@@ -1,7 +1,7 @@
 .default-color0.chart-bar { -fx-bar-fill: red; }
 
 .chart {
-    -fx-background-color: black;
+    -fx-background-color: #0c0c0c;
 }
 
 .axis-label {

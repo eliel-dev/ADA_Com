@@ -13,21 +13,21 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="903.0" prefWidth="1302.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.cedup.ada_com.controller.ColaboradorController">
+<AnchorPane prefHeight="903.0" prefWidth="1302.0" style="-fx-background-color: #0c0c0c;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.cedup.ada_com.controller.ColaboradorController">
    <children>
-      <Button fx:id="bNovo" layoutX="1148.0" layoutY="88.0" mnemonicParsing="false" onAction="#novo" prefHeight="62.0" prefWidth="116.0" style="-fx-background-color: black; -fx-border-color: green; -fx-border-radius: 3;" text="Novo" textFill="#fcf9f9" AnchorPane.rightAnchor="44.0" AnchorPane.topAnchor="66.0">
+      <Button fx:id="bNovo" layoutX="1148.0" layoutY="88.0" mnemonicParsing="false" onAction="#novo" prefHeight="62.0" prefWidth="116.0" style="-fx-background-color: #0c0c0c; -fx-border-color: green; -fx-border-radius: 3;" text="Novo" textFill="#fcf9f9" AnchorPane.rightAnchor="44.0" AnchorPane.topAnchor="66.0">
          <font>
             <Font size="18.0" />
          </font></Button>
-      <Button fx:id="bEditar" disable="true" layoutX="1148.0" layoutY="180.0" mnemonicParsing="false" onAction="#editar" prefHeight="62.0" prefWidth="116.0" style="-fx-background-color: black; -fx-border-color: white; -fx-border-radius: 3;" text="Editar" textFill="#f8f1f1" AnchorPane.rightAnchor="44.0" AnchorPane.topAnchor="152.0">
+      <Button fx:id="bEditar" disable="true" layoutX="1148.0" layoutY="180.0" mnemonicParsing="false" onAction="#editar" prefHeight="62.0" prefWidth="116.0" style="-fx-background-color: #0c0c0c; -fx-border-color: white; -fx-border-radius: 3;" text="Editar" textFill="#f8f1f1" AnchorPane.rightAnchor="44.0" AnchorPane.topAnchor="152.0">
          <font>
             <Font size="18.0" />
          </font></Button>
-      <Button fx:id="bExcluir" disable="true" layoutX="1148.0" layoutY="280.0" mnemonicParsing="false" onAction="#excluir" prefHeight="62.0" prefWidth="116.0" style="-fx-background-color: black; -fx-border-color: red; -fx-border-radius: 3;" text="Excluir" textFill="#f5eded" AnchorPane.rightAnchor="44.0" AnchorPane.topAnchor="237.0">
+      <Button fx:id="bExcluir" disable="true" layoutX="1148.0" layoutY="280.0" mnemonicParsing="false" onAction="#excluir" prefHeight="62.0" prefWidth="116.0" style="-fx-background-color: #0c0c0c; -fx-border-color: red; -fx-border-radius: 3;" text="Excluir" textFill="#f5eded" AnchorPane.rightAnchor="44.0" AnchorPane.topAnchor="237.0">
          <font>
             <Font size="18.0" />
          </font></Button>
-      <Button fx:id="bVoltar" layoutX="1148.0" layoutY="810.0" mnemonicParsing="false" onAction="#voltar" prefHeight="62.0" prefWidth="116.0" style="-fx-background-color: black; -fx-border-color: red; -fx-border-radius: 3;" text="Voltar" AnchorPane.bottomAnchor="26.0" AnchorPane.rightAnchor="44.0">
+      <Button fx:id="bVoltar" layoutX="1148.0" layoutY="810.0" mnemonicParsing="false" onAction="#voltar" prefHeight="62.0" prefWidth="116.0" style="-fx-background-color: #0c0c0c; -fx-border-color: red; -fx-border-radius: 3;" text="Voltar" AnchorPane.bottomAnchor="26.0" AnchorPane.rightAnchor="44.0">
          <font>
             <Font size="18.0" />
          </font>
