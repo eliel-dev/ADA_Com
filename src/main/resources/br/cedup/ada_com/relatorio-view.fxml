@@ -28,7 +28,7 @@
          <effect>
             <Glow />
          </effect></Button>
-      <BarChart fx:id="rteste" layoutX="2.0" layoutY="94.0" prefHeight="808.0" prefWidth="1082.0" style="-fx-font-size: 18; -fx-background-position: center;" stylesheets="@images/meuestilo.css" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="218.0" AnchorPane.topAnchor="94.0">
+      <BarChart fx:id="rteste" layoutX="2.0" layoutY="94.0" prefHeight="808.0" prefWidth="1082.0" style="-fx-font-size: 18; -fx-background-position: center;" stylesheets="@images/meuestilo.css" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="218.0" AnchorPane.topAnchor="94.0">
         <xAxis>
           <CategoryAxis label="Categoria" side="BOTTOM" style="-fx-background-color: black; -fx-text-fill: white;" tickLabelFill="WHITE">
                <effect>

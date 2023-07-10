@@ -10,9 +10,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="912.0" maxWidth="1315.0" minHeight="506.0" minWidth="705.0" pickOnBounds="false" prefHeight="623.0" prefWidth="865.0" snapToPixel="false" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.cedup.ada_com.controller.LoginController">
+<AnchorPane maxHeight="912.0" maxWidth="1315.0" minHeight="506.0" minWidth="705.0" pickOnBounds="false" prefHeight="623.0" prefWidth="865.0" snapToPixel="false" style="-fx-background-color: #0c0c0c;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.cedup.ada_com.controller.LoginController">
    <children>
-      <AnchorPane layoutX="33.0" layoutY="57.0" pickOnBounds="false" prefHeight="505.0" prefWidth="804.0" style="-fx-background-color: black; -fx-border-radius: 10; -fx-border-color: red;" AnchorPane.bottomAnchor="61.0" AnchorPane.leftAnchor="33.0" AnchorPane.rightAnchor="28.0" AnchorPane.topAnchor="57.0">
+      <AnchorPane layoutX="33.0" layoutY="57.0" pickOnBounds="false" prefHeight="505.0" prefWidth="804.0" style="-fx-background-color: #0c0c0c; -fx-border-radius: 10; -fx-border-color: red;" AnchorPane.bottomAnchor="61.0" AnchorPane.leftAnchor="33.0" AnchorPane.rightAnchor="28.0" AnchorPane.topAnchor="57.0">
          <children>
             <TextField fx:id="usuarioField" layoutX="231.0" layoutY="217.0" onAction="#entrar" prefHeight="26.0" prefWidth="388.0" style="-fx-background-color: white; -fx-font-style: red;">
                <font>
@@ -22,7 +22,7 @@
                <font>
                   <Font size="18.0" />
                </font></PasswordField>
-            <Button fx:id="entrarButton" layoutX="343.0" layoutY="378.0" mnemonicParsing="false" onAction="#entrar" prefHeight="42.0" prefWidth="130.0" style="-fx-background-color: black; -fx-border-color: white;" text="Entrar" textFill="#fffefe" wrapText="true">
+            <Button fx:id="entrarButton" layoutX="343.0" layoutY="378.0" mnemonicParsing="false" onAction="#entrar" prefHeight="42.0" prefWidth="130.0" style="-fx-background-color: #0c0c0c; -fx-border-color: white;" text="Entrar" textFill="#fffefe" wrapText="true">
                <font>
                   <Font size="18.0" />
                </font></Button>

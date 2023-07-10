@@ -2,14 +2,9 @@ package br.cedup.ada_com.controller;
 
 import br.cedup.ada_com.model.dao.RelatorioDAO;
 import br.cedup.ada_com.HelloApplication;
-import javafx.application.Platform;
-import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.chart.BarChart;
-import javafx.collections.FXCollections;
-import javafx.scene.chart.CategoryAxis;
-import javafx.scene.chart.LineChart;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;

@@ -1,5 +1,15 @@
-.registrarVendaV:hover {
-    -fx-background-color: #ffffff;
+.default-color0.chart-bar { -fx-bar-fill: red; }
+
+.chart {
+    -fx-background-color: black;
 }
 
-.default-color0.chart-series-line { -fx-stroke: red; }
+.axis-label {
+    -fx-text-fill: white;
+}
+
+.axis-tick-labels {
+    -fx-fill: white;
+}
+
+
