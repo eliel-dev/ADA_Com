@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 27/06/2023 às 12:44
+-- Tempo de geração: 10/07/2023 às 21:10
 -- Versão do servidor: 10.4.28-MariaDB
 -- Versão do PHP: 8.2.4
 
@@ -44,17 +44,16 @@ INSERT INTO `catalogo` (`Item_ID`, `Tipo`, `nome`, `categoria`, `valor`) VALUES
 (2, 1, 'Asus RT-AX82U', 'Roteador', 1199.99),
 (3, 1, 'Samsung 75QN900A', 'TV', 43699.05),
 (4, 1, 'LG 86NANO75SQA', 'TV', 10999.00),
-(5, 1, 'PlayStation 5', 'Console', NULL),
-(6, 1, 'Xbox Series X', 'Console', NULL),
-(7, 1, 'Xbox Series S', 'Console', NULL),
+(5, 1, 'PlayStation 5', 'Console', 7000.90),
+(6, 1, 'Xbox Series X', 'Console', 5000.00),
+(7, 1, 'Xbox Series S', 'Console', 3000.00),
 (8, 2, 'TV 1', 'TV online', 39.90),
 (9, 2, 'TV 2', 'TV online', 59.90),
 (10, 2, 'TV 3', 'TV online', 79.90),
 (11, 2, '100 Mega', 'Internet', 170.90),
-(12, 2, '500 Mega', 'Internet', 300.90),
+(12, 2, '500 Mega', 'Internet', 300.78),
 (13, 2, '1 Giga', 'Internet', 500.90),
-(14, 2, 'PC', 'Jogos por assinatura', 20.49),
-(15, 2, 'Console', 'Jogos por assinatura', 39.90);
+(14, 2, 'PC', 'Jogos por assinatura', 20.49);
 
 -- --------------------------------------------------------
 
@@ -102,13 +101,13 @@ CREATE TABLE `cliente` (
 
 INSERT INTO `cliente` (`Cliente_ID`, `Endereco_idEndereco`, `NomeCliente`, `SobreNomeCliente`, `cnpj_cpf`) VALUES
 (4, 3, 'Ana', 'Pereira', 33333333333),
-(7, 20, 'Carla', 'Costa', 77777777777),
+(7, 20, 'Carlas', 'Costa', 77777777748),
+(49, 2, 'dsfsd', 'sdfgds', 68989898774),
 (1, 16, 'João', 'Silva', 44444444444),
-(3, 18, 'José', 'Oliveira', 22222222222),
+(3, 18, 'José', 'Oliveir8', 22222222229),
 (5, 19, 'Julia', 'Ferreira', 55555555555),
-(6, 5, 'Marcos', 'Ribeiro', 66666666666),
-(2, 17, 'Maria', 'Santos', 11111111111),
-(8, 21, 'Mario', 'Calvo', 88888888888);
+(2, 17, 'Maria', 'Santos', 11111111112),
+(8, 21, 'Mario8', 'Bueno8', 88888888888);
 
 -- --------------------------------------------------------
 
@@ -130,9 +129,9 @@ CREATE TABLE `colaborador` (
 --
 
 INSERT INTO `colaborador` (`Colaborador_ID`, `NomeColaborador`, `SobreNomeColab`, `Nivel`, `Usuario`, `Senha`) VALUES
-(1, 'Silva', 'João', 2, 'gestor', '123'),
-(2, 'Careca', 'Jao', 1, 'vendedor', '123'),
-(3, 'teste', 'v', 1, 'teste.v', '123');
+(1, 'João', 'Silva', 2, 'gestor', '123'),
+(2, 'Careca', 'Jao', 1, 'Jao.Careca', '123'),
+(3, 'v', 'teste', 1, 'teste.v', '123');
 
 -- --------------------------------------------------------
 
@@ -469,7 +468,7 @@ ALTER TABLE `registrovenda_item`
 -- AUTO_INCREMENT de tabela `catalogo`
 --
 ALTER TABLE `catalogo`
-  MODIFY `Item_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `Item_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT de tabela `cidade`
@@ -481,7 +480,7 @@ ALTER TABLE `cidade`
 -- AUTO_INCREMENT de tabela `cliente`
 --
 ALTER TABLE `cliente`
-  MODIFY `Cliente_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `Cliente_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
 
 --
 -- AUTO_INCREMENT de tabela `colaborador`
