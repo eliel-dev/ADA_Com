@@ -15,13 +15,13 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: #0c0c0c;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.cedup.ada_com.controller.MainController">
+<AnchorPane prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: #0c0c0c;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.cedup.ada_com.controller.MainController">
     <children>
         <Label fx:id="nomeSobrenomeLogou" layoutX="439.0" layoutY="99.0" prefHeight="32.0" prefWidth="348.0" textFill="WHITE">
             <font>
                 <Font size="22.0" />
             </font></Label>
-        <Button fx:id="bSair" layoutX="48.0" layoutY="635.0" mnemonicParsing="false" onAction="#sair" prefHeight="78.0" prefWidth="200.0" style="-fx-background-color: #0c0c0c; -fx-border-color: red; -fx-border-radius: 3;" text="Sair" textFill="#f8f1f1" AnchorPane.bottomAnchor="42.0" AnchorPane.leftAnchor="48.0">
+        <Button fx:id="bSair" layoutX="51.0" layoutY="634.0" mnemonicParsing="false" onAction="#sair" prefHeight="78.0" prefWidth="200.0" style="-fx-background-color: #0c0c0c; -fx-border-color: red; -fx-border-radius: 3;" text="Sair" textFill="#f8f1f1" AnchorPane.bottomAnchor="43.0" AnchorPane.leftAnchor="75.0">
             <font>
                 <Font size="18.0" />
             </font></Button>
@@ -31,7 +31,7 @@
             </font></Label>
         <ImageView fitHeight="187.0" fitWidth="314.0" layoutX="75.0" layoutY="74.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="75.0" AnchorPane.topAnchor="74.0">
             <image>
-                <Image url="@images/adacom1.jpg" />
+                <Image url="@images/ADA%20(2)_upscayl_4x_ultrasharp.png" />
             </image>
         </ImageView>
         <GridPane layoutX="-6.0" layoutY="373.0" prefHeight="123.0" prefWidth="1331.0" AnchorPane.bottomAnchor="372.0" AnchorPane.leftAnchor="-6.0" AnchorPane.rightAnchor="6.0" AnchorPane.topAnchor="373.0">
