@@ -36,7 +36,7 @@
                </font>
             </Button>
             <Label fx:id="naoLocalizado" layoutX="259.0" layoutY="94.0" prefHeight="25.0" prefWidth="433.0" />
-            <AnchorPane fx:id="paneLocalizado" layoutX="165.0" layoutY="107.0" prefHeight="188.0" prefWidth="646.0" style="-fx-border-color: red; -fx-border-radius: 10;" AnchorPane.leftAnchor="165.0" AnchorPane.rightAnchor="156.0">
+            <AnchorPane fx:id="paneLocalizado" layoutX="165.0" layoutY="107.0" prefHeight="188.0" prefWidth="646.0" style="-fx-border-color: red; -fx-border-radius: 10;" visible="false" AnchorPane.leftAnchor="165.0" AnchorPane.rightAnchor="156.0">
                <children>
                   <Text fx:id="nCliente" fill="#f2ecec" layoutX="103.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nome:" AnchorPane.leftAnchor="103.0" AnchorPane.rightAnchor="462.1689453125">
                      <font>
