@@ -11,7 +11,7 @@
 
 <AnchorPane prefHeight="448.0" prefWidth="714.0" style="-fx-background-color: #0c0c0c; -fx-border-color: red;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.cedup.ada_com.controller.CatalogoModalController">
    <children>
-      <Button fx:id="bSalvarModal" disable="true" layoutX="560.0" layoutY="139.0" mnemonicParsing="false" onAction="#salvaritem" prefHeight="52.0" prefWidth="130.0" style="-fx-font-size: 18; -fx-background-color: #0c0c0c; -fx-border-radius: 3; -fx-border-color: green;" text="Salvar" textFill="#ebeaea" AnchorPane.bottomAnchor="291.0" AnchorPane.leftAnchor="544.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="105.0">
+      <Button fx:id="bSalvarModal" disable="true" layoutX="398.0" layoutY="367.0" mnemonicParsing="false" onAction="#salvaritem" prefHeight="52.0" prefWidth="130.0" style="-fx-font-size: 18; -fx-background-color: #0c0c0c; -fx-border-radius: 3; -fx-border-color: green;" text="Salvar" textFill="#ebeaea" AnchorPane.bottomAnchor="31.0" AnchorPane.leftAnchor="398.0" AnchorPane.rightAnchor="188.0" AnchorPane.topAnchor="367.0">
          <font>
             <Font size="18.0" />
          </font></Button>
@@ -76,17 +76,12 @@
             <Font size="18.0" />
          </font>
       </Text>
-      <Label fx:id="aviso" layoutX="50.0" layoutY="395.0" prefHeight="27.0" prefWidth="146.0" text="Aviso: Campos com " textFill="WHITE" AnchorPane.bottomAnchor="33.0" AnchorPane.leftAnchor="49.0" AnchorPane.rightAnchor="519.0" AnchorPane.topAnchor="394.0">
+      <Label fx:id="aviso2" layoutX="54.0" layoutY="395.0" prefHeight="27.0" prefWidth="170.0" text="Campos obrigatorios" textFill="WHITE" AnchorPane.bottomAnchor="38.0" AnchorPane.leftAnchor="54.0" AnchorPane.rightAnchor="496.0" AnchorPane.topAnchor="395.0">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <Label fx:id="aviso2" layoutX="240.0" layoutY="407.0" text="devem ser preenchidos antes de salvar." textFill="WHITE" AnchorPane.bottomAnchor="31.0" AnchorPane.leftAnchor="204.0" AnchorPane.rightAnchor="233.0" AnchorPane.topAnchor="392.0">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </Label>
-      <Label fx:id="aviso1" layoutX="226.0" layoutY="407.0" text="*" textFill="RED" AnchorPane.bottomAnchor="29.0" AnchorPane.leftAnchor="191.0" AnchorPane.rightAnchor="515.0" AnchorPane.topAnchor="392.0">
+      <Label fx:id="aviso1" layoutX="44.0" layoutY="392.0" text="*" textFill="RED">
          <font>
             <Font size="18.0" />
          </font>

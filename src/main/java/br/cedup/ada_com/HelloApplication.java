@@ -75,6 +75,4 @@ public class HelloApplication extends Application {
     public static void closeCurrentWindow() {
         ((Stage) scene.getRoot().getScene().getWindow()).close();
     }
-
-
 }

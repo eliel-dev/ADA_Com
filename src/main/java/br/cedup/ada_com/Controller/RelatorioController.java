@@ -30,38 +30,38 @@ public class RelatorioController implements Initializable {
 
     //CategoryAxis xAxis = new CategoryAxis();
 
-    RelatorioDAO relatorioDAO = new RelatorioDAO();
-    public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        if (LoginController.nivelDeAcesso == 2) {
-            comboRelatorios.getItems().addAll("Vendas no mes", "Vendas por colaborador", "Vendas por itens");
-        } else {
-            comboRelatorios.getItems().add("Vendas no mes");
-        }
+        RelatorioDAO relatorioDAO = new RelatorioDAO();
+        public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        btnGerarRelatorios.setOnAction(event -> {
-            String opcaoSelecionada = comboRelatorios.getValue();
-            if ("Vendas no mes".equals(opcaoSelecionada)) {
-                try {
-                    atualizarGraficoVendasPorDia();
-                } catch (SQLException e) {
-                    // Tratar exceção
-                }
-            } else if ("Vendas por colaborador".equals(opcaoSelecionada)) {
-                try {
-                    atualizarGraficoNumVendasPorColaboradorVendedor();
-                } catch (SQLException e) {
-                    // Tratar exceção
-                }
-            } else if ("Vendas por itens".equals(opcaoSelecionada)) {
-                try {
-                    atualizarGraficoNumVendasPorItemCatalogo();
-                } catch (SQLException e) {
-                    // Tratar exceção
-                }
+            if (LoginController.nivelDeAcesso == 2) {
+                comboRelatorios.getItems().addAll("Vendas por Dia", "Número de Vendas por Vendedor", "Número de Vendas por Item do Catálogo");
+            } else {
+                comboRelatorios.getItems().add("Número de Vendas por dia");
             }
-        });
 
+            btnGerarRelatorios.setOnAction(event -> {
+                String opcaoSelecionada = comboRelatorios.getValue();
+                if ("Vendas por Dia".equals(opcaoSelecionada)) {
+                    try {
+                        atualizarGraficoVendasPorDia();
+                    } catch (SQLException e) {
+                        // Tratar exceção
+                    }
+                } else if ("Número de Vendas por Vendedor".equals(opcaoSelecionada)) {
+                    try {
+                        atualizarGraficoNumVendasPorColaboradorVendedor();
+                    } catch (SQLException e) {
+                        // Tratar exceção
+                    }
+                } else if ("Número de Vendas por Item do Catálogo".equals(opcaoSelecionada)) {
+                    try {
+                        atualizarGraficoNumVendasPorItemCatalogo();
+                    } catch (SQLException e) {
+                        // Tratar exceção
+                    }
+                }
+            });
         //Botão branco:
         Button[] branco = {btnGerarRelatorios, bVoltar};
 
@@ -113,7 +113,7 @@ public class RelatorioController implements Initializable {
 
         // Criar uma série de dados para o gráfico
         XYChart.Series<String, Number> series = new XYChart.Series<>();
-        series.setName("Número de Vendas por Colaborador Vendedor");
+        series.setName("Número de Vendas por Vendedor");
 
         // Adicionar pontos de dados à série para cada entrada no mapa de número de vendas por colaborador vendedor
         for (Map.Entry<String, Integer> entry : numVendasPorColaborador.entrySet()) {
