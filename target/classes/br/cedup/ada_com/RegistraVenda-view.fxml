@@ -13,7 +13,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<ScrollPane fitToWidth="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1299.0" prefWidth="969.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.cedup.ada_com.controller.RegistraVendaController">
+<ScrollPane fitToWidth="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1299.0" prefWidth="969.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.cedup.ada_com.controller.RegistraVendaController">
    <content>
       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1459.0" prefWidth="967.0" style="-fx-background-color: #0c0c0c;">
          <children>
@@ -36,7 +36,7 @@
                </font>
             </Button>
             <Label fx:id="naoLocalizado" layoutX="259.0" layoutY="94.0" prefHeight="25.0" prefWidth="433.0" />
-            <AnchorPane fx:id="paneLocalizado" layoutX="165.0" layoutY="107.0" prefHeight="188.0" prefWidth="646.0" style="-fx-border-color: red; -fx-border-radius: 10;" AnchorPane.leftAnchor="165.0" AnchorPane.rightAnchor="156.0">
+            <AnchorPane fx:id="paneLocalizado" layoutX="165.0" layoutY="107.0" prefHeight="188.0" prefWidth="646.0" style="-fx-border-color: red; -fx-border-radius: 10;" visible="false" AnchorPane.leftAnchor="165.0" AnchorPane.rightAnchor="156.0">
                <children>
                   <Text fx:id="nCliente" fill="#f2ecec" layoutX="103.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nome:" AnchorPane.leftAnchor="103.0" AnchorPane.rightAnchor="462.1689453125">
                      <font>
@@ -117,12 +117,12 @@
                   <Font size="18.0" />
                </font>
             </Text>
-            <Text fill="#fffdfd" layoutX="559.0" layoutY="771.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Valor Total:" wrappingWidth="105.0" AnchorPane.rightAnchor="303.0" AnchorPane.topAnchor="751.576171875">
+            <Text fill="#fffdfd" layoutX="504.0" layoutY="772.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Valor Total:" wrappingWidth="105.0" AnchorPane.rightAnchor="345.0" AnchorPane.topAnchor="752.576171875">
                <font>
                   <Font size="18.0" />
                </font>
             </Text>
-            <Label fx:id="valorTotal" layoutX="681.0" layoutY="752.0" prefHeight="17.0" prefWidth="105.0" textFill="WHITE" AnchorPane.rightAnchor="181.0" AnchorPane.topAnchor="752.0">
+            <Label fx:id="valorTotal" layoutX="609.0" layoutY="751.0" prefHeight="27.0" prefWidth="190.0" textFill="WHITE" AnchorPane.rightAnchor="155.0" AnchorPane.topAnchor="751.0">
                <font>
                   <Font size="18.0" />
                </font>

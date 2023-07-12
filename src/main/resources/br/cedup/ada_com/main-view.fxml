@@ -15,19 +15,19 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: #0c0c0c;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.cedup.ada_com.controller.MainController">
+<AnchorPane prefHeight="825.0" prefWidth="1167.0" style="-fx-background-color: #0c0c0c;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.cedup.ada_com.controller.MainController">
     <children>
         <Label fx:id="nomeSobrenomeLogou" layoutX="439.0" layoutY="99.0" prefHeight="32.0" prefWidth="348.0" textFill="WHITE">
             <font>
-                <Font size="22.0" />
+                <Font size="30.0" />
             </font></Label>
-        <Button fx:id="bSair" layoutX="51.0" layoutY="634.0" mnemonicParsing="false" onAction="#sair" prefHeight="78.0" prefWidth="200.0" style="-fx-background-color: #0c0c0c; -fx-border-color: red; -fx-border-radius: 3;" text="Sair" textFill="#f8f1f1" AnchorPane.bottomAnchor="43.0" AnchorPane.leftAnchor="75.0">
+        <Button fx:id="bSair" layoutX="51.0" layoutY="634.0" mnemonicParsing="false" onAction="#sair" prefHeight="78.0" prefWidth="200.0" style="-fx-background-color: #0c0c0c; -fx-border-color: red; -fx-border-radius: 3; -fx-font-size: 26;" text="Sair" textFill="#f8f1f1" AnchorPane.bottomAnchor="43.0" AnchorPane.leftAnchor="51.0">
             <font>
-                <Font size="18.0" />
+                <Font size="30.0" />
             </font></Button>
-        <Label fx:id="comissaoAtualV" layoutX="763.0" layoutY="99.0" prefHeight="38.0" prefWidth="167.0" text="Comissão atual:" textFill="#f8f8f8" AnchorPane.leftAnchor="763.0" AnchorPane.rightAnchor="70.0" AnchorPane.topAnchor="99.0">
+        <Label fx:id="comissaoAtualV" layoutX="682.0" layoutY="96.0" prefHeight="38.0" prefWidth="472.0" text="Comissão atual:" textFill="#f8f8f8" AnchorPane.leftAnchor="682.0" AnchorPane.rightAnchor="13.0" AnchorPane.topAnchor="96.0">
             <font>
-                <Font name="Century Gothic" size="18.0" />
+                <Font name="Century Gothic" size="29.0" />
             </font></Label>
         <ImageView fitHeight="187.0" fitWidth="314.0" layoutX="75.0" layoutY="74.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="75.0" AnchorPane.topAnchor="74.0">
             <image>
@@ -46,7 +46,7 @@
             <children>
                 <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
                     <children>
-                        <Button fx:id="bRelatorio" layoutX="48.0" layoutY="40.0" mnemonicParsing="false" onAction="#relatorio" prefHeight="78.0" prefWidth="277.0" style="-fx-font-size: 18; -fx-background-color: #0c0c0c; -fx-border-color: white; -fx-border-radius: 3; -fx-border-width: 2;" text="Relatórios" AnchorPane.leftAnchor="48.0" AnchorPane.rightAnchor="47.0" AnchorPane.topAnchor="40.0">
+                        <Button fx:id="bRelatorio" layoutX="48.0" layoutY="29.0" mnemonicParsing="false" onAction="#relatorio" prefHeight="89.0" prefWidth="254.0" style="-fx-font-size: 29; -fx-background-color: #0c0c0c; -fx-border-color: white; -fx-border-radius: 3; -fx-border-width: 2;" text="Relatórios" AnchorPane.leftAnchor="48.0" AnchorPane.rightAnchor="31.0" AnchorPane.topAnchor="29.0">
                             <font>
                                 <Font name="System Bold" size="24.0" />
                             </font>
@@ -71,9 +71,9 @@
                 </AnchorPane>
                 <AnchorPane prefHeight="200.0" prefWidth="200.0">
                     <children>
-                        <Button fx:id="bRegistrarVenda" layoutX="55.0" layoutY="40.0" mnemonicParsing="false" onAction="#registrarVenda" prefHeight="78.0" prefWidth="238.0" style="-fx-font-size: 18; -fx-background-color: #0c0c0c; -fx-border-color: white; -fx-border-radius: 3; -fx-border-width: 2;" text="Registrar Venda" AnchorPane.leftAnchor="55.0" AnchorPane.rightAnchor="41.0" AnchorPane.topAnchor="40.0">
+                        <Button fx:id="bRegistrarVenda" layoutX="55.0" layoutY="29.0" mnemonicParsing="false" onAction="#registrarVenda" prefHeight="89.0" prefWidth="254.0" style="-fx-font-size: 29; -fx-background-color: #0c0c0c; -fx-border-color: white; -fx-border-radius: 3; -fx-border-width: 2;" text="Registrar Venda" AnchorPane.leftAnchor="55.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="29.0">
                             <font>
-                                <Font name="System Bold" size="24.0" />
+                                <Font name="System Bold" size="36.0" />
                             </font>
                             <textFill>
                                 <LinearGradient endX="1.0" endY="1.0">
@@ -96,7 +96,7 @@
                 </AnchorPane>
                 <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2">
                     <children>
-                        <MenuButton fx:id="bGerenciar" layoutX="55.0" layoutY="40.0" mnemonicParsing="false" prefHeight="78.0" prefWidth="238.0" style="-fx-font-size: 18; -fx-background-color: #0c0c0c; -fx-border-color: white; -fx-border-width: 2; -fx-border-radius: 3;" text="Gerenciar" textAlignment="CENTER" AnchorPane.leftAnchor="55.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="40.0">
+                        <MenuButton fx:id="bGerenciar" layoutX="39.0" layoutY="29.0" mnemonicParsing="false" prefHeight="89.0" prefWidth="254.0" style="-fx-font-size: 29; -fx-background-color: #0c0c0c; -fx-border-color: white; -fx-border-width: 2; -fx-border-radius: 3;" text="Gerenciar" textAlignment="CENTER" AnchorPane.leftAnchor="39.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="29.0">
                             <items>
                                 <MenuItem mnemonicParsing="false" style="-fx-background-color: black;">
                                     <graphic>

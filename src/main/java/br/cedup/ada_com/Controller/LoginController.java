@@ -46,7 +46,7 @@ public class LoginController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        entrarButton.setOnMouseEntered(e -> entrarButton.setStyle("-fx-font-size: 18; -fx-background-color: white; -fx-text-fill: black; -fx-border-color: white; -fx-border-radius: 3; -fx-border-width: 2;"));
-        entrarButton.setOnMouseExited(e -> entrarButton.setStyle("-fx-font-size: 18; -fx-background-color: #0c0c0c; -fx-text-fill: white; -fx-border-color: white; -fx-border-radius: 3; -fx-border-width: 2;"));
+        entrarButton.setOnMouseEntered(e -> entrarButton.setStyle("-fx-background-color: white; -fx-text-fill: black; -fx-border-color: white; -fx-border-radius: 3; -fx-border-width: 2;"));
+        entrarButton.setOnMouseExited(e -> entrarButton.setStyle("-fx-background-color: #0c0c0c; -fx-text-fill: white; -fx-border-color: white; -fx-border-radius: 3; -fx-border-width: 2;"));
     }
 }

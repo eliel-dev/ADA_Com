@@ -101,7 +101,7 @@ public class CatalogoController implements Initializable {
         }
 
         //Botão vermelho:
-        bExcluir.setOnMouseEntered(e -> bExcluir.setStyle("-fx-font-size: 18; -fx-background-color: red; -fx-border-color: red; -fx-border-radius: 3; -fx-border-width: 2;"));
+        bExcluir.setOnMouseEntered(e -> bExcluir.setStyle("-fx-background-color: red; -fx-border-color: red; -fx-border-radius: 3; -fx-border-width: 2;"));
         bExcluir.setOnMouseExited(e -> bExcluir.setStyle("-fx-font-size: 18; -fx-background-color: #0c0c0c; -fx-border-color: red; -fx-border-radius: 3; -fx-border-width: 2;"));
     }
 
