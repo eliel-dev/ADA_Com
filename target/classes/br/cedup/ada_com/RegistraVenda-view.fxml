@@ -17,7 +17,7 @@
    <content>
       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1408.0" prefWidth="854.0" style="-fx-background-color: #0c0c0c;">
          <children>
-            <TextField fx:id="compoPesquisaCliente" layoutX="386.0" layoutY="29.0" onAction="#onPesquisarCliente" prefHeight="39.0" prefWidth="303.0" style="-fx-background-color: #F0F0F0;" AnchorPane.leftAnchor="386.0" AnchorPane.rightAnchor="422.0">
+            <TextField fx:id="compoPesquisaCliente" layoutX="376.0" layoutY="29.0" onAction="#onPesquisarCliente" prefHeight="39.0" prefWidth="313.0" style="-fx-background-color: #F0F0F0;" AnchorPane.leftAnchor="376.0" AnchorPane.rightAnchor="422.0">
                <tooltip>
                   <Tooltip text="Teste" />
                </tooltip>
@@ -36,16 +36,16 @@
                </font>
             </Button>
             <Label fx:id="naoLocalizado" layoutX="350.0" layoutY="74.0" prefHeight="25.0" prefWidth="433.0" />
-            <AnchorPane fx:id="paneLocalizado" layoutX="250.0" layoutY="87.0" prefHeight="194.0" prefWidth="585.0" style="-fx-border-color: red; -fx-border-radius: 10;" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="276.0">
+            <AnchorPane fx:id="paneLocalizado" layoutX="250.0" layoutY="87.0" prefHeight="194.0" prefWidth="585.0" style="-fx-border-color: red; -fx-border-radius: 10;" visible="false" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="276.0">
                <children>
                   <Text fx:id="nCliente" fill="#f2ecec" layoutX="18.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nome:" AnchorPane.leftAnchor="18.0">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Text>
-                  <Label fx:id="completaNome" layoutX="118.0" layoutY="39.0" prefHeight="27.0" prefWidth="346.0" style="-fx-background-color: #F0F0F0;" AnchorPane.leftAnchor="118.0">
+                  <Label fx:id="completaNome" layoutX="127.0" layoutY="39.0" prefHeight="27.0" prefWidth="352.0" style="-fx-background-color: #F0F0F0;" AnchorPane.leftAnchor="126.0" AnchorPane.rightAnchor="106.0">
                      <font>
-                        <Font size="25.0" />
+                        <Font size="18.0" />
                      </font>
                   </Label>
                   <Text fx:id="dCliente" fill="#f5efef" layoutX="17.0" layoutY="103.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Documento:" AnchorPane.leftAnchor="17.0">
@@ -53,7 +53,7 @@
                         <Font size="18.0" />
                      </font>
                   </Text>
-                  <Label fx:id="completaDocumento" layoutX="155.0" layoutY="84.0" prefHeight="27.0" prefWidth="320.0" style="-fx-background-color: #F0F0F0;" AnchorPane.leftAnchor="155.0">
+                  <Label fx:id="completaDocumento" layoutX="128.0" layoutY="82.0" prefHeight="27.0" prefWidth="350.0" style="-fx-background-color: #F0F0F0;" AnchorPane.leftAnchor="128.0" AnchorPane.rightAnchor="107.0">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -63,22 +63,22 @@
                         <Font size="18.0" />
                      </font>
                   </Text>
-                  <Label fx:id="completaCidade" layoutX="143.0" layoutY="123.0" prefHeight="27.0" prefWidth="308.0" style="-fx-background-color: #F0F0F0;" AnchorPane.leftAnchor="143.0">
+                  <Label fx:id="completaCidade" layoutX="128.0" layoutY="125.0" prefHeight="27.0" prefWidth="350.0" style="-fx-background-color: #F0F0F0;" AnchorPane.leftAnchor="128.0" AnchorPane.rightAnchor="107.0">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
                </children>
             </AnchorPane>
-            <Text fill="#f50202" layoutX="370.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*">
+            <Text fill="#f50202" layoutX="346.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*">
                <font>
                   <Font size="18.0" />
                </font>
             </Text>
             <TableView fx:id="tabelaItensCarrinho" layoutX="252.0" layoutY="455.0" maxHeight="259.0" maxWidth="585.0" prefHeight="259.0" prefWidth="585.0" style="-fx-background-color: #F0F0F0;" AnchorPane.bottomAnchor="694.0" AnchorPane.leftAnchor="252.0" AnchorPane.rightAnchor="274.0">
                <columns>
-                  <TableColumn fx:id="nomeItem" maxWidth="278.0" minWidth="-1.0" prefWidth="278.0" style="-fx-font-size: 18;" text="Nome" />
-                  <TableColumn fx:id="qtdItem" maxWidth="470.0" minWidth="-1.0" prefWidth="207.0" style="-fx-font-size: 18;" text="Quantidade" />
+                  <TableColumn fx:id="nomeItem" maxWidth="278.0" minWidth="-1.0" prefWidth="235.0" style="-fx-font-size: 18;" text="Nome" />
+                  <TableColumn fx:id="qtdItem" maxWidth="470.0" minWidth="-1.0" prefWidth="250.0" style="-fx-font-size: 18;" text="Quantidade" />
                   <TableColumn fx:id="precoItem" editable="false" maxWidth="580.0" prefWidth="98.0" style="-fx-font-size: 18;" text="Preço" />
                </columns>
                <columnResizePolicy>
@@ -90,7 +90,10 @@
                   <Font size="18.0" />
                </font>
             </Text>
-            <TextField fx:id="quantidadeProduto" layoutX="436.0" layoutY="397.0" onAction="#botaoIncluir" prefHeight="25.0" prefWidth="97.0" style="-fx-background-color: #F0F0F0;" AnchorPane.leftAnchor="436.0" AnchorPane.rightAnchor="578.0" />
+            <TextField fx:id="quantidadeProduto" layoutX="436.0" layoutY="397.0" onAction="#botaoIncluir" prefHeight="39.0" prefWidth="133.0" style="-fx-background-color: #F0F0F0;" AnchorPane.leftAnchor="436.0" AnchorPane.rightAnchor="542.0">
+               <font>
+                  <Font size="18.0" />
+               </font></TextField>
             <Text fill="#f5f5f5" layoutX="254.0" layoutY="373.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Produto/Serviço:" AnchorPane.leftAnchor="254.0" AnchorPane.topAnchor="347.1015625">
                <font>
                   <Font size="18.0" />
@@ -107,22 +110,22 @@
                   <Font size="18.0" />
                </font>
             </Button>
-            <Text fill="#fc0606" layoutX="388.0" layoutY="418.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*">
+            <Text fill="#fc0606" layoutX="361.0" layoutY="419.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*">
                <font>
                   <Font size="18.0" />
                </font>
             </Text>
-            <Text fill="#fc0606" layoutX="426.0" layoutY="367.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*" wrappingWidth="16.505859375">
+            <Text fill="#fc0606" layoutX="387.0" layoutY="366.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*" wrappingWidth="16.505859375">
                <font>
                   <Font size="18.0" />
                </font>
             </Text>
-            <Text fill="#fffdfd" layoutX="527.0" layoutY="756.8984375" strokeType="OUTSIDE" strokeWidth="0.0" text="Valor Total:" wrappingWidth="138.0" AnchorPane.rightAnchor="479.0" AnchorPane.topAnchor="731.0">
+            <Text fill="#fffdfd" layoutX="533.0" layoutY="752.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Valor Total:" wrappingWidth="94.0" AnchorPane.rightAnchor="484.0">
                <font>
                   <Font size="18.0" />
                </font>
             </Text>
-            <Label fx:id="valorTotal" layoutX="626.0" layoutY="729.0" prefHeight="35.0" prefWidth="210.0" text="xzczxczxczx" textFill="WHITE" AnchorPane.rightAnchor="275.0" AnchorPane.topAnchor="729.0">
+            <Label fx:id="valorTotal" layoutX="629.0" layoutY="728.0" prefHeight="35.0" prefWidth="210.0" textFill="WHITE" AnchorPane.rightAnchor="272.0">
                <font>
                   <Font size="18.0" />
                </font>
@@ -132,50 +135,50 @@
                   <Font size="18.0" />
                </font>
             </Text>
-            <ComboBox fx:id="comboP1" layoutX="290.0" layoutY="834.0" prefHeight="39.0" prefWidth="545.0" style="-fx-background-color: #F0F0F0;" AnchorPane.leftAnchor="290.0" AnchorPane.rightAnchor="276.0" />
-            <ComboBox fx:id="comboP2" layoutX="291.0" layoutY="908.0" prefHeight="39.0" prefWidth="544.0" style="-fx-background-color: #F0F0F0;" AnchorPane.leftAnchor="291.0" AnchorPane.rightAnchor="276.0" />
-            <ComboBox fx:id="comboP4" layoutX="249.0" layoutY="989.0" prefHeight="39.0" prefWidth="609.0" style="-fx-background-color: #F0F0F0;" AnchorPane.leftAnchor="249.0" AnchorPane.rightAnchor="253.0" />
-            <Label fx:id="pergunta1" layoutX="291.0" layoutY="807.0" prefHeight="35.0" prefWidth="587.0" text="Como você conheceu nossa empresa/produto/serviço?" textFill="#fffdfd" AnchorPane.leftAnchor="291.0" AnchorPane.topAnchor="807.0">
+            <ComboBox fx:id="comboP1" layoutX="252.0" layoutY="827.0" prefHeight="39.0" prefWidth="585.0" style="-fx-background-color: #F0F0F0;" AnchorPane.leftAnchor="252.0" AnchorPane.rightAnchor="274.0" />
+            <ComboBox fx:id="comboP2" layoutX="249.0" layoutY="908.0" prefHeight="39.0" prefWidth="586.0" style="-fx-background-color: #F0F0F0;" AnchorPane.leftAnchor="249.0" AnchorPane.rightAnchor="276.0" />
+            <ComboBox fx:id="comboP4" layoutX="252.0" layoutY="989.0" prefHeight="39.0" prefWidth="586.0" style="-fx-background-color: #F0F0F0;" AnchorPane.leftAnchor="252.0" AnchorPane.rightAnchor="273.0" />
+            <Label fx:id="pergunta1" layoutX="252.0" layoutY="792.0" prefHeight="35.0" prefWidth="587.0" text="Como você conheceu nossa empresa/produto/serviço?" textFill="#fffdfd" AnchorPane.leftAnchor="252.0" AnchorPane.rightAnchor="272.0">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label fx:id="pergunta2" layoutX="291.0" layoutY="881.0" text="Qual foi o motivo que o levou a visitar nosso site?" textFill="WHITE" AnchorPane.leftAnchor="291.0" AnchorPane.topAnchor="881.0">
+            <Label fx:id="pergunta2" layoutX="249.0" layoutY="881.0" text="Qual foi o motivo que o levou a visitar nosso site?" textFill="WHITE" AnchorPane.leftAnchor="249.0" AnchorPane.rightAnchor="272.0">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label fx:id="pergunta4" layoutX="250.0" layoutY="961.0" prefHeight="35.0" prefWidth="612.0" text="Participou de um evento que a empresa estava presente?" textFill="WHITE" AnchorPane.leftAnchor="250.0" AnchorPane.topAnchor="961.0">
+            <Label fx:id="pergunta4" layoutX="252.0" layoutY="954.0" prefHeight="35.0" prefWidth="612.0" text="Participou de um evento que a empresa estava presente?" textFill="WHITE" AnchorPane.leftAnchor="252.0" AnchorPane.rightAnchor="272.0">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <TextArea fx:id="ObsCompra" layoutX="291.0" layoutY="1103.0" prefHeight="167.0" prefWidth="541.0" style="-fx-background-color: #F0F0F0;" AnchorPane.bottomAnchor="138.0" AnchorPane.leftAnchor="291.0" AnchorPane.rightAnchor="279.0">
+            <TextArea fx:id="ObsCompra" layoutX="250.0" layoutY="1103.0" prefHeight="167.0" prefWidth="582.0" style="-fx-background-color: #F0F0F0;" AnchorPane.bottomAnchor="138.0" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="279.0">
                <font>
                   <Font size="18.0" />
                </font>
             </TextArea>
-            <Text fill="#f50808" layoutX="872.0" layoutY="819.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*" AnchorPane.leftAnchor="872.0">
+            <Text fill="#f50808" layoutX="689.0" layoutY="811.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*" AnchorPane.leftAnchor="689.0" AnchorPane.rightAnchor="414.494140625">
                <font>
                   <Font size="18.0" />
                </font>
             </Text>
-            <Text fill="#f50808" layoutX="816.0" layoutY="900.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*" AnchorPane.leftAnchor="816.0">
+            <Text fill="#f50808" layoutX="643.0" layoutY="901.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*" AnchorPane.leftAnchor="643.0" AnchorPane.rightAnchor="460.494140625">
                <font>
                   <Font size="18.0" />
                </font>
             </Text>
-            <Text fill="#f80303" layoutX="895.0" layoutY="974.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*">
+            <Text fill="#f80303" layoutX="708.0" layoutY="978.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*" AnchorPane.leftAnchor="708.0" AnchorPane.rightAnchor="395.494140625">
                <font>
                   <Font size="18.0" />
                </font>
             </Text>
-            <Button fx:id="bRegistrar" layoutX="376.0" layoutY="1305.0" mnemonicParsing="false" onAction="#registrar" prefHeight="76.0" prefWidth="218.0" style="-fx-background-color: #0c0c0c; -fx-border-color: #007100; -fx-border-radius: 3;" text="Registrar" textFill="#f5f8f5" AnchorPane.leftAnchor="376.0" AnchorPane.rightAnchor="517.0" AnchorPane.topAnchor="1305.0">
+            <Button fx:id="bRegistrar" layoutX="338.0" layoutY="1303.0" mnemonicParsing="false" onAction="#registrar" prefHeight="76.0" prefWidth="218.0" style="-fx-background-color: #0c0c0c; -fx-border-color: #007100; -fx-border-radius: 3;" text="Registrar" textFill="#f5f8f5" AnchorPane.leftAnchor="338.0" AnchorPane.rightAnchor="555.0" AnchorPane.topAnchor="1303.0">
                <font>
                   <Font size="18.0" />
                </font>
             </Button>
-            <Button fx:id="bVoltar" layoutX="667.0" layoutY="1305.0" mnemonicParsing="false" onAction="#fechar" prefHeight="76.0" prefWidth="162.0" style="-fx-background-color: #0c0c0c; -fx-border-radius: 3; -fx-border-color: red;" text="Voltar" textFill="#f5f3f3" AnchorPane.rightAnchor="282.0" AnchorPane.topAnchor="1305.0">
+            <Button fx:id="bVoltar" layoutX="667.0" layoutY="1305.0" mnemonicParsing="false" onAction="#fechar" prefHeight="72.0" prefWidth="162.0" style="-fx-background-color: #0c0c0c; -fx-border-radius: 3; -fx-border-color: red;" text="Voltar" textFill="#f5f3f3" AnchorPane.rightAnchor="282.0" AnchorPane.topAnchor="1305.0">
                <font>
                   <Font size="18.0" />
                </font>
