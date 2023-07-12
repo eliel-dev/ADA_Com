@@ -8,7 +8,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="448.0" prefWidth="714.0" style="-fx-background-color: #0c0c0c;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.cedup.ada_com.controller.NovoClienteModalController">
+<AnchorPane prefHeight="448.0" prefWidth="714.0" style="-fx-background-color: #0c0c0c;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.cedup.ada_com.controller.NovoClienteModalController">
    <children>
       <TextField fx:id="fieldNome" layoutX="45.0" layoutY="111.0" prefHeight="25.0" prefWidth="156.0" style="-fx-background-color: #F0F0F0;">
          <font>
@@ -18,11 +18,11 @@
          <font>
             <Font size="18.0" />
          </font></TextField>
-      <Text fill="#f2eded" layoutX="47.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nome:">
+      <Text fill="#f2eded" layoutX="45.0" layoutY="105.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nome:">
          <font>
             <Font size="18.0" />
          </font></Text>
-      <Text fill="#fcf9f9" layoutX="235.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sobrenome:">
+      <Text fill="#fcf9f9" layoutX="235.0" layoutY="105.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sobrenome:">
          <font>
             <Font size="18.0" />
          </font></Text>
@@ -30,7 +30,7 @@
          <font>
             <Font size="18.0" />
          </font></TextField>
-      <Text fill="#eeebeb" layoutX="47.0" layoutY="186.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CPF/CNPJ:">
+      <Text fill="#eeebeb" layoutX="46.0" layoutY="185.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CPF/CNPJ:">
          <font>
             <Font size="18.0" />
          </font></Text>
@@ -38,7 +38,7 @@
          <font>
             <Font size="18.0" />
          </font></Text>
-      <Text fill="#f5f3f3" layoutX="46.0" layoutY="276.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Estado:">
+      <Text fill="#f5f3f3" layoutX="45.0" layoutY="275.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Estado:">
          <font>
             <Font size="18.0" />
          </font></Text>
