@@ -15,6 +15,8 @@ public class CatalogoDAO {
     private static final String coluna_categoria = "categoria";
     private static final String coluna_valor = "valor";
 
+
+
     public List<Catalogo> getItens() throws SQLException {
         try(Statement stmt = ConnectionSingleton.getConnection().createStatement();
             ResultSet resultado = stmt.executeQuery("SELECT * FROM catalogo")) {
@@ -33,13 +35,18 @@ public class CatalogoDAO {
 
     public void inserirItem(Catalogo catalogo) throws SQLException {
         String sql = "INSERT INTO catalogo (Tipo, nome, categoria, valor) VALUES (?, ?, ?, ?)";
-        try (PreparedStatement stmt = ConnectionSingleton.getConnection().prepareStatement(sql)) {
-            stmt.setInt(1,catalogo.getTipo());
-            stmt.setString(2,catalogo.getNome());
+        try (PreparedStatement stmt = ConnectionSingleton.getConnection().prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
+            stmt.setInt(1,catalogo.tipo);
+            stmt.setString(2,catalogo.nome);
             stmt.setString(3,catalogo.getCategoria());
             stmt.setDouble(4,catalogo.getValor());
 
             stmt.executeUpdate();
+
+            try (ResultSet rs = stmt.getGeneratedKeys()) {
+                rs.next();
+                catalogo.itemID = rs.getInt(1);
+            }
         }
     }
 

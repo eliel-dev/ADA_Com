@@ -66,8 +66,8 @@ public class RelatorioController implements Initializable {
         Button[] branco = {btnGerarRelatorios, bVoltar};
 
         for (Button button : branco) {
-            button.setOnMouseEntered(e -> button.setStyle("-fx-font-size: 18; -fx-background-color: white; -fx-text-fill: black; -fx-border-color: white; -fx-border-radius: 3; -fx-border-width: 2;"));
-            button.setOnMouseExited(e -> button.setStyle("-fx-font-size: 18; -fx-background-color: #0c0c0c; -fx-text-fill: white; -fx-border-color: white; -fx-border-radius: 3; -fx-border-width: 2;"));
+            button.setOnMouseEntered(e -> button.setStyle("-fx-background-color: white; -fx-text-fill: black; -fx-border-color: white;"));
+            button.setOnMouseExited(e -> button.setStyle("-fx-background-color: #0c0c0c; -fx-text-fill: white; -fx-border-color: white;"));
         }
     }
 

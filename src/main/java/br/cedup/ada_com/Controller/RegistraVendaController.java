@@ -28,6 +28,9 @@ import java.util.*;
 
 public class RegistraVendaController implements Initializable {
 
+    @FXML
+    AnchorPane main;
+
     //Selecione um cliente.
     @FXML
     TextField compoPesquisaCliente;
@@ -75,16 +78,16 @@ public class RegistraVendaController implements Initializable {
     Label pergunta1;
     @FXML
     Label pergunta2;
-    @FXML
-    Label pergunta3;
+//    @FXML
+//    Label pergunta3;
     @FXML
     Label pergunta4;
     @FXML
     ComboBox<Exp_cliente> comboP1;
     @FXML
     ComboBox<Exp_cliente> comboP2;
-    @FXML
-    ComboBox<Exp_cliente> comboP3;
+//    @FXML
+//    ComboBox<Exp_cliente> comboP3;
     @FXML
     ComboBox<Exp_cliente> comboP4;
 
@@ -106,7 +109,7 @@ public class RegistraVendaController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle)  {
-        // Criar uma instância do DAO para acessar o banco de dados
+         // Criar uma instância do DAO para acessar o banco de dados
         CatalogoDAO catalogoDAO = new CatalogoDAO();
 
         // Consultar o banco de dados para recuperar a lista de itens
@@ -205,7 +208,7 @@ public class RegistraVendaController implements Initializable {
         // Exibição das perguntas nos labels
         pergunta1.setText(perguntas.get(0));
         pergunta2.setText(perguntas.get(1));
-        pergunta3.setText(perguntas.get(2));
+        //pergunta3.setText(perguntas.get(2));
         pergunta4.setText(perguntas.get(3));
 
         try {
@@ -217,7 +220,7 @@ public class RegistraVendaController implements Initializable {
             // Exibição das alternativas nos combo boxes
             comboP1.setItems(FXCollections.observableArrayList(alternativasP1));
             comboP2.setItems(FXCollections.observableArrayList(alternativasP2));
-            comboP3.setItems(FXCollections.observableArrayList(alternativasP3));
+            //comboP3.setItems(FXCollections.observableArrayList(alternativasP3));
             comboP4.setItems(FXCollections.observableArrayList(alternativasP4));
         } catch (SQLException e) {
             // Tratamento da exceção SQLException
@@ -226,7 +229,7 @@ public class RegistraVendaController implements Initializable {
         comboBoxes = new ArrayList<>();
         comboBoxes.add(comboP1);
         comboBoxes.add(comboP2);
-        comboBoxes.add(comboP3);
+        //comboBoxes.add(comboP3);
         comboBoxes.add(comboP4);
 
         compoPesquisaCliente.textProperty().addListener((observable, oldValue, newValue) -> {
@@ -246,17 +249,17 @@ public class RegistraVendaController implements Initializable {
         Button[] branco = {bPesquisar, bIncluir, bVoltar};
 
         for (Button button : branco) {
-            button.setOnMouseEntered(e -> button.setStyle("-fx-font-size: 18; -fx-background-color: white; -fx-text-fill: black; -fx-border-color: white; -fx-border-radius: 3; -fx-border-width: 2;"));
-            button.setOnMouseExited(e -> button.setStyle("-fx-font-size: 18; -fx-background-color: #0c0c0c; -fx-text-fill: white; -fx-border-color: white; -fx-border-radius: 3; -fx-border-width: 2;"));
+            button.setOnMouseEntered(e -> button.setStyle("-fx-background-color: white; -fx-text-fill: black; -fx-border-color: white;"));
+            button.setOnMouseExited(e -> button.setStyle("-fx-background-color: #0c0c0c; -fx-text-fill: white; -fx-border-color: white;"));
         }
 
         //Botão verde:
-        bRegistrar.setOnMouseEntered(e -> bRegistrar.setStyle("-fx-font-size: 18; -fx-background-color: green; -fx-border-color: green; -fx-border-radius: 3; -fx-border-width: 2;"));
-        bRegistrar.setOnMouseExited(e -> bRegistrar.setStyle("-fx-font-size: 18; -fx-background-color: #0c0c0c;  -fx-border-color: green; -fx-border-radius: 3; -fx-border-width: 2;"));
+        bRegistrar.setOnMouseEntered(e -> bRegistrar.setStyle("-fx-background-color: green; -fx-border-color: green;"));
+        bRegistrar.setOnMouseExited(e -> bRegistrar.setStyle("-fx-background-color: #0c0c0c;  -fx-border-color: green;"));
 
         //Botão vermelho:
-        bExcluir.setOnMouseEntered(e -> bExcluir.setStyle("-fx-font-size: 18; -fx-background-color: red; -fx-border-color: red; -fx-border-radius: 3; -fx-border-width: 2;"));
-        bExcluir.setOnMouseExited(e -> bExcluir.setStyle("-fx-font-size: 18; -fx-background-color: #0c0c0c; -fx-border-color: red; -fx-border-radius: 3; -fx-border-width: 2;"));
+        bExcluir.setOnMouseEntered(e -> bExcluir.setStyle("-fx-background-color: red; -fx-border-color: red;"));
+        bExcluir.setOnMouseExited(e -> bExcluir.setStyle("-fx-background-color: #0c0c0c; -fx-border-color: red;"));
     }
 
     private String formatarCpfCnpj(String cpfCnpj) {
@@ -410,7 +413,7 @@ public class RegistraVendaController implements Initializable {
                 //se pelo menos 1 item foi colocado ao "carrinho de compras" = tabelaItensCarrinho
                 if (!tabelaItensCarrinho.getItems().isEmpty()) {
                     //se as perguntas da experiência de venda foram preenchidas
-                    if (comboP1.getValue() != null && comboP2.getValue() != null && comboP3.getValue() != null && comboP4.getValue() != null) {
+                    if (comboP1.getValue() != null && comboP2.getValue() != null && comboP4.getValue() != null) {
                         // Todos os campos necessários foram preenchidos
                         // Registrar a venda no banco de dados
                         RegistraVendaDAO registraVendaDAO = new RegistraVendaDAO();
@@ -448,7 +451,7 @@ public class RegistraVendaController implements Initializable {
 
                             comboP1.setValue(null);
                             comboP2.setValue(null);
-                            comboP3.setValue(null);
+                            //comboP3.setValue(null);
                             comboP4.setValue(null);
 
                             ObsCompra.clear();

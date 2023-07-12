@@ -5,11 +5,11 @@
 }
 
 .axis-label {
-    -fx-text-fill: white;
+    -fx-text-fill: #F0F0F0;
 }
 
 .axis-tick-labels {
-    -fx-fill: white;
+    -fx-fill: #F0F0F0;
 }
 
 

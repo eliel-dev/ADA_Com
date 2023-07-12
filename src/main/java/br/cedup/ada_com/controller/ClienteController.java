@@ -151,17 +151,20 @@ public class ClienteController implements Initializable {
             }
         });
 
+        bNovo.setOnMouseEntered(e -> bNovo.setStyle("-fx-background-color: green; -fx-border-color: green;"));
+        bNovo.setOnMouseExited(e -> bNovo.setStyle("-fx-background-color: #0c0c0c;  -fx-border-color: green;"));
+
         //Botão branco:
-        Button[] branco = {bNovo, bEditar, bVoltar};
+        Button[] branco = {bEditar, bVoltar};
 
         for (Button button : branco) {
-            button.setOnMouseEntered(e -> button.setStyle("-fx-font-size: 18; -fx-background-color: white; -fx-text-fill: black; -fx-border-color: white; -fx-border-radius: 3; -fx-border-width: 2;"));
-            button.setOnMouseExited(e -> button.setStyle("-fx-font-size: 18; -fx-background-color: #0c0c0c; -fx-text-fill: white; -fx-border-color: white; -fx-border-radius: 3; -fx-border-width: 2;"));
+            button.setOnMouseEntered(e -> button.setStyle("-fx-background-color: white; -fx-text-fill: black; -fx-border-color: white;"));
+            button.setOnMouseExited(e -> button.setStyle("-fx-background-color: #0c0c0c; -fx-text-fill: white; -fx-border-color: white;"));
         }
 
         //Botão vermelho:
-        bExcluir.setOnMouseEntered(e -> bExcluir.setStyle("-fx-font-size: 18; -fx-background-color: red; -fx-border-color: red; -fx-border-radius: 3; -fx-border-width: 2;"));
-        bExcluir.setOnMouseExited(e -> bExcluir.setStyle("-fx-font-size: 18; -fx-background-color: #0c0c0c; -fx-border-color: red; -fx-border-radius: 3; -fx-border-width: 2;"));
+        bExcluir.setOnMouseEntered(e -> bExcluir.setStyle("-fx-background-color: red; -fx-border-color: red;"));
+        bExcluir.setOnMouseExited(e -> bExcluir.setStyle("-fx-background-color: #0c0c0c; -fx-border-color: red;"));
 
     }
 

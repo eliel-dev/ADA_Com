@@ -10,47 +10,47 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="912.0" maxWidth="1315.0" minHeight="506.0" minWidth="705.0" pickOnBounds="false" prefHeight="623.0" prefWidth="865.0" snapToPixel="false" style="-fx-background-color: #0c0c0c;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.cedup.ada_com.controller.LoginController">
+<AnchorPane maxHeight="912.0" maxWidth="1315.0" minHeight="506.0" minWidth="705.0" pickOnBounds="false" prefHeight="737.0" prefWidth="995.0" snapToPixel="false" style="-fx-background-color: #0c0c0c;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.cedup.ada_com.controller.LoginController">
    <children>
       <AnchorPane layoutX="33.0" layoutY="57.0" pickOnBounds="false" prefHeight="505.0" prefWidth="804.0" style="-fx-background-color: #0c0c0c; -fx-border-radius: 10; -fx-border-color: red;" AnchorPane.bottomAnchor="61.0" AnchorPane.leftAnchor="33.0" AnchorPane.rightAnchor="28.0" AnchorPane.topAnchor="57.0">
          <children>
-            <TextField fx:id="usuarioField" layoutX="231.0" layoutY="217.0" onAction="#entrar" prefHeight="26.0" prefWidth="388.0" style="-fx-background-color: white; -fx-font-style: red;">
+            <TextField fx:id="usuarioField" layoutX="231.0" layoutY="217.0" onAction="#entrar" prefHeight="26.0" prefWidth="388.0" style="-fx-background-color: #F0F0F0; -fx-font-style: red;" AnchorPane.leftAnchor="230.0" AnchorPane.rightAnchor="185.0">
                <font>
-                  <Font size="18.0" />
+                  <Font size="24.0" />
                </font></TextField>
-            <PasswordField fx:id="senhaField" layoutX="231.0" layoutY="297.0" onAction="#entrar" prefHeight="26.0" prefWidth="388.0" style="-fx-background-color: white;" styleClass="text">
+            <PasswordField fx:id="senhaField" layoutX="231.0" layoutY="297.0" onAction="#entrar" prefHeight="26.0" prefWidth="388.0" style="-fx-background-color: #F0F0F0;" styleClass="text" AnchorPane.leftAnchor="230.0" AnchorPane.rightAnchor="185.0">
                <font>
-                  <Font size="18.0" />
+                  <Font size="24.0" />
                </font></PasswordField>
-            <Button fx:id="entrarButton" layoutX="343.0" layoutY="378.0" mnemonicParsing="false" onAction="#entrar" prefHeight="42.0" prefWidth="130.0" style="-fx-background-color: #0c0c0c; -fx-border-color: white;" text="Entrar" textFill="#fffefe" wrapText="true">
+            <Button fx:id="entrarButton" layoutX="343.0" layoutY="378.0" mnemonicParsing="false" onAction="#entrar" prefHeight="42.0" prefWidth="130.0" style="-fx-background-color: #0c0c0c; -fx-border-color: #F0F0F0;" text="Entrar" textFill="#f0f0f0" wrapText="true" AnchorPane.leftAnchor="342.0" AnchorPane.rightAnchor="331.0">
                <font>
-                  <Font size="18.0" />
+                  <Font size="26.0" />
                </font></Button>
-            <Label layoutX="157.0" layoutY="217.0" text="Usuario" textFill="WHITE">
+            <Label layoutX="127.0" layoutY="218.0" text="Usuario" textFill="#f0f0f0" AnchorPane.leftAnchor="127.0">
                <font>
-                  <Font size="18.0" />
+                  <Font size="26.0" />
                </font>
             </Label>
-            <Label layoutX="165.0" layoutY="295.0" text="Senha" textFill="#fffafa">
+            <Label layoutX="144.0" layoutY="298.0" text="Senha" textFill="#f0f0f0" AnchorPane.leftAnchor="143.0">
                <font>
-                  <Font size="18.0" />
+                  <Font size="26.0" />
                </font>
             </Label>
-            <Label fx:id="labelEntrar" layoutX="305.0" layoutY="345.0" prefHeight="25.0" prefWidth="207.0" textFill="RED">
+            <Label fx:id="labelEntrar" layoutX="305.0" layoutY="345.0" prefHeight="25.0" prefWidth="207.0" textFill="RED" AnchorPane.leftAnchor="305.0" AnchorPane.rightAnchor="291.0">
                <font>
                   <Font size="16.0" />
                </font></Label>
-            <Text fill="#e10505" layoutX="218.0" layoutY="234.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*" wrappingWidth="7.505859375">
+            <Text fill="#e10505" layoutX="218.0" layoutY="234.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*" wrappingWidth="7.505859375" AnchorPane.leftAnchor="218.0">
                <font>
                   <Font size="18.0" />
                </font>
             </Text>
-            <Text fill="#e10505" layoutX="215.0" layoutY="312.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*">
+            <Text fill="#e10505" layoutX="215.0" layoutY="312.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*" AnchorPane.leftAnchor="215.0">
                <font>
                   <Font size="18.0" />
                </font>
             </Text>
-            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="308.0" layoutY="73.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="390.0" layoutY="84.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="390.0" AnchorPane.rightAnchor="344.0">
                <image>
                   <Image url="@images/ADA%20(2)_upscayl_4x_ultrasharp.png" />
                </image>

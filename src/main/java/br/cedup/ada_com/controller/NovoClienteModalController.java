@@ -38,8 +38,6 @@ public class NovoClienteModalController implements Initializable {
     Button bCancelar;
 
     @FXML
-    Label aviso;
-    @FXML
     Label aviso1;
     @FXML
     Label aviso2;
@@ -49,7 +47,7 @@ public class NovoClienteModalController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        Label[] alerta ={aviso, aviso1, aviso2};
+        Label[] alerta ={aviso1, aviso2};
 
         // Adicionar um ouvinte ao valor selecionado do comboEstado
         comboEstado.valueProperty().addListener((obs, oldValue, newValue) -> {
@@ -159,12 +157,12 @@ public class NovoClienteModalController implements Initializable {
         });
 
         //Botão verde:
-        bSalvar.setOnMouseEntered(e -> bSalvar.setStyle("-fx-font-size: 18; -fx-background-color: green; -fx-border-color: green; -fx-border-radius: 3; -fx-border-width: 2;"));
-        bSalvar.setOnMouseExited(e -> bSalvar.setStyle("-fx-font-size: 18; -fx-background-color: #0c0c0c;  -fx-border-color: green; -fx-border-radius: 3; -fx-border-width: 2;"));
+        bSalvar.setOnMouseEntered(e -> bSalvar.setStyle("-fx-background-color: green; -fx-border-color: green; "));
+        bSalvar.setOnMouseExited(e -> bSalvar.setStyle("-fx-background-color: #0c0c0c;  -fx-border-color: green;"));
 
         //Botão vermelho:
-        bCancelar.setOnMouseEntered(e -> bCancelar.setStyle("-fx-font-size: 18; -fx-background-color: red; -fx-border-color: red; -fx-border-radius: 3; -fx-border-width: 2;"));
-        bCancelar.setOnMouseExited(e -> bCancelar.setStyle("-fx-font-size: 18; -fx-background-color: #0c0c0c; -fx-border-color: red; -fx-border-radius: 3; -fx-border-width: 2;"));
+        bCancelar.setOnMouseEntered(e -> bCancelar.setStyle("-fx-background-color: red; -fx-border-color: red;"));
+        bCancelar.setOnMouseExited(e -> bCancelar.setStyle("-fx-background-color: #0c0c0c; -fx-border-color: red;"));
     }
 
 

@@ -94,15 +94,18 @@ public class ClienteDAO {
 
     public void cadastrarCliente(Cliente cliente) throws SQLException {
         String sql = "INSERT INTO cliente (NomeCliente, SobreNomeCliente, cnpj_cpf, Endereco_idEndereco) VALUES (?, ?, ?, ?)";
-        try (PreparedStatement stmt = ConnectionSingleton.getConnection().prepareStatement(sql)) {
+        try (PreparedStatement stmt = ConnectionSingleton.getConnection().prepareStatement(sql,Statement.RETURN_GENERATED_KEYS)) {
             stmt.setString(1, cliente.getNomeCliente());
             stmt.setString(2, cliente.getSobreNomeCliente());
             stmt.setString(3, cliente.getCnpj_cpf());
             stmt.setInt(4, cliente.getEnderecoID());
 
-            System.out.println("Conexão: " + ConnectionSingleton.getConnection());
-            System.out.println("PreparedStatement: " + stmt);
             stmt.executeUpdate();
+
+            try (ResultSet rs = stmt.getGeneratedKeys()) {
+                rs.next();
+                cliente.clienteID = rs.getInt(1);
+            }
         }
     }
 
@@ -114,8 +117,6 @@ public class ClienteDAO {
             stmt.setString(3, cliente.getCnpj_cpf());
             stmt.setInt(4, cliente.getClienteID());
 
-            System.out.println("Conexão: " + ConnectionSingleton.getConnection());
-            System.out.println("PreparedStatement: " + stmt);
 
             stmt.executeUpdate();
         } catch (SQLException e) {

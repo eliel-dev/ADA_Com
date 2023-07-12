@@ -33,8 +33,6 @@ public class CatalogoModalController implements Initializable {
     Button bCancelarModal;
 
     @FXML
-    Label aviso;
-    @FXML
     Label aviso1;
     @FXML
     Label aviso2;
@@ -43,7 +41,7 @@ public class CatalogoModalController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        Label[] alerta ={aviso, aviso1, aviso2};
+        Label[] alerta ={aviso1, aviso2};
 
         // Adicionar um ouvinte ao texto do campo nomeItem
         nomeItem.textProperty().addListener((obs, oldValue, newValue) -> {
@@ -125,12 +123,12 @@ public class CatalogoModalController implements Initializable {
         });
 
         //Botão verde:
-        bSalvarModal.setOnMouseEntered(e -> bSalvarModal.setStyle("-fx-font-size: 18; -fx-background-color: green; -fx-border-color: green; -fx-border-radius: 3; -fx-border-width: 2;"));
-        bSalvarModal.setOnMouseExited(e -> bSalvarModal.setStyle("-fx-font-size: 18; -fx-background-color: #0c0c0c;  -fx-border-color: green; -fx-border-radius: 3; -fx-border-width: 2;"));
+        bSalvarModal.setOnMouseEntered(e -> bSalvarModal.setStyle("-fx-background-color: green; -fx-border-color: green;"));
+        bSalvarModal.setOnMouseExited(e -> bSalvarModal.setStyle("-fx-background-color: #0c0c0c;  -fx-border-color: green;"));
 
         //Botão vermelho:
-        bCancelarModal.setOnMouseEntered(e -> bCancelarModal.setStyle("-fx-font-size: 18; -fx-background-color: red; -fx-border-color: red; -fx-border-radius: 3; -fx-border-width: 2;"));
-        bCancelarModal.setOnMouseExited(e -> bCancelarModal.setStyle("-fx-font-size: 18; -fx-background-color: #0c0c0c; -fx-border-color: red; -fx-border-radius: 3; -fx-border-width: 2;"));
+        bCancelarModal.setOnMouseEntered(e -> bCancelarModal.setStyle("-fx-background-color: red; -fx-border-color: red;"));
+        bCancelarModal.setOnMouseExited(e -> bCancelarModal.setStyle("-fx-background-color: #0c0c0c; -fx-border-color: red;"));
     }
 
     public static void setCatalogoItem(Catalogo catalogo) {
