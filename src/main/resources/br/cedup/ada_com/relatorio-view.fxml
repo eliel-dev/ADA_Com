@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="903.0" prefWidth="1302.0" style="-fx-background-color: #0c0c0c;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.cedup.ada_com.controller.RelatorioController">
+<AnchorPane prefHeight="903.0" prefWidth="1302.0" style="-fx-background-color: #0c0c0c;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.cedup.ada_com.controller.RelatorioController">
    <children>
       <Label layoutX="81.0" layoutY="26.0" text="Relatório Geral" textFill="#f2eded" AnchorPane.leftAnchor="81.0" AnchorPane.topAnchor="26.0">
          <font>
@@ -30,18 +30,18 @@
          </effect></Button>
       <BarChart fx:id="rteste" layoutX="2.0" layoutY="94.0" prefHeight="808.0" prefWidth="1082.0" style="-fx-font-size: 18; -fx-background-position: center;" stylesheets="@images/meuestilo.css" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="218.0" AnchorPane.topAnchor="94.0">
         <xAxis>
-          <CategoryAxis label="Categoria" side="BOTTOM" style="-fx-background-color: #0c0c0c; -fx-text-fill: white;" tickLabelFill="WHITE">
+          <CategoryAxis side="BOTTOM" style="-fx-background-color: #0c0c0c; -fx-text-fill: white;" tickLabelFill="WHITE">
                <effect>
                   <Glow />
                </effect>
                <tickLabelFont>
-                  <Font size="16.0" />
+                  <Font size="18.0" />
                </tickLabelFont></CategoryAxis>
         </xAxis>
         <yAxis>
           <NumberAxis label="Valor" side="LEFT" style="-fx-text-fill: white;" tickLabelFill="WHITE">
                <tickLabelFont>
-                  <Font size="16.0" />
+                  <Font size="18.0" />
                </tickLabelFont></NumberAxis>
         </yAxis>
       </BarChart>
