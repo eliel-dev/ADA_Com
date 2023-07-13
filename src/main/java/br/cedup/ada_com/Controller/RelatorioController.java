@@ -16,7 +16,6 @@ import java.time.format.DateTimeFormatter;
 import java.util.Map;
 import java.util.ResourceBundle;
 
-
 public class RelatorioController implements Initializable {
     @FXML
     ComboBox <String> comboRelatorios;
@@ -30,13 +29,13 @@ public class RelatorioController implements Initializable {
 
     //CategoryAxis xAxis = new CategoryAxis();
 
-
         RelatorioDAO relatorioDAO = new RelatorioDAO();
         public void initialize(URL url, ResourceBundle resourceBundle) {
 
             if (LoginController.nivelDeAcesso == 2) {
                 comboRelatorios.getItems().addAll("Vendas por Dia", "Número de Vendas por Vendedor", "Número de Vendas por Item do Catálogo");
             } else {
+                btnGerarRelatorios.setVisible(false);
                 comboRelatorios.getItems().add("Número de Vendas por dia");
             }
 
@@ -73,15 +72,48 @@ public class RelatorioController implements Initializable {
 
     @FXML
     private void atualizarGraficoVendasPorDia() throws SQLException {
+        System.out.println("atualizarGraficoVendasPorDia chamado");
         // Recuperar informações sobre vendas por dia do banco de dados
         Map<LocalDate, Integer> vendasPorDia;
         if (LoginController.nivelDeAcesso == 2) {
             // Se o nível de acesso do colaborador logado for 2 (gestor), recuperar informações sobre vendas por dia para todos os vendedores
             vendasPorDia = relatorioDAO.getNumVendasDiaGeral();
         } else {
+            btnGerarRelatorios.setVisible(false);
             // Caso contrário, recuperar informações sobre vendas por dia para o vendedor logado
             vendasPorDia = relatorioDAO.getNumVendasDiaVendedor(LoginController.colaboradorID);
         }
+
+        // Criar um formatador de data para formatar as datas das vendas
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+
+        // Criar uma série de dados para o gráfico
+        XYChart.Series<String, Number> series = new XYChart.Series<>();
+        series.setName("Vendas por Dia");
+
+        // Adicionar pontos de dados à série para cada entrada no mapa de vendas por dia
+        for (Map.Entry<LocalDate, Integer> entry : vendasPorDia.entrySet()) {
+            // Formatar a data da venda
+            String data = entry.getKey().format(formatter);
+            // Recuperar o número de vendas para a data
+            int numeroVendas = entry.getValue();
+            // Adicionar um novo ponto de dados à série
+            series.getData().add(new XYChart.Data<>(data, numeroVendas));
+        }
+
+        // Limpar os dados existentes do gráfico e adicionar a nova série de dados
+        rteste.getData().clear();
+        rteste.getData().add(series);
+        rteste.setAnimated(false);
+    }
+
+
+    @FXML
+    private void atualizarGraficoVendasPorDiaVendedor() throws SQLException {
+        System.out.println("atualizarGraficoVendasPorDiaVendedor chamado");
+
+        // Recuperar informações sobre vendas por dia do banco de dados para o vendedor logado
+        Map<LocalDate, Integer> vendasPorDia = relatorioDAO.getNumVendasDiaVendedor(LoginController.colaboradorID);
 
         // Criar um formatador de data para formatar as datas das vendas
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
@@ -155,5 +187,4 @@ public class RelatorioController implements Initializable {
     public void voltar() throws IOException {
         HelloApplication.setRoot("main-view");
     }
-
 }

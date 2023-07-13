@@ -36,6 +36,7 @@ public class RelatorioDAO {
                 }
             }
         }
+        System.out.println("vendasPorDia: " + vendasPorDia);
         return vendasPorDia;
     }
 
