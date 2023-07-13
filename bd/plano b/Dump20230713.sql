@@ -1,10 +1,10 @@
-CREATE DATABASE  IF NOT EXISTS `ada_com_db` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+CREATE DATABASE  IF NOT EXISTS `ada_com_db` /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci */;
 USE `ada_com_db`;
--- MySQL dump 10.13  Distrib 8.0.30, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.33, for Win64 (x86_64)
 --
--- Host: localhost    Database: ada_com_db
+-- Host: 127.0.0.1    Database: ada_com_db
 -- ------------------------------------------------------
--- Server version	8.0.30
+-- Server version	5.5.5-10.4.28-MariaDB
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -25,13 +25,13 @@ DROP TABLE IF EXISTS `catalogo`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `catalogo` (
-  `Item_ID` int NOT NULL AUTO_INCREMENT,
-  `Tipo` int NOT NULL,
+  `Item_ID` int(11) NOT NULL AUTO_INCREMENT,
+  `Tipo` int(11) NOT NULL,
   `nome` varchar(65) NOT NULL COMMENT 'Nome do serviço ou marca e modelo do produto',
   `categoria` varchar(65) NOT NULL,
   `valor` decimal(10,2) DEFAULT NULL,
   PRIMARY KEY (`Item_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -52,13 +52,13 @@ DROP TABLE IF EXISTS `cidade`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `cidade` (
-  `id_Cidade` int NOT NULL AUTO_INCREMENT,
-  `id_Estado` int NOT NULL,
+  `id_Cidade` int(11) NOT NULL AUTO_INCREMENT,
+  `id_Estado` int(11) NOT NULL,
   `Nome_Cidade` varchar(45) NOT NULL,
   PRIMARY KEY (`id_Cidade`,`id_Estado`),
   KEY `fk_cidade_estado1_idx` (`id_Estado`),
   CONSTRAINT `fk_cidade_estado1` FOREIGN KEY (`id_Estado`) REFERENCES `estado` (`id_Estado`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -79,16 +79,16 @@ DROP TABLE IF EXISTS `cliente`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `cliente` (
-  `Cliente_ID` int NOT NULL AUTO_INCREMENT,
-  `Endereco_idEndereco` int NOT NULL,
+  `Cliente_ID` int(11) NOT NULL AUTO_INCREMENT,
+  `Endereco_idEndereco` int(11) NOT NULL,
   `NomeCliente` varchar(60) NOT NULL,
   `SobreNomeCliente` varchar(60) NOT NULL,
-  `cnpj_cpf` bigint DEFAULT NULL,
+  `cnpj_cpf` bigint(20) DEFAULT NULL,
   PRIMARY KEY (`Cliente_ID`,`Endereco_idEndereco`),
   UNIQUE KEY `unique_cliente` (`NomeCliente`,`SobreNomeCliente`,`cnpj_cpf`),
   KEY `fk_Cliente_Endereco1_idx` (`Endereco_idEndereco`),
   CONSTRAINT `fk_Cliente_Endereco1` FOREIGN KEY (`Endereco_idEndereco`) REFERENCES `endereco` (`idEndereco`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -109,15 +109,15 @@ DROP TABLE IF EXISTS `colaborador`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `colaborador` (
-  `Colaborador_ID` int NOT NULL AUTO_INCREMENT,
+  `Colaborador_ID` int(11) NOT NULL AUTO_INCREMENT,
   `NomeColaborador` varchar(45) NOT NULL,
   `SobreNomeColab` varchar(60) NOT NULL,
-  `Nivel` int NOT NULL DEFAULT '1',
+  `Nivel` int(11) NOT NULL DEFAULT 1,
   `Usuario` text NOT NULL,
   `Senha` text NOT NULL,
   PRIMARY KEY (`Colaborador_ID`),
   UNIQUE KEY `Nome_Sobrenome_UNIQUE` (`NomeColaborador`,`SobreNomeColab`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -126,7 +126,7 @@ CREATE TABLE `colaborador` (
 
 LOCK TABLES `colaborador` WRITE;
 /*!40000 ALTER TABLE `colaborador` DISABLE KEYS */;
-INSERT INTO `colaborador` VALUES (1,'João','Silva',2,'gestor','123'),(2,'Oliveira','Eliel',1,'eliel.oliveira','123'),(3,'Paterno','Fernanda',1,'fernanda.paterno','123'),(4,'Carlos','Lenon',1,'carlos.lenon','123'),(5,'Alissa','Kenbler',1,'alissa.kenbler','123'),(6,'Leonardo','lima',1,'leonardo.lima','123'),(7,'Jackson','Barbosa',1,'jackson.barbosa','123'),(8,'Lima','Bevenutti',1,'lima.bevenutti','123'),(9,'Leandra','Justus',1,'leandra.justus','123'),(10,'Claudia','Ketlin',1,'claudia.ketlin','123');
+INSERT INTO `colaborador` VALUES (1,'João','Silva',2,'gestor','123'),(2,'Oliveira','Eliel',1,'vendedor','123'),(3,'Paterno','Fernanda',1,'fernanda.paterno','123'),(4,'Carlos','Lenon',1,'carlos.lenon','123'),(5,'Alissa','Kenbler',1,'alissa.kenbler','123'),(6,'Leonardo','lima',1,'leonardo.lima','123'),(7,'Jackson','Barbosa',1,'jackson.barbosa','123'),(8,'Lima','Bevenutti',1,'lima.bevenutti','123'),(9,'Leandra','Justus',1,'leandra.justus','123'),(10,'Claudia','Ketlin',1,'claudia.ketlin','123');
 /*!40000 ALTER TABLE `colaborador` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -138,15 +138,15 @@ DROP TABLE IF EXISTS `comissao`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `comissao` (
-  `Comissao_ID` int NOT NULL AUTO_INCREMENT,
-  `colaborador_Colaborador_ID` int NOT NULL,
+  `Comissao_ID` int(11) NOT NULL AUTO_INCREMENT,
+  `colaborador_Colaborador_ID` int(11) NOT NULL,
   `TaxaComissao` double NOT NULL,
   `Data` date NOT NULL,
   `Valor_comissao` decimal(10,2) DEFAULT NULL,
   PRIMARY KEY (`Comissao_ID`,`colaborador_Colaborador_ID`),
   KEY `fk_comissao_colaborador1_idx` (`colaborador_Colaborador_ID`),
   CONSTRAINT `fk_comissao_colaborador1` FOREIGN KEY (`colaborador_Colaborador_ID`) REFERENCES `colaborador` (`Colaborador_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -155,7 +155,7 @@ CREATE TABLE `comissao` (
 
 LOCK TABLES `comissao` WRITE;
 /*!40000 ALTER TABLE `comissao` DISABLE KEYS */;
-INSERT INTO `comissao` VALUES (1,2,0.03,'2023-06-26',659.94),(2,2,0.03,'2023-06-27',288.00),(3,2,0.03,'2023-06-27',659.94),(4,2,0.05,'2023-06-27',13109.72),(5,2,0.05,'2023-06-27',17479.62),(6,3,0.03,'2023-06-27',20.15),(7,1,0.05,'2023-07-07',22599.52);
+INSERT INTO `comissao` VALUES (1,2,0.03,'2023-06-26',659.94),(2,2,0.03,'2023-06-27',288.00),(3,2,0.03,'2023-06-27',659.94),(4,2,0.05,'2023-06-27',13109.72),(5,2,0.05,'2023-06-27',17479.62),(6,3,0.03,'2023-06-27',20.15),(7,1,0.05,'2023-07-07',22599.52),(8,2,0.05,'2023-07-12',451.99);
 /*!40000 ALTER TABLE `comissao` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -167,13 +167,13 @@ DROP TABLE IF EXISTS `endereco`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `endereco` (
-  `idEndereco` int NOT NULL AUTO_INCREMENT,
-  `Cidade_id_Cidade` int NOT NULL,
-  `Cidade_id_Estado` int NOT NULL,
+  `idEndereco` int(11) NOT NULL AUTO_INCREMENT,
+  `Cidade_id_Cidade` int(11) NOT NULL,
+  `Cidade_id_Estado` int(11) NOT NULL,
   PRIMARY KEY (`idEndereco`,`Cidade_id_Cidade`,`Cidade_id_Estado`),
   KEY `fk_Endereco_Cidade1_idx` (`Cidade_id_Cidade`,`Cidade_id_Estado`),
   CONSTRAINT `fk_Endereco_Cidade1` FOREIGN KEY (`Cidade_id_Cidade`) REFERENCES `cidade` (`id_Cidade`)
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -182,7 +182,7 @@ CREATE TABLE `endereco` (
 
 LOCK TABLES `endereco` WRITE;
 /*!40000 ALTER TABLE `endereco` DISABLE KEYS */;
-INSERT INTO `endereco` VALUES (1,1,1),(16,1,1),(2,2,1),(17,2,1),(3,3,1),(18,3,1),(4,4,1),(5,5,2),(21,5,2),(6,6,2),(19,6,2),(7,7,2),(8,8,2),(20,8,2);
+INSERT INTO `endereco` VALUES (1,1,1),(2,2,1),(3,3,1),(4,4,1),(5,5,2),(6,6,2),(7,7,2),(8,8,2),(16,1,1),(17,2,1),(18,3,1),(19,6,2),(20,8,2),(21,5,2);
 /*!40000 ALTER TABLE `endereco` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -194,10 +194,10 @@ DROP TABLE IF EXISTS `estado`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `estado` (
-  `id_Estado` int NOT NULL AUTO_INCREMENT,
+  `id_Estado` int(11) NOT NULL AUTO_INCREMENT,
   `Nome_estado` varchar(45) NOT NULL,
   PRIMARY KEY (`id_Estado`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -218,14 +218,14 @@ DROP TABLE IF EXISTS `expalternativas`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `expalternativas` (
-  `expAlternativas_id` int NOT NULL AUTO_INCREMENT,
-  `expperguntas_expPerguntas_id` int NOT NULL,
+  `expAlternativas_id` int(11) NOT NULL AUTO_INCREMENT,
+  `expperguntas_expPerguntas_id` int(11) NOT NULL,
   `Alternativas` varchar(255) NOT NULL,
   PRIMARY KEY (`expAlternativas_id`,`expperguntas_expPerguntas_id`),
   UNIQUE KEY `unique_alternativa` (`expperguntas_expPerguntas_id`,`Alternativas`),
   KEY `fk_expalternativas_expperguntas1_idx` (`expperguntas_expPerguntas_id`),
   CONSTRAINT `fk_expalternativas_expperguntas1` FOREIGN KEY (`expperguntas_expPerguntas_id`) REFERENCES `expperguntas` (`expPerguntas_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -246,11 +246,11 @@ DROP TABLE IF EXISTS `experiencia_venda`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `experiencia_venda` (
-  `Experiencia_ID` int NOT NULL AUTO_INCREMENT,
-  `Perguntas_id` int NOT NULL,
-  `cliente_Cliente_ID` int NOT NULL,
-  `Alternativas_id` int NOT NULL,
-  `registrovenda_ID` int NOT NULL,
+  `Experiencia_ID` int(11) NOT NULL AUTO_INCREMENT,
+  `Perguntas_id` int(11) NOT NULL,
+  `cliente_Cliente_ID` int(11) NOT NULL,
+  `Alternativas_id` int(11) NOT NULL,
+  `registrovenda_ID` int(11) NOT NULL,
   `Data` date DEFAULT NULL,
   PRIMARY KEY (`Experiencia_ID`,`Perguntas_id`,`cliente_Cliente_ID`,`Alternativas_id`,`registrovenda_ID`),
   KEY `fk_experiencia_venda_cliente1_idx` (`cliente_Cliente_ID`),
@@ -259,7 +259,7 @@ CREATE TABLE `experiencia_venda` (
   CONSTRAINT `fk_experiencia_venda_cliente1` FOREIGN KEY (`cliente_Cliente_ID`) REFERENCES `cliente` (`Cliente_ID`),
   CONSTRAINT `fk_experiencia_venda_expAlternativas1` FOREIGN KEY (`Alternativas_id`) REFERENCES `expalternativas` (`expAlternativas_id`),
   CONSTRAINT `fk_experiencia_venda_registrovenda1` FOREIGN KEY (`registrovenda_ID`) REFERENCES `registrovenda` (`Venda_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -268,7 +268,7 @@ CREATE TABLE `experiencia_venda` (
 
 LOCK TABLES `experiencia_venda` WRITE;
 /*!40000 ALTER TABLE `experiencia_venda` DISABLE KEYS */;
-INSERT INTO `experiencia_venda` VALUES (2,1,2,1,2,NULL),(3,2,2,17,2,NULL),(4,3,2,11,2,NULL),(5,4,2,15,2,NULL),(8,1,5,3,5,NULL),(9,2,5,6,5,NULL),(10,3,5,9,5,NULL),(11,4,5,15,5,NULL),(12,1,7,1,6,NULL),(13,2,7,7,6,NULL),(14,3,7,9,6,NULL),(15,4,7,13,6,NULL),(16,1,7,1,7,NULL),(17,2,7,8,7,NULL),(18,3,7,9,7,NULL),(19,4,7,12,7,NULL),(20,1,5,1,8,NULL),(21,2,5,6,8,NULL),(22,3,5,11,8,NULL),(23,4,5,15,8,NULL),(24,1,7,1,9,NULL),(25,2,7,7,9,NULL),(26,3,7,9,9,NULL),(27,4,7,13,9,NULL),(28,1,7,3,10,NULL),(29,2,7,17,10,NULL),(30,3,7,10,10,NULL),(31,4,7,13,10,NULL);
+INSERT INTO `experiencia_venda` VALUES (2,1,2,1,2,NULL),(3,2,2,17,2,NULL),(4,3,2,11,2,NULL),(5,4,2,15,2,NULL),(8,1,5,3,5,NULL),(9,2,5,6,5,NULL),(10,3,5,9,5,NULL),(11,4,5,15,5,NULL),(12,1,7,1,6,NULL),(13,2,7,7,6,NULL),(14,3,7,9,6,NULL),(15,4,7,13,6,NULL),(16,1,7,1,7,NULL),(17,2,7,8,7,NULL),(18,3,7,9,7,NULL),(19,4,7,12,7,NULL),(20,1,5,1,8,NULL),(21,2,5,6,8,NULL),(22,3,5,11,8,NULL),(23,4,5,15,8,NULL),(24,1,7,1,9,NULL),(25,2,7,7,9,NULL),(26,3,7,9,9,NULL),(27,4,7,13,9,NULL),(28,1,7,3,10,NULL),(29,2,7,17,10,NULL),(30,3,7,10,10,NULL),(31,4,7,13,10,NULL),(32,1,7,4,11,NULL),(33,2,7,8,11,NULL),(34,4,7,13,11,NULL);
 /*!40000 ALTER TABLE `experiencia_venda` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -280,10 +280,10 @@ DROP TABLE IF EXISTS `expperguntas`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `expperguntas` (
-  `expPerguntas_id` int NOT NULL AUTO_INCREMENT,
+  `expPerguntas_id` int(11) NOT NULL AUTO_INCREMENT,
   `Pergunta` varchar(255) NOT NULL,
   PRIMARY KEY (`expPerguntas_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -304,18 +304,18 @@ DROP TABLE IF EXISTS `registrovenda`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `registrovenda` (
-  `Venda_ID` int NOT NULL AUTO_INCREMENT,
-  `Cliente_ID` int NOT NULL,
-  `Colaborador_ID` int NOT NULL,
+  `Venda_ID` int(11) NOT NULL AUTO_INCREMENT,
+  `Cliente_ID` int(11) NOT NULL,
+  `Colaborador_ID` int(11) NOT NULL,
   `Valor_Venda` double NOT NULL,
   `Data_Venda` date NOT NULL,
-  `anotacoes` text,
+  `anotacoes` text DEFAULT NULL,
   PRIMARY KEY (`Venda_ID`,`Cliente_ID`,`Colaborador_ID`),
   KEY `fk_RegistroVenda_Cliente1_idx` (`Cliente_ID`),
   KEY `fk_registrovenda_colaborador1_idx` (`Colaborador_ID`),
   CONSTRAINT `fk_RegistroVenda_Cliente1` FOREIGN KEY (`Cliente_ID`) REFERENCES `cliente` (`Cliente_ID`),
   CONSTRAINT `fk_registrovenda_colaborador1` FOREIGN KEY (`Colaborador_ID`) REFERENCES `colaborador` (`Colaborador_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -324,7 +324,7 @@ CREATE TABLE `registrovenda` (
 
 LOCK TABLES `registrovenda` WRITE;
 /*!40000 ALTER TABLE `registrovenda` DISABLE KEYS */;
-INSERT INTO `registrovenda` VALUES (1,2,2,21998,'2023-06-26',NULL),(2,2,2,21998,'2023-06-26','wewq'),(3,5,2,6039.85,'2023-06-27',NULL),(4,5,2,6039.85,'2023-06-27',NULL),(5,5,2,9599.92,'2023-06-27','Teste59'),(6,7,2,21998,'2023-06-27','Teste de alteração da taxa de comissão'),(7,7,2,262194.3,'2023-06-27','Teste de alteração de taxa de comissão 2'),(8,5,2,349592.4,'2023-06-27',NULL),(9,7,3,671.8,'2023-06-27',NULL),(10,7,1,451990.4,'2023-07-07','Cliente ama a empresa!');
+INSERT INTO `registrovenda` VALUES (1,2,2,21998,'2023-06-26',NULL),(2,2,2,21998,'2023-06-26','wewq'),(3,5,2,6039.85,'2023-06-27',NULL),(4,5,2,6039.85,'2023-06-27',NULL),(5,5,2,9599.92,'2023-06-27','Teste59'),(6,7,2,21998,'2023-06-27','Teste de alteração da taxa de comissão'),(7,7,2,262194.3,'2023-06-27','Teste de alteração de taxa de comissão 2'),(8,5,2,349592.4,'2023-06-27',NULL),(9,7,3,671.8,'2023-06-27',NULL),(10,7,1,451990.4,'2023-07-07','Cliente ama a empresa!'),(11,7,2,9039.84,'2023-07-12','Minha primeira venda');
 /*!40000 ALTER TABLE `registrovenda` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -336,14 +336,14 @@ DROP TABLE IF EXISTS `registrovenda_item`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `registrovenda_item` (
-  `Venda_ID` int NOT NULL,
-  `catalogo_Item_ID` int NOT NULL,
-  `Quantidade` int NOT NULL,
+  `Venda_ID` int(11) NOT NULL,
+  `catalogo_Item_ID` int(11) NOT NULL,
+  `Quantidade` int(11) NOT NULL,
   PRIMARY KEY (`Venda_ID`,`catalogo_Item_ID`),
   KEY `fk_registrovenda_item_catalogo1_idx` (`catalogo_Item_ID`),
   CONSTRAINT `fk_registrovenda_item_catalogo1` FOREIGN KEY (`catalogo_Item_ID`) REFERENCES `catalogo` (`Item_ID`),
   CONSTRAINT `fk_registrovenda_item_registrovenda1` FOREIGN KEY (`Venda_ID`) REFERENCES `registrovenda` (`Venda_ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -352,7 +352,7 @@ CREATE TABLE `registrovenda_item` (
 
 LOCK TABLES `registrovenda_item` WRITE;
 /*!40000 ALTER TABLE `registrovenda_item` DISABLE KEYS */;
-INSERT INTO `registrovenda_item` VALUES (1,4,2),(2,4,2),(3,2,5),(3,8,1),(4,2,5),(4,8,1),(5,2,8),(6,4,2),(7,3,6),(8,3,8),(9,11,1),(9,13,1),(10,1,10),(10,3,10);
+INSERT INTO `registrovenda_item` VALUES (1,4,2),(2,4,2),(3,2,5),(3,8,1),(4,2,5),(4,8,1),(5,2,8),(6,4,2),(7,3,6),(8,3,8),(9,11,1),(9,13,1),(10,1,10),(10,3,10),(11,1,6),(11,8,1);
 /*!40000 ALTER TABLE `registrovenda_item` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -365,4 +365,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-07-12 21:32:09
+-- Dump completed on 2023-07-13  6:19:20
