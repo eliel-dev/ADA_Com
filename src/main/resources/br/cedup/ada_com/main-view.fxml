@@ -100,7 +100,7 @@
                             <items>
                                 <MenuItem fx:id="item1" mnemonicParsing="false">
                                     <graphic>
-                                        <Button fx:id="gerenciaCatG" mnemonicParsing="false" onAction="#gerenciaCatalogo" prefHeight="38.0" prefWidth="254.0" style="-fx-background-color: #0c0c0c; -fx-border-radius: 3; -fx-border-color: white;" text="Catálogo" textFill="#f5f4f4">
+                                        <Button fx:id="gerenciaCatG" mnemonicParsing="false" onAction="#gerenciaCatalogo" prefHeight="89.0" prefWidth="254.0" style="-fx-background-color: #0c0c0c; -fx-border-radius: 3; -fx-border-color: white;" text="Catálogo" textFill="#f5f4f4">
                                  <font>
                                     <Font size="18.0" />
                                  </font></Button>
