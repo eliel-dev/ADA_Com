@@ -22,6 +22,8 @@ public class RelatorioController implements Initializable {
     @FXML
     Button btnGerarRelatorios;
     @FXML
+    Button porDiaVendedor;
+    @FXML
     Button bVoltar;
 
     @FXML
@@ -33,6 +35,7 @@ public class RelatorioController implements Initializable {
         public void initialize(URL url, ResourceBundle resourceBundle) {
 
             if (LoginController.nivelDeAcesso == 2) {
+                porDiaVendedor.setVisible(false);
                 comboRelatorios.getItems().addAll("Vendas por Dia", "Número de Vendas por Vendedor", "Número de Vendas por Item do Catálogo");
             } else {
                 btnGerarRelatorios.setVisible(false);
@@ -62,7 +65,7 @@ public class RelatorioController implements Initializable {
                 }
             });
         //Botão branco:
-        Button[] branco = {btnGerarRelatorios, bVoltar};
+        Button[] branco = {porDiaVendedor,btnGerarRelatorios, bVoltar};
 
         for (Button button : branco) {
             button.setOnMouseEntered(e -> button.setStyle("-fx-background-color: white; -fx-text-fill: black; -fx-border-color: white;"));
